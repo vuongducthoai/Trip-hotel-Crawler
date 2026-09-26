@@ -1,0 +1,13 @@
+.env
+.venv/
+venv/
+node_modules/
+dist/
+build/
+output/
+browser_profile*/
+__pycache__/
+*.py[cod]
+*.log
+.vscode/
+.idea/

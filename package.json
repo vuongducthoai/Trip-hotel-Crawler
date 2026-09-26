@@ -1,0 +1,41 @@
+{
+  "name": "tool-crawler-trip",
+  "version": "1.0.0",
+  "description": "Ứng dụng Electron cào mô tả, chính sách và địa điểm lân cận từ Trip.com",
+  "main": "electron/main.js",
+  "author": "Tool Crawler Trip",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "build:backend": "powershell -ExecutionPolicy Bypass -File scripts/build-backend.ps1",
+    "build": "npm run build:backend && electron-builder --win nsis",
+    "dist": "npm run build"
+  },
+  "devDependencies": {
+    "electron": "^38.1.2",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "vn.toolcrawler.trip",
+    "productName": "Tool Crawler Trip",
+    "asar": true,
+    "files": ["electron/**/*", "package.json"],
+    "extraResources": [
+      { "from": "server.py", "to": "server.py" },
+      { "from": "src", "to": "src" },
+      { "from": "web", "to": "web" },
+      { "from": ".env.example", "to": ".env.example" },
+      { "from": "requirements.txt", "to": "requirements.txt" },
+      { "from": "README.md", "to": "README.md" },
+      { "from": "build/backend-dist/tool-crawler-backend.exe", "to": "backend/tool-crawler-backend.exe" }
+    ],
+    "win": { "target": ["nsis"] },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
