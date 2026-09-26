@@ -30,12 +30,29 @@
     <section class="card setup-card">
       <div class="card-heading">
         <div class="heading-icon">01</div>
-        <div><h2>Thiết lập lượt cào</h2><p>Dán URL trang danh sách khách sạn từ thanh địa chỉ Trip.com.</p></div>
+        <div><h2>Thiết lập lượt cào</h2><p>Chọn từ 81 thành phố quốc tế có sẵn hoặc dán URL tùy biến.</p></div>
       </div>
-      <div class="form-grid">
+      <div class="mode-tabs" role="tablist">
+        <button type="button" id="tab-destination" class="tab-button active" role="tab" aria-selected="true">Chọn điểm đến (81 TP)</button>
+        <button type="button" id="tab-custom-url" class="tab-button" role="tab" aria-selected="false">Dán URL tùy biến</button>
+      </div>
+      <div id="pane-destination" class="tab-pane active">
+        <div class="destination-grid">
+          <label class="field"><span>Quốc gia (19 quốc gia)</span>
+            <select id="select-country" class="select-input"></select>
+          </label>
+          <label class="field"><span>Thành phố</span>
+            <select id="select-city" class="select-input"></select>
+          </label>
+        </div>
+        <p id="destination-preview-url" class="field-hint"></p>
+      </div>
+      <div id="pane-custom-url" class="tab-pane" hidden>
         <label class="field full"><span>URL trang danh sách Trip.com</span>
           <input id="url" type="url" placeholder="https://vn.trip.com/hotels/list?cityId=…" autocomplete="off" spellcheck="false">
         </label>
+      </div>
+      <div class="form-grid">
         <label class="field"><span id="amount-label">Số lượng khách sạn (tổng mục tiêu)</span>
           <input id="amount" type="number" min="1" max="100000" value="20">
         </label>
