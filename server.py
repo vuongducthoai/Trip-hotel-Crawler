@@ -425,7 +425,8 @@ class Handler(BaseHTTPRequestHandler):
             if parsed.path == "/api/kho/chat-luong":
                 q = parse_qs(parsed.query)
                 city_ids = {int(x) for x in q.get("city_ids", [""])[0].split(",") if x.strip().lstrip("-").isdigit()} or None
-                return self.send_json(kho_du_lieu.chat_luong(kho_du_lieu.danh_sach(), city_ids))
+                chi_moi = (q.get("chi_moi", ["0"])[0] or "0") not in ("0", "", "false")
+                return self.send_json(kho_du_lieu.chat_luong(kho_du_lieu.danh_sach(), city_ids, chi_moi=chi_moi))
             if parsed.path == "/api/kho/danh-sach":
                 items = kho_du_lieu.danh_sach()
                 return self.send_json({"khach_san": items, "thong_ke": kho_du_lieu.thong_ke(items)})
@@ -590,6 +591,42 @@ class Handler(BaseHTTPRequestHandler):
                 config.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
                 open_with_system(config.OUTPUT_DIR)
                 return self.send_json({"ok": True, "duong_dan": str(config.OUTPUT_DIR)})
+            if self.path == "/api/csv/xoa":
+                names = body.get("ten") if isinstance(body.get("ten"), list) else [body.get("ten")]
+                if body.get("tat_ca"):
+                    names = [p.name for p in CSV_DIR.glob("*.csv")]
+                deleted = 0
+                for name in [n for n in names if n]:
+                    path = csv_path(str(name))
+                    path.unlink()
+                    deleted += 1
+                with DOWNLOAD_LOCK:
+                    state = download_state()
+                    for name in names:
+                        state.pop(str(name), None)
+                    DOWNLOAD_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+                    DOWNLOAD_STATE_PATH.write_text(json.dumps(state, ensure_ascii=False, indent=2), encoding="utf-8")
+                print(f"Đã xoá {deleted} file CSV: {', '.join(str(n) for n in names)}")
+                return self.send_json({"ok": True, "da_xoa": deleted})
+            if self.path == "/api/csv/danh-dau-da-xuat":
+                items = kho_du_lieu.danh_sach()
+                kho_du_lieu.danh_dau_da_xuat([it["trip_hotel_id"] for it in items])
+                print(f"Đã đánh dấu {len(items)} khách sạn là đã xuất CSV (không tạo file).")
+                return self.send_json({"ok": True, "so_khach_san": len(items)})
+            if self.path == "/api/csv/dat-lai-da-xuat":
+                try:
+                    kho_du_lieu.EXPORT_STATE_PATH.unlink()
+                except FileNotFoundError:
+                    pass
+                print("Đã đặt lại dấu 'đã xuất CSV' cho toàn bộ khách sạn.")
+                return self.send_json({"ok": True})
+            if self.path == "/api/du-lieu/xoa-sao-luu":
+                name = str(body.get("ten") or "")
+                path = (BACKUP_DIR / name).resolve()
+                if path.parent != BACKUP_DIR.resolve() or not path.is_file() or path.suffix != ".zip":
+                    raise FileNotFoundError("Không tìm thấy file sao lưu.")
+                path.unlink()
+                return self.send_json({"ok": True})
             if self.path == "/api/csv/mo-thu-muc":
                 CSV_DIR.mkdir(parents=True, exist_ok=True)
                 open_with_system(CSV_DIR)
@@ -628,16 +665,26 @@ class Handler(BaseHTTPRequestHandler):
         CSV_DIR.mkdir(parents=True, exist_ok=True)
         ids: list[str] | None = None
         label = "tat_ca"
+        chi_moi = bool(body.get("chi_moi"))
         city_ids = [int(x) for x in (body.get("city_ids") or []) if str(x).strip().lstrip("-").isdigit()]
+        items_all = kho_du_lieu.danh_sach()
         if body.get("ids"):
             ids = [str(x).strip() for x in body["ids"] if str(x).strip().isdigit()]
             label = f"{len(ids)}_khach_san"
         elif city_ids:
             wanted = set(city_ids)
-            items = [it for it in kho_du_lieu.danh_sach() if it["city_id"] in wanted]
+            items = [it for it in items_all if it["city_id"] in wanted]
             ids = [it["trip_hotel_id"] for it in items]
             names = {it["city_id"]: it["city_name"] for it in items}
             label = "_".join(self._slug(names.get(cid, cid)) for cid in city_ids)[:60]
+        if chi_moi:
+            # Chỉ khách sạn cào/cào lại sau lần xuất gần nhất (chưa nằm trong CSV nào).
+            moi = set(kho_du_lieu.chua_xuat_ids(items_all))
+            base = ids if ids is not None else [it["trip_hotel_id"] for it in items_all]
+            ids = [hid for hid in base if hid in moi]
+            label = f"moi_{label}"
+            if not ids:
+                raise ValueError("Không có khách sạn mới nào kể từ lần xuất trước trong phạm vi này.")
         if ids is not None and not ids:
             raise ValueError("Không có khách sạn nào trong phạm vi đã chọn.")
         name = f"trip_property_translation_{label}_{datetime.now():%Y%m%d_%H%M%S}.csv"
@@ -651,7 +698,8 @@ class Handler(BaseHTTPRequestHandler):
             code = xuat_csv.main(args)
         if code:
             raise RuntimeError(output.getvalue().strip() or "Không xuất được CSV.")
-        return self.send_json({"ok": True, "ten": name, "so_khach_san": len(ids) if ids else None,
+        kho_du_lieu.danh_dau_da_xuat(ids if ids is not None else [it["trip_hotel_id"] for it in items_all])
+        return self.send_json({"ok": True, "ten": name, "so_khach_san": len(ids) if ids else len(items_all),
                                "log": output.getvalue()})
 
     def download_csv(self, name: str):

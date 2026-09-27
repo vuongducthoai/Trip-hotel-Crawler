@@ -138,14 +138,20 @@
         <div class="heading-icon">03</div>
         <div class="grow"><h2>File kết quả</h2><p>CSV gồm đúng 7 cột theo cấu trúc bàn giao.</p></div>
         <div class="heading-actions">
+          <button id="csv-delete-all" class="button ghost danger-text" hidden>Xoá tất cả CSV</button>
           <button id="open-folder" class="button ghost">Mở thư mục</button>
           <button id="export" class="button primary">Xuất CSV</button>
         </div>
       </div>
       <div class="export-scope">
         <div class="export-scope-row">
-          <span class="export-scope-label">Phạm vi xuất</span>
-          <label class="radio"><input type="radio" name="export-scope" value="all" checked> Tất cả khách sạn đã cào</label>
+          <span class="export-scope-label">Dữ liệu</span>
+          <label class="radio"><input type="radio" name="export-fresh" value="new" checked> Chỉ dữ liệu mới từ lần xuất trước <span id="export-new-count" class="count-badge">0 mới</span></label>
+          <label class="radio"><input type="radio" name="export-fresh" value="all"> Gộp tất cả (cũ + mới)</label>
+        </div>
+        <div class="export-scope-row">
+          <span class="export-scope-label">Phạm vi</span>
+          <label class="radio"><input type="radio" name="export-scope" value="all" checked> Mọi thành phố</label>
           <label class="radio"><input type="radio" name="export-scope" value="city"> Chỉ thành phố đã chọn</label>
         </div>
         <div id="export-cities" class="chip-select" hidden><span class="muted">Chưa có thành phố nào.</span></div>
@@ -173,6 +179,14 @@
       </div>
       <p id="backup-dir" class="field-hint"></p>
       <div id="backup-list" class="files"><p class="empty">Chưa có bản sao lưu.</p></div>
+      <div class="export-marks">
+        <div class="grow">
+          <strong>Dấu "đã xuất CSV"</strong>
+          <p>Tool nhớ khách sạn nào đã nằm trong CSV để lần sau chỉ xuất phần mới. Bình thường không cần đụng vào.</p>
+        </div>
+        <button id="export-mark-all" class="button ghost">✓ Đánh dấu tất cả là đã xuất</button>
+        <button id="export-reset-state" class="button ghost danger-text">↺ Quên dấu đã xuất (xuất lại từ đầu)</button>
+      </div>
     </section>
     </div>
 
@@ -190,17 +204,18 @@
         <div class="kho-stat"><strong id="kho-tong">0</strong><span>khách sạn</span></div>
         <div class="kho-stat"><strong id="kho-vi">0</strong><span>có bản VI</span></div>
         <div class="kho-stat"><strong id="kho-en">0</strong><span>có bản EN</span></div>
-        <div class="kho-stat warn"><strong id="kho-thieu">0</strong><span>thiếu dữ liệu</span></div>
+        <div class="kho-stat warn"><strong id="kho-thieu">0</strong><span>thiếu do cào</span></div>
       </div>
       <div class="kho-toolbar">
         <input id="kho-search" type="search" class="text-input" placeholder="Tìm theo tên hoặc mã khách sạn…" autocomplete="off">
         <select id="kho-city" class="select-input"><option value="">Tất cả thành phố</option></select>
         <select id="kho-filter" class="select-input">
           <option value="">Tất cả khách sạn</option>
-          <option value="thieu">Thiếu bất kỳ</option>
-          <option value="mo_ta">Thiếu mô tả</option>
-          <option value="chinh_sach">Thiếu chính sách</option>
-          <option value="lan_can">Thiếu lân cận</option>
+          <option value="thieu">Thiếu do cào (nên cào bù)</option>
+          <option value="mo_ta">Thiếu mô tả (do cào)</option>
+          <option value="chinh_sach">Thiếu chính sách (do cào)</option>
+          <option value="lan_can">Thiếu lân cận (do cào)</option>
+          <option value="khong_co">Trip.com không có mô tả / CS / LC</option>
           <option value="chua_du">Raw chưa đủ (thiếu packet)</option>
           <option value="thieu_ngon_ngu">Chỉ có 1 ngôn ngữ</option>
           <option value="loi">Raw lỗi, không đọc được</option>
@@ -217,6 +232,7 @@
       </div>
       <div class="table-wrap">
         <table class="kho-table">
+          <colgroup><col class="c-check"><col class="c-name"><col class="c-city"><col class="c-lang"><col class="c-lang"><col class="c-time"><col class="c-act"></colgroup>
           <thead><tr>
             <th class="col-check"></th><th>Khách sạn</th><th>Thành phố</th>
             <th>Tiếng Việt</th><th>English</th><th>Cập nhật</th><th></th>

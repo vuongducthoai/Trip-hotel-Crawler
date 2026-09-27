@@ -148,6 +148,20 @@ với `{}` (tất cả), `{"city_ids":[58]}` hoặc `{"ids":["1971156"]}`.
 Khi đang cào, thanh taskbar Windows hiện phần trăm tiến độ và tiêu đề cửa sổ đổi thành
 "Đang cào 120/200 (60%)"; xong thì cửa sổ nháy trên taskbar nếu không ở phía trước.
 
+## Xuất CSV: chỉ dữ liệu mới hay gộp tất cả
+
+Tool ghi nhớ khách sạn nào đã nằm trong CSV (`output\trang_thai_xuat_csv.json`, theo
+thời điểm raw của từng ngôn ngữ). Ở tab File CSV, mục **Dữ liệu** có 2 lựa chọn:
+
+- **Chỉ dữ liệu mới từ lần xuất trước** (mặc định): chỉ khách sạn được cào hoặc cào lại
+  sau lần xuất gần nhất; file đặt tên `..._moi_<phạm vi>_<thời gian>.csv`. Không có gì mới
+  thì báo và không tạo file.
+- **Gộp tất cả (cũ + mới)**: như trước.
+
+Kết hợp được với "Chỉ thành phố đã chọn". Xuất tự động sau khi cào luôn dùng *chỉ mới +
+thành phố vừa cào*, nên file đó đúng bằng phần vừa cào. Nút *Đặt lại dấu đã xuất* để xuất
+lại toàn bộ từ đầu. API: `POST /api/csv/xuat {"chi_moi": true, "city_ids": [...]}`.
+
 ## Chất lượng dữ liệu trước khi xuất
 
 Tab File CSV hiện khối *Chất lượng dữ liệu trong phạm vi* (theo phạm vi xuất đang chọn):

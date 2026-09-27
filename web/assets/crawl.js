@@ -470,14 +470,28 @@
 
   function exportScope() {
     const picked = document.querySelector('input[name=export-scope]:checked');
-    if (picked && picked.value === 'city') return { city_ids: [...exportCities] };
-    return {};
+    const fresh = document.querySelector('input[name=export-fresh]:checked');
+    const scope = { chi_moi: !fresh || fresh.value === 'new' };
+    if (picked && picked.value === 'city') scope.city_ids = [...exportCities];
+    return scope;
   }
 
+  let exportCityList = [];
+  let newByCity = {};
+
   function renderExportCities(cities) {
+    if (cities) exportCityList = cities;
     const box = $('export-cities');
-    if (!cities.length) { box.innerHTML = '<span class="muted">Chưa có thành phố nào.</span>'; return; }
-    box.innerHTML = cities.map((c) => `<label class="chip-toggle"><input type="checkbox" value="${c.city_id}" ${exportCities.has(c.city_id) ? 'checked' : ''}> ${c.city_name}<small>${c.total_hotels.toLocaleString('vi-VN')}</small></label>`).join('');
+    if (!exportCityList.length) { box.innerHTML = '<span class="muted">Chưa có thành phố nào.</span>'; return; }
+    const fresh = document.querySelector('input[name=export-fresh]:checked');
+    const onlyNew = !fresh || fresh.value === 'new';
+    box.innerHTML = exportCityList.map((c) => {
+      const n = newByCity[c.city_id] || 0;
+      const label = onlyNew
+        ? `<small class="${n ? 'is-new' : ''}">${n.toLocaleString('vi-VN')} mới / ${c.total_hotels.toLocaleString('vi-VN')}</small>`
+        : `<small>${c.total_hotels.toLocaleString('vi-VN')}</small>`;
+      return `<label class="chip-toggle"><input type="checkbox" value="${c.city_id}" ${exportCities.has(c.city_id) ? 'checked' : ''}> ${c.city_name}${label}</label>`;
+    }).join('');
   }
 
   /* ---------- Báo cáo chất lượng trước khi xuất ---------- */
@@ -488,17 +502,33 @@
     const box = $('quality');
     if (scope.city_ids && !scope.city_ids.length) { box.hidden = true; return; }
     try {
-      const q = await api(`/api/kho/chat-luong${scope.city_ids ? `?city_ids=${scope.city_ids.join(',')}` : ''}`);
+      const params = new URLSearchParams();
+      if (scope.city_ids) params.set('city_ids', scope.city_ids.join(','));
+      if (scope.chi_moi) params.set('chi_moi', '1');
+      const q = await api(`/api/kho/chat-luong?${params.toString()}`);
       renderQuality(q, scope);
     } catch (_) { box.hidden = true; }
   }
 
   function renderQuality(q, scope) {
     const box = $('quality');
-    if (!q || !q.tong) { box.hidden = true; return; }
+    if (!q || !q.tong_pham_vi) { box.hidden = true; $('export-new-count').textContent = '0 mới'; return; }
     box.hidden = false;
     qualityIds = q.cao_bu.ids || [];
-    $('quality-sub').textContent = `${q.tong.toLocaleString('vi-VN')} khách sạn${scope && scope.city_ids ? ` · ${scope.city_ids.length} thành phố` : ' · toàn bộ kho'}`;
+    const where = scope && scope.city_ids ? `${scope.city_ids.length} thành phố` : 'toàn bộ kho';
+    $('quality-sub').textContent = q.chi_moi
+      ? `${q.tong.toLocaleString('vi-VN')} khách sạn mới chưa xuất (trên ${q.tong_pham_vi.toLocaleString('vi-VN')}) · ${where}`
+      : `${q.tong.toLocaleString('vi-VN')} khách sạn · ${where}`;
+    $('export-new-count').textContent = `${(q.chua_xuat || 0).toLocaleString('vi-VN')} mới`;
+    $('export-new-count').classList.toggle('has-new', (q.chua_xuat || 0) > 0);
+    newByCity = q.chua_xuat_theo_thanh_pho || {};
+    renderExportCities();
+    if (q.chi_moi && !q.tong) {
+      $('quality-chips').innerHTML = '<span class="muted">Không có khách sạn mới kể từ lần xuất trước — mọi thứ trong phạm vi này đã nằm trong CSV. Chọn "Gộp tất cả" nếu muốn xuất lại.</span>';
+      $('quality-actions').hidden = true;
+      box.className = 'quality ok';
+      return;
+    }
     const chip = (n, label, cls) => `<span class="q-chip ${n ? cls : 'ok'}"><b>${n.toLocaleString('vi-VN')}</b> ${label}</span>`;
     $('quality-chips').innerHTML = [
       chip(q.du, 'đủ 3 phần', 'ok'),
@@ -508,7 +538,11 @@
       chip(q.dem.chua_du, 'raw thiếu packet', 'warn'),
       chip(q.dem.thieu_ngon_ngu, 'chỉ 1 ngôn ngữ', 'warn'),
       chip(q.thay_doi, 'có thay đổi so với lần trước', 'info'),
-    ].join('');
+    ].join('') + (q.khong_co ? `<span class="q-sep"></span>${[
+      chip(q.khong_co.mo_ta, 'Trip.com không có mô tả', 'none'),
+      chip(q.khong_co.chinh_sach, 'Trip.com không có chính sách', 'none'),
+      chip(q.khong_co.lan_can, 'Trip.com không có lân cận', 'none'),
+    ].join('')}` : '');
     box.className = `quality ${q.thieu ? 'warn' : 'ok'}`;
     const actions = $('quality-actions');
     actions.hidden = !qualityIds.length;
@@ -516,6 +550,24 @@
       ? `${qualityIds.length.toLocaleString('vi-VN')} khách sạn thiếu dữ liệu (VI ${q.cao_bu.vi}, EN ${q.cao_bu.en}). Cào bù trước khi xuất để CSV đầy đủ hơn — hoặc xuất luôn phần đang có.`
       : '';
     $('quality-cao-bu').textContent = `↻ Cào bù ${qualityIds.length.toLocaleString('vi-VN')} khách sạn thiếu`;
+  }
+
+  async function deleteCsv(name) {
+    if (!window.confirm(`Xoá file "${name}"? Không hoàn tác được (dữ liệu raw vẫn còn, có thể xuất lại).`)) return;
+    try {
+      await post('/api/csv/xoa', { ten: name });
+      toast(`Đã xoá ${name}`);
+      await refreshFiles();
+    } catch (error) { toast(error.message, 'error'); }
+  }
+
+  async function deleteAllCsv() {
+    if (!window.confirm('Xoá TẤT CẢ file CSV trong thư mục output\\csv? Không hoàn tác được (dữ liệu raw vẫn còn, có thể xuất lại).')) return;
+    try {
+      const r = await post('/api/csv/xoa', { tat_ca: true });
+      toast(`Đã xoá ${r.da_xoa} file CSV.`);
+      await refreshFiles();
+    } catch (error) { toast(error.message, 'error'); }
   }
 
   async function exportCsv(scope) {
@@ -528,6 +580,7 @@
       await refreshFiles();
       toast(`Đã tạo ${result.ten}${result.so_khach_san ? ` (${result.so_khach_san.toLocaleString('vi-VN')} khách sạn)` : ''}`);
       lastCsvName = result.ten;
+      refreshQuality();
       $('done-open').hidden = false;
       $('done-export').textContent = '⇩ Xuất CSV lại';
       return result.ten;
@@ -578,6 +631,7 @@
           if (q.dem.chinh_sach) parts.push(`${q.dem.chinh_sach} thiếu chính sách`);
           if (q.dem.lan_can) parts.push(`${q.dem.lan_can} thiếu lân cận`);
           if (q.thay_doi) parts.push(`${q.thay_doi} có thay đổi so với lần trước`);
+          if (q.khong_co && q.khong_co.mo_ta) parts.push(`${q.khong_co.mo_ta} Trip.com không có mô tả`);
           $('job-done-text').textContent += parts.length
             ? ` Chất lượng: ${q.du}/${q.tong} đủ 3 phần; ${parts.join(', ')} (xem tab File CSV để cào bù).`
             : ` Chất lượng: ${q.du}/${q.tong} khách sạn đủ 3 phần.`;
@@ -587,11 +641,13 @@
     if ((ok || partial) && $('auto-export').checked && job.done > 0) {
       $('done-export').disabled = true;
       $('done-export').textContent = 'Đang xuất CSV…';
-      const scope = job.kind === 'crawl' && details.city_id ? { city_ids: [Number(details.city_id)] } : {};
+      const scope = job.kind === 'crawl' && details.city_id
+        ? { city_ids: [Number(details.city_id)], chi_moi: true }
+        : { chi_moi: true };
       const name = await exportCsv(scope);
       $('done-export').disabled = false;
       if (name) {
-        $('job-done-text').textContent += ` Đã tự xuất ${name}.`;
+        $('job-done-text').textContent += ` Đã tự xuất ${name} (chỉ gồm phần vừa cào; vì vậy huy hiệu "mới" ở tab CSV về 0).`;
         $('done-export').textContent = '⇩ Xuất CSV lại';
       }
     }
@@ -614,6 +670,7 @@
   async function refreshFiles() {
     try {
       const data = await api('/api/csv/danh-sach');
+      $('csv-delete-all').hidden = !(data.files && data.files.length);
       const box = $('csv-list');
       box.innerHTML = '';
       $('stat-csv').textContent = data.files.length.toLocaleString('vi-VN');
@@ -645,6 +702,7 @@
           actions.appendChild(badge);
         } else {
           actions.append(fileButton('Tải về', 'primary', () => downloadCsv(file.ten)));
+        actions.append(fileButton('Xoá', 'danger', () => deleteCsv(file.ten)));
         }
         row.append(icon, info, actions);
         box.appendChild(row);
@@ -905,6 +963,11 @@
         const actions = document.createElement('div'); actions.className = 'file-actions';
         actions.append(fileButton('Khôi phục (giữ file mới hơn)', 'secondary', () => restoreBackup(file.ten, false)));
         actions.append(fileButton('Khôi phục ghi đè', 'danger', () => restoreBackup(file.ten, true)));
+        actions.append(fileButton('Xoá', 'ghost', async () => {
+          if (!window.confirm(`Xoá bản sao lưu "${file.ten}"?`)) return;
+          try { await post('/api/du-lieu/xoa-sao-luu', { ten: file.ten }); toast(`Đã xoá ${file.ten}`); await refreshBackups(); }
+          catch (error) { toast(error.message, 'error'); }
+        }));
         row.append(icon, info, actions);
         box.appendChild(row);
       });
@@ -941,6 +1004,7 @@
   refreshBackups();
 
   $('open-folder').addEventListener('click', openFolder);
+  $('csv-delete-all').addEventListener('click', deleteAllCsv);
   $('queue-add').addEventListener('click', () => {
     if (activeTab !== 'destination') return toast('Hàng đợi chỉ dùng với thành phố trong danh mục.', 'error');
     const info = cityLabel($('select-city').value);
@@ -968,7 +1032,18 @@
   $('preflight-cookie').addEventListener('click', () => { $('preflight').hidden = true; refreshCookie(); });
   $('done-export').addEventListener('click', () => {
     const d = (lastJob && lastJob.details) || {};
-    exportCsv(lastJob && lastJob.kind === 'crawl' && d.city_id ? { city_ids: [Number(d.city_id)] } : {});
+    exportCsv(lastJob && lastJob.kind === 'crawl' && d.city_id ? { city_ids: [Number(d.city_id)], chi_moi: true } : { chi_moi: true });
+  });
+  document.querySelectorAll('input[name=export-fresh]').forEach((r) => r.addEventListener('change', refreshQuality));
+  $('export-reset-state').addEventListener('click', async () => {
+    if (!window.confirm('Quên dấu "đã xuất"?\n\nSau đó TOÀN BỘ khách sạn trong kho sẽ được coi là "mới" và lần xuất "chỉ dữ liệu mới" kế tiếp sẽ gồm tất cả. Chỉ dùng khi muốn xuất lại từ đầu.')) return;
+    try { await post('/api/csv/dat-lai-da-xuat'); toast('Đã quên dấu đã xuất — mọi khách sạn giờ là "mới".'); refreshQuality(); }
+    catch (error) { toast(error.message, 'error'); }
+  });
+  $('export-mark-all').addEventListener('click', async () => {
+    if (!window.confirm('Đánh dấu TẤT CẢ khách sạn trong kho là đã xuất (không tạo file)?\n\nSau đó chỉ những khách sạn cào thêm / cào lại mới được tính là "mới".')) return;
+    try { const r = await post('/api/csv/danh-dau-da-xuat'); toast(`Đã đánh dấu ${r.so_khach_san} khách sạn là đã xuất.`); refreshQuality(); }
+    catch (error) { toast(error.message, 'error'); }
   });
   document.querySelectorAll('input[name=export-scope]').forEach((r) => r.addEventListener('change', () => {
     $('export-cities').hidden = exportScope().city_ids === undefined;

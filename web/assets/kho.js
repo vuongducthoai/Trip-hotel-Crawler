@@ -66,9 +66,10 @@
 
   function matchFilter(h, key) {
     if (!key) return true;
-    if (key === 'thieu') return h.thieu.length > 0;
+    if (key === 'thieu') return h.thieu.some((f) => !f.startsWith('khong_') && f !== 'thieu_ngon_ngu');
     if (key === 'thieu_ngon_ngu') return h.thieu.includes('thieu_ngon_ngu');
     if (key === 'thay_doi') return ['vi', 'en'].some((l) => h.ngon_ngu[l] && h.ngon_ngu[l].thay_doi);
+    if (key === 'khong_co') return h.thieu.some((f) => f.startsWith('khong_'));
     return h.thieu.some((f) => f.startsWith(`${key}_`));
   }
 
@@ -91,10 +92,16 @@
   function chip(ban, lang) {
     if (!ban) return `<span class="chip none">— chưa cào ${lang.toUpperCase()}</span>`;
     if (!ban.doc_duoc) return '<span class="chip bad">raw lỗi</span>';
-    const c = (ok, text) => `<span class="chip ${ok ? 'ok' : 'bad'}">${text}</span>`;
-    return c(ban.co_mo_ta, ban.co_mo_ta ? '✓ mô tả' : '✗ mô tả')
-      + c(ban.so_chinh_sach > 0, `▤ ${ban.so_chinh_sach} CS`)
-      + c(ban.so_lan_can > 0, `⌖ ${ban.so_lan_can} LC`)
+    // Raw đủ packet mà trống → Trip.com không có phần đó (xám, không phải lỗi cào).
+    const NONE_TITLE = 'Trip.com không cung cấp phần này cho khách sạn (đã cào đủ, không phải cào thiếu)';
+    const c = (ok, text, noneText) => (ok
+      ? `<span class="chip ok">${text}</span>`
+      : ban.hoan_chinh
+        ? `<span class="chip none" title="${NONE_TITLE}">${noneText}</span>`
+        : `<span class="chip bad" title="Raw chưa đủ packet — nên cào bù">${text}</span>`);
+    return c(ban.co_mo_ta, ban.co_mo_ta ? '✓ mô tả' : '✗ mô tả', '— không có mô tả')
+      + c(ban.so_chinh_sach > 0, `▤ ${ban.so_chinh_sach} CS`, '— không có CS')
+      + c(ban.so_lan_can > 0, `⌖ ${ban.so_lan_can} LC`, '— không có LC')
       + (ban.hoan_chinh ? '' : '<span class="chip warn">thiếu packet</span>')
       + (ban.thay_doi ? `<span class="chip info" title="${esc(Object.entries(ban.thay_doi.tom_tat || {}).map(([k, v]) => `${k}: ${v}`).join(', '))}">Δ ${ban.thay_doi.so_muc} thay đổi</span>` : '');
   }
@@ -107,7 +114,7 @@
       body.innerHTML = '<tr><td colspan="7" class="empty">Không có khách sạn nào khớp bộ lọc.</td></tr>';
     } else {
       body.innerHTML = rows.map((h) => `
-        <tr data-id="${h.trip_hotel_id}" class="${h.thieu.length ? 'has-missing' : ''}">
+        <tr data-id="${h.trip_hotel_id}" class="${h.thieu.some((f) => !f.startsWith('khong_') && f !== 'thieu_ngon_ngu') ? 'has-missing' : ''}">
           <td class="col-check"><input type="checkbox" data-check="${h.trip_hotel_id}" ${selected.has(h.trip_hotel_id) ? 'checked' : ''}></td>
           <td class="col-name"><button type="button" class="link-button" data-open="${h.trip_hotel_id}" title="${esc(h.ten)}">${esc(h.ten)}</button><small>ID ${h.trip_hotel_id}${h.ten_en && h.ten_vi && h.ten_en !== h.ten_vi ? ` · ${esc(h.ten_en)}` : ''}</small></td>
           <td>${esc(h.city_name || '—')}</td>
@@ -119,7 +126,7 @@
     }
     $('kho-visible').textContent = num(filtered.length);
     $('kho-more').hidden = filtered.length <= shown;
-    $('kho-more').textContent = `Hiện thêm (${num(filtered.length - shown)} còn lại)`;
+    $('kho-more').textContent = `Hiện thêm (${num(Math.max(0, filtered.length - shown))} còn lại)`;
     $('kho-check-all').checked = filtered.length > 0 && filtered.every((h) => selected.has(h.trip_hotel_id));
     updateSelection();
   }
@@ -179,6 +186,9 @@
     if (!d.mo_ta) missing.push('mô tả');
     if (!d.chinh_sach.length) missing.push('chính sách');
     if (!d.lan_can.length) missing.push('lân cận');
+    const missingLabel = missing.length
+      ? (d.hoan_chinh ? `Trip.com không có: ${missing.join(', ')}` : `Thiếu: ${missing.join(', ')}`)
+      : 'Đủ 3 phần';
     const summary = `
       <div class="detail-head">
         <div class="grow">
@@ -188,7 +198,7 @@
           <p class="detail-sub">${esc(d.dia_chi || 'Chưa có địa chỉ')}${d.city ? ` · ${esc(d.city.city_name)}${d.city.country_name ? `, ${esc(d.city.country_name)}` : ''}` : ''}</p>
         </div>
         <div class="detail-meta">
-          <span class="badge ${missing.length ? 'warning' : 'success'}">${missing.length ? `Thiếu: ${missing.join(', ')}` : 'Đủ 3 phần'}</span>
+          <span class="badge ${!missing.length ? 'success' : d.hoan_chinh ? '' : 'warning'}">${missingLabel}</span>
           ${d.hoan_chinh ? '' : '<span class="badge failed">Raw thiếu packet</span>'}
           <small>Cào lúc ${dateTime(d.cap_nhat)}${d.so_phong ? ` · ${num(d.so_phong)} phòng` : ''}</small>
           <small class="mono" title="${esc(d.raw_path)}">${esc(d.raw_path.split(/[\\/]/).slice(-3).join('/'))}</small>
@@ -202,7 +212,9 @@
         <div class="detail-block-title"><span>type = DESCRIPTION</span><h3>Mô tả khách sạn</h3></div>
         ${d.mo_ta
           ? `<div class="detail-text">${esc(d.mo_ta).split(/\n{2,}|\r?\n/).filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div><small class="muted">${num(d.mo_ta.length)} ký tự</small>`
-          : '<div class="detail-empty">Chưa crawl được phần mô tả.</div>'}
+          : (d.hoan_chinh
+            ? '<div class="detail-none">Trip.com không có mô tả cho khách sạn này (đã cào đủ packet — không phải cào thiếu).</div>'
+            : '<div class="detail-empty">Chưa crawl được phần mô tả (raw chưa đủ packet — nên cào bù).</div>')}
       </section>`;
 
     const POLICY_ICON = {
@@ -242,7 +254,9 @@
             <div class="policy-name"><span class="policy-icon">${POLICY_ICON[s.ma] || '▸'}</span><h4>${esc(s.tieu_de)}</h4><code>${esc(s.ma)}</code></div>
             <div class="policy-body">${policyLines(s.dong)}</div>
           </div>`).join('')}</div>`
-          : '<div class="detail-empty">Chưa crawl được chính sách.</div>'}
+          : (d.hoan_chinh
+            ? '<div class="detail-none">Trip.com không có chính sách cho khách sạn này (đã cào đủ packet).</div>'
+            : '<div class="detail-empty">Chưa crawl được chính sách (raw chưa đủ packet — nên cào bù).</div>')}
       </section>`;
 
     const groups = new Map();
@@ -263,7 +277,9 @@
               <span class="nb-dist">${esc(km(p))}</span>
             </li>`).join('')}</ul>
           </div>`).join('')}</div>`
-          : '<div class="detail-empty">Chưa crawl được địa điểm lân cận.</div>'}
+          : (d.hoan_chinh
+            ? '<div class="detail-none">Trip.com không có địa điểm lân cận cho khách sạn này (đã cào đủ packet).</div>'
+            : '<div class="detail-empty">Chưa crawl được địa điểm lân cận (raw chưa đủ packet — nên cào bù).</div>')}
       </section>`;
 
     const KIND = { them: 'thêm', xoa: 'bỏ', sua: 'đổi' };
