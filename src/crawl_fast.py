@@ -113,6 +113,15 @@ async def export_cookies(locale: str, currency: str, wait_seconds: int = 45) -> 
 def load_cookies(locale: str, currency: str) -> tuple[dict, str | None]:
     path = cookie_file(locale, currency)
     if not path.exists():
+        # Thiếu cookie cho thị trường này (vd. chỉ bấm 'Lấy lại cookie' cho vi
+        # rồi cào en) → tự lấy một lần thay vì dừng cả tác vụ.
+        print(f"Chưa có cookie cho {locale}/{currency.upper()} → tự lấy cookie…")
+        try:
+            asyncio.run(export_cookies(locale, currency, 45))
+        except Exception as exc:
+            raise SystemExit(f"Không lấy được cookie cho {locale}/{currency.upper()} ({exc}). "
+                             "Hãy bấm ‘Lấy lại cookie’ và chọn đủ ngôn ngữ trước khi cào.")
+    if not path.exists():
         raise SystemExit("Chưa có cookie. Hãy bấm ‘Lấy lại cookie’ trước khi cào.")
     values = json.loads(path.read_text(encoding="utf-8"))
     cookies = {item["name"]: item["value"] for item in values if item.get("name")}
@@ -231,6 +240,15 @@ def save(dump: dict, hotel_id: str, locale: str, currency: str) -> Path:
     folder.mkdir(parents=True, exist_ok=True)
     ok = (dump.get("normalized") or {}).get("success")
     name = f"{hotel_id}.json" if ok else f"{hotel_id}.failed.{datetime.now():%Y%m%d_%H%M%S}.json"
+    if ok:
+        # So với raw cũ (nếu có) để đánh dấu khách sạn có nội dung thay đổi.
+        try:
+            import thay_doi
+            old_dump = saved_raw(hotel_id, locale, currency)
+            thay_doi.ghi(thay_doi.so_sanh(old_dump, dump, hotel_id, locale, currency),
+                         hotel_id, locale, currency)
+        except Exception as exc:  # không để việc so sánh làm hỏng lượt cào
+            print(f"    (không so sánh được với raw cũ: {type(exc).__name__}: {exc})")
     return raw_store.write(folder / name, dump)
 
 

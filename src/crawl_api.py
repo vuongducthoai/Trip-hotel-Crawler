@@ -76,6 +76,7 @@ def city_name_for_locale(city: dict, locale: str) -> str:
 def build_list_url(
     city: dict, checkin: str, checkout: str,
     locale: str = "vi-VN", currency: str = "VND",
+    list_filters: str | None = None,
 ) -> str:
     """Dựng thẳng URL trang danh sách, khỏi phải gõ ô tìm kiếm + click gợi ý."""
     name = city_name_for_locale(city, locale)
@@ -104,6 +105,10 @@ def build_list_url(
         "locale": locale,
         "old": "1",
     }
+    if list_filters:
+        # Cùng định dạng frontend Trip.com ghi lên URL khi bấm bộ lọc:
+        # "16~5*16*5,17~3*17*3" = 5 sao + sắp xếp giá thấp→cao.
+        params["listFilters"] = list_filters
     return f"https://{market_host(locale)}/hotels/list?" + urllib.parse.urlencode(
         params, quote_via=urllib.parse.quote
     )
@@ -134,6 +139,10 @@ class HotelCollector:
         try:
             body = await resp.json()
         except Exception:
+            return
+        # Một số XHR trả JSON là mảng/chuỗi (không phải object); bỏ qua để
+        # tránh AttributeError 'list' object has no attribute 'get'.
+        if not isinstance(body, dict):
             return
 
         if HOTEL_SERVICE in req.url:
@@ -447,6 +456,93 @@ async def paginate(
     return seen
 
 
+# --- Gom trang 1 SSR theo tổ hợp bộ lọc -------------------------------------
+# Dò thực nghiệm (Hong Kong, 27/09/2026): server áp bộ lọc hạng sao (16),
+# điểm đánh giá (6) và sắp xếp (17) ngay ở HTML SSR; giá (80) bị bỏ qua.
+# 16|5+16|4+16|3+16|2 cộng đúng tổng thành phố → chia trọn theo sao.
+SSR_STAR_FILTERS = ["16~5*16*5", "16~4*16*4", "16~3*16*3", "16~2*16*2"]
+SSR_SORT_FILTERS = [
+    "17~1*17*1",    # Trip.com đề xuất
+    "17~14*17*14",  # hạng sao cao→thấp
+    "17~3*17*3",    # giá thấp→cao
+    "17~4*17*4",    # giá cao→thấp
+    "17~6*17*6",    # đánh giá tốt nhất
+    "17~5*17*5",    # khoảng cách gần→xa
+]
+SSR_RATING_FILTERS = [None, "6~10*6*10", "6~9*6*9", "6~8*6*8"]  # 9+/8+/7+
+
+SSR_FETCH_JS = """
+async (url) => {
+  try {
+    const r = await fetch(url, {credentials: 'include'});
+    return {status: r.status, text: await r.text()};
+  } catch (e) { return {status: -1, text: String(e)}; }
+}
+"""
+
+
+def ssr_variants() -> list[str]:
+    """Thứ tự ưu tiên: sao × sắp xếp trước (24 biến thể), rồi thêm trục điểm."""
+    out: list[str] = []
+    for rating in SSR_RATING_FILTERS:
+        for star in SSR_STAR_FILTERS:
+            for sort in SSR_SORT_FILTERS:
+                parts = [star, sort] + ([rating] if rating else [])
+                out.append(",".join(parts))
+    return out
+
+
+async def harvest_ssr_variants(
+    page, city: dict, collector: "HotelCollector", target_count: int,
+    locale: str, currency: str,
+) -> int:
+    """Tải trang danh sách với nhiều tổ hợp bộ lọc, chỉ bóc HTML SSR (trang 1).
+
+    Không gọi fetchHotelList nên vẫn có dữ liệu khi API bị ResultId=201.
+    Trả về số khách sạn mới gom thêm được.
+    """
+    tomorrow = datetime.now() + timedelta(days=1)
+    day_after = tomorrow + timedelta(days=1)
+    checkin, checkout = tomorrow.strftime("%Y-%m-%d"), day_after.strftime("%Y-%m-%d")
+    localized_city_name = city_name_for_locale(city, locale)
+
+    start = len(dedupe(collector.rows))
+    empty_streak = 0
+    variants = ssr_variants()[: config.SSR_SPLIT_MAX_VARIANTS]
+    print(f"  • Gom thêm bằng trang 1 SSR theo bộ lọc (tối đa {len(variants)} tổ hợp)…")
+    for index, flt in enumerate(variants, 1):
+        current = len(dedupe(collector.rows))
+        if current >= target_count:
+            break
+        url = build_list_url(city, checkin, checkout, locale, currency, list_filters=flt)
+        res = await page.evaluate(SSR_FETCH_JS, url)
+        if res["status"] != 200:
+            print(f"    ! SSR {index}: {flt}: HTTP {res['status']} — dừng gom SSR.")
+            break
+        rows, meta = extract_from_html(res["text"], city_name=localized_city_name)
+        if not rows and meta == {}:
+            # Không có initListData: có thể trang chuyển sang captcha/đăng nhập.
+            empty_streak += 1
+            print(f"    ! SSR {index}: {flt}: không bóc được SSR ({empty_streak} lần liên tiếp).")
+            if empty_streak >= 3:
+                print("    ⛔ Trip.com không trả SSR nữa — dừng gom để tránh bị chặn nặng hơn.")
+                break
+            await asyncio.sleep(random.uniform(config.SSR_SPLIT_MIN_DELAY, config.SSR_SPLIT_MAX_DELAY))
+            continue
+        collector.rows.extend(rows)
+        updated = len(dedupe(collector.rows))
+        gained = updated - current
+        empty_streak = 0 if gained else empty_streak + 1
+        # Không in dạng "[x/y]" — app đọc mẫu đó làm tiến độ cào chi tiết.
+        print(f"    SSR {index}·{len(variants)} {flt}: {len(rows)} KS (nhóm {meta.get('total')}) "
+              f"→ +{gained} → {updated} trên {target_count}")
+        if empty_streak >= config.SSR_SPLIT_STOP_AFTER_EMPTY:
+            print(f"    • {empty_streak} tổ hợp liên tiếp không ra KS mới — dừng gom SSR.")
+            break
+        await asyncio.sleep(random.uniform(config.SSR_SPLIT_MIN_DELAY, config.SSR_SPLIT_MAX_DELAY))
+    return len(dedupe(collector.rows)) - start
+
+
 async def crawl_one_city(
     ctx, city: dict, out: Path, max_pages: int, allow_recommend: bool = False,
     target_count: int | None = None, locale: str = "vi-VN", currency: str = "VND",
@@ -578,14 +674,23 @@ async def crawl_one_city(
                 locale=locale, currency=currency,
             )
         if target_count and len(seen) < target_count:
-            print(f"  ⚠ Trip.com chỉ trả {len(seen)}/{target_count} khách sạn. "
-                  "Giữ checkpoint và dừng, không chia truy vấn theo giá hay thử vượt chặn mềm.")
+            print(f"  ⚠ API danh sách chỉ trả {len(seen)}/{target_count} khách sạn.")
     elif not collector.template and (not target_count or collected < target_count):
         print("  ⚠ Không bắt được mẫu request fetchHotelList sau 8 vòng cuộn.")
         print(f"    Xem {collector.dump_dir} và ảnh chụp bên dưới rồi gửi lại cho em.")
         await page.screenshot(path=str(config.HTML_DIR / f"debug_{city['id']}_notpl.png"))
 
         expected_total = total
+
+    # Vẫn thiếu so với yêu cầu → gom thêm bằng trang 1 SSR theo tổ hợp bộ lọc.
+    if (
+        config.SSR_SPLIT_ENABLED and target_count
+        and len(dedupe(collector.rows)) < target_count
+    ):
+        gained = await harvest_ssr_variants(
+            page, city, collector, target_count, locale, currency,
+        )
+        print(f"  • Gom SSR theo bộ lọc: +{gained} khách sạn.")
 
     result = dedupe(collector.rows)
     complete = (

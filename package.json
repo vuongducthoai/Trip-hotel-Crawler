@@ -1,9 +1,9 @@
 {
   "name": "tool-crawler-trip",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Ứng dụng Electron cào mô tả, chính sách và địa điểm lân cận từ Trip.com",
   "main": "electron/main.js",
-  "author": "Tool Crawler Trip",
+  "author": "Trip Hotel Data",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
@@ -18,25 +18,73 @@
   },
   "build": {
     "appId": "vn.toolcrawler.trip",
-    "productName": "Tool Crawler Trip",
+    "productName": "Trip Hotel Data",
     "asar": true,
-    "files": ["electron/**/*", "package.json"],
-    "extraResources": [
-      { "from": "server.py", "to": "server.py" },
-      { "from": "src", "to": "src" },
-      { "from": "data", "to": "data" },
-      { "from": "web", "to": "web" },
-      { "from": ".env.example", "to": ".env.example" },
-      { "from": "requirements.txt", "to": "requirements.txt" },
-      { "from": "README.md", "to": "README.md" },
-      { "from": "build/backend-dist/tool-crawler-backend.exe", "to": "backend/tool-crawler-backend.exe" }
+    "files": [
+      "electron/**/*",
+      "package.json"
     ],
-    "win": { "target": ["nsis"] },
+    "extraResources": [
+      {
+        "from": "server.py",
+        "to": "server.py"
+      },
+      {
+        "from": "src",
+        "to": "src"
+      },
+      {
+        "from": "data",
+        "to": "data"
+      },
+      {
+        "from": "web",
+        "to": "web"
+      },
+      {
+        "from": ".env.example",
+        "to": ".env.example"
+      },
+      {
+        "from": "requirements.txt",
+        "to": "requirements.txt"
+      },
+      {
+        "from": "README.md",
+        "to": "README.md"
+      },
+      {
+        "from": "build/backend-dist/tool-crawler-backend.exe",
+        "to": "backend/tool-crawler-backend.exe"
+      },
+      {
+        "from": "update-url.txt",
+        "to": "update-url.txt"
+      },
+      {
+        "from": "package.json",
+        "to": "package.json"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true
-    }
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://example.com/trip-hotel-data/updates"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
   }
 }

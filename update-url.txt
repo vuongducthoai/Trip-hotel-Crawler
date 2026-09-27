@@ -1,0 +1,2 @@
+# Địa chỉ HTTPS chứa latest.yml + file Setup .exe. Để trống hoặc # để tắt tự cập nhật.
+# Ví dụ: https://ten-mien-cua-anh.com/trip-hotel-data/updates

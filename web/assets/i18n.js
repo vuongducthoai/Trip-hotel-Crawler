@@ -1,0 +1,217 @@
+/* Song ngữ giao diện VI/EN. Cách làm: giữ nguyên chuỗi tiếng Việt trong HTML/JS,
+   khi chọn EN thì dịch trực tiếp trên DOM (text node + placeholder/title) bằng từ điển
+   chuỗi đúng-khớp và một số mẫu regex cho chuỗi có số/tên. Nội dung dữ liệu (tên khách
+   sạn, mô tả, chính sách, log Python) không dịch. */
+(() => {
+  'use strict';
+
+  const EXACT = {
+    // --- điều hướng / chung ---
+    '▶ Cào dữ liệu': '▶ Crawl', '▦ Kho dữ liệu': '▦ Data store', '⇩ File CSV': '⇩ CSV files',
+    'Khu vực': 'Sections', 'Ngôn ngữ giao diện': 'Interface language', 'Đóng': 'Close', 'Mở': 'Open',
+    'Xem': 'View', 'Xem trước': 'Preview', 'Tải về': 'Download', 'Bắt đầu': 'Started', 'Kết thúc': 'Finished',
+    'Thời lượng': 'Duration', 'Trạng thái': 'Status', 'Xem log': 'View log', 'Không có log.': 'No log.',
+    'Mở thư mục': 'Open folder', 'Mở thư mục log': 'Open log folder', 'Thư mục dữ liệu': 'Data folder', 'Trip Hotel Data · Dữ liệu lưu tại': 'Trip Hotel Data · Data stored at',
+    'Thống kê dữ liệu': 'Data stats', 'raw đã lưu': 'raw files saved', 'file CSV': 'CSV files', 'khách sạn': 'hotels',
+    'Tiếng Việt': 'Vietnamese', 'English': 'English', 'Ngôn ngữ': 'Languages',
+    // --- thiết lập ---
+    'Thiết lập lượt cào': 'Crawl setup',
+    'Chọn từ 81 thành phố quốc tế có sẵn hoặc dán URL tùy biến.': 'Pick one of 81 international cities or paste a custom URL.',
+    'Chọn điểm đến (81 TP)': 'Pick a destination (81 cities)', 'Dán URL tùy biến': 'Paste a custom URL',
+    'Quốc gia (19 quốc gia)': 'Country (19 countries)', 'Thành phố': 'City', 'URL trang danh sách Trip.com': 'Trip.com hotel list URL',
+    'Số lượng khách sạn (tổng mục tiêu)': 'Number of hotels (total target)', 'Số lượng khách sạn muốn cào thêm': 'Number of extra hotels to crawl',
+    'Gõ tên quốc gia…': 'Type a country…', 'Gõ tên thành phố (vd. hk, ho, bang)…': 'Type a city (e.g. hk, ho, bang)…', 'Gõ để tìm…': 'Type to search…',
+    'Không có kết quả.': 'No matches.',
+    'Hàng đợi nhiều thành phố': 'Multi-city queue',
+    'Chọn thành phố ở trên rồi bấm thêm; app cào lần lượt, nghỉ 60 giây giữa mỗi thành phố.': 'Pick a city above and add it; cities are crawled one by one with a 60-second pause in between.',
+    '＋ Thêm thành phố đang chọn': '＋ Add selected city',
+    'Chưa có thành phố nào trong hàng đợi — bấm "Cào dữ liệu" sẽ cào thành phố đang chọn.': 'Queue is empty — "Crawl" will crawl the selected city.',
+    'Bỏ khỏi hàng đợi': 'Remove from queue', 'Huỷ hàng đợi': 'Clear queue',
+    'Kiểm tra trước khi cào': 'Pre-crawl check', 'Vẫn cào': 'Crawl anyway', 'Vẫn cào (không khuyến khích)': 'Crawl anyway (not recommended)',
+    'Cào ngay': 'Crawl now', 'Không nên cào lúc này': 'Better not to crawl right now', 'Có thể cào, nhưng lưu ý': 'You can crawl, but note',
+    'Mọi thứ sẵn sàng': 'All good', 'Lấy lại cookie': 'Refresh cookies',
+    'Dữ liệu đã có': 'Existing data', 'App tự bỏ qua dữ liệu hoàn chỉnh': 'Complete hotels are skipped automatically',
+    'Chế độ cào thêm · không tính lại khách sạn đã đủ': 'Continue mode · complete hotels are not counted again',
+    'Thoát chế độ cào tiếp': 'Exit continue mode', 'Đang kiểm tra dữ liệu đã lưu…': 'Checking saved data…',
+    'Chọn ngôn ngữ để xem thống kê.': 'Pick a language to see stats.',
+    'Cào dữ liệu': 'Crawl', 'Cào tiếp dữ liệu': 'Continue crawling', 'Dừng': 'Stop',
+    'Tự động xuất CSV khi cào xong': 'Export CSV automatically when done',
+    'Chrome sẽ mở khoảng 45 giây khi lấy cookie.': 'Chrome opens for about 45 seconds to fetch cookies.',
+    'Đang kiểm tra…': 'Checking…',
+    // --- tiến độ ---
+    'Tiến độ trực tiếp': 'Live progress', 'Chưa có tác vụ đang chạy.': 'No task running.', 'Sẵn sàng': 'Ready',
+    'Đang chạy': 'Running', 'Đang dừng': 'Stopping', 'Thành công': 'Success', 'Chưa đủ': 'Incomplete', 'Đã dừng': 'Stopped', 'Có lỗi': 'Failed',
+    'Đang thực hiện…': 'Working…', 'Nhật ký tác vụ': 'Task log', 'Sao chép log': 'Copy log', 'Chưa chạy tác vụ nào.': 'No task has run yet.',
+    'Cào xong': 'Crawl finished', '⇩ Xuất CSV ngay': '⇩ Export CSV now', '⇩ Xuất CSV lại': '⇩ Export CSV again', 'Mở file CSV': 'Open CSV file',
+    'Xem Kho dữ liệu': 'Open data store', 'Đang xuất CSV…': 'Exporting CSV…',
+    'Xem nhật ký bên dưới để biết nguyên nhân. Dữ liệu đã cào trước khi dừng vẫn được giữ.': 'See the log below for the cause. Data crawled before the stop is kept.',
+    // --- CSV ---
+    'File kết quả': 'Output files', 'CSV gồm đúng 7 cột theo cấu trúc bàn giao.': 'CSV with exactly the 7 hand-over columns.',
+    'Xuất CSV': 'Export CSV', 'Đang xuất…': 'Exporting…', 'Phạm vi xuất': 'Export scope', 'Tất cả khách sạn đã cào': 'All crawled hotels',
+    'Chỉ thành phố đã chọn': 'Selected cities only', 'Chưa có file CSV.': 'No CSV files yet.',
+    'Chưa có file CSV. Sau khi cào xong, bấm “Xuất CSV”.': 'No CSV files yet. After crawling, click "Export CSV".',
+    'Chất lượng dữ liệu trong phạm vi': 'Data quality in scope', '↻ Cào bù khách sạn thiếu': '↻ Re-crawl missing hotels',
+    'đủ 3 phần': 'complete (3 parts)', 'thiếu mô tả': 'missing description', 'thiếu chính sách': 'missing policies', 'thiếu lân cận': 'missing nearby places',
+    'raw thiếu packet': 'raw missing packet', 'chỉ 1 ngôn ngữ': 'one language only', 'có thay đổi so với lần trước': 'changed since last crawl',
+    'Sao lưu & khôi phục': 'Backup & restore', '⛁ Sao lưu ngay': '⛁ Back up now', 'Đang nén…': 'Zipping…',
+    'Nén toàn bộ dữ liệu đã cào (raw, thay đổi, cookie, CSV) thành một file zip. Nên sao lưu trước khi cập nhật hoặc gỡ ứng dụng.': 'Zips all crawled data (raw, changes, cookies, CSV) into one file. Back up before updating or uninstalling the app.',
+    'Chưa có bản sao lưu.': 'No backups yet.', 'Khôi phục (giữ file mới hơn)': 'Restore (keep newer files)', 'Khôi phục ghi đè': 'Restore & overwrite',
+    'XEM TRƯỚC CSV': 'CSV PREVIEW', '✓ Đã tải': '✓ Downloaded', 'Mới nhất': 'Latest',
+    // --- thành phố đã cào / lịch sử ---
+    'Thành phố đã cào': 'Crawled cities', 'Tổng hợp từ raw và checkpoint đang lưu trên máy.': 'Summarised from raw files and checkpoints on this computer.',
+    'Tìm thành phố, quốc gia, mã…': 'Search city, country, id…', 'Chưa có thành phố nào.': 'No cities yet.', 'Không có thành phố nào khớp.': 'No city matches.',
+    'Chưa có thành phố nào trong dữ liệu raw.': 'No cities in raw data yet.', 'khách sạn raw': 'raw hotels', 'ID đã biết': 'Known IDs', 'Cào tiếp': 'Continue', 'Cào thêm': 'Crawl more', 'Cào': 'Crawl',
+    'Lịch sử hoạt động': 'Activity history', 'Lịch sử được giữ lại sau khi đóng và mở lại ứng dụng.': 'History is kept after closing and reopening the app.',
+    'Xóa lịch sử': 'Clear history', 'Chưa có lịch sử.': 'No history yet.', 'Chưa có lịch sử. Các lượt hoàn tất sẽ xuất hiện tại đây.': 'No history yet. Finished runs appear here.',
+    'LỊCH SỬ TÁC VỤ': 'TASK HISTORY', 'XEM CHI TIẾT': 'DETAILS', 'Chi tiết': 'Details',
+    // --- kho ---
+    'Kho dữ liệu đã cào': 'Crawled data store',
+    'Đối soát mô tả · chính sách · lân cận với trang Trip.com thật, và cào bù phần còn thiếu.': 'Cross-check description · policies · nearby places against the live Trip.com page, and re-crawl what is missing.',
+    '↻ Quét lại': '↻ Rescan', 'Cào bù': 'Re-crawl', 'có bản VI': 'with VI', 'có bản EN': 'with EN', 'thiếu dữ liệu': 'missing data',
+    'Tìm theo tên hoặc mã khách sạn…': 'Search by hotel name or id…', 'Tất cả thành phố': 'All cities', 'Tất cả khách sạn': 'All hotels',
+    'Thiếu bất kỳ': 'Missing anything', 'Thiếu mô tả': 'Missing description', 'Thiếu chính sách': 'Missing policies', 'Thiếu lân cận': 'Missing nearby places',
+    'Raw chưa đủ (thiếu packet)': 'Raw incomplete (missing packet)', 'Chỉ có 1 ngôn ngữ': 'One language only', 'Raw lỗi, không đọc được': 'Raw unreadable',
+    'Có thay đổi so với lần cào trước': 'Changed since last crawl', 'Cào bù cho': 'Re-crawl for',
+    'Chưa chọn khách sạn nào.': 'No hotel selected.', 'Tick chọn khách sạn cần cào lại, hoặc dùng bộ lọc "Thiếu…" rồi "Chọn tất cả".': 'Tick hotels to re-crawl, or use a "Missing…" filter then "Select all".',
+    'Khách sạn': 'Hotel', 'Cập nhật': 'Updated', 'Đang đọc kho…': 'Reading store…', 'Không có khách sạn nào khớp bộ lọc.': 'No hotel matches the filter.',
+    'Hiện thêm': 'Show more', '✓ mô tả': '✓ description', '✗ mô tả': '✗ description', 'thiếu packet': 'missing packet', 'raw lỗi': 'raw error',
+    '← Danh sách': '← List', '↻ Cào bù khách sạn này': '↻ Re-crawl this hotel', 'Mở trên Trip.com ↗': 'Open on Trip.com ↗', 'Chọn một khách sạn.': 'Pick a hotel.',
+    'Đang đọc raw…': 'Reading raw…', 'Chưa cào ngôn ngữ này': 'Not crawled in this language', 'Đủ 3 phần': 'All 3 parts', 'Raw thiếu packet': 'Raw missing packet',
+    'Chưa có địa chỉ': 'No address', '(chưa có tên)': '(no name)', 'Mô tả': 'Description', 'Mô tả khách sạn': 'Hotel description', 'Chính sách': 'Policies',
+    'Địa điểm lân cận': 'Nearby places', 'Thay đổi': 'Changes', 'SO VỚI LẦN CÀO TRƯỚC': 'VS PREVIOUS CRAWL', 'Phần': 'Part', 'Mục': 'Item', 'Trước': 'Before', 'Sau': 'After',
+    'Chưa crawl được phần mô tả.': 'Description not crawled.', 'Chưa crawl được chính sách.': 'Policies not crawled.', 'Chưa crawl được địa điểm lân cận.': 'Nearby places not crawled.',
+    'thêm': 'added', 'bỏ': 'removed', 'đổi': 'changed', 'đi bộ': 'walk', 'lái xe': 'drive', 'đường thẳng': 'straight line',
+  };
+
+  // Mẫu có số / tên: [regex, thay thế]. Chạy sau khi không khớp EXACT.
+  const RULES = [
+    [/^(\d[\d.,]*) raw đã lưu$/, '$1 raw files saved'],
+    [/^(\d[\d.,]*) thành phố$/, '$1 cities'],
+    [/^Cào (\d+) thành phố$/, 'Crawl $1 cities'],
+    [/^Chọn tất cả đang hiện \($/, 'Select all shown ('],
+    [/^Hiện thêm \((\d[\d.,]*) còn lại\)$/, 'Show more ($1 left)'],
+    [/^(\d[\d.,]*) mục$/, '$1 items'],
+    [/^(\d[\d.,]*) địa điểm · (\d+) nhóm$/, '$1 places · $2 groups'],
+    [/^Chính sách \((\d+)\)$/, 'Policies ($1)'], [/^Lân cận \((\d+)\)$/, 'Nearby ($1)'],
+    [/^(\d[\d.,]*) ký tự$/, '$1 characters'],
+    [/^Cào lúc (.+?)( · (\d[\d.,]*) phòng)?$/, (m, t, _r, n) => `Crawled ${t}${n ? ` · ${n} rooms` : ''}`],
+    [/^Δ (\d+) thay đổi$/, 'Δ $1 changes'], [/^(\d+) mục · lúc (.+)$/, '$1 items · at $2'],
+    [/^— chưa cào (VI|EN)$/, '— no $1 crawl'],
+    [/^▤ (\d+) CS$/, '▤ $1 pol'], [/^⌖ (\d+) LC$/, '⌖ $1 near'],
+    [/^Đã chọn (\d[\d.,]*) khách sạn · cào bù (.+)$/, 'Selected $1 hotels · re-crawl $2'],
+    [/^(\d[\d.,]*) khách sạn · (\d+) thành phố$/, '$1 hotels · $2 cities'], [/^(\d[\d.,]*) khách sạn · toàn bộ kho$/, '$1 hotels · whole store'],
+    [/^(\d[\d.,]*) khách sạn thiếu dữ liệu \(VI (\d+), EN (\d+)\)\. .*$/, '$1 hotels are missing data (VI $2, EN $3). Re-crawl them before exporting for a fuller CSV — or export what you have.'],
+    [/^↻ Cào bù (\d[\d.,]*) khách sạn thiếu$/, '↻ Re-crawl $1 missing hotels'],
+    [/^Lưu tại (.+)$/, 'Stored at $1'],
+    [/^(.+?) · bắt đầu (.+)$/, '$1 · started $2'],
+    [/^(\d+) phút (\d+) giây$/, '$1 min $2 s'], [/^(\d+) giây$/, '$1 s'],
+    [/^Cào (.+) · hoàn tất$/, 'Crawl $1 · finished'], [/^Cào (.+) · chưa đủ số lượng$/, 'Crawl $1 · fewer than requested'], [/^Cào (.+) · dừng vì lỗi$/, 'Crawl $1 · stopped on error'],
+    [/^Cào bù (\d+) khách sạn · hoàn tất$/, 'Re-crawl $1 hotels · finished'], [/^Cào bù (\d+) khách sạn · chưa đủ số lượng$/, 'Re-crawl $1 hotels · incomplete'], [/^Cào bù (\d+) khách sạn · dừng vì lỗi$/, 'Re-crawl $1 hotels · stopped on error'],
+    [/^Đã cào (\d[\d.,]*)\/(\d[\d.,]*) lượt\. Dữ liệu nằm trong Kho, sẵn sàng xuất CSV\.(.*)$/, (m, a, b, rest) => `Crawled ${a}/${b}. Data is in the store, ready to export.${rest}`],
+    [/^Trip\.com chỉ cung cấp (\d[\d.,]*)\/(\d[\d.,]*) lượt\..*?(Đã tự xuất .+)?$/, (m, a, b, rest) => `Trip.com only returned ${a}/${b}. What was crawled is usable; click "Continue" in a few minutes to get more.${rest ? ' ' + rest : ''}`],
+    [/Đã tự xuất (\S+)\./, 'Auto-exported $1.'],
+    [/Chất lượng: (\d+)\/(\d+) đủ 3 phần; (.+?) \(xem tab File CSV để cào bù\)\./, 'Quality: $1/$2 complete; $3 (see CSV tab to re-crawl).'],
+    [/Chất lượng: (\d+)\/(\d+) khách sạn đủ 3 phần\./, 'Quality: $1/$2 hotels complete.'],
+    [/(\d+) thiếu mô tả/g, '$1 missing description'], [/(\d+) thiếu chính sách/g, '$1 missing policies'], [/(\d+) thiếu lân cận/g, '$1 missing nearby places'], [/(\d+) có thay đổi so với lần trước/g, '$1 changed since last crawl'],
+    [/^Còn (\d+) thành phố chờ sau tác vụ này$/, '$1 more cities queued after this task'],
+    [/^Nghỉ (\d+) giây rồi cào tiếp (.+)$/, 'Pausing $1 s, then crawling $2'], [/^Chuẩn bị cào (.+)$/, 'Preparing to crawl $1'],
+    [/^(VI|EN|Tiếng Việt|English): đã có (\d+) · tìm thêm (\d+) → mục tiêu (\d+)(.*)$/, '$1: have $2 · find $3 more → target $4$5'],
+    [/^(VI|EN|Tiếng Việt|English): (\d+) hoàn chỉnh · còn (\d+) để đạt (\d+)(.*)$/, '$1: $2 complete · $3 to reach $4$5'],
+    [/ · (\d+) raw cũ sẽ cào lại/, ' · $1 old raw files will be re-crawled'],
+    [/^(.+?) · có thể tiếp tục lượt trước$/, '$1 · can continue previous run'],
+    [/^(\d+)\/(\d+) đủ$/, '$1/$2 complete'], [/^Cập nhật (.+)$/, 'Updated $1'],
+    [/^Tổng (\d[\d.,]*) dòng · đang hiển thị tối đa (\d+) dòng đầu\.$/, '$1 rows in total · showing at most the first $2.'],
+    [/^URL tự sinh: (.+)$/, 'Generated URL: $1'],
+    [/^Đang cào bù (\d[\d.,]*) khách sạn \((.+)\)\. Theo dõi ở tab Cào dữ liệu\.$/, 'Re-crawling $1 hotels ($2). Follow it in the Crawl tab.'],
+    [/^Đã xếp (\d+) thành phố vào hàng đợi\.$/, 'Queued $1 cities.'], [/^Đã tạo (.+)$/, 'Created $1'],
+    [/^Đã sao lưu (\d+) file → (.+)$/, 'Backed up $1 files → $2'], [/^Đã khôi phục (\d+) file, bỏ qua (\d+) file đã có\.$/, 'Restored $1 files, skipped $2 existing.'],
+    [/^Đang tìm và cào thêm (\d+) khách sạn\.$/, 'Searching for and crawling $1 more hotels.'], [/^Đã bắt đầu cào dữ liệu\.$/, 'Crawl started.'],
+    [/^Đã bật cào tiếp (.+)\. Nhập số lượng muốn cào thêm\.$/, 'Continue mode on for $1. Enter how many more to crawl.'],
+    [/^(.+) đã có trong hàng đợi\.$/, '$1 is already queued.'], [/^Đã huỷ hàng đợi\.$/, 'Queue cleared.'],
+    [/^Hãy chọn ít nhất một ngôn ngữ\.$/, 'Please pick at least one language.'], [/^Số lượng khách sạn không hợp lệ\.$/, 'Invalid number of hotels.'],
+    [/^Hãy chọn thành phố trong danh mục\.$/, 'Please pick a city from the catalogue.'], [/^Hãy dán URL trang danh sách Trip\.com\.$/, 'Please paste a Trip.com list URL.'],
+    [/^Hãy tick ít nhất một thành phố để xuất\.$/, 'Please tick at least one city to export.'], [/^Hãy chọn thành phố trước\.$/, 'Please pick a city first.'],
+    [/^Không kiểm tra được \((.+)\); cào luôn\.$/, 'Check failed ($1); crawling anyway.'],
+    [/^Lỗi (\d+)$/, 'Error $1'],
+    [/^KHÁCH SẠN · ID (\d+) · (.+)$/, 'HOTEL · ID $1 · $2'],
+    [/^(\d+) cảnh báo khi bóc raw$/, '$1 warnings while parsing raw'],
+    [/^Nhóm (\d+)$/, 'Group $1'],
+    [/ · Mới nhất/, ' · Latest'], [/ · Đã tải (.+)$/, ' · Downloaded $1'],
+  ];
+
+  const SKIP = 'pre, code, #log, .mono, .combo-list, .col-name, .detail-text, .policy-body, .policy-name h4, .nearby-list, .changes-table td, .file-info strong, .city-card-title strong, .detail-head h2, .detail-sub, #data-dir, #destination-preview-url, .schema';
+
+  function translate(text) {
+    const trimmed = text.trim();
+    if (!trimmed) return null;
+    if (EXACT[trimmed] !== undefined) return EXACT[trimmed];
+    let out = trimmed;
+    let hit = false;
+    for (const [re, rep] of RULES) {
+      if (re.test(out)) {
+        out = out.replace(re, rep);
+        hit = true;
+        if (!re.global) break;
+      }
+      if (re.global) re.lastIndex = 0;
+    }
+    return hit ? out : null;
+  }
+
+  function translateNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      const parent = node.parentElement;
+      if (!parent || parent.closest(SKIP)) return;
+      const raw = node.nodeValue;
+      const t = translate(raw);
+      if (t !== null && t !== raw.trim()) node.nodeValue = raw.replace(raw.trim(), t);
+      return;
+    }
+    if (node.nodeType !== Node.ELEMENT_NODE) return;
+    for (const attr of ['placeholder', 'title', 'aria-label']) {
+      const v = node.getAttribute(attr);
+      if (v) { const t = translate(v); if (t !== null) node.setAttribute(attr, t); }
+    }
+    if (node.closest(SKIP)) return;
+    if (node.tagName === 'OPTION') {
+      // option thành phố/quốc gia (value là số hoặc tên nước) giữ nguyên; option bộ lọc dịch.
+      if (node.value === '' || !/^\d+$/.test(node.value) && node.parentElement && node.parentElement.id === 'kho-filter') {
+        const t = translate(node.textContent);
+        if (t !== null) node.textContent = t;
+      }
+      return;
+    }
+    node.childNodes.forEach(translateNode);
+  }
+
+  let lang = 'en';
+  try { lang = localStorage.getItem('ui-lang') || 'en'; } catch (_) { /* không có localStorage */ }
+
+  const observer = new MutationObserver((records) => {
+    for (const r of records) {
+      if (r.type === 'characterData') translateNode(r.target);
+      r.addedNodes.forEach(translateNode);
+    }
+  });
+
+  window.I18N = {
+    get lang() { return lang; },
+    t: (s) => (lang === 'en' ? (translate(s) ?? s) : s),
+    set(next) {
+      if (next === lang) return;
+      try { localStorage.setItem('ui-lang', next); } catch (_) { /* bỏ qua */ }
+      window.location.reload();   // dịch lại từ đầu: đơn giản và chắc chắn
+    },
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-ui-lang]').forEach((b) => {
+      b.classList.toggle('active', b.dataset.uiLang === lang);
+      b.addEventListener('click', () => window.I18N.set(b.dataset.uiLang));
+    });
+    if (lang !== 'en') return;
+    document.documentElement.lang = 'en';
+    translateNode(document.body);
+    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+  });
+})();

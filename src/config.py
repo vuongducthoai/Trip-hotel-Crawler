@@ -37,6 +37,13 @@ API_MIN_DELAY = float(os.getenv("API_MIN_DELAY", "0.8"))
 API_MAX_DELAY = float(os.getenv("API_MAX_DELAY", "1.8"))
 CHECKPOINT_EVERY = int(os.getenv("CHECKPOINT_EVERY", "20"))
 MIN_COMPLETE_RATIO = float(os.getenv("MIN_COMPLETE_RATIO", "0.98"))
+# Gom trang 1 SSR theo nhiều tổ hợp bộ lọc (sao × điểm × sắp xếp) khi API
+# danh sách bị chặn mềm (ResultId=201). Mỗi tổ hợp là 1 lần tải trang, ~12 KS.
+SSR_SPLIT_ENABLED = os.getenv("SSR_SPLIT_ENABLED", "true").lower() == "true"
+SSR_SPLIT_MIN_DELAY = float(os.getenv("SSR_SPLIT_MIN_DELAY", "1.2"))
+SSR_SPLIT_MAX_DELAY = float(os.getenv("SSR_SPLIT_MAX_DELAY", "2.5"))
+SSR_SPLIT_MAX_VARIANTS = int(os.getenv("SSR_SPLIT_MAX_VARIANTS", "120"))
+SSR_SPLIT_STOP_AFTER_EMPTY = int(os.getenv("SSR_SPLIT_STOP_AFTER_EMPTY", "12"))
 RESPECT_ROBOTS = os.getenv("RESPECT_ROBOTS", "true").lower() == "true"
 
 USER_AGENT = os.getenv(
