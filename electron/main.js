@@ -88,6 +88,7 @@ async function createWindow() {
       // npm start dùng dữ liệu ngay trong project để test và kiểm tra dễ dàng.
       // Bản cài ghi vào <thư mục cài>\data; không ghi được thì rơi về AppData.
       TOOL_CRAWLER_DATA_DIR: dataDir(root),
+      TRIP_APP_VERSION: app.getVersion(),
       PYTHONUTF8: '1',
     },
     stdio: ['ignore', 'pipe', 'pipe'],

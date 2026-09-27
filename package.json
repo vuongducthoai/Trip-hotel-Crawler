@@ -60,10 +60,6 @@
       {
         "from": "update-url.txt",
         "to": "update-url.txt"
-      },
-      {
-        "from": "package.json",
-        "to": "package.json"
       }
     ],
     "win": {

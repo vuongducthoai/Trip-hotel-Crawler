@@ -356,6 +356,8 @@ def restore_backup(name: str, replace: bool = False) -> dict:
 
 
 def app_version() -> str:
+    if os.getenv("TRIP_APP_VERSION"):
+        return os.getenv("TRIP_APP_VERSION", "")
     try:
         return json.loads((ROOT / "package.json").read_text(encoding="utf-8")).get("version", "")
     except (OSError, ValueError):
