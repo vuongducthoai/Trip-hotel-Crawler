@@ -45,7 +45,9 @@ USER_AGENT = os.getenv(
     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
 )
 
-VN_CITIES: list[dict] = [
+import destinations
+
+CORE_VN_CITIES: list[dict] = [
     {"id": 301, "name": "TP. Hồ Chí Minh", "name_en": "Ho Chi Minh City", "country_id": 111},
     {"id": 286, "name": "Hà Nội", "name_en": "Hanoi", "country_id": 111},
     {"id": 1356, "name": "Đà Nẵng", "name_en": "Da Nang", "country_id": 111},
@@ -54,6 +56,8 @@ VN_CITIES: list[dict] = [
     {"id": 4134, "name": "Phan Thiết", "name_en": "Phan Thiet", "country_id": 111},
     {"id": 5649, "name": "Đảo Phú Quốc", "name_en": "Phu Quoc Island", "country_id": 111},
 ]
+
+VN_CITIES: list[dict] = CORE_VN_CITIES + destinations.all_cities()
 
 
 def _parse_proxy_line(line: str) -> tuple[str, str, str]:

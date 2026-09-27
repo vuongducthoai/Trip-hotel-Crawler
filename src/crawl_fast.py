@@ -85,7 +85,7 @@ async def export_cookies(locale: str, currency: str, wait_seconds: int = 45) -> 
     async with async_playwright() as playwright:
         options = {
             "user_data_dir": str(config.profile_dir(locale, currency)),
-            "channel": "chrome",
+            "channel": "msedge",
             "headless": False,
             "locale": locale,
             "timezone_id": config.TIMEZONE,

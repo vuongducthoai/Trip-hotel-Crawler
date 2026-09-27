@@ -18,6 +18,7 @@ if (-not (Test-Path -LiteralPath $python)) { $python = 'python' }
   --hidden-import crawl_pipeline `
   --hidden-import cookie_refresh `
   --hidden-import xuat_csv `
+  --hidden-import destinations `
   server.py
 
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

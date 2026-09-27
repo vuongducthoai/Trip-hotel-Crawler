@@ -630,7 +630,7 @@ async def main(args: argparse.Namespace) -> None:
     async with async_playwright() as p:
         launch_options = dict(
             user_data_dir=str(profile_path),
-            channel="chrome",
+            channel="msedge",
             headless=config.HEADLESS,
             locale=locale,
             timezone_id=config.TIMEZONE,

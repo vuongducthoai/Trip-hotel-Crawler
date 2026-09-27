@@ -24,6 +24,7 @@
     "extraResources": [
       { "from": "server.py", "to": "server.py" },
       { "from": "src", "to": "src" },
+      { "from": "data", "to": "data" },
       { "from": "web", "to": "web" },
       { "from": ".env.example", "to": ".env.example" },
       { "from": "requirements.txt", "to": "requirements.txt" },

@@ -13,7 +13,7 @@ import io
 import threading
 from argparse import Namespace
 from contextlib import redirect_stderr, redirect_stdout
-from datetime import datetime
+from datetime import datetime, timedelta
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -29,6 +29,7 @@ ROOT = (Path(sys.executable).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 import config
+import destinations
 import raw_store
 from crawl_fast import raw_city_id, raw_city_info, raw_complete
 from crawl_jobs import JobRunner
@@ -204,12 +205,12 @@ def parse_trip_url(value: str) -> dict:
         raise ValueError("Không tìm thấy cityId trong URL. Hãy mở đúng trang kết quả danh sách rồi sao chép URL.")
     city_id = int(city_raw)
 
-    known = next((city for city in config.VN_CITIES if city["id"] == city_id), None)
+    known = destinations.find_by_city_id(city_id) or next((city for city in config.VN_CITIES if city.get("id") == city_id), None)
     city_name = next((query.get(key) for key in ("cityname", "searchword", "destname") if query.get(key)), None)
     if city_name:
         city_name = city_name.split(",", 1)[0].strip()
     if not city_name and known:
-        city_name = known["name"]
+        city_name = known.get("city_name") or known.get("name")
     if not city_name:
         slug = unquote(parsed.path.rstrip("/").split("/")[-1]).replace("-", " ").strip()
         city_name = slug if slug and slug.lower() not in {"list", "hotels"} else f"Thành phố {city_id}"
@@ -217,11 +218,11 @@ def parse_trip_url(value: str) -> dict:
     country_raw = next((query.get(key) for key in ("countryid", "country") if query.get(key)), None)
     country_id = int(country_raw) if country_raw and str(country_raw).isdigit() else int((known or {}).get("country_id") or 111)
     province_raw = query.get("provinceid")
-    province_id = int(province_raw) if province_raw and str(province_raw).isdigit() else 0
+    province_id = int(province_raw) if province_raw and str(province_raw).isdigit() else int((known or {}).get("province_id") or 0)
     country_name = next((query.get(key) for key in ("countryname",) if query.get(key)), None)
     if not country_name and query.get("destname") and "," in query["destname"]:
         country_name = query["destname"].split(",", 1)[1].strip()
-    country_name = country_name or COUNTRY_NAMES.get(country_id, f"Quốc gia {country_id}")
+    country_name = country_name or COUNTRY_NAMES.get(country_id) or (known and known.get("country_name")) or destinations.find_country_name(country_id)
     return {"city_id": city_id, "province_id": province_id, "country_id": country_id,
             "city_name": city_name, "country_name": country_name}
 
@@ -270,6 +271,8 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         parsed = urlparse(self.path)
         try:
+            if parsed.path == "/api/destinations":
+                return self.send_json(destinations.get_catalog())
             if parsed.path == "/api/crawl/jobs":
                 return self.send_json(RUNNER.status())
             if parsed.path == "/api/tien-do":
@@ -295,6 +298,26 @@ class Handler(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             body = self.read_json()
+            if self.path == "/api/destinations/preview":
+                city_id = int(body.get("city_id") or 0)
+                item = destinations.find_by_city_id(city_id)
+                if not item:
+                    raise ValueError("Không tìm thấy thành phố trong danh mục.")
+                locale = str(body.get("locale") or "vi-VN")
+                currency = str(body.get("currency") or "VND")
+                tomorrow = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
+                day_after = (datetime.now() + timedelta(days=2)).strftime("%Y-%m-%d")
+                import crawl_api
+                url = crawl_api.build_list_url(
+                    {"id": item["city_id"], "name": item["city_name"], "province_id": item["province_id"],
+                     "country_id": item["country_id"], "country_name": item["country_name"]},
+                    tomorrow, day_after, locale, currency
+                )
+                return self.send_json({
+                    "place": item,
+                    "url": url,
+                    "languages": city_storage_stats(city_id),
+                })
             if self.path == "/api/crawl/start":
                 amount = int(body.get("so_luong", 0))
                 if not 1 <= amount <= 100_000:
@@ -302,13 +325,37 @@ class Handler(BaseHTTPRequestHandler):
                 languages = body.get("ngon_ngu") or []
                 if not languages or any(lang not in {"vi", "en"} for lang in languages):
                     raise ValueError("Hãy chọn ít nhất một ngôn ngữ hợp lệ.")
-                place = parse_trip_url(str(body.get("url") or ""))
+                if body.get("city_id"):
+                    item = destinations.find_by_city_id(int(body["city_id"]))
+                    if not item:
+                        raise ValueError("Không tìm thấy thành phố trong danh mục.")
+                    place = {
+                        "city_id": item["city_id"],
+                        "province_id": item["province_id"],
+                        "country_id": item["country_id"],
+                        "city_name": item["city_name"],
+                        "country_name": item["country_name"],
+                    }
+                else:
+                    place = parse_trip_url(str(body.get("url") or ""))
                 return self.send_json(RUNNER.start_crawl({**place, "limit": amount,
                                                           "continue_mode": bool(body.get("tiep_tuc")),
                                                           "languages": list(dict.fromkeys(languages))}),
                                       HTTPStatus.ACCEPTED)
             if self.path == "/api/crawl/thong-ke":
-                place = parse_trip_url(str(body.get("url") or ""))
+                if body.get("city_id"):
+                    item = destinations.find_by_city_id(int(body["city_id"]))
+                    if not item:
+                        raise ValueError("Không tìm thấy thành phố trong danh mục.")
+                    place = {
+                        "city_id": item["city_id"],
+                        "province_id": item["province_id"],
+                        "country_id": item["country_id"],
+                        "city_name": item["city_name"],
+                        "country_name": item["country_name"],
+                    }
+                else:
+                    place = parse_trip_url(str(body.get("url") or ""))
                 return self.send_json({**place, "languages": city_storage_stats(place["city_id"])})
             if self.path == "/api/crawl/stop":
                 return self.send_json(RUNNER.stop(), HTTPStatus.ACCEPTED)

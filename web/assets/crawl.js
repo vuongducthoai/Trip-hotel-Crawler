@@ -8,6 +8,8 @@
   let cityTimer;
   let jobWasRunning = false;
   let continueMode = false;
+  let catalogData = { countries: [], catalog: {} };
+  let activeTab = 'destination';
 
   async function api(path, options = {}) {
     const response = await fetch(path, options);
@@ -71,19 +73,106 @@
     scheduleCityStats();
   }
 
-  async function refreshCityStats() {
-    const url = $('url').value.trim();
-    const box = $('city-status');
-    if (!url || !url.includes('trip.com')) {
-      box.hidden = true;
+  function setTab(tabName) {
+    activeTab = tabName;
+    const isDest = tabName === 'destination';
+    $('tab-destination').classList.toggle('active', isDest);
+    $('tab-destination').setAttribute('aria-selected', isDest ? 'true' : 'false');
+    $('tab-custom-url').classList.toggle('active', !isDest);
+    $('tab-custom-url').setAttribute('aria-selected', !isDest ? 'true' : 'false');
+    $('pane-destination').hidden = !isDest;
+    $('pane-custom-url').hidden = isDest;
+    scheduleCityStats();
+  }
+
+  function populateCitiesForCountry(countryName, selectCityId = null) {
+    const citySelect = $('select-city');
+    citySelect.innerHTML = '';
+    const cities = (catalogData.catalog && catalogData.catalog[countryName]) || [];
+    if (!cities.length) {
+      citySelect.disabled = true;
       return;
     }
+    citySelect.disabled = false;
+    cities.forEach((city) => {
+      const opt = document.createElement('option');
+      opt.value = city.city_id;
+      opt.textContent = city.city_name;
+      if (selectCityId && Number(city.city_id) === Number(selectCityId)) {
+        opt.selected = true;
+      }
+      citySelect.appendChild(opt);
+    });
+  }
+
+  function selectDestinationByCityId(cityId) {
+    if (!catalogData.catalog) return false;
+    for (const [country, cities] of Object.entries(catalogData.catalog)) {
+      const found = cities.find((c) => Number(c.city_id) === Number(cityId));
+      if (found) {
+        $('select-country').value = country;
+        populateCitiesForCountry(country, cityId);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  async function loadDestinations() {
+    try {
+      catalogData = await api('/api/destinations');
+      const countrySelect = $('select-country');
+      countrySelect.innerHTML = '';
+      (catalogData.countries || []).forEach((country) => {
+        const opt = document.createElement('option');
+        opt.value = country;
+        opt.textContent = country;
+        countrySelect.appendChild(opt);
+      });
+      if (catalogData.countries && catalogData.countries.length) {
+        const defaultCountry = catalogData.countries.includes('Thailand') ? 'Thailand' : catalogData.countries[0];
+        countrySelect.value = defaultCountry;
+        populateCitiesForCountry(defaultCountry);
+      }
+      scheduleCityStats();
+    } catch (err) {
+      console.error('Không tải được danh mục điểm đến:', err);
+    }
+  }
+
+  async function refreshCityStats() {
+    const box = $('city-status');
+    const previewUrlNode = $('destination-preview-url');
+    let requestBody = {};
+    if (activeTab === 'destination') {
+      const city_id = Number($('select-city').value);
+      if (!city_id) {
+        box.hidden = true;
+        if (previewUrlNode) previewUrlNode.textContent = '';
+        return;
+      }
+      const locale = $('lang-vi').checked ? 'vi-VN' : 'en-US';
+      const currency = $('lang-vi').checked ? 'VND' : 'USD';
+      requestBody = { city_id, locale, currency };
+    } else {
+      const url = $('url').value.trim();
+      if (!url || !url.includes('trip.com')) {
+        box.hidden = true;
+        return;
+      }
+      requestBody = { url };
+    }
+
     box.hidden = false;
     box.classList.add('loading');
     $('city-status-title').textContent = 'Đang kiểm tra dữ liệu đã lưu…';
     $('city-status-text').textContent = '';
     try {
-      const data = await post('/api/crawl/thong-ke', { url });
+      const endpoint = activeTab === 'destination' ? '/api/destinations/preview' : '/api/crawl/thong-ke';
+      const data = await post(endpoint, requestBody);
+      if (activeTab === 'destination' && data.url && previewUrlNode) {
+        previewUrlNode.textContent = `URL tự sinh: ${data.url}`;
+      }
       const selected = languages();
       const labels = { vi: 'VI', en: 'EN' };
       const target = Math.max(1, Number($('amount').value) || 1);
@@ -96,7 +185,10 @@
         const remaining = Math.max(0, target - item.complete);
         return `${labels[lang]}: ${item.complete} hoàn chỉnh · còn ${remaining} để đạt ${target}${repair}`;
       });
-      $('city-status-title').textContent = `${data.city_name} · có thể tiếp tục lượt trước`;
+      const cityName = data.city_name || (data.place && data.place.city_name);
+      const countryName = data.country_name || (data.place && data.place.country_name);
+      const titleCountry = countryName ? ` (${countryName})` : '';
+      $('city-status-title').textContent = `${cityName}${titleCountry} · có thể tiếp tục lượt trước`;
       $('city-status-text').textContent = parts.join('  |  ') || 'Chọn ngôn ngữ để xem thống kê.';
       box.classList.remove('loading');
     } catch (_) {
@@ -105,16 +197,22 @@
   }
 
   async function startCrawl() {
-    const url = $('url').value.trim();
     const amount = Number($('amount').value);
-    if (!url) return toast('Hãy dán URL trang danh sách Trip.com.', 'error');
     if (!languages().length) return toast('Hãy chọn ít nhất một ngôn ngữ.', 'error');
     if (!Number.isInteger(amount) || amount < 1) return toast('Số lượng khách sạn không hợp lệ.', 'error');
+    let payload = {};
+    if (activeTab === 'destination') {
+      const city_id = Number($('select-city').value);
+      if (!city_id) return toast('Hãy chọn thành phố trong danh mục.', 'error');
+      payload = { city_id, so_luong: amount, ngon_ngu: languages(), tiep_tuc: continueMode };
+    } else {
+      const url = $('url').value.trim();
+      if (!url) return toast('Hãy dán URL trang danh sách Trip.com.', 'error');
+      payload = { url, so_luong: amount, ngon_ngu: languages(), tiep_tuc: continueMode };
+    }
     saveForm();
     try {
-      await post('/api/crawl/start', {
-        url, so_luong: amount, ngon_ngu: languages(), tiep_tuc: continueMode,
-      });
+      await post('/api/crawl/start', payload);
       toast(continueMode ? `Đang tìm và cào thêm ${amount} khách sạn.` : 'Đã bắt đầu cào dữ liệu.');
       await refreshJob();
     } catch (error) { toast(error.message, 'error'); }
@@ -327,6 +425,12 @@
       countryId: item.country_id || 0, cityName: item.city_name,
     });
     $('url').value = `https://vn.trip.com/hotels/list?${params.toString()}`;
+    const inCatalog = selectDestinationByCityId(item.city_id);
+    if (inCatalog) {
+      setTab('destination');
+    } else {
+      setTab('custom-url');
+    }
     $('lang-vi').checked = true;
     setContinueMode(true);
     saveForm();
@@ -495,6 +599,13 @@
     } catch (_) { toast('Không thể sao chép log.', 'error'); }
   }
 
+  $('tab-destination').addEventListener('click', () => setTab('destination'));
+  $('tab-custom-url').addEventListener('click', () => setTab('custom-url'));
+  $('select-country').addEventListener('change', () => {
+    populateCitiesForCountry($('select-country').value);
+    scheduleCityStats();
+  });
+  $('select-city').addEventListener('change', scheduleCityStats);
   $('crawl').addEventListener('click', startCrawl);
   $('stop').addEventListener('click', stopCrawl);
   $('cookie').addEventListener('click', refreshCookie);
@@ -513,7 +624,7 @@
 
   restoreForm();
   setContinueMode(false);
-  scheduleCityStats();
+  loadDestinations();
   refreshJob();
   refreshFiles();
   refreshCities();
