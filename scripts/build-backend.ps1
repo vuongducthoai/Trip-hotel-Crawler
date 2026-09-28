@@ -21,6 +21,7 @@ if (-not (Test-Path -LiteralPath $python)) { $python = 'python' }
   --hidden-import kho_du_lieu `
   --hidden-import kiem_tra `
   --hidden-import thay_doi `
+  --hidden-import danh_sach_id `
   --hidden-import xuat_csv `
   --hidden-import destinations `
   server.py

@@ -181,16 +181,26 @@ class JobRunner:
                     self.queue.appendleft(job)
         threading.Thread(target=run, daemon=True).start()
 
-    def start_cao_bu(self, ids: list[str], languages: list[str]) -> dict:
-        """Cào lại đúng các ID được chọn (ghi đè raw cũ) cho từng ngôn ngữ."""
+    def start_cao_bu(self, ids: list[str], languages: list[str], *, bo_qua_da_co: bool = False,
+                     nguon: str = "cao_bu") -> dict:
+        """Cào đúng các ID được đưa cho từng ngôn ngữ.
+
+        nguon="cao_bu": cào lại (ghi đè raw cũ). nguon="danh_sach": người dùng đưa
+        danh sách ID/URL; bo_qua_da_co=True thì raw đã hoàn chỉnh được bỏ qua.
+        """
         ids_dir = config.OUTPUT_DIR / "ids"
         ids_dir.mkdir(parents=True, exist_ok=True)
-        ids_file = ids_dir / f"cao_bu_{datetime.now():%Y%m%d_%H%M%S}.txt"
+        ids_file = ids_dir / f"{nguon}_{datetime.now():%Y%m%d_%H%M%S}.txt"
         ids_file.write_text("\n".join(ids), encoding="utf-8")
-        argv = self._worker_command("caobu") + ["--ids-file", str(ids_file), "--languages", *languages]
-        details = {"so_khach_san": len(ids), "languages": list(languages), "ids_file": str(ids_file)}
-        return self._start(Job("caobu", f"Cào bù {len(ids)} khách sạn", argv,
-                               len(ids) * len(languages), details))
+        nhan = "CÀO DANH SÁCH" if nguon == "danh_sach" else "CÀO BÙ"
+        argv = self._worker_command("caobu") + ["--ids-file", str(ids_file), "--languages", *languages,
+                                               "--nhan", nhan]
+        if bo_qua_da_co:
+            argv.append("--bo-qua-da-co")
+        details = {"so_khach_san": len(ids), "languages": list(languages), "ids_file": str(ids_file),
+                   "nguon": nguon, "bo_qua_da_co": bo_qua_da_co}
+        label = f"Cào danh sách {len(ids)} khách sạn" if nguon == "danh_sach" else f"Cào bù {len(ids)} khách sạn"
+        return self._start(Job("caobu", label, argv, len(ids) * len(languages), details))
 
     def start_cookie(self, languages: list[str]) -> dict:
         argv = self._worker_command("cookie") + ["--languages", *languages]

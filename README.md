@@ -114,6 +114,19 @@ cách này chỉ lấy được vài trăm khách sạn; muốn lấy trọn v�
 hoạt động (chờ Trip.com gỡ chặn, đăng nhập profile bằng
 `python scripts\mo_profile.py --lang en`).
 
+## Cào theo danh sách ID / URL
+
+Tab **Danh sách ID / URL** trong khối Thiết lập: dán mỗi dòng một `hotelId` hoặc URL trang
+khách sạn Trip.com (`…/hotels/detail/?hotelId=…`, `…-hotel-detail-<id>/…`), hoặc kéo thả
+file `.txt` / `.csv` / `.tsv` / `.xlsx` (mọi ô đều được quét, không cần đúng tên cột).
+Bấm **Kiểm tra danh sách** → thấy số ID hợp lệ, số đã có đủ trong kho, trùng lặp, dòng
+không hiểu, và bảng xem trước. Bấm **Cào N khách sạn trong danh sách** → chạy thẳng bước
+cào chi tiết cho đúng các ID đó (không qua bước lấy danh sách theo thành phố, không gọi
+`fetchHotelList`), khách sạn ngoài 81 thành phố trong danh mục vẫn cào được; thành phố tự
+lấy từ raw. Mặc định bỏ qua khách sạn đã đủ trong kho; tick *Cào lại cả khách sạn đã có*
+để ghi đè. API: `POST /api/danh-sach/phan-tich {text}`, `POST /api/danh-sach/tai-file?ten=…`
+(body là file), `POST /api/crawl/start-ids {ids, ngon_ngu, cao_lai}`. Tối đa 5.000 ID/lần.
+
 ## Kiểm tra trước khi cào
 
 Bấm **Cào dữ liệu** thì app kiểm tra trước (`POST /api/kiem-tra`): Chrome profile, file

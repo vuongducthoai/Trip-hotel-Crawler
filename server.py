@@ -11,6 +11,7 @@ import subprocess
 import sys
 import io
 import threading
+import zipfile
 from argparse import Namespace
 from contextlib import redirect_stderr, redirect_stdout
 from datetime import datetime, timedelta
@@ -35,6 +36,7 @@ from crawl_fast import raw_city_id, raw_city_info, raw_complete
 from crawl_jobs import JobRunner
 import kho_du_lieu
 import kiem_tra
+import danh_sach_id
 
 HOST, PORT = "127.0.0.1", 8765
 WEB_DIR = ROOT / "web"
@@ -461,6 +463,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
 
     def do_POST(self):
+        if self.path.startswith("/api/danh-sach/tai-file"):
+            return self.upload_id_file()
         try:
             body = self.read_json()
             if self.path == "/api/destinations/preview":
@@ -556,6 +560,32 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json(RUNNER.stop(), HTTPStatus.ACCEPTED)
             if self.path == "/api/crawl/history/clear":
                 return self.send_json(RUNNER.clear_history())
+            if self.path == "/api/danh-sach/phan-tich":
+                result = danh_sach_id.phan_tich(str(body.get("text") or ""))
+                # Đối chiếu với kho: ID nào đã có raw (theo ngôn ngữ), đã đủ chưa
+                trong_kho = {it["trip_hotel_id"]: it for it in kho_du_lieu.danh_sach()}
+                da_co = {}
+                for hid in result["ids"]:
+                    it = trong_kho.get(hid)
+                    if it:
+                        da_co[hid] = {lang: bool(ban.get("hoan_chinh")) for lang, ban in it["ngon_ngu"].items()}
+                        da_co[hid]["ten"] = it["ten"]
+                        da_co[hid]["city_name"] = it["city_name"]
+                result["da_co"] = da_co
+                return self.send_json(result)
+            if self.path == "/api/crawl/start-ids":
+                ids = [str(x).strip() for x in (body.get("ids") or []) if str(x).strip().isdigit()]
+                if not ids:
+                    raise ValueError("Danh sách không có ID hợp lệ.")
+                if len(ids) > danh_sach_id.MAX_ITEMS:
+                    raise ValueError(f"Mỗi lần tối đa {danh_sach_id.MAX_ITEMS} khách sạn.")
+                languages = body.get("ngon_ngu") or ["vi"]
+                if any(lang not in {"vi", "en"} for lang in languages):
+                    raise ValueError("Ngôn ngữ không hợp lệ.")
+                return self.send_json(RUNNER.start_cao_bu(list(dict.fromkeys(ids)), list(dict.fromkeys(languages)),
+                                                          bo_qua_da_co=not bool(body.get("cao_lai")),
+                                                          nguon="danh_sach"),
+                                      HTTPStatus.ACCEPTED)
             if self.path == "/api/kho/cao-bu":
                 ids = [str(x).strip() for x in (body.get("ids") or []) if str(x).strip().isdigit()]
                 if not ids:
@@ -646,6 +676,29 @@ class Handler(BaseHTTPRequestHandler):
             import traceback
             print(f"LỖI POST {self.path}: {exc}\n{traceback.format_exc()}", file=sys.stderr)
             self.send_json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
+
+    def upload_id_file(self):
+        """Nhận file .txt/.csv/.tsv/.xlsx (body thô), trả về văn bản đã rút + kết quả phân tích."""
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            if length <= 0:
+                raise ValueError("File rỗng.")
+            if length > 25 * 1024 * 1024:
+                raise ValueError("File quá lớn (tối đa 25 MB).")
+            name = unquote((parse_qs(urlparse(self.path).query).get("ten") or ["danh_sach.txt"])[0])
+            data = self.rfile.read(length)
+            text = danh_sach_id.doc_file(name, data)
+            result = danh_sach_id.phan_tich(text)
+            result["ten_file"] = name
+            result["so_dong"] = len([l for l in text.splitlines() if l.strip()])
+            print(f"Đã đọc file danh sách {name}: {result['so_dong']} dòng, {len(result['ids'])} ID")
+            return self.send_json(result)
+        except (ValueError, zipfile.BadZipFile) as exc:
+            return self.send_json({"error": f"Không đọc được file: {exc}"}, HTTPStatus.BAD_REQUEST)
+        except Exception as exc:
+            import traceback
+            print(f"LỖI tải file danh sách: {exc}\n{traceback.format_exc()}", file=sys.stderr)
+            return self.send_json({"error": str(exc)}, HTTPStatus.BAD_REQUEST)
 
     @staticmethod
     def _slug(text: str) -> str:

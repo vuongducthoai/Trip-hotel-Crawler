@@ -45,6 +45,7 @@
       <div class="mode-tabs" role="tablist">
         <button type="button" id="tab-destination" class="tab-button active" role="tab" aria-selected="true">Chọn điểm đến (81 TP)</button>
         <button type="button" id="tab-custom-url" class="tab-button" role="tab" aria-selected="false">Dán URL tùy biến</button>
+        <button type="button" id="tab-ids" class="tab-button" role="tab" aria-selected="false">Danh sách ID / URL</button>
       </div>
       <div id="pane-destination" class="tab-pane active">
         <div class="destination-grid">
@@ -61,6 +62,25 @@
         <label class="field full"><span>URL trang danh sách Trip.com</span>
           <input id="url" type="url" placeholder="https://vn.trip.com/hotels/list?cityId=…" autocomplete="off" spellcheck="false">
         </label>
+      </div>
+      <div id="pane-ids" class="tab-pane" hidden>
+        <div class="ids-grid">
+          <label class="field"><span>Dán danh sách <span class="help" tabindex="0"><span class="help-icon" aria-label="Hướng dẫn">?</span><span class="help-pop" role="tooltip"><b>Mỗi dòng một khách sạn</b>, chấp nhận:<br>• <code>1971156</code> — hotelId (số 4–12 chữ số)<br>• <code>https://vn.trip.com/hotels/detail/?hotelId=1971156…</code> — URL trang khách sạn<br>• <code>2068285, 427787</code> — nhiều ID trên một dòng, cách nhau bởi dấu phẩy / chấm phẩy / tab<br>• <code>ID: 427787 - Homeinn</code> — có chữ kèm theo vẫn nhận số đầu tiên<br>• Dòng bắt đầu bằng <code>#</code> là ghi chú, bị bỏ qua<br>ID trùng tự gộp; dòng không hiểu sẽ được liệt kê sau khi bấm <b>Kiểm tra danh sách</b>.</span></span></span>
+            <textarea id="ids-text" class="text-area" rows="7" placeholder="1971156&#10;https://vn.trip.com/hotels/detail/?hotelId=113902468&#10;2068285, 427787" spellcheck="false"></textarea>
+          </label>
+          <div class="field"><span>Hoặc nhập từ file <span class="help" tabindex="0"><span class="help-icon" aria-label="Hướng dẫn">?</span><span class="help-pop" role="tooltip"><b>Không cần định dạng đặc biệt.</b> Tool quét <b>mọi ô</b> trong file và nhặt ra hotelId (số 4–12 chữ số) hoặc URL trang khách sạn Trip.com; có dòng tiêu đề hay cột khác cũng không sao.<br><br>• <b>.txt</b>: mỗi dòng một ID/URL<br>• <b>.csv / .tsv</b>: bất kỳ cột nào, phân cách , ; tab đều được (UTF-8 hoặc Excel)<br>• <b>.xlsx</b>: quét mọi sheet, mọi ô; ô số dạng 1.97E+06 vẫn đọc đúng<br><br>Sau khi đọc, các ID được đổ vào ô dán bên trái để anh kiểm tra/sửa trước khi cào. Tối đa 5.000 khách sạn một lần, file ≤ 25 MB.</span></span></span>
+            <div id="ids-drop" class="drop-zone">
+              <input id="ids-file" type="file" accept=".txt,.csv,.tsv,.xlsx,.xlsm" hidden>
+              <strong>Kéo thả file vào đây</strong>
+              <span>hoặc <button type="button" id="ids-browse" class="text-button">chọn file</button> · .txt .csv .tsv .xlsx</span>
+              <small id="ids-file-name" class="muted"></small>
+            </div>
+            <label class="check-line"><input id="ids-cao-lai" type="checkbox"> Cào lại cả khách sạn đã có đủ trong kho</label>
+            <button type="button" id="ids-check" class="button secondary">Kiểm tra danh sách</button>
+          </div>
+        </div>
+        <div id="ids-summary" class="ids-summary" hidden></div>
+        <div id="ids-preview" class="ids-preview" hidden></div>
       </div>
       <div class="form-grid">
         <label class="field"><span id="amount-label">Số lượng khách sạn (tổng mục tiêu)</span>

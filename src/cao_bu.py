@@ -29,13 +29,15 @@ def main(args) -> int:
     if not ids:
         print("Không có ID nào để cào bù.")
         return 2
-    print(f"CÀO BÙ · {len(ids)} khách sạn · ngôn ngữ: {', '.join(args.languages)}")
+    che_do = "bỏ qua khách sạn đã đủ" if getattr(args, "bo_qua_da_co", False) else "cào lại tất cả"
+    print(f"{getattr(args, 'nhan', 'CÀO BÙ')} · {len(ids)} khách sạn · ngôn ngữ: {', '.join(args.languages)} · {che_do}")
     worst = 0
     for index, lang in enumerate(args.languages, 1):
         locale, currency = MARKETS[lang]
         print(f"NGÔN NGỮ {index}/{len(args.languages)} · {locale}")
         detail_args = Namespace(
-            export_cookies=False, cookie_wait=45, chi_dump=True, force=True,
+            export_cookies=False, cookie_wait=45, chi_dump=True,
+            force=not getattr(args, "bo_qua_da_co", False),
             hotel_id=None, ids=ids, ids_file=None, file=None,
             locale=locale, currency=currency, checkin=None, checkout=None,
             limit=len(ids), delay=2.0, jitter=1.5, concurrency=1, timeout=30.0,
@@ -53,4 +55,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ids-file", required=True)
     parser.add_argument("--languages", nargs="+", choices=("vi", "en"), required=True)
+    parser.add_argument("--bo-qua-da-co", action="store_true", help="không cào lại raw đã hoàn chỉnh")
+    parser.add_argument("--nhan", default="CÀO BÙ", help="nhãn in ở dòng đầu log")
     raise SystemExit(main(parser.parse_args()))
