@@ -114,7 +114,11 @@
     cities.forEach((city) => {
       const opt = document.createElement('option');
       opt.value = city.city_id;
-      opt.textContent = city.city_name;
+      const tagStr = (city.tags && city.tags.length) ? ` [${city.tags.join(' ')}]` : '';
+      opt.textContent = `${city.city_name}${tagStr}`;
+      if (city.tags && city.tags.length) {
+        opt.dataset.tags = JSON.stringify(city.tags);
+      }
       if (selectCityId && Number(city.city_id) === Number(selectCityId)) {
         opt.selected = true;
       }
@@ -143,10 +147,22 @@
       (catalogData.countries || []).forEach((country) => {
         const opt = document.createElement('option');
         opt.value = country;
-        opt.textContent = country;
+        const cTags = (catalogData.country_tags && catalogData.country_tags[country]) || [];
+        const tagStr = cTags.length ? ` [${cTags.join(' ')}]` : '';
+        opt.textContent = `${country}${tagStr}`;
+        if (cTags.length) {
+          opt.dataset.tags = JSON.stringify(cTags);
+        }
         countrySelect.appendChild(opt);
       });
       if (catalogData.countries && catalogData.countries.length) {
+        const totalCities = Object.values(catalogData.catalog || {}).reduce((acc, list) => acc + list.length, 0);
+        const tabBtn = $('tab-destination');
+        if (tabBtn) tabBtn.textContent = `Chọn điểm đến (${totalCities.toLocaleString('vi-VN')} TP)`;
+        const countryLabel = document.querySelector('#pane-destination label.field span');
+        if (countryLabel && countryLabel.textContent.includes('Quốc gia')) {
+          countryLabel.textContent = `Quốc gia (${catalogData.countries.length} quốc gia)`;
+        }
         const defaultCountry = catalogData.countries.includes('Thailand') ? 'Thailand' : catalogData.countries[0];
         countrySelect.value = defaultCountry;
         populateCitiesForCountry(defaultCountry);
@@ -1142,13 +1158,23 @@
   $('tab-custom-url').addEventListener('click', () => setTab('custom-url'));
   // Ô chọn gõ-tìm cho Quốc gia / Thành phố (select gốc vẫn giữ giá trị).
   if (window.makeCombo) {
-    window.makeCombo($('select-country'), { placeholder: 'Gõ tên quốc gia…' });
+    window.makeCombo($('select-country'), {
+      placeholder: 'Gõ tên quốc gia hoặc #Vinfast, #GreenSM…',
+      items: () => (catalogData.countries || []).map((country) => ({
+        value: country,
+        label: country,
+        tags: (catalogData.country_tags && catalogData.country_tags[country]) || [],
+      })),
+    });
     window.makeCombo($('select-city'), {
-      placeholder: 'Gõ tên thành phố (vd. hk, ho, bang)…',
+      placeholder: 'Gõ tên thành phố (vd. hk, bang) hoặc #Vinfast, #GreenSM…',
       // Tìm trên toàn bộ danh mục; chọn thành phố nước khác thì tự đổi quốc gia.
       items: () => Object.entries(catalogData.catalog || {}).flatMap(([country, cities]) =>
         cities.map((c) => ({
-          value: c.city_id, label: c.city_name, extra: country,
+          value: c.city_id,
+          label: c.city_name,
+          extra: country,
+          tags: c.tags || [],
           own: country === $('select-country').value,   // thuộc quốc gia đang chọn
           pick: () => {
             if ($('select-country').value !== country) {

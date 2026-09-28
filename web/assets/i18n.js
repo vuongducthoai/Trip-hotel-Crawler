@@ -17,11 +17,15 @@
     'Thống kê dữ liệu': 'Data stats', 'raw đã lưu': 'raw files saved', 'file CSV': 'CSV files', 'khách sạn': 'hotels',
     'Tiếng Việt': 'Vietnamese', 'English': 'English', 'Ngôn ngữ': 'Languages',
     // --- thiết lập ---
-    'Thiết lập lượt crawl': 'Crawl setup',
+    'Thiết lập lượt cào': 'Crawl setup',
+    'Chọn từ 1.050 thành phố quốc tế có sẵn hoặc dán URL tùy biến.': 'Pick one of 1,050 international cities or paste a custom URL.',
+    'Chọn điểm đến (1.050 TP)': 'Pick a destination (1,050 cities)', 'Dán URL tùy biến': 'Paste a custom URL',
+    'Quốc gia (151 quốc gia)': 'Country (151 countries)', 'Thành phố': 'City', 'URL trang danh sách Trip.com': 'Trip.com hotel list URL',
     'Chọn từ 81 thành phố quốc tế có sẵn hoặc dán URL tùy biến.': 'Pick one of 81 international cities or paste a custom URL.',
-    'Chọn điểm đến (81 TP)': 'Pick a destination (81 cities)', 'Dán URL tùy biến': 'Paste a custom URL',
-    'Quốc gia (19 quốc gia)': 'Country (19 countries)', 'Thành phố': 'City', 'URL trang danh sách Trip.com': 'Trip.com hotel list URL',
-    'Số lượng khách sạn (tổng mục tiêu)': 'Number of hotels (total target)', 'Số lượng khách sạn muốn crawl thêm': 'Number of extra hotels to crawl',
+    'Chọn điểm đến (81 TP)': 'Pick a destination (81 cities)',
+    'Quốc gia (19 quốc gia)': 'Country (19 countries)',
+    'Số lượng khách sạn (tổng mục tiêu)': 'Number of hotels (total target)', 'Số lượng khách sạn muốn cào thêm': 'Number of extra hotels to crawl',
+
     'Gõ tên quốc gia…': 'Type a country…', 'Gõ tên thành phố (vd. hk, ho, bang)…': 'Type a city (e.g. hk, ho, bang)…', 'Gõ để tìm…': 'Type to search…',
     'Không có kết quả.': 'No matches.',
     'Danh sách ID / URL': 'ID / URL list', 'Dán danh sách': 'Paste a list', 'Hướng dẫn': 'Help',
@@ -210,6 +214,9 @@
     [/(\d+) Trip\.com không có mô tả/g, '$1 without description on Trip.com'],
     [/^Đã xoá (\d+) file\.$/, 'Deleted $1 files.'], [/^Đã xoá (.+)$/, 'Deleted $1'],
     [/ · Mới nhất/, ' · Latest'], [/ · Đã tải (.+)$/, ' · Downloaded $1'],
+    [/^Chọn từ (\d[\d.,]*) thành phố quốc tế có sẵn hoặc dán URL tùy biến\.$/, 'Pick one of $1 international cities or paste a custom URL.'],
+    [/^Chọn điểm đến \((\d[\d.,]*) TP\)$/, 'Pick a destination ($1 cities)'],
+    [/^Quốc gia \((\d+) quốc gia\)$/, 'Country ($1 countries)'],
   ];
 
   const SKIP = 'pre, code, #log, .mono, .combo-list, .col-name, .detail-text, .policy-body, .policy-name h4, .nearby-list, .changes-table td, .file-info strong, .city-card-title strong, .detail-head h2, .detail-sub, #data-dir, #destination-preview-url, .schema';
