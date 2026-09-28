@@ -155,6 +155,13 @@
         countrySelect.appendChild(opt);
       });
       if (catalogData.countries && catalogData.countries.length) {
+        const totalCities = Object.values(catalogData.catalog || {}).reduce((acc, list) => acc + list.length, 0);
+        const tabBtn = $('tab-destination');
+        if (tabBtn) tabBtn.textContent = `Chọn điểm đến (${totalCities.toLocaleString('vi-VN')} TP)`;
+        const countryLabel = document.querySelector('#pane-destination label.field span');
+        if (countryLabel && countryLabel.textContent.includes('Quốc gia')) {
+          countryLabel.textContent = `Quốc gia (${catalogData.countries.length} quốc gia)`;
+        }
         const defaultCountry = catalogData.countries.includes('Thailand') ? 'Thailand' : catalogData.countries[0];
         countrySelect.value = defaultCountry;
         populateCitiesForCountry(defaultCountry);
