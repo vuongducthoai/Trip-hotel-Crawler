@@ -4,13 +4,16 @@ Bản CSV này phải ra ĐÚNG những dòng mà scripts/export_trip_property_t
 sinh ra từ DB — chỉ khác định dạng (CSV thay vì câu INSERT). Mọi thay đổi ở một
 bên phải chép sang bên kia, nếu không dữ liệu anh mentor nhận sẽ lệch.
 
-    python src/xuat_csv.py                                  # tất cả raw đã cào
+    python src/xuat_csv.py                                  # tất cả raw đã crawl
     python src/xuat_csv.py --ids-file output/ids/thu_hk.txt # chỉ vài khách sạn
     python src/xuat_csv.py --ra output/csv/hongkong.csv
     python src/xuat_csv.py --thu-muc-raw output/details/raw
 
 Ra một file CSV 7 cột, khớp thẳng bảng trip_tmp_property_translation:
     row_uuid, property_id, type, section_type, lang, field, value
+
+Field tripAdvisorId (type DESCRIPTION) lấy từ kết quả ghép của src/tripadvisor.py;
+khách sạn chưa ghép hoặc ghép chưa chắc (review) thì không có dòng này.
 """
 from __future__ import annotations
 
@@ -30,6 +33,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "src"))
 
 import raw_store                      # noqa: E402
+import tripadvisor                    # noqa: E402
 from v2.extract import build_bundle   # noqa: E402
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -125,7 +129,7 @@ class KhachSan:
 def doc_raw(thu_muc_raw: Path, chi_ids: set[str] | None) -> dict[str, KhachSan]:
     """Đọc mọi raw, mỗi khách sạn lấy file MỚI NHẤT của từng thị trường.
 
-    Giống newest_raw() của v2_loader: một khách sạn có thể có nhiều lần cào,
+    Giống newest_raw() của v2_loader: một khách sạn có thể có nhiều lần crawl,
     chỉ file mới nhất mới được tính.
     """
     moi_nhat: dict[tuple[str, str], tuple[float, Path]] = {}
@@ -206,7 +210,7 @@ def toa_do_poi(ks: dict[str, KhachSan]) -> dict[int, tuple]:
 def ten_nhom_du_phong(ks: dict[str, KhachSan]) -> dict[tuple[str, int], str]:
     """Tên phổ biến nhất của mỗi (ngôn ngữ, mã nhóm) — dùng khi Trip.com bỏ trống.
 
-    SQL tính trên TOÀN BỘ DB; ở đây chỉ tính trên các khách sạn đang xuất. Cào
+    SQL tính trên TOÀN BỘ DB; ở đây chỉ tính trên các khách sạn đang xuất. Crawl
     một thành phố ít khách sạn thì phần dự phòng này mỏng hơn, section_type có
     thể rơi thành số trần ('03' thay vì '03_Điểm nổi bật').
     """
@@ -227,6 +231,19 @@ def ten_nhom_du_phong(ks: dict[str, KhachSan]) -> dict[tuple[str, int], str]:
 # --------------------------------------------------------------------------
 # Dựng HTML chính sách — phải khớp CTE mau_html trong SQL
 # --------------------------------------------------------------------------
+def html_mo_ta(mo_ta: str | None) -> str | None:
+    """Mô tả: mỗi đoạn (cách nhau bằng xuống dòng) bọc một <p>, giống policy_content.
+
+    Đổi 2026-09-28 theo yêu cầu anh Bo: để text thuần xuống dòng thì lúc đưa lên
+    web dễ bị dính thành một khối; HTML <p> hiển thị thẳng được.
+    """
+    if not mo_ta:
+        return None
+    doan = [" ".join(d.split()) for d in mo_ta.replace("\r", "\n").split("\n")]
+    doan = [d for d in doan if d]
+    return "".join(f"<p>{thoat_html(d)}</p>" for d in doan) or None
+
+
 def html_chinh_sach(lines: list) -> str:
     """Mỗi dòng một <p>, giữ thứ tự. Dòng in_table liền nhau bọc <table>.
 
@@ -260,10 +277,13 @@ def sinh_dong(ks: dict[str, KhachSan]) -> Iterable[tuple]:
     """Trả (property_id, lang, ord, sub, row_uuid, type, section_type, field, value)."""
     nhom_dp = ten_nhom_du_phong(ks)
     toa_do = toa_do_poi(ks)
+    # Kết quả ghép Tripadvisor (output/tripadvisor/<id>.json) — chỉ 'matched' mới có ID.
+    ta = tripadvisor.doc_tat_ca()
 
     for hid, muc in ks.items():
         pid = int(hid)
         iso2 = MA_QUOC_GIA.get(muc.trip_country_id)
+        ta_id = tripadvisor.tripadvisor_id(ta.get(hid))
 
         for lang, ban in muc.ban.items():
             # ------------------------------------------------ DESCRIPTION
@@ -274,7 +294,8 @@ def sinh_dong(ks: dict[str, KhachSan]) -> Iterable[tuple]:
                 ("hotel_address", ban.address, 3),
                 ("countryCode", iso2, 4),
                 ("room_count", None if muc.room_count is None else str(muc.room_count), 5),
-                ("description", ban.description, 6),
+                ("description", html_mo_ta(ban.description), 6),
+                ("tripAdvisorId", ta_id, 7),
             ]
             for ten, gt, sub in truong:
                 yield (pid, lang, 1, sub, uid, "DESCRIPTION", "hotelInfo", ten, gt)

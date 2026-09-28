@@ -20,10 +20,20 @@ MARKETING_DESCRIPTION_MARKERS = (
 
 
 def clean_description(value):
-    """Trả nội dung mô tả dùng được; bỏ giá trị rỗng và quảng cáo SEO chung."""
+    """Trả nội dung mô tả dùng được; bỏ giá trị rỗng và quảng cáo SEO chung.
+
+    Giữ xuống dòng: Trip.com có khách sạn gom cả mô tả vào MỘT desc, các đoạn
+    ("Essential Facilities", "Local Attractions"…) chỉ cách nhau bằng "\n".
+    Mỗi dòng được gọn khoảng trắng riêng, các dòng nối lại bằng "\n\n" để
+    hiển thị/CSV ra đúng từng đoạn như trên Trip.com.
+    """
     if not isinstance(value, str):
         return None
-    text = ' '.join(html.unescape(re.sub(r'<[^>]+>', ' ', value)).split())
+    raw = re.sub(r'(?i)<br\s*/?>|</p>|</div>|</li>', '\n', value)
+    raw = html.unescape(re.sub(r'<[^>]+>', ' ', raw))
+    lines = [' '.join(line.split()) for line in raw.replace('\r', '\n').split('\n')]
+    lines = [line for line in lines if line]
+    text = '\n\n'.join(lines)
     folded = text.casefold()
     if not text or folded in EMPTY_DESCRIPTION_VALUES:
         return None

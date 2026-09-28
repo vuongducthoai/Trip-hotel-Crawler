@@ -1,4 +1,4 @@
-"""Chuẩn hoá ba phần dữ liệu dùng để hiển thị log khi đang cào."""
+"""Chuẩn hoá ba phần dữ liệu dùng để hiển thị log khi đang crawl."""
 from __future__ import annotations
 
 from hotel_description import description_text

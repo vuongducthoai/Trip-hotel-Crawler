@@ -1,6 +1,6 @@
 # Trip Hotel Data (tool_crawler_trip)
 
-Ứng dụng Electron dành cho người không rành kỹ thuật: dán URL trang danh sách Trip.com, chọn số lượng/ngôn ngữ, cào và tải CSV. Ứng dụng chỉ lấy ba nhóm dữ liệu `DESCRIPTION`, `POLICY`, `SURROUNDING`; không lấy phòng, giá, ảnh, tiện nghi hay đánh giá và không dùng PostgreSQL.
+Ứng dụng Electron dành cho người không rành kỹ thuật: dán URL trang danh sách Trip.com, chọn số lượng/ngôn ngữ, crawl và tải CSV. Ứng dụng chỉ lấy ba nhóm dữ liệu `DESCRIPTION`, `POLICY`, `SURROUNDING`; không lấy phòng, giá, ảnh, tiện nghi hay đánh giá và không dùng PostgreSQL.
 
 ## Cài lần đầu trên Windows
 
@@ -34,7 +34,7 @@ không dùng nhầm virtualenv của repo khác đang được IDE kích hoạt.
 Lần đầu, chọn ngôn ngữ rồi bấm **Lấy lại cookie**. Chrome mở trong 45 giây; đăng nhập Trip.com nếu cần và giữ cửa sổ mở đến khi app báo xong. Sau đó:
 
 1. Mở trang kết quả danh sách khách sạn trên Trip.com và sao chép nguyên URL.
-2. Dán URL, nhập số lượng, chọn `vi`/`en`, bấm **Cào**.
+2. Dán URL, nhập số lượng, chọn `vi`/`en`, bấm **Crawl**.
 3. Theo dõi tiến độ và log. Khi xong, bấm **Xuất CSV**.
 4. Với mỗi file CSV, có thể **Xem trước**, **Mở** bằng Excel/ứng dụng CSV mặc định
    hoặc **Tải về**. Nút **Mở thư mục** đưa thẳng tới thư mục chứa kết quả.
@@ -47,7 +47,7 @@ bấm **Xóa lịch sử** chỉ xóa nhật ký tác vụ, không xóa raw ho�
 
 Khi dán URL, app thống kê dữ liệu đã có của đúng thành phố theo từng ngôn ngữ.
 Nếu chạy lại, khách sạn đã có đủ trang chi tiết và surrounding được ghi
-`ĐÃ CÓ · bỏ qua`; raw cũ thiếu surrounding hoặc chưa hoàn chỉnh sẽ tự được cào
+`ĐÃ CÓ · bỏ qua`; raw cũ thiếu surrounding hoặc chưa hoàn chỉnh sẽ tự được crawl
 lại. App cũng gộp ID từ danh sách mới với các checkpoint danh sách cũ, nhờ đó
 có thể lấy thêm khách sạn khi Trip.com thay đổi nhóm gợi ý giữa các lượt. Vì vậy
 có thể tiếp tục một lượt dở dang mà không tốn request cho dữ liệu đã đủ.
@@ -56,11 +56,11 @@ Sau lần đầu bấm **Tải về**, file CSV được đánh dấu **Đã t�
 chỉ còn xem trước/mở file. Trạng thái này nằm trong
 `output/trang_thai_tai_csv.json` và không làm thay đổi nội dung CSV.
 
-Khu vực **Thành phố đã cào** tổng hợp trực tiếp từ raw và checkpoint: tổng số
+Khu vực **Thành phố đã crawl** tổng hợp trực tiếp từ raw và checkpoint: tổng số
 khách sạn, số VI/EN hoàn chỉnh, số ID đã biết và lần cập nhật gần nhất. Nút
-**Cào tiếp** tự điền lại URL thành phố và chuyển ô số lượng sang **số khách sạn
-muốn cào thêm**. Ví dụ đã có 20, nhập thêm 20 thì mục tiêu mới là 40; chỉ ID
-chưa hoàn chỉnh được gửi sang bước cào chi tiết. Nếu Trip.com chưa trả ID mới,
+**Crawl tiếp** tự điền lại URL thành phố và chuyển ô số lượng sang **số khách sạn
+muốn crawl thêm**. Ví dụ đã có 20, nhập thêm 20 thì mục tiêu mới là 40; chỉ ID
+chưa hoàn chỉnh được gửi sang bước crawl chi tiết. Nếu Trip.com chưa trả ID mới,
 tác vụ kết thúc với trạng thái **Chưa đủ** thay vì báo thành công 100% sai.
 
 ## Tạo installer Windows
@@ -98,7 +98,7 @@ về `<thư mục cài>\data`. Biến môi trường `TOOL_CRAWLER_DATA_DIR` v�
 - Nếu log báo **BỊ CHẶN**, app dừng ngay. Không bấm chạy liên tục; nghỉ vài giờ rồi thử lại với cookie hợp lệ.
 - Nếu log có `ResultId=201`, Trip.com chỉ trả trạng thái mà không trả danh sách khách sạn. App giữ dữ liệu cũ và dừng; lấy lại cookie không bảo đảm xử lý được trường hợp giới hạn API danh sách này.
 - App không giải CAPTCHA, không xoay IP, không đổi vân tay và không bỏ delay. Nếu Chrome hiện CAPTCHA, tự hoàn tất trong cửa sổ Chrome; nếu vẫn bị chặn thì dừng.
-- Dữ liệu đã cào xong trước khi dừng vẫn nằm trong thư mục raw và vẫn có thể xuất CSV.
+- Dữ liệu đã crawl xong trước khi dừng vẫn nằm trong thư mục raw và vẫn có thể xuất CSV.
 
 ### Khi API danh sách bị chặn mềm (ResultId=201)
 
@@ -117,83 +117,118 @@ cách này chỉ lấy được vài trăm khách sạn; muốn lấy trọn v�
 hoạt động (chờ Trip.com gỡ chặn, đăng nhập profile bằng
 `python scripts\mo_profile.py --lang en`).
 
-## Cào theo danh sách ID / URL
+## Crawl theo danh sách ID / URL
 
 Tab **Danh sách ID / URL** trong khối Thiết lập: dán mỗi dòng một `hotelId` hoặc URL trang
 khách sạn Trip.com (`…/hotels/detail/?hotelId=…`, `…-hotel-detail-<id>/…`), hoặc kéo thả
 file `.txt` / `.csv` / `.tsv` / `.xlsx` (mọi ô đều được quét, không cần đúng tên cột).
 Bấm **Kiểm tra danh sách** → thấy số ID hợp lệ, số đã có đủ trong kho, trùng lặp, dòng
-không hiểu, và bảng xem trước. Bấm **Cào N khách sạn trong danh sách** → chạy thẳng bước
-cào chi tiết cho đúng các ID đó (không qua bước lấy danh sách theo thành phố, không gọi
-`fetchHotelList`), khách sạn ngoài 81 thành phố trong danh mục vẫn cào được; thành phố tự
-lấy từ raw. Mặc định bỏ qua khách sạn đã đủ trong kho; tick *Cào lại cả khách sạn đã có*
+không hiểu, và bảng xem trước. Bấm **Crawl N khách sạn trong danh sách** → chạy thẳng bước
+crawl chi tiết cho đúng các ID đó (không qua bước lấy danh sách theo thành phố, không gọi
+`fetchHotelList`), khách sạn ngoài 81 thành phố trong danh mục vẫn crawl được; thành phố tự
+lấy từ raw. Mặc định bỏ qua khách sạn đã đủ trong kho; tick *Crawl lại cả khách sạn đã có*
 để ghi đè. API: `POST /api/danh-sach/phan-tich {text}`, `POST /api/danh-sach/tai-file?ten=…`
 (body là file), `POST /api/crawl/start-ids {ids, ngon_ngu, cao_lai}`. Tối đa 5.000 ID/lần.
 
-## Kiểm tra trước khi cào
+## Kiểm tra trước khi crawl
 
-Bấm **Cào dữ liệu** thì app kiểm tra trước (`POST /api/kiem-tra`): Chrome profile, file
+Bấm **Crawl dữ liệu** thì app kiểm tra trước (`POST /api/kiem-tra`): Chrome profile, file
 cookie (tuổi < 24 giờ), profile đã đăng nhập Trip.com chưa, và gọi thử trang danh sách
 bằng httpx để xem Trip.com có trả khách sạn hay đang bắt captcha/chặn IP. Mọi mục OK thì
-cào ngay; có cảnh báo thì hiện bảng và nút *Cào ngay* / *Lấy lại cookie*; có mục FAIL
-(không kết nối được, captcha) thì khuyên dừng, vẫn có nút *Vẫn cào* nếu cố tình.
+crawl ngay; có cảnh báo thì hiện bảng và nút *Crawl ngay* / *Lấy lại cookie*; có mục FAIL
+(không kết nối được, captcha) thì khuyên dừng, vẫn có nút *Vẫn crawl* nếu cố tình.
 
 ## Hàng đợi nhiều thành phố
 
 Chọn thành phố → **＋ Thêm thành phố đang chọn**, lặp lại cho các thành phố khác, rồi
-bấm **Cào N thành phố**. App cào lần lượt, nghỉ `QUEUE_PAUSE_SECONDS` (mặc định 60 giây,
-gấp 5 nếu vừa bị chặn) giữa hai thành phố. Thành phố đã có raw thì tự chạy ở chế độ cào
+bấm **Crawl N thành phố**. App crawl lần lượt, nghỉ `QUEUE_PAUSE_SECONDS` (mặc định 60 giây,
+gấp 5 nếu vừa bị chặn) giữa hai thành phố. Thành phố đã có raw thì tự chạy ở chế độ crawl
 tiếp (bỏ qua khách sạn đã đủ). Hàng đợi hiện trong khối tiến độ, bỏ từng thành phố hoặc
 **Huỷ hàng đợi**; bấm **Dừng** cũng huỷ luôn phần còn lại. Sau mỗi thành phố, CSV của
 thành phố đó được xuất tự động (nếu bật). API: `POST /api/crawl/start` với
 `{"city_ids":[58,2],"so_luong":100,"ngon_ngu":["vi","en"]}`, `POST /api/crawl/queue/remove`
 `{"id"}`, `POST /api/crawl/queue/clear`.
 
-## Sau khi cào xong
+## Sau khi crawl xong
 
 Ngay dưới thanh tiến độ hiện khối kết quả (hoàn tất / chưa đủ / lỗi) với nút **Xuất CSV
-ngay**, **Mở file CSV** và **Xem Kho dữ liệu**. Tuỳ chọn *Tự động xuất CSV khi cào xong*
+ngay**, **Mở file CSV** và **Xem Kho dữ liệu**. Tuỳ chọn *Tự động xuất CSV khi crawl xong*
 (bật mặc định, nhớ theo máy) sẽ tự tạo file CSV mới trong `output\csv` và hiện thông báo
-Windows khi cào xong, kể cả khi cửa sổ app đang ở dưới.
+Windows khi crawl xong, kể cả khi cửa sổ app đang ở dưới.
 
 Tab **File CSV** có *Phạm vi xuất*: toàn bộ raw, hoặc tick các thành phố cần xuất
 (file đặt tên theo thành phố, ví dụ `trip_property_translation_hong_kong_<thời gian>.csv`).
-Xuất tự động sau khi cào chỉ gồm thành phố vừa cào. API: `POST /api/csv/xuat`
+Xuất tự động sau khi crawl chỉ gồm thành phố vừa crawl. API: `POST /api/csv/xuat`
 với `{}` (tất cả), `{"city_ids":[58]}` hoặc `{"ids":["1971156"]}`.
 
-Khi đang cào, thanh taskbar Windows hiện phần trăm tiến độ và tiêu đề cửa sổ đổi thành
-"Đang cào 120/200 (60%)"; xong thì cửa sổ nháy trên taskbar nếu không ở phía trước.
+Khi đang crawl, thanh taskbar Windows hiện phần trăm tiến độ và tiêu đề cửa sổ đổi thành
+"Đang crawl 120/200 (60%)"; xong thì cửa sổ nháy trên taskbar nếu không ở phía trước.
+
+## Xuất SQL dump (PostgreSQL)
+
+Cạnh **Xuất CSV** có **Xuất SQL**: cùng nguồn dữ liệu và phạm vi với CSV (dùng chung
+`sinh_dong()` của `xuat_csv.py` nên hai file luôn khớp), ra file `.sql` gồm chú thích đầu
+file, `SET client_encoding`, `BEGIN; … COMMIT;` và các câu
+`INSERT INTO splatform_meta.trip_tmp_property_translation (row_uuid, property_id, type,
+section_type, lang, field, value) VALUES (...)`. Mục *Định dạng SQL* cho phép đổi tên bảng,
+bật/tắt `ON CONFLICT (row_uuid, lang, field) DO UPDATE` (mặc định bật → nạp lại nhiều lần
+không trùng), thêm `CREATE TABLE IF NOT EXISTS`, hoặc mỗi bản ghi một INSERT như mẫu cũ
+(mặc định gộp 500 bản ghi/câu). Nạp: `psql -h host -U user -d db -f file.sql`. Đã kiểm tra
+nạp thật trên PostgreSQL 16 (nạp 2 lần liên tiếp không tạo bản ghi trùng).
+
+Xuất tự động sau khi crawl có ô chọn định dạng **SQL** (mặc định) / CSV / SQL + CSV.
+File `.sql` hiện chung danh sách với CSV (xem trước, mở, tải, xoá). Dòng lệnh:
+`python src/xuat_sql.py --ra output/csv/dump.sql [--ids-file …] [--bang …] [--khong-on-conflict] [--tung-dong] [--create-table]`.
+API: `POST /api/csv/xuat {"dinh_dang":"sql","sql":{"bang":…,"on_conflict":true,"create_table":false,"tung_dong":false}, …}`.
+
+## TripAdvisor — field `tripAdvisorId`
+
+Mỗi khách sạn được ghép với Tripadvisor bằng **Tripadvisor Content API** chính thức
+(không cào web Tripadvisor), dựa trên tên tiếng Anh + toạ độ Trip.com (`hotelPositionInfo.lat/lng`
+đã có sẵn trong raw). Kết quả ghi `output/tripadvisor/<trip_hotel_id>.json`; khi xuất CSV/SQL,
+type `DESCRIPTION` có thêm field `tripAdvisorId` (cùng `row_uuid` với `hotel_name`, `description`…).
+
+- **API key**: tab *File CSV* → mục *TripAdvisor* → dán key → *Lưu* (lưu tại
+  `output/tripadvisor/cai_dat.json`, đi theo thư mục dữ liệu). Hoặc đặt `TRIPADVISOR_API_KEY` trong `.env`.
+- **Tự động**: mặc định, crawl xong (crawl thành phố, crawl bù, crawl danh sách) sẽ ghép luôn cho
+  các khách sạn chưa có kết quả, rồi mới tự xuất file. Tắt ở ô "Tự ghép TripAdvisor ngay sau khi crawl xong".
+- **Chạy tay**: nút *Ghép TripAdvisor theo phạm vi trên* (theo phạm vi thành phố đang chọn);
+  tick *Ghép lại* nếu muốn làm lại khách sạn đã có kết quả. Dòng lệnh:
+  `python src/tripadvisor.py --tat-ca` hoặc `--ids 1234 5678` / `--ids-file …` / `--lam-lai`.
+- **Trạng thái** (giống project mẫu): `matched` (tên giống ≥ 0,80 và cách ≤ 300 m) → xuất ID;
+  `review` (chưa chắc) → **không** xuất, xem lại trong Kho (huy hiệu vàng); `no_match`; `error` → lần sau thử lại.
+- Mỗi khách sạn tốn ~2 lần gọi API; hạn mức Tripadvisor ~10.000 lần/ngày, gặp 429/401/403 job dừng ngay.
 
 ## Xuất CSV: chỉ dữ liệu mới hay gộp tất cả
 
 Tool ghi nhớ khách sạn nào đã nằm trong CSV (`output\trang_thai_xuat_csv.json`, theo
 thời điểm raw của từng ngôn ngữ). Ở tab File CSV, mục **Dữ liệu** có 2 lựa chọn:
 
-- **Chỉ dữ liệu mới từ lần xuất trước** (mặc định): chỉ khách sạn được cào hoặc cào lại
+- **Chỉ dữ liệu mới từ lần xuất trước** (mặc định): chỉ khách sạn được crawl hoặc crawl lại
   sau lần xuất gần nhất; file đặt tên `..._moi_<phạm vi>_<thời gian>.csv`. Không có gì mới
   thì báo và không tạo file.
 - **Gộp tất cả (cũ + mới)**: như trước.
 
-Kết hợp được với "Chỉ thành phố đã chọn". Xuất tự động sau khi cào luôn dùng *chỉ mới +
-thành phố vừa cào*, nên file đó đúng bằng phần vừa cào. Nút *Đặt lại dấu đã xuất* để xuất
+Kết hợp được với "Chỉ thành phố đã chọn". Xuất tự động sau khi crawl luôn dùng *chỉ mới +
+thành phố vừa crawl*, nên file đó đúng bằng phần vừa crawl. Nút *Đặt lại dấu đã xuất* để xuất
 lại toàn bộ từ đầu. API: `POST /api/csv/xuat {"chi_moi": true, "city_ids": [...]}`.
 
 ## Chất lượng dữ liệu trước khi xuất
 
 Tab File CSV hiện khối *Chất lượng dữ liệu trong phạm vi* (theo phạm vi xuất đang chọn):
 số khách sạn đủ 3 phần, thiếu mô tả / chính sách / lân cận, raw thiếu packet, chỉ có 1
-ngôn ngữ, và số khách sạn có thay đổi so với lần cào trước. Có khách sạn thiếu thì hiện
-nút **Cào bù N khách sạn thiếu** (cào lại VI+EN đúng các ID đó) — hoặc cứ xuất phần đang
-có. Khối kết quả sau khi cào cũng in một dòng tóm tắt chất lượng của thành phố vừa cào.
+ngôn ngữ, và số khách sạn có thay đổi so với lần crawl trước. Có khách sạn thiếu thì hiện
+nút **Crawl bù N khách sạn thiếu** (crawl lại VI+EN đúng các ID đó) — hoặc cứ xuất phần đang
+có. Khối kết quả sau khi crawl cũng in một dòng tóm tắt chất lượng của thành phố vừa crawl.
 API: `GET /api/kho/chat-luong?city_ids=58,2`.
 
-## So sánh với lần cào trước
+## So sánh với lần crawl trước
 
-Mỗi lần ghi raw mới cho một khách sạn đã có raw (cào tiếp, cào bù), app so sánh nội dung
+Mỗi lần ghi raw mới cho một khách sạn đã có raw (crawl tiếp, crawl bù), app so sánh nội dung
 bàn giao (tên, địa chỉ, mô tả; từng mục chính sách; từng địa điểm lân cận + khoảng cách)
 và ghi phần khác nhau vào `output\details\changes\<locale>\<currency>\<id>.json`
 (chỉ giữ lần gần nhất; giống nhau thì không có file). Trong Kho: chip **Δ n thay đổi**,
-bộ lọc *Có thay đổi so với lần cào trước*; trang chi tiết có bảng Trước / Sau.
+bộ lọc *Có thay đổi so với lần crawl trước*; trang chi tiết có bảng Trước / Sau.
 
 ## Sao lưu & khôi phục
 
@@ -236,9 +271,9 @@ Biến môi trường `TRIP_UPDATE_URL` ghi đè file này. Nhật ký cập nh�
 - `output\logs\app.log` (chỉ bản cài): stdout/stderr backend + nhật ký tự cập nhật.
 - Chân trang có nút **Mở thư mục log**. Khi mentor báo lỗi, nhờ gửi thư mục này.
 
-## Kho dữ liệu · đối soát · cào bù
+## Kho dữ liệu · đối soát · crawl bù
 
-Thanh điều hướng trên đầu app có 3 khu vực: **Cào dữ liệu** · **Kho dữ liệu** · **File CSV**.
+Thanh điều hướng trên đầu app có 3 khu vực: **Crawl dữ liệu** · **Kho dữ liệu** · **File CSV**.
 
 Tab **Kho dữ liệu** đọc thẳng raw `output/details/raw/<locale>/<currency>/*.json.gz`
 (không cần PostgreSQL), mỗi khách sạn một dòng, gộp VI/EN:
@@ -248,13 +283,13 @@ Tab **Kho dữ liệu** đọc thẳng raw `output/details/raw/<locale>/<currenc
 - Bấm tên khách sạn → trang chi tiết gồm đúng 3 khối bàn giao **DESCRIPTION /
   POLICY / SURROUNDING**, có nút chuyển VI/EN và **Mở trên Trip.com** để đối soát
   với trang thật.
-- **Cào bù**: tick chọn khách sạn (hoặc lọc "Thiếu…" rồi "Chọn tất cả"), chọn ngôn
-  ngữ, bấm *Cào bù* → app chạy `src/cao_bu.py --ids-file … --languages …`, cào lại
-  đúng các ID đó với `--force` và ghi đè raw cũ. Tiến độ hiện ở tab Cào dữ liệu;
+- **Crawl bù**: tick chọn khách sạn (hoặc lọc "Thiếu…" rồi "Chọn tất cả"), chọn ngôn
+  ngữ, bấm *Crawl bù* → app chạy `src/cao_bu.py --ids-file … --languages …`, crawl lại
+  đúng các ID đó với `--force` và ghi đè raw cũ. Tiến độ hiện ở tab Crawl dữ liệu;
   xong thì kho tự làm mới.
 
 Lưu ý: khách sạn "✗ mô tả" nhưng chính sách/lân cận đầy đủ thường là Trip.com
-không có mô tả cho khách sạn đó — cào bù lại vẫn trống là bình thường.
+không có mô tả cho khách sạn đó — crawl bù lại vẫn trống là bình thường.
 
 API nội bộ: `GET /api/kho/danh-sach`, `GET /api/kho/khach-san/<id>?lang=vi|en`,
 `POST /api/kho/cao-bu {ids:[…], ngon_ngu:[…]}`.
@@ -268,3 +303,6 @@ row_uuid, property_id, type, section_type, lang, field, value
 ```
 
 Logic xuất nằm trong `src/xuat_csv.py`, được giữ theo bản đã đối chiếu với SQL cũ.
+
+- Field `description` (type DESCRIPTION) xuất dạng HTML: mỗi đoạn một `<p>…</p>`
+  (từ 2026-09-28; trước đó là text thuần cách nhau bằng xuống dòng). `policy_content` vẫn là HTML như cũ.

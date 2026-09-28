@@ -1,6 +1,6 @@
-"""Cào mô tả, chính sách và địa điểm lân cận bằng HTTP thuần.
+"""Crawl mô tả, chính sách và địa điểm lân cận bằng HTTP thuần.
 
-Giữ nhịp nghỉ của repo gốc. Không cào phòng, giá, ảnh, tiện nghi hoặc đánh giá;
+Giữ nhịp nghỉ của repo gốc. Không crawl phòng, giá, ảnh, tiện nghi hoặc đánh giá;
 không xoay IP và dừng ngay khi Trip.com trả dấu hiệu chặn.
 """
 from __future__ import annotations
@@ -114,15 +114,15 @@ def load_cookies(locale: str, currency: str) -> tuple[dict, str | None]:
     path = cookie_file(locale, currency)
     if not path.exists():
         # Thiếu cookie cho thị trường này (vd. chỉ bấm 'Lấy lại cookie' cho vi
-        # rồi cào en) → tự lấy một lần thay vì dừng cả tác vụ.
+        # rồi crawl en) → tự lấy một lần thay vì dừng cả tác vụ.
         print(f"Chưa có cookie cho {locale}/{currency.upper()} → tự lấy cookie…")
         try:
             asyncio.run(export_cookies(locale, currency, 45))
         except Exception as exc:
             raise SystemExit(f"Không lấy được cookie cho {locale}/{currency.upper()} ({exc}). "
-                             "Hãy bấm ‘Lấy lại cookie’ và chọn đủ ngôn ngữ trước khi cào.")
+                             "Hãy bấm ‘Lấy lại cookie’ và chọn đủ ngôn ngữ trước khi crawl.")
     if not path.exists():
-        raise SystemExit("Chưa có cookie. Hãy bấm ‘Lấy lại cookie’ trước khi cào.")
+        raise SystemExit("Chưa có cookie. Hãy bấm ‘Lấy lại cookie’ trước khi crawl.")
     values = json.loads(path.read_text(encoding="utf-8"))
     cookies = {item["name"]: item["value"] for item in values if item.get("name")}
     return cookies, cookies.get("UBT_VID")
@@ -247,7 +247,7 @@ def save(dump: dict, hotel_id: str, locale: str, currency: str) -> Path:
             old_dump = saved_raw(hotel_id, locale, currency)
             thay_doi.ghi(thay_doi.so_sanh(old_dump, dump, hotel_id, locale, currency),
                          hotel_id, locale, currency)
-        except Exception as exc:  # không để việc so sánh làm hỏng lượt cào
+        except Exception as exc:  # không để việc so sánh làm hỏng lượt crawl
             print(f"    (không so sánh được với raw cũ: {type(exc).__name__}: {exc})")
     return raw_store.write(folder / name, dump)
 
@@ -256,7 +256,7 @@ def raw_complete(dump: dict) -> bool:
     """Raw chỉ hoàn chỉnh khi đã lấy cả trang chi tiết và API surrounding.
 
     Không dựa vào số địa điểm vì một khách sạn có thể hợp lệ nhưng không có POI.
-    Các raw cũ từng báo thành công nhưng thiếu packet surrounding sẽ được cào lại.
+    Các raw cũ từng báo thành công nhưng thiếu packet surrounding sẽ được crawl lại.
     """
     if not (dump.get("normalized") or {}).get("success"):
         return False
@@ -350,7 +350,7 @@ def main(args) -> int:
         ids = ids[:args.limit]
     checkin, checkout = args.checkin or default_stay()[0], args.checkout or default_stay()[1]
     cookies, visitor_id = load_cookies(args.locale, args.currency)
-    print(f"Cào chi tiết: {len(ids)} khách sạn | {args.locale}/{args.currency.upper()} | "
+    print(f"Crawl chi tiết: {len(ids)} khách sạn | {args.locale}/{args.currency.upper()} | "
           f"nghỉ {args.delay}–{args.delay + args.jitter:.1f}s mỗi lượt")
 
     stopped = threading.Event()
@@ -416,7 +416,7 @@ def main(args) -> int:
     if blocked_reasons:
         print("Dừng lại: Trip.com đang chặn. Hãy nghỉ vài giờ hoặc lấy lại cookie; app không tự vượt chặn.")
         return 2
-    print(f"Xong: {stats['done']} cào mới, {stats['skipped']} đã có, {stats['failed']} hỏng.")
+    print(f"Xong: {stats['done']} crawl mới, {stats['skipped']} đã có, {stats['failed']} hỏng.")
     return 0 if stats["done"] or stats["skipped"] else 1
 
 
@@ -436,7 +436,7 @@ if __name__ == "__main__":
     parser.add_argument("--concurrency", type=int, default=1, choices=(1, 2, 3, 4))
     parser.add_argument("--timeout", type=float, default=30.0)
     parser.add_argument("--chi-dump", action="store_true")
-    parser.add_argument("--force", action="store_true", help="cào lại cả raw đã hoàn chỉnh")
+    parser.add_argument("--force", action="store_true", help="crawl lại cả raw đã hoàn chỉnh")
     parser.add_argument("--into-raw", action="store_true")
     parser.add_argument("--export-cookies", action="store_true")
     parser.add_argument("--cookie-wait", type=int, default=45)

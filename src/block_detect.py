@@ -2,7 +2,7 @@
 
 Trip.com hay trả HTTP 200 kèm nội dung báo chặn, có khi giấu trong một mảng
 byte XOR. Tách riêng ở đây để `crawl_fast.py` dùng được mà không phải import
-Module độc lập để crawler HTTP không phải mở trình duyệt khi cào chi tiết.
+Module độc lập để crawler HTTP không phải mở trình duyệt khi crawl chi tiết.
 """
 from __future__ import annotations
 

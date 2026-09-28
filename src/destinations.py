@@ -1,4 +1,4 @@
-"""Quản lý danh mục 19 quốc gia quốc tế và 81 thành phố cào Trip.com (không gồm Việt Nam)."""
+"""Quản lý danh mục 19 quốc gia quốc tế và 81 thành phố crawl Trip.com (không gồm Việt Nam)."""
 from __future__ import annotations
 
 import json

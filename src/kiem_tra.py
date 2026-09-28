@@ -1,7 +1,7 @@
-"""Kiểm tra sức khoẻ trước khi cào: cookie, profile, mạng, Trip.com có trả dữ liệu không.
+"""Kiểm tra sức khoẻ trước khi crawl: cookie, profile, mạng, Trip.com có trả dữ liệu không.
 
 Mỗi mục trả về {"ten", "trang_thai": "ok"|"warn"|"fail", "chi_tiet"}.
-"fail" = không nên cào; "warn" = cào được nhưng có rủi ro.
+"fail" = không nên crawl; "warn" = crawl được nhưng có rủi ro.
 """
 from __future__ import annotations
 
@@ -51,9 +51,9 @@ def kiem_tra_ngon_ngu(lang: str, city: dict | None = None, probe: bool = True) -
         out.append(_item(f"Chrome profile {tag}", "ok", f"Có tại {profile.name}"))
     else:
         out.append(_item(f"Chrome profile {tag}", "warn",
-                         "Chưa có profile; lần cào đầu Chrome sẽ mở với phiên trống, dễ gặp captcha."))
+                         "Chưa có profile; lần crawl đầu Chrome sẽ mở với phiên trống, dễ gặp captcha."))
 
-    # 2. Cookie file (bước cào chi tiết cần)
+    # 2. Cookie file (bước crawl chi tiết cần)
     cookies = _read_cookies(locale, currency)
     if cookies is None:
         out.append(_item(f"Cookie {tag}", "warn",

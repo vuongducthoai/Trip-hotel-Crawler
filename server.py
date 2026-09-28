@@ -37,6 +37,7 @@ from crawl_jobs import JobRunner
 import kho_du_lieu
 import kiem_tra
 import danh_sach_id
+import tripadvisor
 
 HOST, PORT = "127.0.0.1", 8765
 WEB_DIR = ROOT / "web"
@@ -93,8 +94,8 @@ COUNTRY_NAMES = {1: "Trung Quốc", 27: "Đan Mạch", 107: "Ấn Độ", 111: "
 
 def csv_path(name: str) -> Path:
     """Trả đường dẫn CSV an toàn, không cho thoát khỏi thư mục kết quả."""
-    if Path(name).name != name or not name.lower().endswith(".csv"):
-        raise ValueError("Tên file CSV không hợp lệ.")
+    if Path(name).name != name or not name.lower().endswith((".csv", ".sql")):
+        raise ValueError("Tên file không hợp lệ.")
     path = (CSV_DIR / name).resolve()
     if path.parent != CSV_DIR.resolve() or not path.is_file():
         raise FileNotFoundError("Không tìm thấy file CSV.")
@@ -158,7 +159,7 @@ def city_storage_stats(city_id: int) -> dict:
 
 
 def all_city_stats() -> list[dict]:
-    """Tổng hợp thành phố đã cào từ raw và các checkpoint danh sách."""
+    """Tổng hợp thành phố đã crawl từ raw và các checkpoint danh sách."""
     cities: dict[int, dict] = {}
 
     def city(city_id: int) -> dict:
@@ -429,6 +430,15 @@ class Handler(BaseHTTPRequestHandler):
                 city_ids = {int(x) for x in q.get("city_ids", [""])[0].split(",") if x.strip().lstrip("-").isdigit()} or None
                 chi_moi = (q.get("chi_moi", ["0"])[0] or "0") not in ("0", "", "false")
                 return self.send_json(kho_du_lieu.chat_luong(kho_du_lieu.danh_sach(), city_ids, chi_moi=chi_moi))
+            if parsed.path == "/api/tripadvisor/thong-ke":
+                q = parse_qs(parsed.query)
+                city_ids = {int(x) for x in q.get("city_ids", [""])[0].split(",") if x.strip().lstrip("-").isdigit()}
+                items = kho_du_lieu.danh_sach()
+                ids = [i["trip_hotel_id"] for i in items if not city_ids or i.get("city_id") in city_ids]
+                tk = tripadvisor.thong_ke(ids)
+                tk["key_che"] = tripadvisor.che_key(tripadvisor.api_key())
+                tk["thu_muc"] = str(tripadvisor.THU_MUC)
+                return self.send_json(tk)
             if parsed.path == "/api/kho/danh-sach":
                 items = kho_du_lieu.danh_sach()
                 return self.send_json({"khach_san": items, "thong_ke": kho_du_lieu.thong_ke(items)})
@@ -447,7 +457,8 @@ class Handler(BaseHTTPRequestHandler):
                 files = [{"ten": path.name, "kich_thuoc": path.stat().st_size,
                           "cap_nhat": datetime.fromtimestamp(path.stat().st_mtime).isoformat(timespec="seconds"),
                           "da_tai": path.name in downloaded, "tai_luc": downloaded.get(path.name)}
-                         for path in sorted(CSV_DIR.glob("*.csv"), key=lambda p: p.stat().st_mtime, reverse=True)]
+                         for path in sorted([*CSV_DIR.glob("*.csv"), *CSV_DIR.glob("*.sql")],
+                                            key=lambda p: p.stat().st_mtime, reverse=True)]
                 return self.send_json({"files": files})
             if parsed.path.startswith("/api/csv/xem/"):
                 return self.preview_csv(unquote(parsed.path.removeprefix("/api/csv/xem/")))
@@ -509,7 +520,7 @@ class Handler(BaseHTTPRequestHandler):
                 if not languages or any(lang not in {"vi", "en"} for lang in languages):
                     raise ValueError("Hãy chọn ít nhất một ngôn ngữ hợp lệ.")
                 if body.get("city_ids"):
-                    # Hàng đợi nhiều thành phố: thành phố nào đã có raw thì cào tiếp (bỏ qua KS đủ).
+                    # Hàng đợi nhiều thành phố: thành phố nào đã có raw thì crawl tiếp (bỏ qua KS đủ).
                     params_list = []
                     for raw_id in body["city_ids"]:
                         item = destinations.find_by_city_id(int(raw_id))
@@ -589,14 +600,39 @@ class Handler(BaseHTTPRequestHandler):
             if self.path == "/api/kho/cao-bu":
                 ids = [str(x).strip() for x in (body.get("ids") or []) if str(x).strip().isdigit()]
                 if not ids:
-                    raise ValueError("Hãy chọn ít nhất một khách sạn để cào bù.")
+                    raise ValueError("Hãy chọn ít nhất một khách sạn để crawl bù.")
                 if len(ids) > 5000:
-                    raise ValueError("Mỗi lần cào bù tối đa 5.000 khách sạn.")
+                    raise ValueError("Mỗi lần crawl bù tối đa 5.000 khách sạn.")
                 languages = body.get("ngon_ngu") or ["vi"]
                 if any(lang not in {"vi", "en"} for lang in languages):
                     raise ValueError("Ngôn ngữ không hợp lệ.")
                 return self.send_json(RUNNER.start_cao_bu(list(dict.fromkeys(ids)),
                                                           list(dict.fromkeys(languages))),
+                                      HTTPStatus.ACCEPTED)
+            if self.path == "/api/tripadvisor/cai-dat":
+                thay_doi = {}
+                if "api_key" in body:
+                    thay_doi["api_key"] = str(body.get("api_key") or "").strip()
+                if "tu_dong" in body:
+                    thay_doi["tu_dong"] = bool(body.get("tu_dong"))
+                tripadvisor.ghi_cai_dat(**thay_doi)
+                return self.send_json({"ok": True, "co_key": bool(tripadvisor.api_key()),
+                                       "key_che": tripadvisor.che_key(tripadvisor.api_key()),
+                                       "tu_dong": tripadvisor.tu_dong_sau_crawl()})
+            if self.path == "/api/tripadvisor/ghep":
+                if not tripadvisor.api_key():
+                    raise ValueError("Chưa có Tripadvisor API key. Nhập key rồi lưu trước.")
+                ids = [str(x).strip() for x in (body.get("ids") or []) if str(x).strip().isdigit()]
+                city_ids = {int(x) for x in (body.get("city_ids") or []) if str(x).lstrip("-").isdigit()}
+                if not ids:
+                    items = kho_du_lieu.danh_sach()
+                    ids = [i["trip_hotel_id"] for i in items if not city_ids or i.get("city_id") in city_ids]
+                lam_lai = bool(body.get("lam_lai"))
+                if not lam_lai:
+                    ids = [i for i in ids if tripadvisor.can_ghep(i)]
+                if not ids:
+                    raise ValueError("Mọi khách sạn trong phạm vi đã có kết quả Tripadvisor. Tick \"Ghép lại\" nếu muốn làm lại.")
+                return self.send_json(RUNNER.start_tripadvisor(list(dict.fromkeys(ids)), lam_lai=lam_lai),
                                       HTTPStatus.ACCEPTED)
             if self.path == "/api/cookie/refresh":
                 languages = body.get("ngon_ngu") or ["vi"]
@@ -624,7 +660,7 @@ class Handler(BaseHTTPRequestHandler):
             if self.path == "/api/csv/xoa":
                 names = body.get("ten") if isinstance(body.get("ten"), list) else [body.get("ten")]
                 if body.get("tat_ca"):
-                    names = [p.name for p in CSV_DIR.glob("*.csv")]
+                    names = [p.name for p in [*CSV_DIR.glob("*.csv"), *CSV_DIR.glob("*.sql")]]
                 deleted = 0
                 for name in [n for n in names if n]:
                     path = csv_path(str(name))
@@ -731,7 +767,7 @@ class Handler(BaseHTTPRequestHandler):
             names = {it["city_id"]: it["city_name"] for it in items}
             label = "_".join(self._slug(names.get(cid, cid)) for cid in city_ids)[:60]
         if chi_moi:
-            # Chỉ khách sạn cào/cào lại sau lần xuất gần nhất (chưa nằm trong CSV nào).
+            # Chỉ khách sạn crawl/crawl lại sau lần xuất gần nhất (chưa nằm trong CSV nào).
             moi = set(kho_du_lieu.chua_xuat_ids(items_all))
             base = ids if ids is not None else [it["trip_hotel_id"] for it in items_all]
             ids = [hid for hid in base if hid in moi]
@@ -740,26 +776,48 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("Không có khách sạn mới nào kể từ lần xuất trước trong phạm vi này.")
         if ids is not None and not ids:
             raise ValueError("Không có khách sạn nào trong phạm vi đã chọn.")
-        name = f"trip_property_translation_{label}_{datetime.now():%Y%m%d_%H%M%S}.csv"
+        dinh_dang = str(body.get("dinh_dang") or "csv").lower()
+        if dinh_dang not in ("csv", "sql"):
+            raise ValueError("Định dạng phải là csv hoặc sql.")
+        name = f"trip_property_translation_{label}_{datetime.now():%Y%m%d_%H%M%S}.{dinh_dang}"
         target = CSV_DIR / name
-        args = Namespace(
-            thu_muc_raw=str(config.OUTPUT_DIR / "details" / "raw"),
-            ids=ids, ids_file=None, ra=str(target), bom=True,
-        )
         output = io.StringIO()
-        with redirect_stdout(output), redirect_stderr(output):
-            code = xuat_csv.main(args)
-        if code:
-            raise RuntimeError(output.getvalue().strip() or "Không xuất được CSV.")
+        if dinh_dang == "sql":
+            import xuat_sql
+            sql_opts = body.get("sql") or {}
+            ks = xuat_csv.doc_raw(config.OUTPUT_DIR / "details" / "raw", set(ids) if ids is not None else None)
+            if not ks:
+                raise ValueError("Không có khách sạn nào để xuất.")
+            with redirect_stdout(output), redirect_stderr(output):
+                n_ks, n_dong = xuat_sql.ghi_sql(
+                    ks, target,
+                    bang=str(sql_opts.get("bang") or xuat_sql.BANG_MAC_DINH),
+                    on_conflict=bool(sql_opts.get("on_conflict", True)),
+                    tung_dong=bool(sql_opts.get("tung_dong", False)),
+                    create_table=bool(sql_opts.get("create_table", False)),
+                    pham_vi=label,
+                )
+            print(f"Đã xuất SQL {name}: {n_ks} khách sạn, {n_dong} bản ghi")
+        else:
+            args = Namespace(
+                thu_muc_raw=str(config.OUTPUT_DIR / "details" / "raw"),
+                ids=ids, ids_file=None, ra=str(target), bom=True,
+            )
+            with redirect_stdout(output), redirect_stderr(output):
+                code = xuat_csv.main(args)
+            if code:
+                raise RuntimeError(output.getvalue().strip() or "Không xuất được CSV.")
         kho_du_lieu.danh_dau_da_xuat(ids if ids is not None else [it["trip_hotel_id"] for it in items_all])
-        return self.send_json({"ok": True, "ten": name, "so_khach_san": len(ids) if ids else len(items_all),
+        return self.send_json({"ok": True, "ten": name, "dinh_dang": dinh_dang,
+                               "so_khach_san": len(ids) if ids else len(items_all),
                                "log": output.getvalue()})
 
     def download_csv(self, name: str):
         path = csv_path(name)
         data = path.read_bytes()
         self.send_response(HTTPStatus.OK)
-        self.send_header("Content-Type", "text/csv; charset=utf-8")
+        ctype = "application/sql" if name.lower().endswith(".sql") else "text/csv"
+        self.send_header("Content-Type", f"{ctype}; charset=utf-8")
         self.send_header("Content-Disposition", f'attachment; filename="{name}"')
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
@@ -769,6 +827,15 @@ class Handler(BaseHTTPRequestHandler):
     def preview_csv(self, name: str):
         """Đọc tối đa 50 dòng để xem nhanh, không nạp cả file lớn vào trình duyệt."""
         path = csv_path(name)
+        if name.lower().endswith(".sql"):
+            lines: list[str] = []
+            total = 0
+            with path.open("r", encoding="utf-8", errors="replace") as handle:
+                for line in handle:
+                    total += 1
+                    if len(lines) < 60:
+                        lines.append(line.rstrip("\n")[:600])
+            return self.send_json({"ten": name, "sql": True, "lines": lines, "tong_dong": total, "gioi_han": 60})
         rows: list[list[str]] = []
         total = 0
         with path.open("r", encoding="utf-8-sig", newline="") as handle:
@@ -822,6 +889,9 @@ def run_worker() -> bool:
     elif kind == "caobu":
         import runpy
         runpy.run_module("cao_bu", run_name="__main__")
+    elif kind == "tripadvisor":
+        import runpy
+        runpy.run_module("tripadvisor", run_name="__main__")
     else:
         raise SystemExit(f"Worker không hợp lệ: {kind}")
     return True

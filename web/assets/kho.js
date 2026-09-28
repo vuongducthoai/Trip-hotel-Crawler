@@ -1,4 +1,4 @@
-/* Kho dữ liệu: danh sách khách sạn đã cào, trang chi tiết đối soát và cào bù. */
+/* Kho dữ liệu: danh sách khách sạn đã crawl, trang chi tiết đối soát và crawl bù. */
 (() => {
   'use strict';
 
@@ -28,6 +28,18 @@
   }
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const num = (v) => Number(v || 0).toLocaleString('vi-VN');
+  function taBadge(ta) {
+    if (!ta || !ta.match_status) return '<span class="badge" title="Chưa ghép Tripadvisor">TripAdvisor: chưa ghép</span>';
+    if (ta.match_status === 'matched') {
+      return `<span class="badge success" title="${esc(ta.tripadvisor_name || '')}">TripAdvisor ID ${esc(String(ta.tripadvisor_location_id))}${ta.rating ? ` · ${ta.rating}★` : ''}</span>`;
+    }
+    if (ta.match_status === 'review') {
+      return `<span class="badge warning" title="Tên hoặc vị trí chưa khớp hẳn (${esc(ta.tripadvisor_name || '')}, ${ta.distance_m == null ? '?' : ta.distance_m} m) — không xuất ID">TripAdvisor: cần xem lại (${esc(String(ta.tripadvisor_location_id || ''))})</span>`;
+    }
+    if (ta.match_status === 'error') return `<span class="badge failed" title="${esc(ta.last_error || '')}">TripAdvisor: lỗi ghép</span>`;
+    return '<span class="badge">TripAdvisor: không có</span>';
+  }
+
   function dateTime(value) {
     if (!value) return '—';
     const d = new Date(value);
@@ -90,15 +102,15 @@
   }
 
   function chip(ban, lang) {
-    if (!ban) return `<span class="chip none">— chưa cào ${lang.toUpperCase()}</span>`;
+    if (!ban) return `<span class="chip none">— chưa crawl ${lang.toUpperCase()}</span>`;
     if (!ban.doc_duoc) return '<span class="chip bad">raw lỗi</span>';
-    // Raw đủ packet mà trống → Trip.com không có phần đó (xám, không phải lỗi cào).
-    const NONE_TITLE = 'Trip.com không cung cấp phần này cho khách sạn (đã cào đủ, không phải cào thiếu)';
+    // Raw đủ packet mà trống → Trip.com không có phần đó (xám, không phải lỗi crawl).
+    const NONE_TITLE = 'Trip.com không cung cấp phần này cho khách sạn (đã crawl đủ, không phải crawl thiếu)';
     const c = (ok, text, noneText) => (ok
       ? `<span class="chip ok">${text}</span>`
       : ban.hoan_chinh
         ? `<span class="chip none" title="${NONE_TITLE}">${noneText}</span>`
-        : `<span class="chip bad" title="Raw chưa đủ packet — nên cào bù">${text}</span>`);
+        : `<span class="chip bad" title="Raw chưa đủ packet — nên crawl bù">${text}</span>`);
     return c(ban.co_mo_ta, ban.co_mo_ta ? '✓ mô tả' : '✗ mô tả', '— không có mô tả')
       + c(ban.so_chinh_sach > 0, `▤ ${ban.so_chinh_sach} CS`, '— không có CS')
       + c(ban.so_lan_can > 0, `⌖ ${ban.so_lan_can} LC`, '— không có LC')
@@ -136,20 +148,20 @@
     $('kho-cao-bu-count').textContent = num(n);
     $('kho-cao-bu').disabled = n === 0 || langsForCaoBu().length === 0;
     $('kho-selected-note').textContent = n
-      ? `Đã chọn ${num(n)} khách sạn · cào bù ${langsForCaoBu().map((l) => l.toUpperCase()).join(' + ') || '(chọn ngôn ngữ)'}`
-      : 'Tick chọn khách sạn cần cào lại, hoặc dùng bộ lọc "Thiếu…" rồi "Chọn tất cả".';
+      ? `Đã chọn ${num(n)} khách sạn · crawl bù ${langsForCaoBu().map((l) => l.toUpperCase()).join(' + ') || '(chọn ngôn ngữ)'}`
+      : 'Tick chọn khách sạn cần crawl lại, hoặc dùng bộ lọc "Thiếu…" rồi "Chọn tất cả".';
   }
 
   async function startCaoBu(ids) {
     const langs = langsForCaoBu();
     if (!ids.length) return toast('Chưa chọn khách sạn nào.', 'error');
-    if (!langs.length) return toast('Hãy chọn ngôn ngữ cần cào bù.', 'error');
+    if (!langs.length) return toast('Hãy chọn ngôn ngữ cần crawl bù.', 'error');
     try {
       await api('/api/kho/cao-bu', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ids, ngon_ngu: langs }),
       });
-      toast(`Đang cào bù ${num(ids.length)} khách sạn (${langs.map((l) => l.toUpperCase()).join(', ')}). Theo dõi ở tab Cào dữ liệu.`);
+      toast(`Đang crawl bù ${num(ids.length)} khách sạn (${langs.map((l) => l.toUpperCase()).join(', ')}). Theo dõi ở tab Crawl dữ liệu.`);
       selected.clear();
       render();
       if (window.crawlerSetView) window.crawlerSetView('crawl');
@@ -166,7 +178,7 @@
       b.classList.toggle('active', own);
       b.setAttribute('aria-selected', own ? 'true' : 'false');
       b.disabled = !(h && h.ngon_ngu[b.dataset.lang]);
-      b.title = b.disabled ? 'Chưa cào ngôn ngữ này' : '';
+      b.title = b.disabled ? 'Chưa crawl ngôn ngữ này' : '';
     });
     document.querySelector('.kho-card').hidden = true;
     $('kho-detail').hidden = false;
@@ -200,7 +212,8 @@
         <div class="detail-meta">
           <span class="badge ${!missing.length ? 'success' : d.hoan_chinh ? '' : 'warning'}">${missingLabel}</span>
           ${d.hoan_chinh ? '' : '<span class="badge failed">Raw thiếu packet</span>'}
-          <small>Cào lúc ${dateTime(d.cap_nhat)}${d.so_phong ? ` · ${num(d.so_phong)} phòng` : ''}</small>
+          ${taBadge(d.tripadvisor)}
+          <small>Crawl lúc ${dateTime(d.cap_nhat)}${d.so_phong ? ` · ${num(d.so_phong)} phòng` : ''}${d.toa_do && d.toa_do.lat != null ? ` · ${d.toa_do.lat}, ${d.toa_do.lng}` : ''}</small>
           <small class="mono" title="${esc(d.raw_path)}">${esc(d.raw_path.split(/[\\/]/).slice(-3).join('/'))}</small>
         </div>
       </div>
@@ -213,8 +226,8 @@
         ${d.mo_ta
           ? `<div class="detail-text">${esc(d.mo_ta).split(/\n{2,}|\r?\n/).filter(Boolean).map((p) => `<p>${p}</p>`).join('')}</div><small class="muted">${num(d.mo_ta.length)} ký tự</small>`
           : (d.hoan_chinh
-            ? '<div class="detail-none">Trip.com không có mô tả cho khách sạn này (đã cào đủ packet — không phải cào thiếu).</div>'
-            : '<div class="detail-empty">Chưa crawl được phần mô tả (raw chưa đủ packet — nên cào bù).</div>')}
+            ? '<div class="detail-none">Trip.com không có mô tả cho khách sạn này (đã crawl đủ packet — không phải crawl thiếu).</div>'
+            : '<div class="detail-empty">Chưa crawl được phần mô tả (raw chưa đủ packet — nên crawl bù).</div>')}
       </section>`;
 
     const POLICY_ICON = {
@@ -224,12 +237,13 @@
     };
     const policyLines = (dong) => {
       // Dòng có nhãn → "Nhãn: nội dung", các dòng nhãn liên tiếp xếp cùng hàng (như Nhận/Trả phòng).
-      // Chuỗi ≥2 dòng có nhãn VÀ in đậm liên tiếp (bảng giá bữa sáng…) → bảng như Trip.com.
+      // Dòng Trip.com trả trong "tab" (bảng giá bữa sáng…, cờ dam=true) → bảng như Trip.com,
+      // kể cả khi bảng chỉ có 1 hàng (vd. chỉ "Người lớn").
       const out = [];
       let run = [];
       const flush = () => {
         if (!run.length) return;
-        if (run.length >= 2 && run.every((l) => l.dam)) {
+        if (run.every((l) => l.dam)) {
           out.push(`<table class="pl-table">${run.map((l) => `<tr><td>${esc(l.nhan.replace(/:\s*$/, ''))}</td><td class="${/^(miễn phí|free)$/i.test(l.noi_dung.trim()) ? 'free' : ''}">${esc(l.noi_dung)}</td></tr>`).join('')}</table>`);
         } else {
           out.push(`<div class="pl-row">${run.map((l) => `<span class="pl-pair"><span class="pl-label">${esc(l.nhan.replace(/:\s*$/, ''))}:</span> <b>${esc(l.noi_dung)}</b></span>`).join('')}</div>`);
@@ -238,6 +252,7 @@
       };
       dong.forEach((l) => {
         if (l.nhan) {
+          if (run.length && Boolean(run[0].dam) !== Boolean(l.dam)) flush();
           run.push(l);
         } else {
           flush();
@@ -255,8 +270,8 @@
             <div class="policy-body">${policyLines(s.dong)}</div>
           </div>`).join('')}</div>`
           : (d.hoan_chinh
-            ? '<div class="detail-none">Trip.com không có chính sách cho khách sạn này (đã cào đủ packet).</div>'
-            : '<div class="detail-empty">Chưa crawl được chính sách (raw chưa đủ packet — nên cào bù).</div>')}
+            ? '<div class="detail-none">Trip.com không có chính sách cho khách sạn này (đã crawl đủ packet).</div>'
+            : '<div class="detail-empty">Chưa crawl được chính sách (raw chưa đủ packet — nên crawl bù).</div>')}
       </section>`;
 
     const groups = new Map();
@@ -278,14 +293,14 @@
             </li>`).join('')}</ul>
           </div>`).join('')}</div>`
           : (d.hoan_chinh
-            ? '<div class="detail-none">Trip.com không có địa điểm lân cận cho khách sạn này (đã cào đủ packet).</div>'
-            : '<div class="detail-empty">Chưa crawl được địa điểm lân cận (raw chưa đủ packet — nên cào bù).</div>')}
+            ? '<div class="detail-none">Trip.com không có địa điểm lân cận cho khách sạn này (đã crawl đủ packet).</div>'
+            : '<div class="detail-empty">Chưa crawl được địa điểm lân cận (raw chưa đủ packet — nên crawl bù).</div>')}
       </section>`;
 
     const KIND = { them: 'thêm', xoa: 'bỏ', sua: 'đổi' };
     const thayDoi = d.thay_doi && d.thay_doi.so_muc
       ? `<section class="detail-block changes" id="dt-thay-doi">
-          <div class="detail-block-title"><span>SO VỚI LẦN CÀO TRƯỚC</span><h3>Thay đổi</h3><small>${d.thay_doi.so_muc} mục · lúc ${dateTime(d.thay_doi.luc)}</small></div>
+          <div class="detail-block-title"><span>SO VỚI LẦN CRAWL TRƯỚC</span><h3>Thay đổi</h3><small>${d.thay_doi.so_muc} mục · lúc ${dateTime(d.thay_doi.luc)}</small></div>
           <table class="changes-table"><thead><tr><th>Phần</th><th>Mục</th><th>Trước</th><th>Sau</th></tr></thead><tbody>
           ${d.thay_doi.muc.map((m) => `<tr class="ch-${m.loai}"><td>${esc(m.phan)}</td><td>${esc(m.khoa)}<small>${KIND[m.loai] || ''}</small></td><td class="before">${esc(m.truoc) || '<i>—</i>'}</td><td class="after">${esc(m.sau) || '<i>—</i>'}</td></tr>`).join('')}
           </tbody></table>
@@ -336,7 +351,7 @@
     if (e.detail === 'kho' && !loaded) load();
   });
   document.addEventListener('job-finished', () => {
-    // Raw vừa đổi (cào mới hoặc cào bù) → làm mới kho, giữ trang chi tiết đang xem.
+    // Raw vừa đổi (crawl mới hoặc crawl bù) → làm mới kho, giữ trang chi tiết đang xem.
     if (loaded) load(true).then(() => { if (currentHotel) openDetail(currentHotel.id, currentHotel.lang); });
   });
   // Đếm cho nav ngay cả khi chưa mở tab.
