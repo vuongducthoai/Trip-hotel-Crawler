@@ -1,13 +1,1135 @@
 {
+  "Albania": {
+    "countryId": 5,
+    "countryName": "Albania",
+    "cities": [
+      {
+        "cityId": 58513,
+        "cityName": "Durres",
+        "provinceId": 11493,
+        "provinceName": "Durres"
+      },
+      {
+        "cityId": 63052,
+        "cityName": "Golem",
+        "provinceId": 12716,
+        "provinceName": "Tirana County"
+      },
+      {
+        "cityId": 63056,
+        "cityName": "Ksamil",
+        "provinceId": 12717,
+        "provinceName": "Vlore"
+      },
+      {
+        "cityId": 58518,
+        "cityName": "Saranda",
+        "provinceId": 12717,
+        "provinceName": "Vlore"
+      },
+      {
+        "cityId": 36649,
+        "cityName": "Tirana",
+        "provinceId": 12716,
+        "provinceName": "Tirana County"
+      },
+      {
+        "cityId": 58520,
+        "cityName": "Vlore",
+        "provinceId": 12717,
+        "provinceName": "Vlore"
+      }
+    ]
+  },
+  "Algeria": {
+    "countryId": 6,
+    "countryName": "Algeria",
+    "cities": [
+      {
+        "cityId": 681820,
+        "cityName": "Alger Centre",
+        "provinceId": 11548,
+        "provinceName": "Algiers Province"
+      },
+      {
+        "cityId": 1271,
+        "cityName": "Algiers",
+        "provinceId": 11548,
+        "provinceName": "Algiers Province"
+      },
+      {
+        "cityId": 6575,
+        "cityName": "Annaba",
+        "provinceId": 11549,
+        "provinceName": "Annaba"
+      },
+      {
+        "cityId": 5511,
+        "cityName": "Oran",
+        "provinceId": 11576,
+        "provinceName": "Oran Province"
+      },
+      {
+        "cityId": 649754,
+        "cityName": "Staoueli",
+        "provinceId": 11548,
+        "provinceName": "Algiers Province"
+      }
+    ]
+  },
+  "Andorra": {
+    "countryId": 200,
+    "countryName": "Andorra",
+    "cities": [
+      {
+        "cityId": 4308,
+        "cityName": "Andorra la Vella",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 10081,
+        "cityName": "El Pas de la Casa",
+        "provinceId": 10329,
+        "provinceName": "Encamp"
+      },
+      {
+        "cityId": 36842,
+        "cityName": "El Tarter",
+        "provinceId": 10327,
+        "provinceName": "Canillo"
+      },
+      {
+        "cityId": 36850,
+        "cityName": "Grau roig",
+        "provinceId": 10329,
+        "provinceName": "Encamp"
+      },
+      {
+        "cityId": 36858,
+        "cityName": "Soldeu",
+        "provinceId": 10327,
+        "provinceName": "Canillo"
+      }
+    ]
+  },
+  "Antigua and Barbuda": {
+    "countryId": 201,
+    "countryName": "Antigua and Barbuda",
+    "cities": [
+      {
+        "cityId": 59574,
+        "cityName": "Dickenson Bay",
+        "provinceId": 12228,
+        "provinceName": "Saint John"
+      },
+      {
+        "cityId": 59575,
+        "cityName": "Five Islands Village",
+        "provinceId": 12228,
+        "provinceName": "Saint John"
+      },
+      {
+        "cityId": 648134,
+        "cityName": "Osbourn",
+        "provinceId": 12227,
+        "provinceName": "Saint George"
+      },
+      {
+        "cityId": 681675,
+        "cityName": "Potters Village",
+        "provinceId": 12228,
+        "provinceName": "Saint John"
+      },
+      {
+        "cityId": 36379,
+        "cityName": "St. John's",
+        "provinceId": 12228,
+        "provinceName": "Saint John"
+      },
+      {
+        "cityId": 256503,
+        "cityName": "Swetes",
+        "provinceId": 12230,
+        "provinceName": "Saint Paul"
+      }
+    ]
+  },
+  "Argentina": {
+    "countryId": 8,
+    "countryName": "Argentina",
+    "cities": [
+      {
+        "cityId": 807,
+        "cityName": "Buenos Aires",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 3854,
+        "cityName": "Cordoba",
+        "provinceId": 10140,
+        "provinceName": "Cordoba"
+      },
+      {
+        "cityId": 36523,
+        "cityName": "Ezeiza",
+        "provinceId": 10085,
+        "provinceName": "Buenos Aires Province"
+      },
+      {
+        "cityId": 288746,
+        "cityName": "Iguazu",
+        "provinceId": 10339,
+        "provinceName": "Misiones"
+      },
+      {
+        "cityId": 287862,
+        "cityName": "La Canada",
+        "provinceId": 10337,
+        "provinceName": "Santiago del Estero"
+      },
+      {
+        "cityId": 3400,
+        "cityName": "Ushuaia",
+        "provinceId": 10338,
+        "provinceName": "Tierra del Fuego"
+      }
+    ]
+  },
+  "Armenia": {
+    "countryId": 175,
+    "countryName": "Armenia",
+    "cities": [
+      {
+        "cityId": 50411,
+        "cityName": "Tsaghkadzor",
+        "provinceId": 12148,
+        "provinceName": "Kotayk"
+      },
+      {
+        "cityId": 3245,
+        "cityName": "Yerevan",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Aruba": {
+    "countryId": 171,
+    "countryName": "Aruba",
+    "cities": [
+      {
+        "cityId": 62098,
+        "cityName": "Eagle Beach",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 59568,
+        "cityName": "Noord",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 20008,
+        "cityName": "Oranjestad",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 9247,
+        "cityName": "Palm Beach",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
   "Australia": {
     "countryId": 15,
     "countryName": "Australia",
     "cities": [
       {
+        "cityId": 697863,
+        "cityName": "Acton",
+        "provinceId": 10300,
+        "provinceName": "Australian Capital Territory"
+      },
+      {
+        "cityId": 1243,
+        "cityName": "Adelaide",
+        "provinceId": 10304,
+        "provinceName": "South Australia"
+      },
+      {
+        "cityId": 3419,
+        "cityName": "Airlie Beach",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 65271,
+        "cityName": "Arcadia",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 330099,
+        "cityName": "Austral",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 88559,
+        "cityName": "Australind",
+        "provinceId": 10302,
+        "provinceName": "Western Australia"
+      },
+      {
+        "cityId": 9353,
+        "cityName": "Ballarat",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 327231,
+        "cityName": "Ballarat East",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 333169,
+        "cityName": "Barton",
+        "provinceId": 10300,
+        "provinceName": "Australian Capital Territory"
+      },
+      {
+        "cityId": 44633,
+        "cityName": "Bowral",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 680,
+        "cityName": "Brisbane",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 698898,
+        "cityName": "Broadbeach",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 728,
+        "cityName": "Cairns",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 332756,
+        "cityName": "Campbell",
+        "provinceId": 10300,
+        "provinceName": "Australian Capital Territory"
+      },
+      {
+        "cityId": 699303,
+        "cityName": "Canada Bay",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 679,
+        "cityName": "Canberra",
+        "provinceId": 10300,
+        "provinceName": "Australian Capital Territory"
+      },
+      {
+        "cityId": 9521,
+        "cityName": "Cradle Mountain",
+        "provinceId": 10305,
+        "provinceName": "Tasmania"
+      },
+      {
+        "cityId": 44685,
+        "cityName": "Denmark",
+        "provinceId": 10302,
+        "provinceName": "Western Australia"
+      },
+      {
+        "cityId": 329182,
+        "cityName": "Docklands",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 332522,
+        "cityName": "East Ballina",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 697374,
+        "cityName": "East Melbourne",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 9568,
+        "cityName": "Echuca",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 5269,
+        "cityName": "Emerald",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 5277,
+        "cityName": "Esperance",
+        "provinceId": 10302,
+        "provinceName": "Western Australia"
+      },
+      {
+        "cityId": 9593,
+        "cityName": "Exmouth",
+        "provinceId": 10302,
+        "provinceName": "Western Australia"
+      },
+      {
+        "cityId": 333057,
+        "cityName": "Fingal Head",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 4036,
+        "cityName": "Fremantle",
+        "provinceId": 10302,
+        "provinceName": "Western Australia"
+      },
+      {
+        "cityId": 331066,
+        "cityName": "Ghan",
+        "provinceId": 10303,
+        "provinceName": "Northern Territory"
+      },
+      {
+        "cityId": 1210,
+        "cityName": "Gold Coast",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 1446,
+        "cityName": "Hobart",
+        "provinceId": 10305,
+        "provinceName": "Tasmania"
+      },
+      {
+        "cityId": 331678,
+        "cityName": "Inala",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 9627,
+        "cityName": "K'gari",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 9831,
+        "cityName": "Lakes Entrance",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 4044,
+        "cityName": "Margaret River",
+        "provinceId": 10302,
+        "provinceName": "Western Australia"
+      },
+      {
+        "cityId": 699562,
+        "cityName": "Mascot",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
         "cityId": 358,
         "cityName": "Melbourne",
         "provinceId": 10264,
         "provinceName": "Victoria"
+      },
+      {
+        "cityId": 5316,
+        "cityName": "Mildura",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 324675,
+        "cityName": "New Italy",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 329272,
+        "cityName": "Oxenford",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 697867,
+        "cityName": "Parkes",
+        "provinceId": 10300,
+        "provinceName": "Australian Capital Territory"
+      },
+      {
+        "cityId": 699765,
+        "cityName": "Parramatta",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 332853,
+        "cityName": "Petermann",
+        "provinceId": 10303,
+        "provinceName": "Northern Territory"
+      },
+      {
+        "cityId": 5671,
+        "cityName": "Portland",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 697527,
+        "cityName": "Richmond",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 697569,
+        "cityName": "St Kilda",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 85402,
+        "cityName": "Stradbroke Island",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 698428,
+        "cityName": "Surfers Paradise",
+        "provinceId": 10301,
+        "provinceName": "Queensland"
+      },
+      {
+        "cityId": 501,
+        "cityName": "Sydney",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      },
+      {
+        "cityId": 62539,
+        "cityName": "Triabunna",
+        "provinceId": 10305,
+        "provinceName": "Tasmania"
+      },
+      {
+        "cityId": 322138,
+        "cityName": "Tullamarine",
+        "provinceId": 10264,
+        "provinceName": "Victoria"
+      },
+      {
+        "cityId": 331109,
+        "cityName": "Uraidla",
+        "provinceId": 10304,
+        "provinceName": "South Australia"
+      },
+      {
+        "cityId": 65094,
+        "cityName": "Uralla",
+        "provinceId": 10285,
+        "provinceName": "New South Wales"
+      }
+    ]
+  },
+  "Austria": {
+    "countryId": 14,
+    "countryName": "Austria",
+    "cities": [
+      {
+        "cityId": 9685,
+        "cityName": "Hallstatt",
+        "provinceId": 10231,
+        "provinceName": "Upper Austria"
+      },
+      {
+        "cityId": 381189,
+        "cityName": "Innsbruck-Land District",
+        "provinceId": 10098,
+        "provinceName": "Tyrol"
+      },
+      {
+        "cityId": 739,
+        "cityName": "Salzburg",
+        "provinceId": 10350,
+        "provinceName": "Salzburg State"
+      },
+      {
+        "cityId": 651,
+        "cityName": "Vienna",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 380955,
+        "cityName": "Wien-Flughafen",
+        "provinceId": 10274,
+        "provinceName": "Lower Austria"
+      }
+    ]
+  },
+  "Azerbaijan": {
+    "countryId": 145,
+    "countryName": "Azerbaijan",
+    "cities": [
+      {
+        "cityId": 650,
+        "cityName": "Baku",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 70936,
+        "cityName": "Gabala",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 58508,
+        "cityName": "Ganja",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 86431,
+        "cityName": "Lankaran",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Bahamas": {
+    "countryId": 185,
+    "countryName": "Bahamas",
+    "cities": [
+      {
+        "cityId": 3330,
+        "cityName": "Nassau",
+        "provinceId": 121866,
+        "provinceName": "New Providence"
+      },
+      {
+        "cityId": 84447,
+        "cityName": "Paradise Island",
+        "provinceId": 121866,
+        "provinceName": "New Providence"
+      }
+    ]
+  },
+  "Bahrain": {
+    "countryId": 118,
+    "countryName": "Bahrain",
+    "cities": [
+      {
+        "cityId": 60373,
+        "cityName": "Juffair",
+        "provinceId": 10352,
+        "provinceName": "Capital Governorate"
+      },
+      {
+        "cityId": 19695,
+        "cityName": "Manama",
+        "provinceId": 10352,
+        "provinceName": "Capital Governorate"
+      },
+      {
+        "cityId": 86853,
+        "cityName": "Muharraq",
+        "provinceId": 12585,
+        "provinceName": "Muharraq Governorate"
+      }
+    ]
+  },
+  "Bangladesh": {
+    "countryId": 68,
+    "countryName": "Bangladesh",
+    "cities": [
+      {
+        "cityId": 5148,
+        "cityName": "Cox's Bazar",
+        "provinceId": 11861,
+        "provinceName": "Chittagong"
+      },
+      {
+        "cityId": 733,
+        "cityName": "Dhaka",
+        "provinceId": 11862,
+        "provinceName": "Dhaka Division"
+      }
+    ]
+  },
+  "Barbados": {
+    "countryId": 202,
+    "countryName": "Barbados",
+    "cities": [
+      {
+        "cityId": 59582,
+        "cityName": "Durants",
+        "provinceId": 12238,
+        "provinceName": "Saint James"
+      },
+      {
+        "cityId": 59586,
+        "cityName": "Holetown",
+        "provinceId": 12238,
+        "provinceName": "Saint James"
+      },
+      {
+        "cityId": 256647,
+        "cityName": "Hopefield",
+        "provinceId": 12235,
+        "provinceName": "Christ Church"
+      },
+      {
+        "cityId": 256650,
+        "cityName": "Oistins",
+        "provinceId": 12235,
+        "provinceName": "Christ Church"
+      },
+      {
+        "cityId": 70816,
+        "cityName": "Porters",
+        "provinceId": 12238,
+        "provinceName": "Saint James"
+      },
+      {
+        "cityId": 70818,
+        "cityName": "Saint Lawrence",
+        "provinceId": 12235,
+        "provinceName": "Christ Church"
+      }
+    ]
+  },
+  "Belgium": {
+    "countryId": 21,
+    "countryName": "Belgium",
+    "cities": [
+      {
+        "cityId": 1767,
+        "cityName": "Antwerp",
+        "provinceId": 10361,
+        "provinceName": "Antwerp Province"
+      },
+      {
+        "cityId": 3128,
+        "cityName": "Bruges",
+        "provinceId": 10269,
+        "provinceName": "West-Flanders"
+      },
+      {
+        "cityId": 196,
+        "cityName": "Brussels",
+        "provinceId": 100571,
+        "provinceName": "Brussels-Capital Region"
+      },
+      {
+        "cityId": 37701,
+        "cityName": "Spa",
+        "provinceId": 10160,
+        "provinceName": "Liege"
+      },
+      {
+        "cityId": 37764,
+        "cityName": "Zaventem",
+        "provinceId": 10355,
+        "provinceName": "Flemish Brabant"
+      }
+    ]
+  },
+  "Belize": {
+    "countryId": 210,
+    "countryName": "Belize",
+    "cities": [
+      {
+        "cityId": 684692,
+        "cityName": "Ambergris Caye",
+        "provinceId": 12267,
+        "provinceName": "Corozal"
+      },
+      {
+        "cityId": 4997,
+        "cityName": "Belize City",
+        "provinceId": 12265,
+        "provinceName": "Belize District"
+      },
+      {
+        "cityId": 5131,
+        "cityName": "Caye Caulker",
+        "provinceId": 12265,
+        "provinceName": "Belize District"
+      },
+      {
+        "cityId": 71480,
+        "cityName": "Hopkins",
+        "provinceId": 12269,
+        "provinceName": "Stann Creek"
+      },
+      {
+        "cityId": 5609,
+        "cityName": "Placencia",
+        "provinceId": 12269,
+        "provinceName": "Stann Creek"
+      },
+      {
+        "cityId": 5927,
+        "cityName": "San Pedro",
+        "provinceId": 12267,
+        "provinceName": "Corozal"
+      },
+      {
+        "cityId": 394109,
+        "cityName": "Sta Elena",
+        "provinceId": 12267,
+        "provinceName": "Corozal"
+      }
+    ]
+  },
+  "Bermuda": {
+    "countryId": 207,
+    "countryName": "Bermuda",
+    "cities": [
+      {
+        "cityId": 321367,
+        "cityName": "Smith's",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 59610,
+        "cityName": "Somerset",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 59609,
+        "cityName": "St. George's",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 59611,
+        "cityName": "Tucker's Town",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Bhutan": {
+    "countryId": 212,
+    "countryName": "Bhutan",
+    "cities": [
+      {
+        "cityId": 394347,
+        "cityName": "Nubding",
+        "provinceId": 253047,
+        "provinceName": "Wangdi Phodrang"
+      },
+      {
+        "cityId": 5550,
+        "cityName": "Paro",
+        "provinceId": 253039,
+        "provinceName": "Paro District"
+      },
+      {
+        "cityId": 394426,
+        "cityName": "Sigyel",
+        "provinceId": 253043,
+        "provinceName": "Thimpu"
+      },
+      {
+        "cityId": 59715,
+        "cityName": "Thimphu",
+        "provinceId": 253043,
+        "provinceName": "Thimpu"
+      }
+    ]
+  },
+  "Bolivia": {
+    "countryId": 24,
+    "countryName": "Bolivia",
+    "cities": [
+      {
+        "cityId": 1254,
+        "cityName": "La Paz",
+        "provinceId": 11659,
+        "provinceName": "La Paz Department"
+      },
+      {
+        "cityId": 257669,
+        "cityName": "Provincia de Andres Ibanez",
+        "provinceId": 11663,
+        "provinceName": "Santa Cruz Department"
+      },
+      {
+        "cityId": 5940,
+        "cityName": "Santa Cruz",
+        "provinceId": 11663,
+        "provinceName": "Santa Cruz Department"
+      },
+      {
+        "cityId": 5933,
+        "cityName": "Sucre",
+        "provinceId": 11657,
+        "provinceName": "Chuquisaca"
+      }
+    ]
+  },
+  "Bosnia and Herzegovina": {
+    "countryId": 209,
+    "countryName": "Bosnia and Herzegovina",
+    "cities": [
+      {
+        "cityId": 269154,
+        "cityName": "Centar Sarajevo",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      },
+      {
+        "cityId": 268905,
+        "cityName": "Central Bosnia Canton",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      },
+      {
+        "cityId": 268316,
+        "cityName": "Herzegovina-Neretva Canton",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      },
+      {
+        "cityId": 57471,
+        "cityName": "Ilidza",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      },
+      {
+        "cityId": 5499,
+        "cityName": "Mostar",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      },
+      {
+        "cityId": 10260,
+        "cityName": "Sarajevo",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      },
+      {
+        "cityId": 268884,
+        "cityName": "Sarajevo Canton",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      },
+      {
+        "cityId": 268568,
+        "cityName": "Zenica-Doboj Canton",
+        "provinceId": 12262,
+        "provinceName": "Federation of Bosnia and Herzegovina"
+      }
+    ]
+  },
+  "Botswana": {
+    "countryId": 152,
+    "countryName": "Botswana",
+    "cities": [
+      {
+        "cityId": 394161,
+        "cityName": "Chobe",
+        "provinceId": 11266,
+        "provinceName": "North-West District"
+      },
+      {
+        "cityId": 857,
+        "cityName": "Gaborone",
+        "provinceId": 12788,
+        "provinceName": "South-East"
+      },
+      {
+        "cityId": 62545,
+        "cityName": "Kasane",
+        "provinceId": 11266,
+        "provinceName": "North-West District"
+      },
+      {
+        "cityId": 394196,
+        "cityName": "Ngamiland East",
+        "provinceId": 11266,
+        "provinceName": "North-West District"
+      },
+      {
+        "cityId": 394217,
+        "cityName": "Ngamiland South District",
+        "provinceId": 11266,
+        "provinceName": "North-West District"
+      }
+    ]
+  },
+  "Brazil": {
+    "countryId": 19,
+    "countryName": "Brazil",
+    "cities": [
+      {
+        "cityId": 36581,
+        "cityName": "Campos do Jordao",
+        "provinceId": 10234,
+        "provinceName": "Sao Paulo State"
+      },
+      {
+        "cityId": 6743,
+        "cityName": "Florianopolis",
+        "provinceId": 10235,
+        "provinceName": "Santa Catarina"
+      },
+      {
+        "cityId": 36566,
+        "cityName": "Foz do Iguacu",
+        "provinceId": 10059,
+        "provinceName": "Parana"
+      },
+      {
+        "cityId": 63199,
+        "cityName": "Gaspar",
+        "provinceId": 10235,
+        "provinceName": "Santa Catarina"
+      },
+      {
+        "cityId": 59020,
+        "cityName": "Governador Celso Ramos",
+        "provinceId": 10235,
+        "provinceName": "Santa Catarina"
+      },
+      {
+        "cityId": 36574,
+        "cityName": "Guarulhos",
+        "provinceId": 10234,
+        "provinceName": "Sao Paulo State"
+      },
+      {
+        "cityId": 63221,
+        "cityName": "Ipojuca",
+        "provinceId": 10080,
+        "provinceName": "Pernambuco"
+      },
+      {
+        "cityId": 59100,
+        "cityName": "Marechal Deodoro",
+        "provinceId": 10362,
+        "provinceName": "Alagoas"
+      },
+      {
+        "cityId": 769,
+        "cityName": "Rio de Janeiro",
+        "provinceId": 10157,
+        "provinceName": "Rio de Janeiro State"
+      },
+      {
+        "cityId": 415,
+        "cityName": "Sao Paulo",
+        "provinceId": 10234,
+        "provinceName": "Sao Paulo State"
+      }
+    ]
+  },
+  "Brunei Darussalam": {
+    "countryId": 260,
+    "countryName": "Brunei Darussalam",
+    "cities": [
+      {
+        "cityId": 4048,
+        "cityName": "Bandar Seri Begawan",
+        "provinceId": 11121,
+        "provinceName": "Brunei-Muara"
+      },
+      {
+        "cityId": 36106,
+        "cityName": "Kampong Jerudong",
+        "provinceId": 11121,
+        "provinceName": "Brunei-Muara"
+      },
+      {
+        "cityId": 61428,
+        "cityName": "Kuala Belait",
+        "provinceId": 12947,
+        "provinceName": "Belait"
+      },
+      {
+        "cityId": 263658,
+        "cityName": "Mukim Berakas A",
+        "provinceId": 11121,
+        "provinceName": "Brunei-Muara"
+      },
+      {
+        "cityId": 263651,
+        "cityName": "Mukim Gadong B",
+        "provinceId": 11121,
+        "provinceName": "Brunei-Muara"
+      }
+    ]
+  },
+  "Bulgaria": {
+    "countryId": 20,
+    "countryName": "Bulgaria",
+    "cities": [
+      {
+        "cityId": 9416,
+        "cityName": "Burgas",
+        "provinceId": 10380,
+        "provinceName": "Burgas Province"
+      },
+      {
+        "cityId": 9658,
+        "cityName": "Golden Sands",
+        "provinceId": 10377,
+        "provinceName": "Varna Province"
+      },
+      {
+        "cityId": 391291,
+        "cityName": "Nesebar",
+        "provinceId": 10380,
+        "provinceName": "Burgas Province"
+      },
+      {
+        "cityId": 792,
+        "cityName": "Sofia",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 4047,
+        "cityName": "Sunny Beach",
+        "provinceId": 10380,
+        "provinceName": "Burgas Province"
       }
     ]
   },
@@ -15,6 +1137,18 @@
     "countryId": 50,
     "countryName": "Cambodia",
     "cities": [
+      {
+        "cityId": 36149,
+        "cityName": "Kampot",
+        "provinceId": 11202,
+        "provinceName": "Kampot Province"
+      },
+      {
+        "cityId": 798151,
+        "cityName": "Krabey Island",
+        "provinceId": 12630,
+        "provinceName": "Sihanoukville Province"
+      },
       {
         "cityId": 303,
         "cityName": "Phnom Penh",
@@ -26,6 +1160,18 @@
         "cityName": "Siem Reap",
         "provinceId": 11208,
         "provinceName": "Siem Reap Province"
+      },
+      {
+        "cityId": 3294,
+        "cityName": "Sihanoukville",
+        "provinceId": 12630,
+        "provinceName": "Sihanoukville Province"
+      },
+      {
+        "cityId": 801797,
+        "cityName": "Veal Veaeng",
+        "provinceId": 12629,
+        "provinceName": "Pursat Province"
       }
     ]
   },
@@ -34,20 +1180,71 @@
     "countryName": "Canada",
     "cities": [
       {
-        "cityId": 476,
-        "cityName": "Vancouver",
+        "cityId": 7725,
+        "cityName": "Banff",
+        "provinceId": 10034,
+        "provinceName": "Alberta"
+      },
+      {
+        "cityId": 35556,
+        "cityName": "Burnaby",
+        "provinceId": 10083,
+        "provinceName": "British Columbia",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 761,
+        "cityName": "Calgary",
+        "provinceId": 10034,
+        "provinceName": "Alberta"
+      },
+      {
+        "cityId": 45023,
+        "cityName": "Cardigan",
+        "provinceId": 10048,
+        "provinceName": "Prince Edward Island"
+      },
+      {
+        "cityId": 45032,
+        "cityName": "Cavendish",
+        "provinceId": 10048,
+        "provinceName": "Prince Edward Island"
+      },
+      {
+        "cityId": 45082,
+        "cityName": "Duncan",
         "provinceId": 10083,
         "provinceName": "British Columbia"
       },
       {
-        "cityId": 461,
-        "cityName": "Toronto",
+        "cityId": 66460,
+        "cityName": "Fort Frances",
         "provinceId": 10051,
         "provinceName": "Ontario"
       },
       {
-        "cityId": 759,
-        "cityName": "Montreal",
+        "cityId": 35577,
+        "cityName": "Gananoque",
+        "provinceId": 10051,
+        "provinceName": "Ontario"
+      },
+      {
+        "cityId": 66439,
+        "cityName": "Hanover",
+        "provinceId": 10051,
+        "provinceName": "Ontario"
+      },
+      {
+        "cityId": 3440,
+        "cityName": "Kamloops",
+        "provinceId": 10083,
+        "provinceName": "British Columbia"
+      },
+      {
+        "cityId": 387483,
+        "cityName": "L'Ile-d'Orleans Regional County Municipality",
         "provinceId": 10149,
         "provinceName": "Quebec Province"
       },
@@ -55,25 +1252,184 @@
         "cityId": 20356,
         "cityName": "Laval",
         "provinceId": 10149,
+        "provinceName": "Quebec Province",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 20460,
+        "cityName": "Mississauga",
+        "provinceId": 10051,
+        "provinceName": "Ontario",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 759,
+        "cityName": "Montreal",
+        "provinceId": 10149,
+        "provinceName": "Quebec Province",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 35606,
+        "cityName": "Newmarket",
+        "provinceId": 10051,
+        "provinceName": "Ontario"
+      },
+      {
+        "cityId": 3436,
+        "cityName": "Niagara Falls",
+        "provinceId": 10051,
+        "provinceName": "Ontario"
+      },
+      {
+        "cityId": 3441,
+        "cityName": "Quebec City",
+        "provinceId": 10149,
+        "provinceName": "Quebec Province"
+      },
+      {
+        "cityId": 45369,
+        "cityName": "Rawdon",
+        "provinceId": 10149,
         "provinceName": "Quebec Province"
       },
       {
         "cityId": 66387,
         "cityName": "Richmond",
         "provinceId": 10083,
-        "provinceName": "British Columbia"
+        "provinceName": "British Columbia",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
-        "cityId": 35556,
-        "cityName": "Burnaby",
+        "cityId": 461,
+        "cityName": "Toronto",
+        "provinceId": 10051,
+        "provinceName": "Ontario",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 476,
+        "cityName": "Vancouver",
         "provinceId": 10083,
-        "provinceName": "British Columbia"
+        "provinceName": "British Columbia",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
-        "cityId": 20460,
-        "cityName": "Mississauga",
+        "cityId": 20647,
+        "cityName": "Vaughan",
         "provinceId": 10051,
         "provinceName": "Ontario"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Cape Verde": {
+    "countryId": 219,
+    "countryName": "Cape Verde",
+    "cities": [
+      {
+        "cityId": 60753,
+        "cityName": "Mindelo",
+        "provinceId": 12338,
+        "provinceName": "Sao Vicente"
+      },
+      {
+        "cityId": 60755,
+        "cityName": "Santa Maria",
+        "provinceId": 12329,
+        "provinceName": "Sal"
+      }
+    ]
+  },
+  "Cayman Islands": {
+    "countryId": 223,
+    "countryName": "Cayman Islands",
+    "cities": [
+      {
+        "cityId": 59640,
+        "cityName": "Bodden Town",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 321365,
+        "cityName": "East End",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 36409,
+        "cityName": "George Town",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 6789,
+        "cityName": "Grand Cayman",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 684316,
+        "cityName": "North Side",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 72404,
+        "cityName": "West Bay",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Chile": {
+    "countryId": 115,
+    "countryName": "Chile",
+    "cities": [
+      {
+        "cityId": 5028,
+        "cityName": "Concepcion",
+        "provinceId": 10404,
+        "provinceName": "Bio Bio"
+      },
+      {
+        "cityId": 75043,
+        "cityName": "Las Condes",
+        "provinceId": 11321,
+        "provinceName": "Santiago Metropolitan Region"
+      },
+      {
+        "cityId": 264835,
+        "cityName": "Natales",
+        "provinceId": 10408,
+        "provinceName": "XII Region of Magallanes and Chilean Antarctica"
+      },
+      {
+        "cityId": 649703,
+        "cityName": "San Vicente",
+        "provinceId": 10412,
+        "provinceName": "O'Higgins"
+      },
+      {
+        "cityId": 852,
+        "cityName": "Santiago",
+        "provinceId": 11321,
+        "provinceName": "Santiago Metropolitan Region"
       }
     ]
   },
@@ -82,28 +1438,22 @@
     "countryName": "China",
     "cities": [
       {
+        "cityId": 659,
+        "cityName": "Anji",
+        "provinceId": 16,
+        "provinceName": "Zhejiang"
+      },
+      {
+        "cityId": 3886,
+        "cityName": "Baishan",
+        "provinceId": 6,
+        "provinceName": "Jilin"
+      },
+      {
         "cityId": 1,
         "cityName": "Beijing",
         "provinceId": 1,
         "provinceName": "Beijing"
-      },
-      {
-        "cityId": 2,
-        "cityName": "Shanghai",
-        "provinceId": 2,
-        "provinceName": "Shanghai"
-      },
-      {
-        "cityId": 32,
-        "cityName": "Guangzhou",
-        "provinceId": 23,
-        "provinceName": "Guangdong"
-      },
-      {
-        "cityId": 30,
-        "cityName": "Shenzhen",
-        "provinceId": 23,
-        "provinceName": "Guangdong"
       },
       {
         "cityId": 28,
@@ -112,16 +1462,40 @@
         "provinceName": "Sichuan"
       },
       {
-        "cityId": 477,
-        "cityName": "Wuhan",
-        "provinceId": 18,
-        "provinceName": "Hubei"
+        "cityId": 4,
+        "cityName": "Chongqing",
+        "provinceId": 4,
+        "provinceName": "Chongqing"
       },
       {
-        "cityId": 10,
-        "cityName": "Xi'an",
-        "provinceId": 27,
-        "provinceName": "Shaanxi"
+        "cityId": 36,
+        "cityName": "Dali City",
+        "provinceId": 25,
+        "provinceName": "Yunnan"
+      },
+      {
+        "cityId": 3927,
+        "cityName": "Dexing",
+        "provinceId": 18,
+        "provinceName": "Jiangxi"
+      },
+      {
+        "cityId": 32,
+        "cityName": "Guangzhou",
+        "provinceId": 23,
+        "provinceName": "Guangdong"
+      },
+      {
+        "cityId": 33,
+        "cityName": "Guilin",
+        "provinceId": 24,
+        "provinceName": "Guangxi"
+      },
+      {
+        "cityId": 1666,
+        "cityName": "Hailin",
+        "provinceId": 5,
+        "provinceName": "Heilongjiang"
       },
       {
         "cityId": 17,
@@ -130,10 +1504,424 @@
         "provinceName": "Zhejiang"
       },
       {
+        "cityId": 278,
+        "cityName": "Hefei",
+        "provinceId": 17,
+        "provinceName": "Anhui"
+      },
+      {
+        "cityId": 103,
+        "cityName": "Hohhot",
+        "provinceId": 28,
+        "provinceName": "Inner Mongolia"
+      },
+      {
         "cityId": 58,
         "cityName": "Hong Kong",
         "provinceId": 32,
         "provinceName": "Hong Kong"
+      },
+      {
+        "cityId": 299,
+        "cityName": "Huizhou",
+        "provinceId": 23,
+        "provinceName": "Guangdong"
+      },
+      {
+        "cityId": 20895,
+        "cityName": "Jiaoling",
+        "provinceId": 23,
+        "provinceName": "Guangdong"
+      },
+      {
+        "cityId": 21939,
+        "cityName": "Nan'ao County",
+        "provinceId": 23,
+        "provinceName": "Guangdong"
+      },
+      {
+        "cityId": 12,
+        "cityName": "Nanjing",
+        "provinceId": 15,
+        "provinceName": "Jiangsu"
+      },
+      {
+        "cityId": 7,
+        "cityName": "Qingdao",
+        "provinceId": 10,
+        "provinceName": "Shandong"
+      },
+      {
+        "cityId": 2,
+        "cityName": "Shanghai",
+        "provinceId": 2,
+        "provinceName": "Shanghai",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 451,
+        "cityName": "Shenyang",
+        "provinceId": 7,
+        "provinceName": "Liaoning"
+      },
+      {
+        "cityId": 30,
+        "cityName": "Shenzhen",
+        "provinceId": 23,
+        "provinceName": "Guangdong"
+      },
+      {
+        "cityId": 7665,
+        "cityName": "Suichang",
+        "provinceId": 16,
+        "provinceName": "Zhejiang"
+      },
+      {
+        "cityId": 14,
+        "cityName": "Suzhou",
+        "provinceId": 15,
+        "provinceName": "Jiangsu"
+      },
+      {
+        "cityId": 454,
+        "cityName": "Tai'an",
+        "provinceId": 10,
+        "provinceName": "Shandong"
+      },
+      {
+        "cityId": 580,
+        "cityName": "Tongxiang",
+        "provinceId": 16,
+        "provinceName": "Zhejiang"
+      },
+      {
+        "cityId": 477,
+        "cityName": "Wuhan",
+        "provinceId": 18,
+        "provinceName": "Hubei"
+      },
+      {
+        "cityId": 13,
+        "cityName": "Wuxi",
+        "provinceId": 15,
+        "provinceName": "Jiangsu"
+      },
+      {
+        "cityId": 10,
+        "cityName": "Xi'an",
+        "provinceId": 27,
+        "provinceName": "Shaanxi"
+      },
+      {
+        "cityId": 512,
+        "cityName": "Xuzhou",
+        "provinceId": 15,
+        "provinceName": "Jiangsu"
+      },
+      {
+        "cityId": 3229,
+        "cityName": "Zhijiang",
+        "provinceId": 21,
+        "provinceName": "Hunan"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Colombia": {
+    "countryId": 37,
+    "countryName": "Colombia",
+    "cities": [
+      {
+        "cityId": 75029,
+        "cityName": "Albania",
+        "provinceId": 10417,
+        "provinceName": "Antioquia"
+      },
+      {
+        "cityId": 4482,
+        "cityName": "Armenia",
+        "provinceId": 10430,
+        "provinceName": "Quindio"
+      },
+      {
+        "cityId": 431453,
+        "cityName": "Australia",
+        "provinceId": 11326,
+        "provinceName": "Boyaca"
+      },
+      {
+        "cityId": 824,
+        "cityName": "Bogota",
+        "provinceId": 12661,
+        "provinceName": "Bogota"
+      },
+      {
+        "cityId": 432184,
+        "cityName": "Canada",
+        "provinceId": 10425,
+        "provinceName": "Magdalena"
+      },
+      {
+        "cityId": 430968,
+        "cityName": "Canada",
+        "provinceId": 10423,
+        "provinceName": "Cundinamarca"
+      },
+      {
+        "cityId": 431860,
+        "cityName": "Canada",
+        "provinceId": 10426,
+        "provinceName": "Meta"
+      },
+      {
+        "cityId": 428347,
+        "cityName": "Canada Larga",
+        "provinceId": 11326,
+        "provinceName": "Boyaca"
+      },
+      {
+        "cityId": 5123,
+        "cityName": "Cartagena",
+        "provinceId": 10440,
+        "provinceName": "Bolivar"
+      },
+      {
+        "cityId": 432541,
+        "cityName": "La Canada",
+        "provinceId": 10440,
+        "provinceName": "Bolivar"
+      },
+      {
+        "cityId": 7434,
+        "cityName": "Medellin",
+        "provinceId": 10417,
+        "provinceName": "Antioquia"
+      },
+      {
+        "cityId": 59406,
+        "cityName": "Montenegro",
+        "provinceId": 10430,
+        "provinceName": "Quindio"
+      },
+      {
+        "cityId": 430457,
+        "cityName": "Portugal",
+        "provinceId": 10429,
+        "provinceName": "Putumayo"
+      },
+      {
+        "cityId": 426795,
+        "cityName": "Venezuela",
+        "provinceId": 10428,
+        "provinceName": "Norte de Santander"
+      },
+      {
+        "cityId": 6269,
+        "cityName": "Villavicencio",
+        "provinceId": 10426,
+        "provinceName": "Meta"
+      }
+    ]
+  },
+  "Cook Islands": {
+    "countryId": 191,
+    "countryName": "Cook Islands",
+    "cities": [
+      {
+        "cityId": 6707,
+        "cityName": "Aitutaki",
+        "provinceId": 700854,
+        "provinceName": "Southern Cook Islands"
+      },
+      {
+        "cityId": 36472,
+        "cityName": "Arorangi",
+        "provinceId": 700854,
+        "provinceName": "Southern Cook Islands"
+      },
+      {
+        "cityId": 36473,
+        "cityName": "Avarua",
+        "provinceId": 700854,
+        "provinceName": "Southern Cook Islands"
+      },
+      {
+        "cityId": 3447,
+        "cityName": "Rarotonga",
+        "provinceId": 700854,
+        "provinceName": "Southern Cook Islands"
+      }
+    ]
+  },
+  "Costa Rica": {
+    "countryId": 38,
+    "countryName": "Costa Rica",
+    "cities": [
+      {
+        "cityId": 60649,
+        "cityName": "Culebra",
+        "provinceId": 10452,
+        "provinceName": "Guanacaste"
+      },
+      {
+        "cityId": 60661,
+        "cityName": "La Fortuna",
+        "provinceId": 10449,
+        "provinceName": "Alajuela"
+      },
+      {
+        "cityId": 683142,
+        "cityName": "Nacascolo",
+        "provinceId": 10452,
+        "provinceName": "Guanacaste"
+      },
+      {
+        "cityId": 259450,
+        "cityName": "Paraiso",
+        "provinceId": 12760,
+        "provinceName": "Cartago"
+      },
+      {
+        "cityId": 93096,
+        "cityName": "Perez Zeledon",
+        "provinceId": 10451,
+        "provinceName": "San Jose"
+      },
+      {
+        "cityId": 60696,
+        "cityName": "Pinilla",
+        "provinceId": 10452,
+        "provinceName": "Guanacaste"
+      },
+      {
+        "cityId": 6098,
+        "cityName": "Tamarindo",
+        "provinceId": 10452,
+        "provinceName": "Guanacaste"
+      }
+    ]
+  },
+  "Croatia": {
+    "countryId": 164,
+    "countryName": "Croatia",
+    "cities": [
+      {
+        "cityId": 38854,
+        "cityName": "Cavtat",
+        "provinceId": 10101,
+        "provinceName": "Dubrovnik-Neretva County"
+      },
+      {
+        "cityId": 3901,
+        "cityName": "Dubrovnik",
+        "provinceId": 10101,
+        "provinceName": "Dubrovnik-Neretva County"
+      },
+      {
+        "cityId": 10159,
+        "cityName": "Rabac",
+        "provinceId": 10453,
+        "provinceName": "Istria County"
+      },
+      {
+        "cityId": 3264,
+        "cityName": "Split",
+        "provinceId": 12586,
+        "provinceName": "Split-Dalmatia County"
+      },
+      {
+        "cityId": 98631,
+        "cityName": "Zman",
+        "provinceId": 11181,
+        "provinceName": "Zadar County"
+      }
+    ]
+  },
+  "Curacao": {
+    "countryId": 294,
+    "countryName": "Curacao",
+    "cities": [
+      {
+        "cityId": 682961,
+        "cityName": "Curacao",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 62137,
+        "cityName": "Willemstad",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Cyprus": {
+    "countryId": 81,
+    "countryName": "Cyprus",
+    "cities": [
+      {
+        "cityId": 3452,
+        "cityName": "Ayia Napa",
+        "provinceId": 10473,
+        "provinceName": "Famagusta District"
+      },
+      {
+        "cityId": 684699,
+        "cityName": "Edremit",
+        "provinceId": 12558,
+        "provinceName": "Kyrenia District"
+      },
+      {
+        "cityId": 263364,
+        "cityName": "Egkomi",
+        "provinceId": 10472,
+        "provinceName": "Nicosia District"
+      },
+      {
+        "cityId": 40314,
+        "cityName": "Kyrenia",
+        "provinceId": 12558,
+        "provinceName": "Kyrenia District"
+      },
+      {
+        "cityId": 3291,
+        "cityName": "Paphos",
+        "provinceId": 10471,
+        "provinceName": "Paphos District"
+      },
+      {
+        "cityId": 3453,
+        "cityName": "Protaras",
+        "provinceId": 10473,
+        "provinceName": "Famagusta District"
+      }
+    ]
+  },
+  "Czech Republic": {
+    "countryId": 162,
+    "countryName": "Czech Republic",
+    "cities": [
+      {
+        "cityId": 123345,
+        "cityName": "Havlickuv Brod District",
+        "provinceId": 10481,
+        "provinceName": "Vysocina"
+      },
+      {
+        "cityId": 1288,
+        "cityName": "Prague",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 38789,
+        "cityName": "Spindleruv Mlyn",
+        "provinceId": 10474,
+        "provinceName": "Hradec Kralove Region"
       }
     ]
   },
@@ -142,10 +1930,300 @@
     "countryName": "Denmark",
     "cities": [
       {
+        "cityId": 3324,
+        "cityName": "Aarhus",
+        "provinceId": 10298,
+        "provinceName": "Midtjylland"
+      },
+      {
+        "cityId": 1709,
+        "cityName": "Billund",
+        "provinceId": 10197,
+        "provinceName": "Syddanmark"
+      },
+      {
         "cityId": 260,
         "cityName": "Copenhagen",
         "provinceId": 10482,
+        "provinceName": "Hovedstaden",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 38038,
+        "cityName": "Kastrup",
+        "provinceId": 10482,
         "provinceName": "Hovedstaden"
+      },
+      {
+        "cityId": 38044,
+        "cityName": "Kongens Lyngby",
+        "provinceId": 10482,
+        "provinceName": "Hovedstaden"
+      }
+    ],
+    "tags": [
+      "#GreenSM",
+      "#Vinfast"
+    ]
+  },
+  "Dominican Republic": {
+    "countryId": 276,
+    "countryName": "Dominican Republic",
+    "cities": [
+      {
+        "cityId": 36397,
+        "cityName": "Bavaro",
+        "provinceId": 12915,
+        "provinceName": "La Altagracia"
+      },
+      {
+        "cityId": 258464,
+        "cityName": "Dominicus",
+        "provinceId": 12915,
+        "provinceName": "La Altagracia"
+      },
+      {
+        "cityId": 5677,
+        "cityName": "Punta Cana",
+        "provinceId": 12915,
+        "provinceName": "La Altagracia"
+      },
+      {
+        "cityId": 258329,
+        "cityName": "Yamasa",
+        "provinceId": 12922,
+        "provinceName": "Monte Plata"
+      }
+    ]
+  },
+  "Ecuador": {
+    "countryId": 155,
+    "countryName": "Ecuador",
+    "cities": [
+      {
+        "cityId": 258676,
+        "cityName": "Distrito Metropolitano de Quito",
+        "provinceId": 12689,
+        "provinceName": "Pichincha"
+      },
+      {
+        "cityId": 85177,
+        "cityName": "Esmeraldas",
+        "provinceId": 12680,
+        "provinceName": "Esmeraldas"
+      },
+      {
+        "cityId": 1482,
+        "cityName": "Guayaquil",
+        "provinceId": 10487,
+        "provinceName": "Guayas"
+      },
+      {
+        "cityId": 59342,
+        "cityName": "Puerto Ayora",
+        "provinceId": 10485,
+        "provinceName": "Galapagos"
+      },
+      {
+        "cityId": 858,
+        "cityName": "Quito",
+        "provinceId": 12689,
+        "provinceName": "Pichincha"
+      },
+      {
+        "cityId": 258979,
+        "cityName": "Samborondon",
+        "provinceId": 10487,
+        "provinceName": "Guayas"
+      },
+      {
+        "cityId": 684873,
+        "cityName": "Santa Cruz Island",
+        "provinceId": 10485,
+        "provinceName": "Galapagos"
+      }
+    ]
+  },
+  "Egypt": {
+    "countryId": 10,
+    "countryName": "Egypt",
+    "cities": [
+      {
+        "cityId": 1489,
+        "cityName": "Alexandria",
+        "provinceId": 10497,
+        "provinceName": "Alexandria Governorate"
+      },
+      {
+        "cityId": 332,
+        "cityName": "Cairo",
+        "provinceId": 10489,
+        "provinceName": "Cairo Governorate"
+      },
+      {
+        "cityId": 36236,
+        "cityName": "El Alamein",
+        "provinceId": 11347,
+        "provinceName": "Matrouh Governorate"
+      },
+      {
+        "cityId": 3471,
+        "cityName": "Hurghada",
+        "provinceId": 10488,
+        "provinceName": "Red Sea Governorate"
+      },
+      {
+        "cityId": 367537,
+        "cityName": "New Cairo City",
+        "provinceId": 10489,
+        "provinceName": "Cairo Governorate"
+      },
+      {
+        "cityId": 371239,
+        "cityName": "Qesm Sharm Ash Sheikh",
+        "provinceId": 10492,
+        "provinceName": "South Sinai Governorate"
+      },
+      {
+        "cityId": 36242,
+        "cityName": "Sharm El Sheikh",
+        "provinceId": 10492,
+        "provinceName": "South Sinai Governorate"
+      }
+    ]
+  },
+  "El Salvador": {
+    "countryId": 238,
+    "countryName": "El Salvador",
+    "cities": [
+      {
+        "cityId": 60722,
+        "cityName": "Antiguo Cuscatlan",
+        "provinceId": 12414,
+        "provinceName": "La Libertad"
+      },
+      {
+        "cityId": 397322,
+        "cityName": "Las Flores",
+        "provinceId": 12415,
+        "provinceName": "La Paz"
+      },
+      {
+        "cityId": 5808,
+        "cityName": "San Salvador",
+        "provinceId": 12419,
+        "provinceName": "San Salvador"
+      }
+    ]
+  },
+  "Estonia": {
+    "countryId": 166,
+    "countryName": "Estonia",
+    "cities": [
+      {
+        "cityId": 10080,
+        "cityName": "Parnu",
+        "provinceId": 10502,
+        "provinceName": "Parnumaa"
+      },
+      {
+        "cityId": 1737,
+        "cityName": "Tallinn",
+        "provinceId": 10498,
+        "provinceName": "Harjumaa"
+      }
+    ]
+  },
+  "Ethiopia": {
+    "countryId": 11,
+    "countryName": "Ethiopia",
+    "cities": [
+      {
+        "cityId": 256112,
+        "cityName": "Adama",
+        "provinceId": 11634,
+        "provinceName": "Oromia"
+      },
+      {
+        "cityId": 635,
+        "cityName": "Addis Ababa",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 80386,
+        "cityName": "Lalibela",
+        "provinceId": 11630,
+        "provinceName": "Amhara"
+      }
+    ]
+  },
+  "Fiji": {
+    "countryId": 33,
+    "countryName": "Fiji",
+    "cities": [
+      {
+        "cityId": 4059,
+        "cityName": "Denarau Island",
+        "provinceId": 704919,
+        "provinceName": "Viti Levu Group"
+      },
+      {
+        "cityId": 58740,
+        "cityName": "Malolo Island",
+        "provinceId": 704923,
+        "provinceName": "Mamanuca Islands"
+      },
+      {
+        "cityId": 791,
+        "cityName": "Nadi",
+        "provinceId": 704919,
+        "provinceName": "Viti Levu Group"
+      },
+      {
+        "cityId": 67097,
+        "cityName": "Viti Levu",
+        "provinceId": 704919,
+        "provinceName": "Viti Levu Group"
+      },
+      {
+        "cityId": 4247,
+        "cityName": "Yanuca Island",
+        "provinceId": 704919,
+        "provinceName": "Viti Levu Group"
+      }
+    ]
+  },
+  "Finland": {
+    "countryId": 34,
+    "countryName": "Finland",
+    "cities": [
+      {
+        "cityId": 648450,
+        "cityName": "Asikkala",
+        "provinceId": 100733,
+        "provinceName": "Paijanne Tavastia"
+      },
+      {
+        "cityId": 277,
+        "cityName": "Helsinki",
+        "provinceId": 100735,
+        "provinceName": "Uusimaa"
+      },
+      {
+        "cityId": 1794,
+        "cityName": "Rovaniemi",
+        "provinceId": 10514,
+        "provinceName": "Lapland"
+      },
+      {
+        "cityId": 20646,
+        "cityName": "Vantaa",
+        "provinceId": 100735,
+        "provinceName": "Uusimaa"
       }
     ]
   },
@@ -154,52 +2232,349 @@
     "countryName": "France",
     "cities": [
       {
-        "cityId": 192,
-        "cityName": "Paris",
+        "cityId": 3523,
+        "cityName": "Aix-en-Provence",
+        "provinceId": 10216,
+        "provinceName": "Provence-Alpes-Cote d'Azur",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 696401,
+        "cityName": "Alsace",
+        "provinceId": 10036,
+        "provinceName": "Grand Est"
+      },
+      {
+        "cityId": 523822,
+        "cityName": "Angoulins",
+        "provinceId": 10038,
+        "provinceName": "Nouvelle-Aquitaine"
+      },
+      {
+        "cityId": 80550,
+        "cityName": "Auvillar",
+        "provinceId": 10155,
+        "provinceName": "Occitanie"
+      },
+      {
+        "cityId": 80725,
+        "cityName": "Baillet-en-France",
         "provinceId": 10107,
         "provinceName": "Ile-de-France"
       },
       {
-        "cityId": 1473,
-        "cityName": "Rennes",
-        "provinceId": 10516,
-        "provinceName": "Brittany"
+        "cityId": 3525,
+        "cityName": "Beaune",
+        "provinceId": 10081,
+        "provinceName": "Bourgogne-Franche-Comte"
+      },
+      {
+        "cityId": 100753,
+        "cityName": "Bonneuil-en-France",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 22761,
+        "cityName": "Bourcefranc",
+        "provinceId": 10038,
+        "provinceName": "Nouvelle-Aquitaine"
+      },
+      {
+        "cityId": 714,
+        "cityName": "Cannes",
+        "provinceId": 10216,
+        "provinceName": "Provence-Alpes-Cote d'Azur"
+      },
+      {
+        "cityId": 517605,
+        "cityName": "Chatenay-en-France",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 25396,
+        "cityName": "Chessy",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 524954,
+        "cityName": "Elancourt",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 22407,
+        "cityName": "Espalion",
+        "provinceId": 10155,
+        "provinceName": "Occitanie"
+      },
+      {
+        "cityId": 22414,
+        "cityName": "Etretat",
+        "provinceId": 10232,
+        "provinceName": "Normandy"
+      },
+      {
+        "cityId": 9594,
+        "cityName": "Eze",
+        "provinceId": 10216,
+        "provinceName": "Provence-Alpes-Cote d'Azur"
+      },
+      {
+        "cityId": 512643,
+        "cityName": "Francieres",
+        "provinceId": 10518,
+        "provinceName": "Hauts-De-France"
+      },
+      {
+        "cityId": 527908,
+        "cityName": "Francon",
+        "provinceId": 10155,
+        "provinceName": "Occitanie"
+      },
+      {
+        "cityId": 517018,
+        "cityName": "Franconville",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 89302,
+        "cityName": "Francoules",
+        "provinceId": 10155,
+        "provinceName": "Occitanie"
+      },
+      {
+        "cityId": 515180,
+        "cityName": "Francs",
+        "provinceId": 10038,
+        "provinceName": "Nouvelle-Aquitaine"
+      },
+      {
+        "cityId": 28683,
+        "cityName": "Francueil",
+        "provinceId": 10296,
+        "provinceName": "Centre-Val de Loire"
+      },
+      {
+        "cityId": 67774,
+        "cityName": "Lafrancaise",
+        "provinceId": 10155,
+        "provinceName": "Occitanie"
+      },
+      {
+        "cityId": 24579,
+        "cityName": "Le Bois-Plage-en-Re",
+        "provinceId": 10038,
+        "provinceName": "Nouvelle-Aquitaine"
+      },
+      {
+        "cityId": 24648,
+        "cityName": "Levallois-Perret",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 515415,
+        "cityName": "Mareil-en-France",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
       },
       {
         "cityId": 712,
         "cityName": "Marseille",
         "provinceId": 10216,
-        "provinceName": "Provence-Alpes-Cote d'Azur"
-      },
-      {
-        "cityId": 775,
-        "cityName": "Nice",
-        "provinceId": 10216,
-        "provinceName": "Provence-Alpes-Cote d'Azur"
-      },
-      {
-        "cityId": 1294,
-        "cityName": "Montpellier",
-        "provinceId": 10155,
-        "provinceName": "Occitanie"
-      },
-      {
-        "cityId": 1484,
-        "cityName": "Nantes",
-        "provinceId": 10165,
-        "provinceName": "Pays de la Loire"
+        "provinceName": "Provence-Alpes-Cote d'Azur",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
         "cityId": 9947,
         "cityName": "Metz",
         "provinceId": 10036,
+        "provinceName": "Grand Est",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 520073,
+        "cityName": "Montfranc",
+        "provinceId": 10155,
+        "provinceName": "Occitanie"
+      },
+      {
+        "cityId": 1294,
+        "cityName": "Montpellier",
+        "provinceId": 10155,
+        "provinceName": "Occitanie",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 1484,
+        "cityName": "Nantes",
+        "provinceId": 10165,
+        "provinceName": "Pays de la Loire",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 775,
+        "cityName": "Nice",
+        "provinceId": 10216,
+        "provinceName": "Provence-Alpes-Cote d'Azur",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 192,
+        "cityName": "Paris",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 23669,
+        "cityName": "Prats-de-Mollo-la-Preste",
+        "provinceId": 10155,
+        "provinceName": "Occitanie"
+      },
+      {
+        "cityId": 1473,
+        "cityName": "Rennes",
+        "provinceId": 10516,
+        "provinceName": "Brittany",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 80383,
+        "cityName": "Roissy-en-France",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 1354,
+        "cityName": "Strasbourg",
+        "provinceId": 10036,
         "provinceName": "Grand Est"
       },
       {
-        "cityId": 3523,
-        "cityName": "Aix-en-Provence",
+        "cityId": 25125,
+        "cityName": "Tremblay-en-France",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      },
+      {
+        "cityId": 514673,
+        "cityName": "Uncey-le-Franc",
+        "provinceId": 10081,
+        "provinceName": "Bourgogne-Franche-Comte"
+      },
+      {
+        "cityId": 9179,
+        "cityName": "Vannes",
+        "provinceId": 10516,
+        "provinceName": "Brittany"
+      },
+      {
+        "cityId": 25330,
+        "cityName": "Venaco",
+        "provinceId": 10520,
+        "provinceName": "Corsica"
+      },
+      {
+        "cityId": 22695,
+        "cityName": "Villefranche-sur-Mer",
         "provinceId": 10216,
         "provinceName": "Provence-Alpes-Cote d'Azur"
+      },
+      {
+        "cityId": 25272,
+        "cityName": "Villepinte",
+        "provinceId": 10107,
+        "provinceName": "Ile-de-France"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "French Polynesia": {
+    "countryId": 264,
+    "countryName": "French Polynesia",
+    "cities": [
+      {
+        "cityId": 700895,
+        "cityName": "Anau",
+        "provinceId": 700883,
+        "provinceName": "Leeward Islands"
+      },
+      {
+        "cityId": 62124,
+        "cityName": "Arue",
+        "provinceId": 700885,
+        "provinceName": "Windward Islands"
+      },
+      {
+        "cityId": 61019,
+        "cityName": "Bora Bora",
+        "provinceId": 700883,
+        "provinceName": "Leeward Islands"
+      },
+      {
+        "cityId": 61020,
+        "cityName": "Faaa",
+        "provinceId": 700885,
+        "provinceName": "Windward Islands"
+      },
+      {
+        "cityId": 77702,
+        "cityName": "Maupiti",
+        "provinceId": 700883,
+        "provinceName": "Leeward Islands"
+      },
+      {
+        "cityId": 700914,
+        "cityName": "Papeari",
+        "provinceId": 700885,
+        "provinceName": "Windward Islands"
+      }
+    ]
+  },
+  "Georgia": {
+    "countryId": 180,
+    "countryName": "Georgia",
+    "cities": [
+      {
+        "cityId": 4912,
+        "cityName": "Batumi",
+        "provinceId": 112100,
+        "provinceName": "Adjara"
+      },
+      {
+        "cityId": 76604,
+        "cityName": "Shekvetili",
+        "provinceId": 112102,
+        "provinceName": "Guria"
+      },
+      {
+        "cityId": 7612,
+        "cityName": "Tbilisi",
+        "provinceId": 0,
+        "provinceName": ""
       }
     ]
   },
@@ -208,26 +2583,125 @@
     "countryName": "Germany",
     "cities": [
       {
-        "cityId": 250,
-        "cityName": "Frankfurt",
-        "provinceId": 10121,
-        "provinceName": "Hessen"
+        "cityId": 27505,
+        "cityName": "Algermissen",
+        "provinceId": 10276,
+        "provinceName": "Lower-Saxony"
       },
       {
-        "cityId": 709,
-        "cityName": "Cologne",
-        "provinceId": 10069,
-        "provinceName": "North Rhine-Westphalia"
+        "cityId": 29766,
+        "cityName": "Angermunde",
+        "provinceId": 10082,
+        "provinceName": "Brandenburg"
+      },
+      {
+        "cityId": 7735,
+        "cityName": "Bamberg",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 4990,
+        "cityName": "Bayreuth",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
       },
       {
         "cityId": 193,
         "cityName": "Berlin",
         "provinceId": 0,
-        "provinceName": ""
+        "provinceName": "",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
-        "cityId": 363,
-        "cityName": "Munich",
+        "cityId": 30078,
+        "cityName": "Bottrop",
+        "provinceId": 10069,
+        "provinceName": "North Rhine-Westphalia"
+      },
+      {
+        "cityId": 1359,
+        "cityName": "Bremen",
+        "provinceId": 10521,
+        "provinceName": "State of Bremen"
+      },
+      {
+        "cityId": 709,
+        "cityName": "Cologne",
+        "provinceId": 10069,
+        "provinceName": "North Rhine-Westphalia",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 30169,
+        "cityName": "Deggendorf",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 30224,
+        "cityName": "Dettingen an der Erms",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 762,
+        "cityName": "Dusseldorf",
+        "provinceId": 10069,
+        "provinceName": "North Rhine-Westphalia"
+      },
+      {
+        "cityId": 486958,
+        "cityName": "Eggermuhlen",
+        "provinceId": 10276,
+        "provinceName": "Lower-Saxony"
+      },
+      {
+        "cityId": 29688,
+        "cityName": "Erding",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 29708,
+        "cityName": "Erlangen",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 250,
+        "cityName": "Frankfurt",
+        "provinceId": 10121,
+        "provinceName": "Hessen",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 30270,
+        "cityName": "Freiburg im Breisgau",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 9647,
+        "cityName": "Gera",
+        "provinceId": 10255,
+        "provinceName": "Thuringia"
+      },
+      {
+        "cityId": 46485,
+        "cityName": "Germaringen",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 30383,
+        "cityName": "Germering",
         "provinceId": 10058,
         "provinceName": "Bavaria"
       },
@@ -235,19 +2709,466 @@
         "cityId": 763,
         "cityName": "Hamburg",
         "provinceId": 0,
-        "provinceName": ""
+        "provinceName": "",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 3333,
+        "cityName": "Heidelberg",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 30489,
+        "cityName": "Herzogenaurach",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 30547,
+        "cityName": "Hoyerswerda",
+        "provinceId": 10225,
+        "provinceName": "Saxony"
+      },
+      {
+        "cityId": 9744,
+        "cityName": "Ingolstadt",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 31768,
+        "cityName": "Ismaning",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 31790,
+        "cityName": "Juliusruh",
+        "provinceId": 10182,
+        "provinceName": "Mecklenburg-Vorpommern"
+      },
+      {
+        "cityId": 30867,
+        "cityName": "Lichtenhain",
+        "provinceId": 10225,
+        "provinceName": "Saxony"
+      },
+      {
+        "cityId": 30878,
+        "cityName": "Lingen",
+        "provinceId": 10276,
+        "provinceName": "Lower-Saxony"
+      },
+      {
+        "cityId": 7750,
+        "cityName": "Magdeburg",
+        "provinceId": 10224,
+        "provinceName": "Saxony-Anhalt"
+      },
+      {
+        "cityId": 27228,
+        "cityName": "Manching",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 3464,
+        "cityName": "Mannheim",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 31000,
+        "cityName": "Memmingen",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 31003,
+        "cityName": "Metzingen",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 363,
+        "cityName": "Munich",
+        "provinceId": 10058,
+        "provinceName": "Bavaria",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 31120,
+        "cityName": "Nuremberg",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 29776,
+        "cityName": "Oberammergau",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 485135,
+        "cityName": "Oberdorla",
+        "provinceId": 10255,
+        "provinceName": "Thuringia"
       },
       {
         "cityId": 29782,
         "cityName": "Oberhausen",
         "provinceId": 10069,
+        "provinceName": "North Rhine-Westphalia",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 29799,
+        "cityName": "Ostseebad Boltenhagen",
+        "provinceId": 10182,
+        "provinceName": "Mecklenburg-Vorpommern"
+      },
+      {
+        "cityId": 30741,
+        "cityName": "Ratingen",
+        "provinceId": 10069,
         "provinceName": "North Rhine-Westphalia"
+      },
+      {
+        "cityId": 3132,
+        "cityName": "Regensburg",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 30934,
+        "cityName": "Rothenburg ob der Tauber",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 79131,
+        "cityName": "Rugen",
+        "provinceId": 10182,
+        "provinceName": "Mecklenburg-Vorpommern"
+      },
+      {
+        "cityId": 31379,
+        "cityName": "Schwangau",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 5853,
+        "cityName": "Siegen",
+        "provinceId": 10069,
+        "provinceName": "North Rhine-Westphalia"
+      },
+      {
+        "cityId": 9058,
+        "cityName": "Singen",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
       },
       {
         "cityId": 765,
         "cityName": "Stuttgart",
         "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 31449,
+        "cityName": "Tangermunde",
+        "provinceId": 10224,
+        "provinceName": "Saxony-Anhalt"
+      },
+      {
+        "cityId": 9115,
+        "cityName": "Tegernsee",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 30188,
+        "cityName": "Tubingen",
+        "provinceId": 10057,
         "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 31779,
+        "cityName": "Uberlingen",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 9163,
+        "cityName": "Ulm",
+        "provinceId": 10057,
+        "provinceName": "Baden-Wurttemberg"
+      },
+      {
+        "cityId": 31618,
+        "cityName": "Weiden in der Oberpfalz",
+        "provinceId": 10058,
+        "provinceName": "Bavaria"
+      },
+      {
+        "cityId": 31570,
+        "cityName": "Wernigerode",
+        "provinceId": 10224,
+        "provinceName": "Saxony-Anhalt"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Ghana": {
+    "countryId": 48,
+    "countryName": "Ghana",
+    "cities": [
+      {
+        "cityId": 1274,
+        "cityName": "Accra",
+        "provinceId": 11771,
+        "provinceName": "Greater Accra"
+      },
+      {
+        "cityId": 293857,
+        "cityName": "Accra Metropolis",
+        "provinceId": 11771,
+        "provinceName": "Greater Accra"
+      },
+      {
+        "cityId": 294096,
+        "cityName": "Koforidua",
+        "provinceId": 11770,
+        "provinceName": "Eastern"
+      },
+      {
+        "cityId": 86240,
+        "cityName": "Kumasi",
+        "provinceId": 11767,
+        "provinceName": "Ashanti"
+      }
+    ]
+  },
+  "Greece": {
+    "countryId": 96,
+    "countryName": "Greece",
+    "cities": [
+      {
+        "cityId": 710,
+        "cityName": "Athens",
+        "provinceId": 10045,
+        "provinceName": "Attica"
+      },
+      {
+        "cityId": 7079,
+        "cityName": "Ikaria Island",
+        "provinceId": 11380,
+        "provinceName": "North Aegean"
+      },
+      {
+        "cityId": 96704,
+        "cityName": "Kranidi",
+        "provinceId": 10209,
+        "provinceName": "Peloponnese"
+      },
+      {
+        "cityId": 50904,
+        "cityName": "Marathon",
+        "provinceId": 10045,
+        "provinceName": "Attica"
+      },
+      {
+        "cityId": 42294,
+        "cityName": "Mykonos",
+        "provinceId": 11190,
+        "provinceName": "South Aegean"
+      },
+      {
+        "cityId": 50961,
+        "cityName": "Ormos Panagias",
+        "provinceId": 10177,
+        "provinceName": "Central Macedonia"
+      },
+      {
+        "cityId": 3570,
+        "cityName": "Rhodes",
+        "provinceId": 11190,
+        "provinceName": "South Aegean"
+      },
+      {
+        "cityId": 3576,
+        "cityName": "Santorini",
+        "provinceId": 11190,
+        "provinceName": "South Aegean"
+      },
+      {
+        "cityId": 3584,
+        "cityName": "Thessaloniki",
+        "provinceId": 10177,
+        "provinceName": "Central Macedonia"
+      },
+      {
+        "cityId": 6565,
+        "cityName": "Zakinthos Island",
+        "provinceId": 96,
+        "provinceName": "Ionian Islands"
+      }
+    ]
+  },
+  "Guatemala": {
+    "countryId": 90,
+    "countryName": "Guatemala",
+    "cities": [
+      {
+        "cityId": 60736,
+        "cityName": "Antigua Guatemala",
+        "provinceId": 12806,
+        "provinceName": "Departamento de Sacatepequez"
+      },
+      {
+        "cityId": 60739,
+        "cityName": "Guatemala City",
+        "provinceId": 11336,
+        "provinceName": "Guatemala Department"
+      }
+    ]
+  },
+  "Guinea": {
+    "countryId": 46,
+    "countryName": "Guinea",
+    "cities": [
+      {
+        "cityId": 1275,
+        "cityName": "Conakry",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Guyana": {
+    "countryId": 40,
+    "countryName": "Guyana",
+    "cities": [
+      {
+        "cityId": 6797,
+        "cityName": "Georgetown",
+        "provinceId": 11717,
+        "provinceName": "Demerara-Mahaica"
+      }
+    ]
+  },
+  "Honduras": {
+    "countryId": 44,
+    "countryName": "Honduras",
+    "cities": [
+      {
+        "cityId": 78611,
+        "cityName": "Copan Ruinas",
+        "provinceId": 11739,
+        "provinceName": "Copan"
+      },
+      {
+        "cityId": 5792,
+        "cityName": "Roatan",
+        "provinceId": 11745,
+        "provinceName": "Islas de la Bahia"
+      },
+      {
+        "cityId": 682460,
+        "cityName": "San Juan",
+        "provinceId": 11735,
+        "provinceName": "Atlantida"
+      },
+      {
+        "cityId": 5810,
+        "cityName": "San Pedro Sula",
+        "provinceId": 11740,
+        "provinceName": "Cortes"
+      },
+      {
+        "cityId": 83924,
+        "cityName": "Tela",
+        "provinceId": 11735,
+        "provinceName": "Atlantida"
+      },
+      {
+        "cityId": 308753,
+        "cityName": "West Bay",
+        "provinceId": 11745,
+        "provinceName": "Islas de la Bahia"
+      }
+    ]
+  },
+  "Hungary": {
+    "countryId": 99,
+    "countryName": "Hungary",
+    "cities": [
+      {
+        "cityId": 637,
+        "cityName": "Budapest",
+        "provinceId": 10537,
+        "provinceName": "Pest"
+      },
+      {
+        "cityId": 7428,
+        "cityName": "Miskolc",
+        "provinceId": 10530,
+        "provinceName": "Borsod-Abauj-Zemplen"
+      },
+      {
+        "cityId": 5709,
+        "cityName": "Pecs",
+        "provinceId": 10536,
+        "provinceName": "Baranya"
+      },
+      {
+        "cityId": 9060,
+        "cityName": "Siofok",
+        "provinceId": 10532,
+        "provinceName": "Somogy"
+      }
+    ]
+  },
+  "Iceland": {
+    "countryId": 22,
+    "countryName": "Iceland",
+    "cities": [
+      {
+        "cityId": 3130,
+        "cityName": "Keflavik",
+        "provinceId": 12521,
+        "provinceName": "Southern Peninsula"
+      },
+      {
+        "cityId": 831,
+        "cityName": "Reykjavik",
+        "provinceId": 10550,
+        "provinceName": "Capital Region"
+      },
+      {
+        "cityId": 711039,
+        "cityName": "Sudurnesjabaer",
+        "provinceId": 12521,
+        "provinceName": "Southern Peninsula"
+      },
+      {
+        "cityId": 9195,
+        "cityName": "Vik",
+        "provinceId": 10552,
+        "provinceName": "Southern Region"
       }
     ]
   },
@@ -256,35 +3177,109 @@
     "countryName": "India",
     "cities": [
       {
-        "cityId": 62932,
-        "cityName": "Tuticorin",
-        "provinceId": 10558,
-        "provinceName": "Tamil Nadu"
+        "cityId": 61158,
+        "cityName": "Alwar",
+        "provinceId": 10150,
+        "provinceName": "Rajasthan"
       },
       {
-        "cityId": 1235,
-        "cityName": "Chennai",
-        "provinceId": 10558,
-        "provinceName": "Tamil Nadu"
+        "cityId": 60033,
+        "cityName": "Baga",
+        "provinceId": 10569,
+        "provinceName": "Goa"
       },
       {
-        "cityId": 495,
-        "cityName": "New Delhi",
-        "provinceId": 10567,
-        "provinceName": "Delhi"
+        "cityId": 555124,
+        "cityName": "Bapane",
+        "provinceId": 10556,
+        "provinceName": "Maharashtra"
       },
       {
         "cityId": 1355,
         "cityName": "Bengaluru",
         "provinceId": 10566,
-        "provinceName": "Karnataka"
+        "provinceName": "Karnataka",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 1235,
+        "cityName": "Chennai",
+        "provinceId": 10558,
+        "provinceName": "Tamil Nadu",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 60087,
+        "cityName": "Greater Noida",
+        "provinceId": 10555,
+        "provinceName": "Uttar Pradesh"
+      },
+      {
+        "cityId": 6979,
+        "cityName": "Indore",
+        "provinceId": 10572,
+        "provinceName": "Madhya Pradesh"
+      },
+      {
+        "cityId": 7064,
+        "cityName": "Jodhpur",
+        "provinceId": 10150,
+        "provinceName": "Rajasthan"
+      },
+      {
+        "cityId": 756,
+        "cityName": "Kolkata",
+        "provinceId": 10557,
+        "provinceName": "West Bengal"
       },
       {
         "cityId": 724,
         "cityName": "Mumbai",
         "provinceId": 10556,
-        "provinceName": "Maharashtra"
+        "provinceName": "Maharashtra",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 495,
+        "cityName": "New Delhi",
+        "provinceId": 10567,
+        "provinceName": "Delhi",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 96361,
+        "cityName": "Perumbavoor",
+        "provinceId": 10559,
+        "provinceName": "Kerala"
+      },
+      {
+        "cityId": 62932,
+        "cityName": "Tuticorin",
+        "provinceId": 10558,
+        "provinceName": "Tamil Nadu",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 6165,
+        "cityName": "Udaipur",
+        "provinceId": 10150,
+        "provinceName": "Rajasthan"
       }
+    ],
+    "tags": [
+      "#GreenSM",
+      "#Vinfast"
     ]
   },
   "Indonesia": {
@@ -292,32 +3287,8 @@
     "countryName": "Indonesia",
     "cities": [
       {
-        "cityId": 524,
-        "cityName": "Jakarta",
-        "provinceId": 11359,
-        "provinceName": "Special Capital Region of Jakarta"
-      },
-      {
-        "cityId": 88311,
-        "cityName": "Subang",
-        "provinceId": 11441,
-        "provinceName": "West Java"
-      },
-      {
-        "cityId": 153088,
-        "cityName": "Bekasi City",
-        "provinceId": 11441,
-        "provinceName": "West Java"
-      },
-      {
-        "cityId": 740,
-        "cityName": "Bandung City",
-        "provinceId": 11441,
-        "provinceName": "West Java"
-      },
-      {
-        "cityId": 1244,
-        "cityName": "Surabaya",
+        "cityId": 744063,
+        "cityName": "Babadan",
         "provinceId": 11444,
         "provinceName": "East Java"
       },
@@ -325,7 +3296,474 @@
         "cityId": 723,
         "cityName": "Bali",
         "provinceId": 11445,
-        "provinceName": "Bali Province"
+        "provinceName": "Bali Province",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 740,
+        "cityName": "Bandung City",
+        "provinceId": 11441,
+        "provinceName": "West Java",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 3590,
+        "cityName": "Batam",
+        "provinceId": 11418,
+        "provinceName": "Riau Islands"
+      },
+      {
+        "cityId": 153088,
+        "cityName": "Bekasi City",
+        "provinceId": 11441,
+        "provinceName": "West Java",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 36204,
+        "cityName": "Borobudur",
+        "provinceId": 11357,
+        "provinceName": "Central Java"
+      },
+      {
+        "cityId": 140744,
+        "cityName": "Central Jakarta",
+        "provinceId": 11359,
+        "provinceName": "Special Capital Region of Jakarta",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 524,
+        "cityName": "Jakarta",
+        "provinceId": 11359,
+        "provinceName": "Special Capital Region of Jakarta",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 155204,
+        "cityName": "Kajoran",
+        "provinceId": 11357,
+        "provinceName": "Central Java"
+      },
+      {
+        "cityId": 164911,
+        "cityName": "Labuan Aji",
+        "provinceId": 11531,
+        "provinceName": "West Nusa Tenggara"
+      },
+      {
+        "cityId": 139475,
+        "cityName": "Sooko",
+        "provinceId": 11444,
+        "provinceName": "East Java"
+      },
+      {
+        "cityId": 88311,
+        "cityName": "Subang",
+        "provinceId": 11441,
+        "provinceName": "West Java",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 1244,
+        "cityName": "Surabaya",
+        "provinceId": 11444,
+        "provinceName": "East Java",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 131743,
+        "cityName": "Uganda",
+        "provinceId": 11438,
+        "provinceName": "Papua"
+      }
+    ],
+    "tags": [
+      "#GreenSM",
+      "#Vinfast"
+    ]
+  },
+  "Iraq": {
+    "countryId": 103,
+    "countryName": "Iraq",
+    "cities": [
+      {
+        "cityId": 822,
+        "cityName": "Baghdad",
+        "provinceId": 12008,
+        "provinceName": "Baghdad Governorate"
+      },
+      {
+        "cityId": 4193,
+        "cityName": "Erbil",
+        "provinceId": 12005,
+        "provinceName": "Erbil Governorate"
+      },
+      {
+        "cityId": 401602,
+        "cityName": "Karadah",
+        "provinceId": 12008,
+        "provinceName": "Baghdad Governorate"
+      },
+      {
+        "cityId": 75135,
+        "cityName": "Karbala",
+        "provinceId": 12012,
+        "provinceName": "Karbala"
+      },
+      {
+        "cityId": 62196,
+        "cityName": "Najaf",
+        "provinceId": 12004,
+        "provinceName": "Najaf"
+      },
+      {
+        "cityId": 400866,
+        "cityName": "Rusafa",
+        "provinceId": 12008,
+        "provinceName": "Baghdad Governorate"
+      },
+      {
+        "cityId": 798995,
+        "cityName": "Soran District",
+        "provinceId": 12005,
+        "provinceName": "Erbil Governorate"
+      },
+      {
+        "cityId": 7800,
+        "cityName": "Sulaymaniyah",
+        "provinceId": 12006,
+        "provinceName": "Sulaymaniyah"
+      }
+    ]
+  },
+  "Ireland": {
+    "countryId": 12,
+    "countryName": "Ireland",
+    "cities": [
+      {
+        "cityId": 803,
+        "cityName": "Dublin",
+        "provinceId": 10579,
+        "provinceName": "County Dublin"
+      },
+      {
+        "cityId": 256490,
+        "cityName": "Fingal",
+        "provinceId": 10579,
+        "provinceName": "County Dublin"
+      },
+      {
+        "cityId": 3091,
+        "cityName": "Killarney",
+        "provinceId": 10581,
+        "provinceName": "County Kerry"
+      },
+      {
+        "cityId": 3089,
+        "cityName": "Limerick",
+        "provinceId": 10587,
+        "provinceName": "County Limerick"
+      },
+      {
+        "cityId": 256481,
+        "cityName": "Mayo",
+        "provinceId": 10583,
+        "provinceName": "County Mayo"
+      },
+      {
+        "cityId": 36807,
+        "cityName": "Swords",
+        "provinceId": 10579,
+        "provinceName": "County Dublin"
+      }
+    ]
+  },
+  "Israel": {
+    "countryId": 105,
+    "countryName": "Israel",
+    "cities": [
+      {
+        "cityId": 3607,
+        "cityName": "Eilat",
+        "provinceId": 10607,
+        "provinceName": "Southern District"
+      },
+      {
+        "cityId": 321154,
+        "cityName": "Ezor Lod",
+        "provinceId": 10605,
+        "provinceName": "Center District Israel"
+      },
+      {
+        "cityId": 320543,
+        "cityName": "Hevel Eilot",
+        "provinceId": 10607,
+        "provinceName": "Southern District"
+      },
+      {
+        "cityId": 1215,
+        "cityName": "Jerusalem",
+        "provinceId": 10602,
+        "provinceName": "Jerusalem District"
+      },
+      {
+        "cityId": 462,
+        "cityName": "Tel Aviv",
+        "provinceId": 10606,
+        "provinceName": "Tel Aviv District",
+        "tags": [
+          "#Vinfast"
+        ]
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Italy": {
+    "countryId": 106,
+    "countryName": "Italy",
+    "cities": [
+      {
+        "cityId": 10255,
+        "cityName": "Amalfi",
+        "provinceId": 10136,
+        "provinceName": "Campania"
+      },
+      {
+        "cityId": 1431,
+        "cityName": "Bari",
+        "provinceId": 10214,
+        "provinceName": "Apulia"
+      },
+      {
+        "cityId": 1240,
+        "cityName": "Bologna",
+        "provinceId": 10609,
+        "provinceName": "Emilia-Romagna"
+      },
+      {
+        "cityId": 3644,
+        "cityName": "Brescia",
+        "provinceId": 10168,
+        "provinceName": "Lombardy"
+      },
+      {
+        "cityId": 3631,
+        "cityName": "Cattolica",
+        "provinceId": 10609,
+        "provinceName": "Emilia-Romagna"
+      },
+      {
+        "cityId": 33267,
+        "cityName": "Civitavecchia",
+        "provinceId": 10151,
+        "provinceName": "Lazio"
+      },
+      {
+        "cityId": 3365,
+        "cityName": "Como",
+        "provinceId": 10168,
+        "provinceName": "Lombardy"
+      },
+      {
+        "cityId": 3628,
+        "cityName": "Cortina d'Ampezzo",
+        "provinceId": 10262,
+        "provinceName": "Veneto"
+      },
+      {
+        "cityId": 687,
+        "cityName": "Florence",
+        "provinceId": 10258,
+        "provinceName": "Tuscany"
+      },
+      {
+        "cityId": 89751,
+        "cityName": "Itala",
+        "provinceId": 10271,
+        "provinceName": "Sicily"
+      },
+      {
+        "cityId": 9823,
+        "cityName": "La Spezia",
+        "provinceId": 10158,
+        "provinceName": "Liguria"
+      },
+      {
+        "cityId": 361,
+        "cityName": "Milan",
+        "provinceId": 10168,
+        "provinceName": "Lombardy"
+      },
+      {
+        "cityId": 33065,
+        "cityName": "Moniga del Garda",
+        "provinceId": 10168,
+        "provinceName": "Lombardy"
+      },
+      {
+        "cityId": 1262,
+        "cityName": "Naples",
+        "provinceId": 10136,
+        "provinceName": "Campania"
+      },
+      {
+        "cityId": 796687,
+        "cityName": "Ospitaletto",
+        "provinceId": 10168,
+        "provinceName": "Lombardy"
+      },
+      {
+        "cityId": 33142,
+        "cityName": "Palau",
+        "provinceId": 10220,
+        "provinceName": "Sardinia"
+      },
+      {
+        "cityId": 3640,
+        "cityName": "Palermo",
+        "provinceId": 10271,
+        "provinceName": "Sicily"
+      },
+      {
+        "cityId": 3639,
+        "cityName": "Perugia",
+        "provinceId": 10265,
+        "provinceName": "Umbria"
+      },
+      {
+        "cityId": 10097,
+        "cityName": "Pesaro",
+        "provinceId": 10173,
+        "provinceName": "Marche"
+      },
+      {
+        "cityId": 3642,
+        "cityName": "Positano",
+        "provinceId": 10136,
+        "provinceName": "Campania"
+      },
+      {
+        "cityId": 650067,
+        "cityName": "Province of Messina",
+        "provinceId": 10271,
+        "provinceName": "Sicily"
+      },
+      {
+        "cityId": 1429,
+        "cityName": "Rimini",
+        "provinceId": 10609,
+        "provinceName": "Emilia-Romagna"
+      },
+      {
+        "cityId": 343,
+        "cityName": "Rome",
+        "provinceId": 10151,
+        "provinceName": "Lazio"
+      },
+      {
+        "cityId": 33535,
+        "cityName": "San Vito lo Capo",
+        "provinceId": 10271,
+        "provinceName": "Sicily"
+      },
+      {
+        "cityId": 33325,
+        "cityName": "Sassuolo",
+        "provinceId": 10609,
+        "provinceName": "Emilia-Romagna"
+      },
+      {
+        "cityId": 33814,
+        "cityName": "Sirmione",
+        "provinceId": 10168,
+        "provinceName": "Lombardy"
+      },
+      {
+        "cityId": 1832,
+        "cityName": "Taormina",
+        "provinceId": 10271,
+        "provinceName": "Sicily"
+      },
+      {
+        "cityId": 688,
+        "cityName": "Venice",
+        "provinceId": 10262,
+        "provinceName": "Veneto"
+      },
+      {
+        "cityId": 33789,
+        "cityName": "Viterbo",
+        "provinceId": 10151,
+        "provinceName": "Lazio"
+      }
+    ]
+  },
+  "Jamaica": {
+    "countryId": 101,
+    "countryName": "Jamaica",
+    "cities": [
+      {
+        "cityId": 681320,
+        "cityName": "Coral Spring",
+        "provinceId": 10618,
+        "provinceName": "Trelawney"
+      },
+      {
+        "cityId": 794,
+        "cityName": "Kingston",
+        "provinceId": 12793,
+        "provinceName": "Saint Andrew"
+      },
+      {
+        "cityId": 4074,
+        "cityName": "Montego Bay",
+        "provinceId": 10615,
+        "provinceName": "Saint James"
+      },
+      {
+        "cityId": 4075,
+        "cityName": "Negril",
+        "provinceId": 10616,
+        "provinceName": "Westmoreland"
+      },
+      {
+        "cityId": 5474,
+        "cityName": "Ocho Rios",
+        "provinceId": 12794,
+        "provinceName": "Saint Ann"
+      },
+      {
+        "cityId": 128312,
+        "cityName": "St.Bran's Burg",
+        "provinceId": 10615,
+        "provinceName": "Saint James"
+      },
+      {
+        "cityId": 84397,
+        "cityName": "Tower Isle",
+        "provinceId": 10617,
+        "provinceName": "Saint Mary"
       }
     ]
   },
@@ -334,10 +3772,306 @@
     "countryName": "Japan",
     "cities": [
       {
+        "cityId": 111915,
+        "cityName": "Ainan",
+        "provinceId": 11076,
+        "provinceName": "Ehime Prefecture"
+      },
+      {
+        "cityId": 99238,
+        "cityName": "Anjo",
+        "provinceId": 11061,
+        "provinceName": "Aichi Prefecture"
+      },
+      {
+        "cityId": 100588,
+        "cityName": "Bandai",
+        "provinceId": 11065,
+        "provinceName": "Fukushima Prefecture"
+      },
+      {
+        "cityId": 93649,
+        "cityName": "China",
+        "provinceId": 11073,
+        "provinceName": "Kagoshima Prefecture"
+      },
+      {
+        "cityId": 50218,
+        "cityName": "Ena",
+        "provinceId": 11084,
+        "provinceName": "Gifu Prefecture"
+      },
+      {
+        "cityId": 50160,
+        "cityName": "Fujikawaguchiko",
+        "provinceId": 11082,
+        "provinceName": "Yamanashi Prefecture"
+      },
+      {
+        "cityId": 248,
+        "cityName": "Fukuoka",
+        "provinceId": 11100,
+        "provinceName": "Fukuoka Prefecture"
+      },
+      {
+        "cityId": 50117,
+        "cityName": "Hanamaki",
+        "provinceId": 11067,
+        "provinceName": "Iwate Prefecture"
+      },
+      {
+        "cityId": 50394,
+        "cityName": "Inuyama",
+        "provinceId": 11061,
+        "provinceName": "Aichi Prefecture"
+      },
+      {
+        "cityId": 3663,
+        "cityName": "Kanazawa",
+        "provinceId": 11058,
+        "provinceName": "Ishikawa Prefecture"
+      },
+      {
+        "cityId": 35717,
+        "cityName": "Kawasaki City",
+        "provinceId": 11080,
+        "provinceName": "Kanagawa Prefecture"
+      },
+      {
+        "cityId": 111587,
+        "cityName": "Kusu District",
+        "provinceId": 11074,
+        "provinceName": "Oita Prefecture"
+      },
+      {
+        "cityId": 734,
+        "cityName": "Kyoto",
+        "provinceId": 11087,
+        "provinceName": "Kyoto Prefecture"
+      },
+      {
+        "cityId": 360,
+        "cityName": "Nagoya",
+        "provinceId": 11061,
+        "provinceName": "Aichi Prefecture"
+      },
+      {
+        "cityId": 92573,
+        "cityName": "Naha",
+        "provinceId": 11059,
+        "provinceName": "Okinawa Prefecture"
+      },
+      {
+        "cityId": 99430,
+        "cityName": "Numata",
+        "provinceId": 11055,
+        "provinceName": "Hokkaido"
+      },
+      {
+        "cityId": 219,
+        "cityName": "Osaka",
+        "provinceId": 11088,
+        "provinceName": "Osaka Prefecture"
+      },
+      {
+        "cityId": 111580,
+        "cityName": "Oshima District",
+        "provinceId": 11073,
+        "provinceName": "Kagoshima Prefecture"
+      },
+      {
+        "cityId": 641,
+        "cityName": "Sapporo",
+        "provinceId": 11055,
+        "provinceName": "Hokkaido"
+      },
+      {
+        "cityId": 3666,
+        "cityName": "Takayama City",
+        "provinceId": 11084,
+        "provinceName": "Gifu Prefecture"
+      },
+      {
         "cityId": 228,
         "cityName": "Tokyo",
         "provinceId": 0,
+        "provinceName": "",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 50165,
+        "cityName": "Uenohara",
+        "provinceId": 11082,
+        "provinceName": "Yamanashi Prefecture"
+      },
+      {
+        "cityId": 99306,
+        "cityName": "Unnan",
+        "provinceId": 11093,
+        "provinceName": "Shimane Prefecture"
+      },
+      {
+        "cityId": 66967,
+        "cityName": "Uonuma",
+        "provinceId": 11069,
+        "provinceName": "Niigata Prefecture"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Jordan": {
+    "countryId": 110,
+    "countryName": "Jordan",
+    "cities": [
+      {
+        "cityId": 1282,
+        "cityName": "Amman",
+        "provinceId": 10621,
+        "provinceName": "Amman Governorate"
+      },
+      {
+        "cityId": 264317,
+        "cityName": "Shoonah Janoobiah District",
+        "provinceId": 12665,
+        "provinceName": "Balqa"
+      }
+    ]
+  },
+  "Kazakhstan": {
+    "countryId": 176,
+    "countryName": "Kazakhstan",
+    "cities": [
+      {
+        "cityId": 7516,
+        "cityName": "Aktau",
+        "provinceId": 12161,
+        "provinceName": "Mangystau Region"
+      },
+      {
+        "cityId": 174,
+        "cityName": "Almaty",
+        "provinceId": 0,
+        "provinceName": "",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 3263,
+        "cityName": "Astana",
+        "provinceId": 0,
         "provinceName": ""
+      }
+    ],
+    "tags": [
+      "#GreenSM",
+      "#Vinfast"
+    ]
+  },
+  "Kenya": {
+    "countryId": 54,
+    "countryName": "Kenya",
+    "cities": [
+      {
+        "cityId": 684162,
+        "cityName": "Aitong",
+        "provinceId": 104075,
+        "provinceName": "Narok"
+      },
+      {
+        "cityId": 261121,
+        "cityName": "Diani Beach",
+        "provinceId": 104063,
+        "provinceName": "Kwale"
+      },
+      {
+        "cityId": 696099,
+        "cityName": "Kieni East",
+        "provinceId": 104078,
+        "provinceName": "Nyeri"
+      },
+      {
+        "cityId": 685324,
+        "cityName": "Koyaki",
+        "provinceId": 104075,
+        "provinceName": "Narok"
+      },
+      {
+        "cityId": 684707,
+        "cityName": "Masai Mara",
+        "provinceId": 104075,
+        "provinceName": "Narok"
+      },
+      {
+        "cityId": 825,
+        "cityName": "Nairobi",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 60767,
+        "cityName": "Talek",
+        "provinceId": 104075,
+        "provinceName": "Narok"
+      }
+    ]
+  },
+  "Kuwait": {
+    "countryId": 53,
+    "countryName": "Kuwait",
+    "cities": [
+      {
+        "cityId": 260681,
+        "cityName": "Al-Dajeej",
+        "provinceId": 12721,
+        "provinceName": "Al Farwaniyah"
+      },
+      {
+        "cityId": 336,
+        "cityName": "Kuwait City",
+        "provinceId": 10622,
+        "provinceName": "Al Asimah Governorate"
+      },
+      {
+        "cityId": 88397,
+        "cityName": "Salmiya",
+        "provinceId": 10623,
+        "provinceName": "Hawalli"
+      }
+    ]
+  },
+  "Kyrgyzstan": {
+    "countryId": 143,
+    "countryName": "Kyrgyzstan",
+    "cities": [
+      {
+        "cityId": 683006,
+        "cityName": "Ak Talaa District",
+        "provinceId": 12052,
+        "provinceName": "Naryn"
+      },
+      {
+        "cityId": 642,
+        "cityName": "Bishkek",
+        "provinceId": 12050,
+        "provinceName": "Chu"
+      },
+      {
+        "cityId": 75087,
+        "cityName": "Bosteri",
+        "provinceId": 12055,
+        "provinceName": "Ysyk Kol"
+      },
+      {
+        "cityId": 649855,
+        "cityName": "Kochkor District",
+        "provinceId": 12052,
+        "provinceName": "Naryn"
       }
     ]
   },
@@ -346,34 +4080,672 @@
     "countryName": "Laos",
     "cities": [
       {
-        "cityId": 486,
-        "cityName": "Vientiane",
-        "provinceId": 0,
-        "provinceName": ""
-      },
-      {
         "cityId": 3677,
         "cityName": "Luang Prabang",
         "provinceId": 11108,
-        "provinceName": "Luang Prabang Province"
-      },
-      {
-        "cityId": 35797,
-        "cityName": "Vang Vieng",
-        "provinceId": 12541,
-        "provinceName": "Vientiane Province"
+        "provinceName": "Luang Prabang Province",
+        "tags": [
+          "#GreenSM"
+        ]
       },
       {
         "cityId": 5607,
         "cityName": "Pakse",
         "provinceId": 12533,
-        "provinceName": "Champasak Province"
+        "provinceName": "Champasak Province",
+        "tags": [
+          "#GreenSM"
+        ]
       },
       {
         "cityId": 6568,
         "cityName": "Savannakhet",
         "provinceId": 12540,
-        "provinceName": "Savannakhet"
+        "provinceName": "Savannakhet",
+        "tags": [
+          "#GreenSM"
+        ]
+      },
+      {
+        "cityId": 35797,
+        "cityName": "Vang Vieng",
+        "provinceId": 12541,
+        "provinceName": "Vientiane Province",
+        "tags": [
+          "#GreenSM"
+        ]
+      },
+      {
+        "cityId": 486,
+        "cityName": "Vientiane",
+        "provinceId": 0,
+        "provinceName": "",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      }
+    ],
+    "tags": [
+      "#GreenSM",
+      "#Vinfast"
+    ]
+  },
+  "Latvia": {
+    "countryId": 225,
+    "countryName": "Latvia",
+    "cities": [
+      {
+        "cityId": 295066,
+        "cityName": "Cesu pilseta",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 9770,
+        "cityName": "Jurmala",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 9856,
+        "cityName": "Liepaja",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 4079,
+        "cityName": "Riga",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Lebanon": {
+    "countryId": 56,
+    "countryName": "Lebanon",
+    "cities": [
+      {
+        "cityId": 42608,
+        "cityName": "Batroun",
+        "provinceId": 10656,
+        "provinceName": "North Governorate"
+      },
+      {
+        "cityId": 835,
+        "cityName": "Beirut",
+        "provinceId": 10653,
+        "provinceName": "Beirut Governorate"
+      },
+      {
+        "cityId": 310164,
+        "cityName": "Ghobeiry",
+        "provinceId": 10652,
+        "provinceName": "Mount Lebanon"
+      },
+      {
+        "cityId": 42616,
+        "cityName": "Jounieh",
+        "provinceId": 10652,
+        "provinceName": "Mount Lebanon"
+      }
+    ]
+  },
+  "Liechtenstein": {
+    "countryId": 226,
+    "countryName": "Liechtenstein",
+    "cities": [
+      {
+        "cityId": 38988,
+        "cityName": "Eschen",
+        "provinceId": 12351,
+        "provinceName": "Eschen"
+      },
+      {
+        "cityId": 38994,
+        "cityName": "Triesenberg",
+        "provinceId": 12359,
+        "provinceName": "Triesenberg"
+      },
+      {
+        "cityId": 9173,
+        "cityName": "Vaduz",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Lithuania": {
+    "countryId": 57,
+    "countryName": "Lithuania",
+    "cities": [
+      {
+        "cityId": 9558,
+        "cityName": "Druskininkai",
+        "provinceId": 10660,
+        "provinceName": "Alytus county"
+      },
+      {
+        "cityId": 38977,
+        "cityName": "Klaipeda",
+        "provinceId": 10658,
+        "provinceName": "Klaipeda county"
+      },
+      {
+        "cityId": 786,
+        "cityName": "Vilnius",
+        "provinceId": 10657,
+        "provinceName": "Vilnius county"
+      }
+    ]
+  },
+  "Luxembourg": {
+    "countryId": 61,
+    "countryName": "Luxembourg",
+    "cities": [
+      {
+        "cityId": 665,
+        "cityName": "Luxembourg City",
+        "provinceId": 10671,
+        "provinceName": "Canton of Luxembourg"
+      }
+    ]
+  },
+  "Madagascar": {
+    "countryId": 227,
+    "countryName": "Madagascar",
+    "cities": [
+      {
+        "cityId": 682984,
+        "cityName": "Ambilobe",
+        "provinceId": 12362,
+        "provinceName": "Antsiranana"
+      },
+      {
+        "cityId": 650041,
+        "cityName": "Analamanga",
+        "provinceId": 12361,
+        "provinceName": "Antananarivo"
+      },
+      {
+        "cityId": 4002,
+        "cityName": "Antananarivo",
+        "provinceId": 12361,
+        "provinceName": "Antananarivo"
+      },
+      {
+        "cityId": 262371,
+        "cityName": "Antananarivo Avaradrano",
+        "provinceId": 12361,
+        "provinceName": "Antananarivo"
+      },
+      {
+        "cityId": 650052,
+        "cityName": "Diana",
+        "provinceId": 12362,
+        "provinceName": "Antsiranana"
+      },
+      {
+        "cityId": 86859,
+        "cityName": "Moramanga",
+        "provinceId": 12365,
+        "provinceName": "Toamasina"
+      }
+    ]
+  },
+  "Malaysia": {
+    "countryId": 2,
+    "countryName": "Malaysia",
+    "cities": [
+      {
+        "cityId": 128716,
+        "cityName": "Bandar Penawar",
+        "provinceId": 11110,
+        "provinceName": "Johor"
+      },
+      {
+        "cityId": 35926,
+        "cityName": "George Town",
+        "provinceId": 10077,
+        "provinceName": "Penang"
+      },
+      {
+        "cityId": 315,
+        "cityName": "Kuala Lumpur",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 62,
+        "cityName": "Melaka",
+        "provinceId": 10176,
+        "provinceName": "Melaka State"
+      },
+      {
+        "cityId": 35949,
+        "cityName": "Sepang",
+        "provinceId": 11115,
+        "provinceName": "Selangor"
+      },
+      {
+        "cityId": 76462,
+        "cityName": "Shah Alam",
+        "provinceId": 11115,
+        "provinceName": "Selangor"
+      },
+      {
+        "cityId": 128945,
+        "cityName": "Ulu Kinta",
+        "provinceId": 10210,
+        "provinceName": "Perak"
+      }
+    ]
+  },
+  "Maldives": {
+    "countryId": 146,
+    "countryName": "Maldives",
+    "cities": [
+      {
+        "cityId": 804601,
+        "cityName": "Dhipparufushi",
+        "provinceId": 705710,
+        "provinceName": "Haa Dhaalu Atoll"
+      },
+      {
+        "cityId": 719097,
+        "cityName": "Kodhipparu Falhu",
+        "provinceId": 705716,
+        "provinceName": "Kaafu Atoll"
+      },
+      {
+        "cityId": 705816,
+        "cityName": "Kunfunadhoo",
+        "provinceId": 705714,
+        "provinceName": "Baa Atoll"
+      },
+      {
+        "cityId": 705818,
+        "cityName": "Landaa Giraavaru",
+        "provinceId": 705714,
+        "provinceName": "Baa Atoll"
+      },
+      {
+        "cityId": 1207,
+        "cityName": "Malé",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 705836,
+        "cityName": "Medhufaru",
+        "provinceId": 705712,
+        "provinceName": "Noonu Atoll"
+      },
+      {
+        "cityId": 705847,
+        "cityName": "Muravandhoo",
+        "provinceId": 705713,
+        "provinceName": "Raa Atoll"
+      },
+      {
+        "cityId": 705854,
+        "cityName": "Randheli",
+        "provinceId": 705712,
+        "provinceName": "Noonu Atoll"
+      }
+    ]
+  },
+  "Malta": {
+    "countryId": 161,
+    "countryName": "Malta",
+    "cities": [
+      {
+        "cityId": 1285,
+        "cityName": "Sliema",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 39120,
+        "cityName": "St Julian's",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 1214,
+        "cityName": "Valletta",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Martinique": {
+    "countryId": 279,
+    "countryName": "Martinique",
+    "cities": [
+      {
+        "cityId": 6731,
+        "cityName": "Fort De France",
+        "provinceId": 10679,
+        "provinceName": "Fort-de-France"
+      }
+    ]
+  },
+  "Mauritius": {
+    "countryId": 64,
+    "countryName": "Mauritius",
+    "cities": [
+      {
+        "cityId": 804807,
+        "cityName": "Beau Champ",
+        "provinceId": 12548,
+        "provinceName": "Flacq"
+      },
+      {
+        "cityId": 262498,
+        "cityName": "Flic en Flac",
+        "provinceId": 12547,
+        "provinceName": "Riviere Noire"
+      },
+      {
+        "cityId": 262412,
+        "cityName": "Grand Baie",
+        "provinceId": 12553,
+        "provinceName": "Riviere du Rempart"
+      },
+      {
+        "cityId": 785,
+        "cityName": "Mauritius",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 262476,
+        "cityName": "Plaine Magnien",
+        "provinceId": 12549,
+        "provinceName": "Grand Port"
+      }
+    ]
+  },
+  "Mexico": {
+    "countryId": 72,
+    "countryName": "Mexico",
+    "cities": [
+      {
+        "cityId": 461790,
+        "cityName": "Canada Blanca",
+        "provinceId": 10682,
+        "provinceName": "Veracruz"
+      },
+      {
+        "cityId": 465149,
+        "cityName": "Canada San Antonio",
+        "provinceId": 10687,
+        "provinceName": "Oaxaca"
+      },
+      {
+        "cityId": 812,
+        "cityName": "Cancun",
+        "provinceId": 10683,
+        "provinceName": "Quintana Roo"
+      },
+      {
+        "cityId": 685021,
+        "cityName": "La Canada",
+        "provinceId": 10684,
+        "provinceName": "Puebla State"
+      },
+      {
+        "cityId": 691,
+        "cityName": "Mexico City",
+        "provinceId": 100564,
+        "provinceName": "Federal District"
+      }
+    ]
+  },
+  "Monaco": {
+    "countryId": 231,
+    "countryName": "Monaco",
+    "cities": [
+      {
+        "cityId": 92577,
+        "cityName": "Monaco City",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 61481,
+        "cityName": "Monte Carlo",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Mongolia": {
+    "countryId": 67,
+    "countryName": "Mongolia",
+    "cities": [
+      {
+        "cityId": 262653,
+        "cityName": "Darkhan",
+        "provinceId": 11843,
+        "provinceName": "Darkhan-Uul"
+      },
+      {
+        "cityId": 483,
+        "cityName": "Ulaanbaatar",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Montenegro": {
+    "countryId": 257,
+    "countryName": "Montenegro",
+    "cities": [
+      {
+        "cityId": 9411,
+        "cityName": "Budva",
+        "provinceId": 13019,
+        "provinceName": "Budva Municipality"
+      },
+      {
+        "cityId": 76628,
+        "cityName": "Kumbor",
+        "provinceId": 13022,
+        "provinceName": "Herceg-Novi"
+      },
+      {
+        "cityId": 62095,
+        "cityName": "Sveti Stefan",
+        "provinceId": 13019,
+        "provinceName": "Budva Municipality"
+      },
+      {
+        "cityId": 6057,
+        "cityName": "Tivat",
+        "provinceId": 13033,
+        "provinceName": "Tivat"
+      }
+    ]
+  },
+  "Morocco": {
+    "countryId": 71,
+    "countryName": "Morocco",
+    "cities": [
+      {
+        "cityId": 3682,
+        "cityName": "Agadir",
+        "provinceId": 10710,
+        "provinceName": "Souss-Massa"
+      },
+      {
+        "cityId": 809,
+        "cityName": "Casablanca",
+        "provinceId": 10719,
+        "provinceName": "Casablanca-Settat"
+      },
+      {
+        "cityId": 3683,
+        "cityName": "Fes",
+        "provinceId": 10718,
+        "provinceName": "Fes-Meknes"
+      },
+      {
+        "cityId": 1360,
+        "cityName": "Marrakech",
+        "provinceId": 10711,
+        "provinceName": "Marrakesh-Safi"
+      }
+    ]
+  },
+  "Mozambique": {
+    "countryId": 157,
+    "countryName": "Mozambique",
+    "cities": [
+      {
+        "cityId": 252939,
+        "cityName": "Asneira",
+        "provinceId": 12827,
+        "provinceName": "Inhambane"
+      },
+      {
+        "cityId": 863,
+        "cityName": "Maputo",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 649129,
+        "cityName": "Mozambique Island",
+        "provinceId": 12830,
+        "provinceName": "Nampula"
+      },
+      {
+        "cityId": 62691,
+        "cityName": "Vilanculos",
+        "provinceId": 12827,
+        "provinceName": "Inhambane"
+      }
+    ]
+  },
+  "Myanmar": {
+    "countryId": 70,
+    "countryName": "Myanmar",
+    "cities": [
+      {
+        "cityId": 801481,
+        "cityName": "Botataung",
+        "provinceId": 11873,
+        "provinceName": "Yangon Region"
+      },
+      {
+        "cityId": 801475,
+        "cityName": "Kamayut",
+        "provinceId": 11873,
+        "provinceName": "Yangon Region"
+      },
+      {
+        "cityId": 801477,
+        "cityName": "Mayangon",
+        "provinceId": 11873,
+        "provinceName": "Yangon Region"
+      },
+      {
+        "cityId": 801467,
+        "cityName": "Mingaladon",
+        "provinceId": 11873,
+        "provinceName": "Yangon Region"
+      },
+      {
+        "cityId": 92560,
+        "cityName": "Nyaung-U",
+        "provinceId": 11870,
+        "provinceName": "Mandalay"
+      },
+      {
+        "cityId": 522,
+        "cityName": "Yangon",
+        "provinceId": 11873,
+        "provinceName": "Yangon Region"
+      }
+    ]
+  },
+  "Namibia": {
+    "countryId": 159,
+    "countryName": "Namibia",
+    "cities": [
+      {
+        "cityId": 9783,
+        "cityName": "Katima Mulilo",
+        "provinceId": 12905,
+        "provinceName": "Zambezi"
+      },
+      {
+        "cityId": 92567,
+        "cityName": "Mokuti Lodge",
+        "provinceId": 12903,
+        "provinceName": "Oshikoto"
+      },
+      {
+        "cityId": 10245,
+        "cityName": "Sesriem",
+        "provinceId": 12893,
+        "provinceName": "Hardap"
+      },
+      {
+        "cityId": 60906,
+        "cityName": "Swakopmund",
+        "provinceId": 12892,
+        "provinceName": "Erongo"
+      },
+      {
+        "cityId": 36282,
+        "cityName": "Walvis Bay",
+        "provinceId": 12892,
+        "provinceName": "Erongo"
+      },
+      {
+        "cityId": 862,
+        "cityName": "Windhoek",
+        "provinceId": 12897,
+        "provinceName": "Khomas"
+      }
+    ]
+  },
+  "Nepal": {
+    "countryId": 74,
+    "countryName": "Nepal",
+    "cities": [
+      {
+        "cityId": 7496,
+        "cityName": "Chitwan",
+        "provinceId": 100737,
+        "provinceName": "Bagmati"
+      },
+      {
+        "cityId": 7718,
+        "cityName": "Dhulikhel",
+        "provinceId": 100737,
+        "provinceName": "Bagmati"
+      },
+      {
+        "cityId": 304,
+        "cityName": "Kathmandu",
+        "provinceId": 100737,
+        "provinceName": "Bagmati"
+      },
+      {
+        "cityId": 272609,
+        "cityName": "Patlekhet",
+        "provinceId": 100737,
+        "provinceName": "Bagmati"
+      },
+      {
+        "cityId": 3332,
+        "cityName": "Pokhara",
+        "provinceId": 100740,
+        "provinceName": "Gandaki"
       }
     ]
   },
@@ -385,19 +4757,471 @@
         "cityId": 176,
         "cityName": "Amsterdam",
         "provinceId": 10067,
-        "provinceName": "Noord-Holland"
-      },
-      {
-        "cityId": 718,
-        "cityName": "Rotterdam",
-        "provinceId": 10727,
-        "provinceName": "Zuid-Holland"
+        "provinceName": "Noord-Holland",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
       },
       {
         "cityId": 715,
         "cityName": "Hague",
         "provinceId": 10727,
-        "provinceName": "Zuid-Holland"
+        "provinceName": "Zuid-Holland",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 718,
+        "cityName": "Rotterdam",
+        "provinceId": 10727,
+        "provinceName": "Zuid-Holland",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 38572,
+        "cityName": "Schiphol",
+        "provinceId": 10067,
+        "provinceName": "Noord-Holland"
+      }
+    ],
+    "tags": [
+      "#GreenSM",
+      "#Vinfast"
+    ]
+  },
+  "New Caledonia": {
+    "countryId": 263,
+    "countryName": "New Caledonia",
+    "cities": [
+      {
+        "cityId": 701060,
+        "cityName": "Anse Vata",
+        "provinceId": 253036,
+        "provinceName": "South Province"
+      },
+      {
+        "cityId": 92536,
+        "cityName": "Bourail",
+        "provinceId": 253036,
+        "provinceName": "South Province"
+      },
+      {
+        "cityId": 36480,
+        "cityName": "Ilot Maitre",
+        "provinceId": 253036,
+        "provinceName": "South Province"
+      },
+      {
+        "cityId": 4086,
+        "cityName": "Noumea",
+        "provinceId": 253036,
+        "provinceName": "South Province"
+      },
+      {
+        "cityId": 701305,
+        "cityName": "Ouen Toro",
+        "provinceId": 253036,
+        "provinceName": "South Province"
+      }
+    ]
+  },
+  "New Zealand": {
+    "countryId": 98,
+    "countryName": "New Zealand",
+    "cities": [
+      {
+        "cityId": 678,
+        "cityName": "Auckland",
+        "provinceId": 10728,
+        "provinceName": "Auckland Region"
+      },
+      {
+        "cityId": 7505,
+        "cityName": "Christchurch",
+        "provinceId": 10730,
+        "provinceName": "Canterbury"
+      },
+      {
+        "cityId": 303810,
+        "cityName": "Closeburn",
+        "provinceId": 10732,
+        "provinceName": "Otago"
+      },
+      {
+        "cityId": 3860,
+        "cityName": "Queenstown",
+        "provinceId": 10732,
+        "provinceName": "Otago"
+      },
+      {
+        "cityId": 3717,
+        "cityName": "Taupo",
+        "provinceId": 10733,
+        "provinceName": "Waikato"
+      },
+      {
+        "cityId": 843,
+        "cityName": "Wellington",
+        "provinceId": 10734,
+        "provinceName": "Wellington Region"
+      }
+    ]
+  },
+  "Nicaragua": {
+    "countryId": 198,
+    "countryName": "Nicaragua",
+    "cities": [
+      {
+        "cityId": 685315,
+        "cityName": "Calala Island",
+        "provinceId": 12226,
+        "provinceName": "South Caribbean Coast"
+      },
+      {
+        "cityId": 684934,
+        "cityName": "Little Corn Island",
+        "provinceId": 12226,
+        "provinceName": "South Caribbean Coast"
+      },
+      {
+        "cityId": 7450,
+        "cityName": "Managua",
+        "provinceId": 12219,
+        "provinceName": "Managua"
+      }
+    ]
+  },
+  "Nigeria": {
+    "countryId": 75,
+    "countryName": "Nigeria",
+    "cities": [
+      {
+        "cityId": 3244,
+        "cityName": "Abuja",
+        "provinceId": 12737,
+        "provinceName": "Federal Capital Territory"
+      },
+      {
+        "cityId": 90432,
+        "cityName": "Asaba",
+        "provinceId": 11511,
+        "provinceName": "Delta State"
+      },
+      {
+        "cityId": 76845,
+        "cityName": "Ikeja",
+        "provinceId": 12747,
+        "provinceName": "Lagos State"
+      },
+      {
+        "cityId": 783,
+        "cityName": "Lagos",
+        "provinceId": 12747,
+        "provinceName": "Lagos State"
+      },
+      {
+        "cityId": 650054,
+        "cityName": "Municipal Area Coun",
+        "provinceId": 12737,
+        "provinceName": "Federal Capital Territory"
+      }
+    ]
+  },
+  "North Macedonia": {
+    "countryId": 197,
+    "countryName": "North Macedonia",
+    "cities": [
+      {
+        "cityId": 311435,
+        "cityName": "Butel",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 311420,
+        "cityName": "Centar",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 311759,
+        "cityName": "Gazi Baba",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 311667,
+        "cityName": "Miladinovtsi",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 5482,
+        "cityName": "Ohrid",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 7617,
+        "cityName": "Skopje",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 55094,
+        "cityName": "Tetovo",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 55096,
+        "cityName": "Veles",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Norway": {
+    "countryId": 76,
+    "countryName": "Norway",
+    "cities": [
+      {
+        "cityId": 821,
+        "cityName": "Bergen",
+        "provinceId": 798499,
+        "provinceName": "Vestland"
+      },
+      {
+        "cityId": 827,
+        "cityName": "Oslo",
+        "provinceId": 10746,
+        "provinceName": "Oslo County"
+      },
+      {
+        "cityId": 3713,
+        "cityName": "Tromso",
+        "provinceId": 10751,
+        "provinceName": "Troms"
+      },
+      {
+        "cityId": 1734,
+        "cityName": "Trondheim",
+        "provinceId": 798497,
+        "provinceName": "Trondelag"
+      },
+      {
+        "cityId": 297493,
+        "cityName": "Vestby",
+        "provinceId": 10743,
+        "provinceName": "Akershus"
+      }
+    ]
+  },
+  "Oman": {
+    "countryId": 150,
+    "countryName": "Oman",
+    "cities": [
+      {
+        "cityId": 800837,
+        "cityName": "Bandar Jissah",
+        "provinceId": 10765,
+        "provinceName": "Governorate of Muscat"
+      },
+      {
+        "cityId": 802269,
+        "cityName": "Jaylil",
+        "provinceId": 10757,
+        "provinceName": "Ad Dakhiliyah"
+      },
+      {
+        "cityId": 853,
+        "cityName": "Muscat",
+        "provinceId": 10765,
+        "provinceName": "Governorate of Muscat",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 255853,
+        "cityName": "Sayq",
+        "provinceId": 10757,
+        "provinceName": "Ad Dakhiliyah"
+      },
+      {
+        "cityId": 62722,
+        "cityName": "Tiwi",
+        "provinceId": 10762,
+        "provinceName": "Ash Sharqiyah North"
+      },
+      {
+        "cityId": 61756,
+        "cityName": "Zaghi",
+        "provinceId": 10764,
+        "provinceName": "Musandam Governorate"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Pakistan": {
+    "countryId": 17,
+    "countryName": "Pakistan",
+    "cities": [
+      {
+        "cityId": 473183,
+        "cityName": "Bahrain",
+        "provinceId": 12837,
+        "provinceName": "Khyber Pakhtunkhwa"
+      },
+      {
+        "cityId": 817,
+        "cityName": "Faisalabad",
+        "provinceId": 12838,
+        "provinceName": "Punjab"
+      },
+      {
+        "cityId": 712949,
+        "cityName": "Gujranwala",
+        "provinceId": 12838,
+        "provinceName": "Punjab"
+      },
+      {
+        "cityId": 531,
+        "cityName": "Islamabad",
+        "provinceId": 12835,
+        "provinceName": "Islamabad Capital Territory"
+      },
+      {
+        "cityId": 334,
+        "cityName": "Karachi",
+        "provinceId": 12839,
+        "provinceName": "Sindh"
+      },
+      {
+        "cityId": 799,
+        "cityName": "Lahore",
+        "provinceId": 12838,
+        "provinceName": "Punjab"
+      },
+      {
+        "cityId": 829,
+        "cityName": "Peshawar",
+        "provinceId": 12837,
+        "provinceName": "Khyber Pakhtunkhwa"
+      },
+      {
+        "cityId": 62955,
+        "cityName": "Sialkot",
+        "provinceId": 12838,
+        "provinceName": "Punjab"
+      }
+    ]
+  },
+  "Palau": {
+    "countryId": 237,
+    "countryName": "Palau",
+    "cities": [
+      {
+        "cityId": 10268,
+        "cityName": "Babeldaob Island",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 5780,
+        "cityName": "Koror",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 682963,
+        "cityName": "Meyungs",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Panama": {
+    "countryId": 18,
+    "countryName": "Panama",
+    "cities": [
+      {
+        "cityId": 830,
+        "cityName": "Panama City",
+        "provinceId": 10766,
+        "provinceName": "Panama Province"
+      }
+    ]
+  },
+  "Papua New Guinea": {
+    "countryId": 153,
+    "countryName": "Papua New Guinea",
+    "cities": [
+      {
+        "cityId": 256691,
+        "cityName": "Ialibu-Pangia District",
+        "provinceId": 12094,
+        "provinceName": "Southern Highlands"
+      },
+      {
+        "cityId": 859,
+        "cityName": "Port Moresby",
+        "provinceId": 12077,
+        "provinceName": "National Capital District"
+      }
+    ]
+  },
+  "Paraguay": {
+    "countryId": 147,
+    "countryName": "Paraguay",
+    "cities": [
+      {
+        "cityId": 819,
+        "cityName": "Asuncion",
+        "provinceId": 10767,
+        "provinceName": "Gran Asuncion"
+      },
+      {
+        "cityId": 36551,
+        "cityName": "Ciudad del Este",
+        "provinceId": 12763,
+        "provinceName": "Alto Parana"
+      },
+      {
+        "cityId": 9580,
+        "cityName": "Encarnacion",
+        "provinceId": 12772,
+        "provinceName": "Itapua"
+      },
+      {
+        "cityId": 58866,
+        "cityName": "Luque",
+        "provinceId": 12769,
+        "provinceName": "Central"
+      }
+    ]
+  },
+  "Peru": {
+    "countryId": 69,
+    "countryName": "Peru",
+    "cities": [
+      {
+        "cityId": 813,
+        "cityName": "Cusco",
+        "provinceId": 10770,
+        "provinceName": "Cusco Region"
+      },
+      {
+        "cityId": 9170,
+        "cityName": "Urubamba",
+        "provinceId": 10770,
+        "provinceName": "Cusco Region"
       }
     ]
   },
@@ -406,34 +5230,232 @@
     "countryName": "Philippines",
     "cities": [
       {
+        "cityId": 97749,
+        "cityName": "Agutaya",
+        "provinceId": 12619,
+        "provinceName": "Mimaropa"
+      },
+      {
+        "cityId": 35801,
+        "cityName": "Batangas Province",
+        "provinceId": 11187,
+        "provinceName": "Calabarzon",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 1391,
+        "cityName": "Boracay Island",
+        "provinceId": 12623,
+        "provinceName": "Western Visayas"
+      },
+      {
+        "cityId": 1239,
+        "cityName": "Cebu",
+        "provinceId": 12615,
+        "provinceName": "Central Visayas",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
         "cityId": 364,
         "cityName": "City of Manila",
         "provinceId": 12620,
-        "provinceName": "Metro Manila"
+        "provinceName": "Metro Manila",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
       },
       {
-        "cityId": 61021,
-        "cityName": "Quezon City",
-        "provinceId": 12620,
-        "provinceName": "Metro Manila"
+        "cityId": 707001,
+        "cityName": "Danao",
+        "provinceId": 12615,
+        "provinceName": "Central Visayas"
       },
       {
-        "cityId": 35808,
-        "cityName": "Taguig",
-        "provinceId": 12620,
-        "provinceName": "Metro Manila"
+        "cityId": 4027,
+        "cityName": "El Nido",
+        "provinceId": 12619,
+        "provinceName": "Mimaropa"
       },
       {
-        "cityId": 121853,
-        "cityName": "Pasay",
-        "provinceId": 12620,
-        "provinceName": "Metro Manila"
+        "cityId": 306803,
+        "cityName": "El Salvador City",
+        "provinceId": 12621,
+        "provinceName": "Northern Mindanao"
+      },
+      {
+        "cityId": 7320,
+        "cityName": "Legaspi",
+        "provinceId": 12611,
+        "provinceName": "Bicol"
       },
       {
         "cityId": 62744,
         "cityName": "Makati",
         "provinceId": 12620,
-        "provinceName": "Metro Manila"
+        "provinceName": "Metro Manila",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 128280,
+        "cityName": "Mandaluyong",
+        "provinceId": 12620,
+        "provinceName": "Metro Manila",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 121853,
+        "cityName": "Pasay",
+        "provinceId": 12620,
+        "provinceName": "Metro Manila",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 61021,
+        "cityName": "Quezon City",
+        "provinceId": 12620,
+        "provinceName": "Metro Manila",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 92706,
+        "cityName": "San Juan",
+        "provinceId": 12615,
+        "provinceName": "Central Visayas"
+      },
+      {
+        "cityId": 35811,
+        "cityName": "Tagaytay",
+        "provinceId": 11187,
+        "provinceName": "Calabarzon"
+      },
+      {
+        "cityId": 35808,
+        "cityName": "Taguig",
+        "provinceId": 12620,
+        "provinceName": "Metro Manila",
+        "tags": [
+          "#GreenSM",
+          "#Vinfast"
+        ]
+      }
+    ],
+    "tags": [
+      "#GreenSM",
+      "#Vinfast"
+    ]
+  },
+  "Poland": {
+    "countryId": 23,
+    "countryName": "Poland",
+    "cities": [
+      {
+        "cityId": 1343,
+        "cityName": "Krakow",
+        "provinceId": 10281,
+        "provinceName": "Lesser Poland"
+      },
+      {
+        "cityId": 293,
+        "cityName": "Warsaw",
+        "provinceId": 10181,
+        "provinceName": "Mazovia"
+      },
+      {
+        "cityId": 9253,
+        "cityName": "Zakopane",
+        "provinceId": 10281,
+        "provinceName": "Lesser Poland"
+      }
+    ]
+  },
+  "Portugal": {
+    "countryId": 77,
+    "countryName": "Portugal",
+    "cities": [
+      {
+        "cityId": 3725,
+        "cityName": "Albufeira",
+        "provinceId": 10108,
+        "provinceName": "Faro District"
+      },
+      {
+        "cityId": 72587,
+        "cityName": "Cuba",
+        "provinceId": 97858,
+        "provinceName": "Beja District"
+      },
+      {
+        "cityId": 1231,
+        "cityName": "Lisbon",
+        "provinceId": 10798,
+        "provinceName": "Lisbon District"
+      },
+      {
+        "cityId": 826,
+        "cityName": "Porto",
+        "provinceId": 97868,
+        "provinceName": "Porto District"
+      },
+      {
+        "cityId": 371379,
+        "cityName": "Samodaes",
+        "provinceId": 97865,
+        "provinceName": "Viseu District"
+      }
+    ]
+  },
+  "Puerto Rico": {
+    "countryId": 208,
+    "countryName": "Puerto Rico",
+    "cities": [
+      {
+        "cityId": 4835,
+        "cityName": "Aguadilla",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 305900,
+        "cityName": "Coabey",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 20121,
+        "cityName": "Dorado",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 4090,
+        "cityName": "San Juan",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 305826,
+        "cityName": "Zarzal",
+        "provinceId": 0,
+        "provinceName": ""
       }
     ]
   },
@@ -442,8 +5464,350 @@
     "countryName": "Qatar",
     "cities": [
       {
+        "cityId": 260661,
+        "cityName": "Al Rayyan",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 705672,
+        "cityName": "Al Shamal",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
         "cityId": 1401,
         "cityName": "Doha",
+        "provinceId": 0,
+        "provinceName": "",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 705673,
+        "cityName": "Lusail",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Romania": {
+    "countryId": 63,
+    "countryName": "Romania",
+    "cities": [
+      {
+        "cityId": 9403,
+        "cityName": "Brasov",
+        "provinceId": 10084,
+        "provinceName": "Brasov County"
+      },
+      {
+        "cityId": 674,
+        "cityName": "Bucharest",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 39050,
+        "cityName": "Otopeni",
+        "provinceId": 10823,
+        "provinceName": "Ilfov"
+      }
+    ]
+  },
+  "Russia": {
+    "countryId": 30,
+    "countryName": "Russia",
+    "cities": [
+      {
+        "cityId": 798,
+        "cityName": "Saint Petersburg",
+        "provinceId": 10311,
+        "provinceName": "Leningrad Oblast"
+      },
+      {
+        "cityId": 804069,
+        "cityName": "Shakhe",
+        "provinceId": 10312,
+        "provinceName": "Krasnodar"
+      }
+    ]
+  },
+  "Rwanda": {
+    "countryId": 62,
+    "countryName": "Rwanda",
+    "cities": [
+      {
+        "cityId": 405396,
+        "cityName": "Huye",
+        "provinceId": 11837,
+        "provinceName": "Southern"
+      },
+      {
+        "cityId": 405475,
+        "cityName": "Kibuye",
+        "provinceId": 11836,
+        "provinceName": "Western"
+      },
+      {
+        "cityId": 1277,
+        "cityName": "Kigali",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 405443,
+        "cityName": "Musanze",
+        "provinceId": 11835,
+        "provinceName": "Northern"
+      },
+      {
+        "cityId": 405482,
+        "cityName": "Nyamasheke",
+        "provinceId": 11836,
+        "provinceName": "Western"
+      }
+    ]
+  },
+  "Saint Lucia": {
+    "countryId": 244,
+    "countryName": "Saint Lucia",
+    "cities": [
+      {
+        "cityId": 681456,
+        "cityName": "Choc",
+        "provinceId": 10836,
+        "provinceName": "Castries"
+      },
+      {
+        "cityId": 4078,
+        "cityName": "Gros Islet",
+        "provinceId": 12605,
+        "provinceName": "Gros Islet"
+      },
+      {
+        "cityId": 397974,
+        "cityName": "Malgretoute",
+        "provinceId": 12608,
+        "provinceName": "Soufriere"
+      },
+      {
+        "cityId": 397960,
+        "cityName": "Millet",
+        "provinceId": 10836,
+        "provinceName": "Castries"
+      },
+      {
+        "cityId": 397951,
+        "cityName": "Soucis",
+        "provinceId": 10836,
+        "provinceName": "Castries"
+      },
+      {
+        "cityId": 59666,
+        "cityName": "Soufriere",
+        "provinceId": 12608,
+        "provinceName": "Soufriere"
+      }
+    ]
+  },
+  "Samoa": {
+    "countryId": 296,
+    "countryName": "Samoa",
+    "cities": [
+      {
+        "cityId": 4371,
+        "cityName": "Apia",
+        "provinceId": 12502,
+        "provinceName": "Tuamasaga"
+      },
+      {
+        "cityId": 803663,
+        "cityName": "Apolima-uta",
+        "provinceId": 12495,
+        "provinceName": "Aiga-i-le-Tai"
+      },
+      {
+        "cityId": 321306,
+        "cityName": "Fagamalo",
+        "provinceId": 12498,
+        "provinceName": "Gaga'emauga"
+      },
+      {
+        "cityId": 263302,
+        "cityName": "Faleolo",
+        "provinceId": 12494,
+        "provinceName": "A'ana"
+      }
+    ]
+  },
+  "San Marino": {
+    "countryId": 245,
+    "countryName": "San Marino",
+    "cities": [
+      {
+        "cityId": 263512,
+        "cityName": "Cailungo",
+        "provinceId": 12431,
+        "provinceName": "Borgo Maggiore"
+      },
+      {
+        "cityId": 9739,
+        "cityName": "City of San Marino",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Saudi Arabia": {
+    "countryId": 82,
+    "countryName": "Saudi Arabia",
+    "cities": [
+      {
+        "cityId": 299618,
+        "cityName": "Al Quwaiiyah",
+        "provinceId": 10838,
+        "provinceName": "Riyadh Province"
+      },
+      {
+        "cityId": 3744,
+        "cityName": "Makkah",
+        "provinceId": 10840,
+        "provinceName": "Makkah Province"
+      },
+      {
+        "cityId": 19744,
+        "cityName": "Medina",
+        "provinceId": 10839,
+        "provinceName": "Al Madinah Province"
+      },
+      {
+        "cityId": 789,
+        "cityName": "Riyadh",
+        "provinceId": 10838,
+        "provinceName": "Riyadh Province"
+      },
+      {
+        "cityId": 300139,
+        "cityName": "Umluj",
+        "provinceId": 12565,
+        "provinceName": "Tabuk Region"
+      }
+    ]
+  },
+  "Senegal": {
+    "countryId": 156,
+    "countryName": "Senegal",
+    "cities": [
+      {
+        "cityId": 856,
+        "cityName": "Dakar",
+        "provinceId": 12099,
+        "provinceName": "Dakar Region"
+      },
+      {
+        "cityId": 86114,
+        "cityName": "Kaolack",
+        "provinceId": 12103,
+        "provinceName": "Kaolack"
+      },
+      {
+        "cityId": 682144,
+        "cityName": "Kebemer",
+        "provinceId": 12106,
+        "provinceName": "Louga"
+      },
+      {
+        "cityId": 59541,
+        "cityName": "Mbour",
+        "provinceId": 12111,
+        "provinceName": "Thies"
+      },
+      {
+        "cityId": 59547,
+        "cityName": "Saly Portudal",
+        "provinceId": 12111,
+        "provinceName": "Thies"
+      }
+    ]
+  },
+  "Serbia": {
+    "countryId": 183,
+    "countryName": "Serbia",
+    "cities": [
+      {
+        "cityId": 10257,
+        "cityName": "Belgrade",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 62135,
+        "cityName": "Pristina",
+        "provinceId": 705929,
+        "provinceName": "Kosovo"
+      },
+      {
+        "cityId": 76335,
+        "cityName": "Vrdnik",
+        "provinceId": 104177,
+        "provinceName": "Srem District"
+      }
+    ]
+  },
+  "Seychelles": {
+    "countryId": 174,
+    "countryName": "Seychelles",
+    "cities": [
+      {
+        "cityId": 798959,
+        "cityName": "Baie Lazare",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 798963,
+        "cityName": "Cascade",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 78704,
+        "cityName": "Desroches",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 798993,
+        "cityName": "Eden Island",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 4100,
+        "cityName": "Mahe Island",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 798991,
+        "cityName": "Platte",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 798979,
+        "cityName": "Pointe La Rue",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 36359,
+        "cityName": "Takamaka",
         "provinceId": 0,
         "provinceName": ""
       }
@@ -457,7 +5821,157 @@
         "cityId": 73,
         "cityName": "Singapore",
         "provinceId": 0,
+        "provinceName": "",
+        "tags": [
+          "#Vinfast"
+        ]
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Slovakia": {
+    "countryId": 247,
+    "countryName": "Slovakia",
+    "cities": [
+      {
+        "cityId": 4008,
+        "cityName": "Bratislava",
+        "provinceId": 10846,
+        "provinceName": "Bratislava Region"
+      },
+      {
+        "cityId": 278154,
+        "cityName": "Bratislava I",
+        "provinceId": 10846,
+        "provinceName": "Bratislava Region"
+      },
+      {
+        "cityId": 278541,
+        "cityName": "Bratislava II",
+        "provinceId": 10846,
+        "provinceName": "Bratislava Region"
+      },
+      {
+        "cityId": 278066,
+        "cityName": "Kosice I",
+        "provinceId": 10845,
+        "provinceName": "Kosice Region"
+      },
+      {
+        "cityId": 40367,
+        "cityName": "Nitra",
+        "provinceId": 10207,
+        "provinceName": "Nitra Region"
+      },
+      {
+        "cityId": 40374,
+        "cityName": "Strbske Pleso",
+        "provinceId": 10850,
+        "provinceName": "Presov Region"
+      },
+      {
+        "cityId": 40349,
+        "cityName": "Vysoke Tatry",
+        "provinceId": 10850,
+        "provinceName": "Presov Region"
+      }
+    ]
+  },
+  "Slovenia": {
+    "countryId": 84,
+    "countryName": "Slovenia",
+    "cities": [
+      {
+        "cityId": 4102,
+        "cityName": "Bled",
+        "provinceId": 0,
         "provinceName": ""
+      },
+      {
+        "cityId": 363320,
+        "cityName": "Center District",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 1266,
+        "cityName": "Ljubljana",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 360972,
+        "cityName": "Municipality of Piran",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 40433,
+        "cityName": "Piran",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 362494,
+        "cityName": "Zgornji Brnik",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "South Africa": {
+    "countryId": 73,
+    "countryName": "South Africa",
+    "cities": [
+      {
+        "cityId": 36286,
+        "cityName": "Ballito",
+        "provinceId": 10868,
+        "provinceName": "KwaZulu-Natal"
+      },
+      {
+        "cityId": 448031,
+        "cityName": "Bo-Karoo",
+        "provinceId": 10862,
+        "provinceName": "Northern Cape"
+      },
+      {
+        "cityId": 683,
+        "cityName": "Cape Town",
+        "provinceId": 10863,
+        "provinceName": "Western Cape"
+      },
+      {
+        "cityId": 100754,
+        "cityName": "Ehlanzeni",
+        "provinceId": 10867,
+        "provinceName": "Mpumalanga"
+      },
+      {
+        "cityId": 684,
+        "cityName": "Johannesburg",
+        "provinceId": 10865,
+        "provinceName": "Gauteng"
+      },
+      {
+        "cityId": 36311,
+        "cityName": "Kempton Park",
+        "provinceId": 10865,
+        "provinceName": "Gauteng"
+      },
+      {
+        "cityId": 448154,
+        "cityName": "New Germany",
+        "provinceId": 10868,
+        "provinceName": "KwaZulu-Natal"
+      },
+      {
+        "cityId": 36336,
+        "cityName": "St Lucia",
+        "provinceId": 10868,
+        "provinceName": "KwaZulu-Natal"
       }
     ]
   },
@@ -466,10 +5980,412 @@
     "countryName": "South Korea",
     "cities": [
       {
+        "cityId": 253,
+        "cityName": "Busan",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 78904,
+        "cityName": "Samcheok-si",
+        "provinceId": 11107,
+        "provinceName": "Gangwon State"
+      },
+      {
         "cityId": 274,
         "cityName": "Seoul",
         "provinceId": 0,
-        "provinceName": ""
+        "provinceName": "",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 35793,
+        "cityName": "Sokcho-si",
+        "provinceId": 11107,
+        "provinceName": "Gangwon State"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Spain": {
+    "countryId": 95,
+    "countryName": "Spain",
+    "cities": [
+      {
+        "cityId": 3475,
+        "cityName": "Andorra",
+        "provinceId": 10042,
+        "provinceName": "Aragon"
+      },
+      {
+        "cityId": 40795,
+        "cityName": "Barcelona",
+        "provinceId": 10128,
+        "provinceName": "Catalonia"
+      },
+      {
+        "cityId": 40825,
+        "cityName": "Benalmadena",
+        "provinceId": 10050,
+        "provinceName": "Andalusia"
+      },
+      {
+        "cityId": 9378,
+        "cityName": "Benicasim",
+        "provinceId": 10261,
+        "provinceName": "Valencian Community"
+      },
+      {
+        "cityId": 40832,
+        "cityName": "Benissa",
+        "provinceId": 10261,
+        "provinceName": "Valencian Community"
+      },
+      {
+        "cityId": 480349,
+        "cityName": "Canada",
+        "provinceId": 10261,
+        "provinceName": "Valencian Community"
+      },
+      {
+        "cityId": 51383,
+        "cityName": "Canada de Calatrava",
+        "provinceId": 10132,
+        "provinceName": "Castilla-La Mancha"
+      },
+      {
+        "cityId": 483117,
+        "cityName": "Canada de la Cruz",
+        "provinceId": 10191,
+        "provinceName": "Region of Murcia"
+      },
+      {
+        "cityId": 480742,
+        "cityName": "Canada Roja",
+        "provinceId": 10261,
+        "provinceName": "Valencian Community"
+      },
+      {
+        "cityId": 808903,
+        "cityName": "Canada Rosal",
+        "provinceId": 10050,
+        "provinceName": "Andalusia"
+      },
+      {
+        "cityId": 41133,
+        "cityName": "Castello d'Empuries",
+        "provinceId": 10128,
+        "provinceName": "Catalonia"
+      },
+      {
+        "cityId": 40936,
+        "cityName": "Deia",
+        "provinceId": 10060,
+        "provinceName": "Balearic Islands"
+      },
+      {
+        "cityId": 41761,
+        "cityName": "El Puerto de Santa Maria",
+        "provinceId": 10050,
+        "provinceName": "Andalusia"
+      },
+      {
+        "cityId": 7660,
+        "cityName": "Elche",
+        "provinceId": 10261,
+        "provinceName": "Valencian Community"
+      },
+      {
+        "cityId": 40731,
+        "cityName": "Estepona",
+        "provinceId": 10050,
+        "provinceName": "Andalusia"
+      },
+      {
+        "cityId": 3178,
+        "cityName": "Girona",
+        "provinceId": 10128,
+        "provinceName": "Catalonia"
+      },
+      {
+        "cityId": 19711,
+        "cityName": "Guadalajara",
+        "provinceId": 10132,
+        "provinceName": "Castilla-La Mancha"
+      },
+      {
+        "cityId": 357,
+        "cityName": "Madrid",
+        "provinceId": 10872,
+        "provinceName": "Community Of Madrid"
+      },
+      {
+        "cityId": 1268,
+        "cityName": "Malaga",
+        "provinceId": 10050,
+        "provinceName": "Andalusia"
+      },
+      {
+        "cityId": 41422,
+        "cityName": "Maspalomas",
+        "provinceId": 10127,
+        "provinceName": "Canary Islands"
+      },
+      {
+        "cityId": 1267,
+        "cityName": "Palma de Mallorca",
+        "provinceId": 10060,
+        "provinceName": "Balearic Islands"
+      },
+      {
+        "cityId": 40877,
+        "cityName": "Puerto Rico",
+        "provinceId": 10127,
+        "provinceName": "Canary Islands"
+      },
+      {
+        "cityId": 10180,
+        "cityName": "Rincon de la Victoria",
+        "provinceId": 10050,
+        "provinceName": "Andalusia"
+      },
+      {
+        "cityId": 5892,
+        "cityName": "Salamanca",
+        "provinceId": 10133,
+        "provinceName": "Castile and Leon"
+      },
+      {
+        "cityId": 3481,
+        "cityName": "San Sebastian",
+        "provinceId": 10870,
+        "provinceName": "Basque Country"
+      },
+      {
+        "cityId": 481577,
+        "cityName": "Santa Marta de Magasca",
+        "provinceId": 10874,
+        "provinceName": "Extremadura"
+      },
+      {
+        "cityId": 1350,
+        "cityName": "Seville",
+        "provinceId": 10050,
+        "provinceName": "Andalusia"
+      },
+      {
+        "cityId": 68283,
+        "cityName": "Tarragona",
+        "provinceId": 10128,
+        "provinceName": "Catalonia"
+      },
+      {
+        "cityId": 1351,
+        "cityName": "Valencia",
+        "provinceId": 10261,
+        "provinceName": "Valencian Community"
+      },
+      {
+        "cityId": 481151,
+        "cityName": "Zapardiel de la Canada",
+        "provinceId": 10133,
+        "provinceName": "Castile and Leon"
+      }
+    ]
+  },
+  "Sri Lanka": {
+    "countryId": 83,
+    "countryName": "Sri Lanka",
+    "cities": [
+      {
+        "cityId": 810,
+        "cityName": "Colombo",
+        "provinceId": 11882,
+        "provinceName": "Western Province"
+      },
+      {
+        "cityId": 9637,
+        "cityName": "Galle",
+        "provinceId": 11884,
+        "provinceName": "Southern Province"
+      },
+      {
+        "cityId": 3679,
+        "cityName": "Kandy",
+        "provinceId": 11883,
+        "provinceName": "Central Province"
+      },
+      {
+        "cityId": 35963,
+        "cityName": "Katunayaka",
+        "provinceId": 11882,
+        "provinceName": "Western Province"
+      },
+      {
+        "cityId": 315781,
+        "cityName": "Norwood",
+        "provinceId": 11883,
+        "provinceName": "Central Province"
+      },
+      {
+        "cityId": 95467,
+        "cityName": "Palatupana",
+        "provinceId": 11884,
+        "provinceName": "Southern Province"
+      },
+      {
+        "cityId": 35968,
+        "cityName": "Tangalle",
+        "provinceId": 11884,
+        "provinceName": "Southern Province"
+      }
+    ]
+  },
+  "Suriname": {
+    "countryId": 181,
+    "countryName": "Suriname",
+    "cities": [
+      {
+        "cityId": 3267,
+        "cityName": "Paramaribo",
+        "provinceId": 10875,
+        "provinceName": "Paramaribo"
+      }
+    ]
+  },
+  "Sweden": {
+    "countryId": 79,
+    "countryName": "Sweden",
+    "cities": [
+      {
+        "cityId": 804,
+        "cityName": "Gothenburg",
+        "provinceId": 10272,
+        "provinceName": "Vastra Gotaland"
+      },
+      {
+        "cityId": 420,
+        "cityName": "Stockholm",
+        "provinceId": 10241,
+        "provinceName": "Stockholm county"
+      },
+      {
+        "cityId": 118341,
+        "cityName": "Stockholm-Arlanda",
+        "provinceId": 10241,
+        "provinceName": "Stockholm county"
+      }
+    ]
+  },
+  "Switzerland": {
+    "countryId": 80,
+    "countryName": "Switzerland",
+    "cities": [
+      {
+        "cityId": 666,
+        "cityName": "Geneva",
+        "provinceId": 10902,
+        "provinceName": "Canton of Geneva"
+      },
+      {
+        "cityId": 3143,
+        "cityName": "Grindelwald",
+        "provinceId": 10079,
+        "provinceName": "Canton of Bern"
+      },
+      {
+        "cityId": 3167,
+        "cityName": "Interlaken",
+        "provinceId": 10079,
+        "provinceName": "Canton of Bern"
+      },
+      {
+        "cityId": 40039,
+        "cityName": "Lucerne",
+        "provinceId": 10164,
+        "provinceName": "Canton of Lucerne"
+      },
+      {
+        "cityId": 3157,
+        "cityName": "Zermatt",
+        "provinceId": 10894,
+        "provinceName": "Canton of Valais"
+      },
+      {
+        "cityId": 434,
+        "cityName": "Zurich",
+        "provinceId": 10244,
+        "provinceName": "Canton of Zurich"
+      }
+    ]
+  },
+  "Tajikistan": {
+    "countryId": 250,
+    "countryName": "Tajikistan",
+    "cities": [
+      {
+        "cityId": 4160,
+        "cityName": "Dushanbe",
+        "provinceId": 252953,
+        "provinceName": "Districts of Republican Subordination"
+      },
+      {
+        "cityId": 399188,
+        "cityName": "Khorog",
+        "provinceId": 12456,
+        "provinceName": "Gorno-Badakhshan Autonomous Region"
+      },
+      {
+        "cityId": 7676,
+        "cityName": "Khudzhand",
+        "provinceId": 12458,
+        "provinceName": "Sughd"
+      }
+    ]
+  },
+  "Tanzania": {
+    "countryId": 87,
+    "countryName": "Tanzania",
+    "cities": [
+      {
+        "cityId": 316391,
+        "cityName": "Kaskazini A",
+        "provinceId": 11916,
+        "provinceName": "Zanzibar North Region"
+      },
+      {
+        "cityId": 316277,
+        "cityName": "Kusini",
+        "provinceId": 11921,
+        "provinceName": "Zanzibar South Region"
+      },
+      {
+        "cityId": 86836,
+        "cityName": "Mbeya",
+        "provinceId": 11925,
+        "provinceName": "Mbeya"
+      },
+      {
+        "cityId": 59557,
+        "cityName": "Paje",
+        "provinceId": 11921,
+        "provinceName": "Zanzibar South Region"
+      },
+      {
+        "cityId": 7704,
+        "cityName": "Serengeti",
+        "provinceId": 11924,
+        "provinceName": "Mara"
+      },
+      {
+        "cityId": 316972,
+        "cityName": "Zanzibar City",
+        "provinceId": 11926,
+        "provinceName": "Zanzibar West Region"
       }
     ]
   },
@@ -481,25 +6397,274 @@
         "cityId": 359,
         "cityName": "Bangkok",
         "provinceId": 0,
-        "provinceName": ""
+        "provinceName": "",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 1229,
+        "cityName": "Koh Samui",
+        "provinceId": 10245,
+        "provinceName": "Surat Thani Province"
+      },
+      {
+        "cityId": 36069,
+        "cityName": "Mae Rim",
+        "provinceId": 10218,
+        "provinceName": "Chiang Mai Province"
       },
       {
         "cityId": 36081,
         "cityName": "Nonthaburi",
         "provinceId": 11054,
-        "provinceName": "Nonthaburi Province"
+        "provinceName": "Nonthaburi Province",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
         "cityId": 622,
         "cityName": "Pattaya",
         "provinceId": 10087,
-        "provinceName": "Chon Buri Province"
+        "provinceName": "Chon Buri Province",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
         "cityId": 725,
         "cityName": "Phuket",
         "provinceId": 11032,
-        "provinceName": "Phuket Province"
+        "provinceName": "Phuket Province",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 93048,
+        "cityName": "Tha Mai",
+        "provinceId": 11041,
+        "provinceName": "Chanthaburi Province"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Timor-Leste": {
+    "countryId": 215,
+    "countryName": "Timor-Leste",
+    "cities": [
+      {
+        "cityId": 5189,
+        "cityName": "Dili",
+        "provinceId": 12296,
+        "provinceName": "Dili"
+      }
+    ]
+  },
+  "Tonga": {
+    "countryId": 160,
+    "countryName": "Tonga",
+    "cities": [
+      {
+        "cityId": 36478,
+        "cityName": "Nuku'alofa",
+        "provinceId": 12116,
+        "provinceName": "Tongatapu"
+      },
+      {
+        "cityId": 703530,
+        "cityName": "Tongatapu",
+        "provinceId": 12116,
+        "provinceName": "Tongatapu"
+      },
+      {
+        "cityId": 703595,
+        "cityName": "Vava'u Island",
+        "provinceId": 12117,
+        "provinceName": "Vava'u Islands"
+      }
+    ]
+  },
+  "Trinidad and Tobago": {
+    "countryId": 252,
+    "countryName": "Trinidad and Tobago",
+    "cities": [
+      {
+        "cityId": 76942,
+        "cityName": "Piarco",
+        "provinceId": 12820,
+        "provinceName": "Tunapuna-Piarco"
+      },
+      {
+        "cityId": 5640,
+        "cityName": "Port Of Spain",
+        "provinceId": 12818,
+        "provinceName": "San Juan-Laventille"
+      },
+      {
+        "cityId": 1362,
+        "cityName": "Tobago",
+        "provinceId": 12825,
+        "provinceName": "Eastern Tobago"
+      }
+    ]
+  },
+  "Tunisia": {
+    "countryId": 88,
+    "countryName": "Tunisia",
+    "cities": [
+      {
+        "cityId": 317525,
+        "cityName": "Cite Monplaisir et Borgel",
+        "provinceId": 10919,
+        "provinceName": "Tunis Governorate"
+      },
+      {
+        "cityId": 4109,
+        "cityName": "Djerba",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 36364,
+        "cityName": "Gamarth",
+        "provinceId": 10919,
+        "provinceName": "Tunis Governorate"
+      },
+      {
+        "cityId": 4110,
+        "cityName": "Hammamet",
+        "provinceId": 10915,
+        "provinceName": "Nabeul"
+      },
+      {
+        "cityId": 7469,
+        "cityName": "Monastir",
+        "provinceId": 10927,
+        "provinceName": "Monastir"
+      },
+      {
+        "cityId": 4111,
+        "cityName": "Sousse",
+        "provinceId": 10935,
+        "provinceName": "Sousse"
+      },
+      {
+        "cityId": 1280,
+        "cityName": "Tunis",
+        "provinceId": 10919,
+        "provinceName": "Tunis Governorate"
+      }
+    ]
+  },
+  "Turkmenistan": {
+    "countryId": 195,
+    "countryName": "Turkmenistan",
+    "cities": [
+      {
+        "cityId": 3862,
+        "cityName": "Ashgabat",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 87601,
+        "cityName": "Turkmenbashi",
+        "provinceId": 12202,
+        "provinceName": "Balkan"
+      }
+    ]
+  },
+  "Türkiye": {
+    "countryId": 89,
+    "countryName": "Türkiye",
+    "cities": [
+      {
+        "cityId": 1217,
+        "cityName": "Antalya",
+        "provinceId": 97799,
+        "provinceName": "Antalya Province"
+      },
+      {
+        "cityId": 1761,
+        "cityName": "Bodrum",
+        "provinceId": 97783,
+        "provinceName": "Mugla Province"
+      },
+      {
+        "cityId": 53024,
+        "cityName": "Isparta",
+        "provinceId": 97800,
+        "provinceName": "Isparta Province"
+      },
+      {
+        "cityId": 532,
+        "cityName": "Istanbul",
+        "provinceId": 100573,
+        "provinceName": "Istanbul Province"
+      },
+      {
+        "cityId": 40513,
+        "cityName": "Kemer",
+        "provinceId": 97799,
+        "provinceName": "Antalya Province"
+      },
+      {
+        "cityId": 3775,
+        "cityName": "Marmaris",
+        "provinceId": 97783,
+        "provinceName": "Mugla Province"
+      }
+    ]
+  },
+  "Uganda": {
+    "countryId": 93,
+    "countryName": "Uganda",
+    "cities": [
+      {
+        "cityId": 5794,
+        "cityName": "Arua",
+        "provinceId": 118524,
+        "provinceName": "Northern Region"
+      },
+      {
+        "cityId": 1281,
+        "cityName": "Entebbe",
+        "provinceId": 118522,
+        "provinceName": "Central Region"
+      },
+      {
+        "cityId": 7190,
+        "cityName": "Kampala",
+        "provinceId": 118522,
+        "provinceName": "Central Region"
+      },
+      {
+        "cityId": 319963,
+        "cityName": "Kyadondo",
+        "provinceId": 118522,
+        "provinceName": "Central Region"
+      },
+      {
+        "cityId": 319845,
+        "cityName": "Seeta",
+        "provinceId": 118522,
+        "provinceName": "Central Region"
+      }
+    ]
+  },
+  "Ukraine": {
+    "countryId": 119,
+    "countryName": "Ukraine",
+    "cities": [
+      {
+        "cityId": 492992,
+        "cityName": "Sambir",
+        "provinceId": 10951,
+        "provinceName": "Lviv Oblast"
       }
     ]
   },
@@ -508,32 +6673,590 @@
     "countryName": "United Arab Emirates",
     "cities": [
       {
-        "cityId": 220,
-        "cityName": "Dubai",
-        "provinceId": 10965,
-        "provinceName": "Emirate of Dubai"
-      },
-      {
         "cityId": 766,
         "cityName": "Abu Dhabi",
         "provinceId": 10964,
+        "provinceName": "Emirate of Abu Dhabi",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 6582,
+        "cityName": "Al Ain",
+        "provinceId": 10964,
         "provinceName": "Emirate of Abu Dhabi"
+      },
+      {
+        "cityId": 255416,
+        "cityName": "Al Dhafra",
+        "provinceId": 10964,
+        "provinceName": "Emirate of Abu Dhabi"
+      },
+      {
+        "cityId": 220,
+        "cityName": "Dubai",
+        "provinceId": 10965,
+        "provinceName": "Emirate of Dubai",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 70956,
+        "cityName": "Murquab",
+        "provinceId": 10965,
+        "provinceName": "Emirate of Dubai"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "United Kingdom": {
+    "countryId": 109,
+    "countryName": "United Kingdom",
+    "cities": [
+      {
+        "cityId": 6591,
+        "cityName": "Abingdon",
+        "provinceId": 10202,
+        "provinceName": "Oxfordshire"
+      },
+      {
+        "cityId": 34094,
+        "cityName": "Bicester",
+        "provinceId": 10202,
+        "provinceName": "Oxfordshire"
+      },
+      {
+        "cityId": 1270,
+        "cityName": "Birmingham",
+        "provinceId": 11001,
+        "provinceName": "West Midlands"
+      },
+      {
+        "cityId": 3194,
+        "cityName": "Bournemouth",
+        "provinceId": 10102,
+        "provinceName": "Dorset"
+      },
+      {
+        "cityId": 34039,
+        "cityName": "Buckingham",
+        "provinceId": 10984,
+        "provinceName": "Buckinghamshire"
+      },
+      {
+        "cityId": 34148,
+        "cityName": "Bude",
+        "provinceId": 10139,
+        "provinceName": "Cornwall"
+      },
+      {
+        "cityId": 410238,
+        "cityName": "Charnwood",
+        "provinceId": 10152,
+        "provinceName": "Leicestershire"
+      },
+      {
+        "cityId": 1198,
+        "cityName": "Dundee",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 9562,
+        "cityName": "Dunfermline",
+        "provinceId": 109,
+        "provinceName": "Fife"
+      },
+      {
+        "cityId": 706,
+        "cityName": "Edinburgh",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 34308,
+        "cityName": "Faringdon",
+        "provinceId": 10202,
+        "provinceName": "Oxfordshire"
+      },
+      {
+        "cityId": 19734,
+        "cityName": "Huntingdon",
+        "provinceId": 10130,
+        "provinceName": "Cambridgeshire"
+      },
+      {
+        "cityId": 35360,
+        "cityName": "Ingliston",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 35359,
+        "cityName": "Inverkeithing",
+        "provinceId": 109,
+        "provinceName": "Fife"
+      },
+      {
+        "cityId": 9750,
+        "cityName": "Irvine",
+        "provinceId": 11390,
+        "provinceName": "North Ayrshire"
+      },
+      {
+        "cityId": 34522,
+        "cityName": "Kingussie",
+        "provinceId": 10114,
+        "provinceName": "Scottish Highlands"
+      },
+      {
+        "cityId": 3187,
+        "cityName": "Liverpool",
+        "provinceId": 10178,
+        "provinceName": "Merseyside"
+      },
+      {
+        "cityId": 338,
+        "cityName": "London",
+        "provinceId": 10092,
+        "provinceName": "Greater London"
+      },
+      {
+        "cityId": 3556,
+        "cityName": "Maidstone",
+        "provinceId": 10147,
+        "provinceName": "Kent"
+      },
+      {
+        "cityId": 722,
+        "cityName": "Manchester",
+        "provinceId": 10093,
+        "provinceName": "Greater Manchester"
+      },
+      {
+        "cityId": 34869,
+        "cityName": "Moreton-in-Marsh",
+        "provinceId": 10117,
+        "provinceName": "Gloucestershire"
+      },
+      {
+        "cityId": 1199,
+        "cityName": "Nottingham",
+        "provinceId": 10978,
+        "provinceName": "Nottinghamshire"
+      },
+      {
+        "cityId": 33965,
+        "cityName": "Oundle",
+        "provinceId": 10062,
+        "provinceName": "Northamptonshire"
+      },
+      {
+        "cityId": 45926,
+        "cityName": "Petty France",
+        "provinceId": 92781,
+        "provinceName": "South Gloucestershire"
+      },
+      {
+        "cityId": 10290,
+        "cityName": "Reading",
+        "provinceId": 711365,
+        "provinceName": "Berkshire"
+      },
+      {
+        "cityId": 35008,
+        "cityName": "Sandown",
+        "provinceId": 92769,
+        "provinceName": "Isle of Wight"
+      },
+      {
+        "cityId": 35009,
+        "cityName": "Saundersfoot",
+        "provinceId": 11508,
+        "provinceName": "Pembrokeshire"
+      },
+      {
+        "cityId": 35021,
+        "cityName": "Shanklin",
+        "provinceId": 92769,
+        "provinceName": "Isle of Wight"
+      },
+      {
+        "cityId": 35301,
+        "cityName": "Sidmouth",
+        "provinceId": 10097,
+        "provinceName": "Devon"
+      },
+      {
+        "cityId": 35068,
+        "cityName": "Skipton",
+        "provinceId": 10072,
+        "provinceName": "North Yorkshire"
+      },
+      {
+        "cityId": 35040,
+        "cityName": "St. Saviour",
+        "provinceId": 99601,
+        "provinceName": "Jersey"
+      },
+      {
+        "cityId": 412986,
+        "cityName": "Stretford",
+        "provinceId": 10093,
+        "provinceName": "Greater Manchester"
+      },
+      {
+        "cityId": 19736,
+        "cityName": "Sunderland",
+        "provinceId": 11004,
+        "provinceName": "Tyne and Wear"
+      },
+      {
+        "cityId": 34990,
+        "cityName": "Sutton Coldfield",
+        "provinceId": 11001,
+        "provinceName": "West Midlands"
+      },
+      {
+        "cityId": 9113,
+        "cityName": "Taunton",
+        "provinceId": 10227,
+        "provinceName": "Somerset"
       }
     ]
   },
-  "USA": {
+  "United States": {
     "countryId": 66,
     "countryName": "United States",
     "cities": [
       {
-        "cityId": 347,
-        "cityName": "Los Angeles",
+        "cityId": 4153,
+        "cityName": "Aspen",
+        "provinceId": 10142,
+        "provinceName": "Colorado"
+      },
+      {
+        "cityId": 27072,
+        "cityName": "Atlanta",
+        "provinceId": 10299,
+        "provinceName": "Georgia"
+      },
+      {
+        "cityId": 25526,
+        "cityName": "Austin",
+        "provinceId": 10094,
+        "provinceName": "Texas"
+      },
+      {
+        "cityId": 347856,
+        "cityName": "Bermuda",
+        "provinceId": 10111,
+        "provinceName": "Virginia"
+      },
+      {
+        "cityId": 83713,
+        "cityName": "Bolivia",
+        "provinceId": 10068,
+        "provinceName": "North Carolina"
+      },
+      {
+        "cityId": 26848,
+        "cityName": "Boston",
+        "provinceId": 10179,
+        "provinceName": "Massachusetts"
+      },
+      {
+        "cityId": 357205,
+        "cityName": "Canada",
+        "provinceId": 10146,
+        "provinceName": "Kentucky"
+      },
+      {
+        "cityId": 351501,
+        "cityName": "Canada",
+        "provinceId": 10134,
+        "provinceName": "Kansas"
+      },
+      {
+        "cityId": 334022,
+        "cityName": "Colma",
         "provinceId": 10125,
-        "provinceName": "California"
+        "provinceName": "California",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 26207,
+        "cityName": "Corte Madera",
+        "provinceId": 10125,
+        "provinceName": "California",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 29249,
+        "cityName": "Cuba",
+        "provinceId": 10185,
+        "provinceName": "Missouri"
+      },
+      {
+        "cityId": 705,
+        "cityName": "Dallas",
+        "provinceId": 10094,
+        "provinceName": "Texas",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 356819,
+        "cityName": "Denmark",
+        "provinceId": 10263,
+        "provinceName": "Wisconsin"
+      },
+      {
+        "cityId": 354652,
+        "cityName": "Ellis County",
+        "provinceId": 10094,
+        "provinceName": "Texas"
+      },
+      {
+        "cityId": 26639,
+        "cityName": "Estes Park",
+        "provinceId": 10142,
+        "provinceName": "Colorado"
+      },
+      {
+        "cityId": 340810,
+        "cityName": "Germany",
+        "provinceId": 10075,
+        "provinceName": "Pennsylvania"
+      },
+      {
+        "cityId": 27013,
+        "cityName": "Grants Pass",
+        "provinceId": 10105,
+        "provinceName": "Oregon"
+      },
+      {
+        "cityId": 753,
+        "cityName": "Guam",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 648717,
+        "cityName": "Gunnison County",
+        "provinceId": 10142,
+        "provinceName": "Colorado"
+      },
+      {
+        "cityId": 3811,
+        "cityName": "Hawaii island",
+        "provinceId": 10279,
+        "provinceName": "Hawaii"
+      },
+      {
+        "cityId": 26619,
+        "cityName": "Houston",
+        "provinceId": 10094,
+        "provinceName": "Texas",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 1291,
+        "cityName": "Indianapolis",
+        "provinceId": 10292,
+        "provinceName": "Indiana"
       },
       {
         "cityId": 27020,
         "cityName": "Irvine",
+        "provinceId": 10125,
+        "provinceName": "California",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 342726,
+        "cityName": "Italy",
+        "provinceId": 10204,
+        "provinceName": "New York State"
+      },
+      {
+        "cityId": 353268,
+        "cityName": "Italy",
+        "provinceId": 10094,
+        "provinceName": "Texas"
+      },
+      {
+        "cityId": 337920,
+        "cityName": "La Canada Flintridge",
+        "provinceId": 10125,
+        "provinceName": "California"
+      },
+      {
+        "cityId": 347137,
+        "cityName": "La France",
+        "provinceId": 10198,
+        "provinceName": "South Carolina"
+      },
+      {
+        "cityId": 7350,
+        "cityName": "Lanai City",
+        "provinceId": 10279,
+        "provinceName": "Hawaii"
+      },
+      {
+        "cityId": 26282,
+        "cityName": "Las Vegas",
+        "provinceId": 10193,
+        "provinceName": "Nevada"
+      },
+      {
+        "cityId": 29407,
+        "cityName": "Lebanon",
+        "provinceId": 10253,
+        "provinceName": "Tennessee"
+      },
+      {
+        "cityId": 28815,
+        "cityName": "Lebanon",
+        "provinceId": 10075,
+        "provinceName": "Pennsylvania"
+      },
+      {
+        "cityId": 43975,
+        "cityName": "Lebanon",
+        "provinceId": 10283,
+        "provinceName": "New Hampshire"
+      },
+      {
+        "cityId": 347,
+        "cityName": "Los Angeles",
+        "provinceId": 10125,
+        "provinceName": "California",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 86557,
+        "cityName": "Malta",
+        "provinceId": 10291,
+        "provinceName": "Illinois"
+      },
+      {
+        "cityId": 44049,
+        "cityName": "Malta",
+        "provinceId": 10204,
+        "provinceName": "New York State"
+      },
+      {
+        "cityId": 25773,
+        "cityName": "Miami",
+        "provinceId": 10109,
+        "provinceName": "Florida",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 346157,
+        "cityName": "Moncure",
+        "provinceId": 10068,
+        "provinceName": "North Carolina",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 337719,
+        "cityName": "Montecito",
+        "provinceId": 10125,
+        "provinceName": "California"
+      },
+      {
+        "cityId": 29156,
+        "cityName": "Mount Crested Butte",
+        "provinceId": 10142,
+        "provinceName": "Colorado"
+      },
+      {
+        "cityId": 339470,
+        "cityName": "New Canada",
+        "provinceId": 10188,
+        "provinceName": "Maine"
+      },
+      {
+        "cityId": 102752,
+        "cityName": "New Germany",
+        "provinceId": 10189,
+        "provinceName": "Minnesota"
+      },
+      {
+        "cityId": 633,
+        "cityName": "New York",
+        "provinceId": 10204,
+        "provinceName": "New York State"
+      },
+      {
+        "cityId": 728577,
+        "cityName": "Ordot",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 25950,
+        "cityName": "Panama City Beach",
+        "provinceId": 10109,
+        "provinceName": "Florida"
+      },
+      {
+        "cityId": 26773,
+        "cityName": "Peru",
+        "provinceId": 10291,
+        "provinceName": "Illinois"
+      },
+      {
+        "cityId": 26153,
+        "cityName": "Philadelphia",
+        "provinceId": 10075,
+        "provinceName": "Pennsylvania"
+      },
+      {
+        "cityId": 25938,
+        "cityName": "Phoenix",
+        "provinceId": 10288,
+        "provinceName": "Arizona"
+      },
+      {
+        "cityId": 27063,
+        "cityName": "Poland",
+        "provinceId": 10103,
+        "provinceName": "Ohio"
+      },
+      {
+        "cityId": 1406,
+        "cityName": "Raleigh",
+        "provinceId": 10068,
+        "provinceName": "North Carolina",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 696051,
+        "cityName": "Samoa",
         "provinceId": 10125,
         "provinceName": "California"
       },
@@ -541,11 +7264,23 @@
         "cityId": 698,
         "cityName": "San Diego",
         "provinceId": 10125,
-        "provinceName": "California"
+        "provinceName": "California",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
         "cityId": 1880,
         "cityName": "San Jose",
+        "provinceId": 10125,
+        "provinceName": "California",
+        "tags": [
+          "#Vinfast"
+        ]
+      },
+      {
+        "cityId": 335658,
+        "cityName": "San Marino",
         "provinceId": 10125,
         "provinceName": "California"
       },
@@ -553,49 +7288,235 @@
         "cityId": 20582,
         "cityName": "San Mateo",
         "provinceId": 10125,
-        "provinceName": "California"
+        "provinceName": "California",
+        "tags": [
+          "#Vinfast"
+        ]
       },
       {
-        "cityId": 26207,
-        "cityName": "Corte Madera",
+        "cityId": 26892,
+        "cityName": "Sparks",
+        "provinceId": 10193,
+        "provinceName": "Nevada"
+      },
+      {
+        "cityId": 701661,
+        "cityName": "Spartanburg",
+        "provinceId": 10198,
+        "provinceName": "South Carolina"
+      },
+      {
+        "cityId": 1400,
+        "cityName": "Spokane",
+        "provinceId": 10122,
+        "provinceName": "Washington"
+      },
+      {
+        "cityId": 94005,
+        "cityName": "Stanford",
         "provinceId": 10125,
         "provinceName": "California"
       },
       {
-        "cityId": 334022,
-        "cityName": "Colma",
-        "provinceId": 10125,
-        "provinceName": "California"
-      },
-      {
-        "cityId": 346157,
-        "cityName": "Moncure",
-        "provinceId": 10068,
-        "provinceName": "North Carolina"
-      },
-      {
-        "cityId": 1406,
-        "cityName": "Raleigh",
-        "provinceId": 10068,
-        "provinceName": "North Carolina"
-      },
-      {
-        "cityId": 25773,
-        "cityName": "Miami",
+        "cityId": 26103,
+        "cityName": "Sunrise",
         "provinceId": 10109,
         "provinceName": "Florida"
       },
       {
-        "cityId": 26619,
-        "cityName": "Houston",
-        "provinceId": 10094,
-        "provinceName": "Texas"
+        "cityId": 350816,
+        "cityName": "Sweden",
+        "provinceId": 10204,
+        "provinceName": "New York State"
       },
       {
-        "cityId": 705,
-        "cityName": "Dallas",
-        "provinceId": 10094,
-        "provinceName": "Texas"
+        "cityId": 1399,
+        "cityName": "Tampa",
+        "provinceId": 10109,
+        "provinceName": "Florida"
+      },
+      {
+        "cityId": 259802,
+        "cityName": "Tamuning",
+        "provinceId": 0,
+        "provinceName": ""
+      },
+      {
+        "cityId": 343823,
+        "cityName": "U.S. Air Force Academy",
+        "provinceId": 10142,
+        "provinceName": "Colorado"
+      },
+      {
+        "cityId": 26363,
+        "cityName": "Washington D.C.",
+        "provinceId": 66,
+        "provinceName": "District of Columbia"
+      },
+      {
+        "cityId": 43461,
+        "cityName": "West Point",
+        "provinceId": 10204,
+        "provinceName": "New York State"
+      }
+    ],
+    "tags": [
+      "#Vinfast"
+    ]
+  },
+  "Uruguay": {
+    "countryId": 94,
+    "countryName": "Uruguay",
+    "cities": [
+      {
+        "cityId": 60522,
+        "cityName": "Jose Ignacio",
+        "provinceId": 11022,
+        "provinceName": "Maldonado Department"
+      },
+      {
+        "cityId": 263778,
+        "cityName": "Los Morteros",
+        "provinceId": 11022,
+        "provinceName": "Maldonado Department"
+      },
+      {
+        "cityId": 770,
+        "cityName": "Montevideo",
+        "provinceId": 11012,
+        "provinceName": "Montevideo Department"
+      },
+      {
+        "cityId": 5563,
+        "cityName": "Punta Del Este",
+        "provinceId": 11022,
+        "provinceName": "Maldonado Department"
+      }
+    ]
+  },
+  "Uzbekistan": {
+    "countryId": 144,
+    "countryName": "Uzbekistan",
+    "cities": [
+      {
+        "cityId": 300458,
+        "cityName": "Burchmulla",
+        "provinceId": 12066,
+        "provinceName": "Tashkent Region"
+      },
+      {
+        "cityId": 5398,
+        "cityName": "Nukus",
+        "provinceId": 12068,
+        "provinceName": "Karakalpakstan"
+      },
+      {
+        "cityId": 5881,
+        "cityName": "Samarkand",
+        "provinceId": 12063,
+        "provinceName": "Samarkand Region"
+      },
+      {
+        "cityId": 639,
+        "cityName": "Tashkent",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Vanuatu": {
+    "countryId": 254,
+    "countryName": "Vanuatu",
+    "cities": [
+      {
+        "cityId": 684400,
+        "cityName": "Efate",
+        "provinceId": 12470,
+        "provinceName": "Shefa"
+      },
+      {
+        "cityId": 4115,
+        "cityName": "Port Vila",
+        "provinceId": 12470,
+        "provinceName": "Shefa"
+      }
+    ]
+  },
+  "Venezuela": {
+    "countryId": 91,
+    "countryName": "Venezuela",
+    "cities": [
+      {
+        "cityId": 811,
+        "cityName": "Caracas",
+        "provinceId": 11939,
+        "provinceName": "Dependencias Federales"
+      },
+      {
+        "cityId": 36634,
+        "cityName": "Maiquetia",
+        "provinceId": 11961,
+        "provinceName": "La Guaira State"
+      },
+      {
+        "cityId": 9913,
+        "cityName": "Margarita Island",
+        "provinceId": 0,
+        "provinceName": ""
+      }
+    ]
+  },
+  "Zambia": {
+    "countryId": 112,
+    "countryName": "Zambia",
+    "cities": [
+      {
+        "cityId": 7388,
+        "cityName": "Livingstone",
+        "provinceId": 12858,
+        "provinceName": "Southern"
+      },
+      {
+        "cityId": 816,
+        "cityName": "Lusaka",
+        "provinceId": 12855,
+        "provinceName": "Lusaka Province"
+      }
+    ]
+  },
+  "Zimbabwe": {
+    "countryId": 51,
+    "countryName": "Zimbabwe",
+    "cities": [
+      {
+        "cityId": 849,
+        "cityName": "Harare",
+        "provinceId": 12842,
+        "provinceName": "Harare Province"
+      },
+      {
+        "cityId": 649488,
+        "cityName": "Hwange",
+        "provinceId": 12848,
+        "provinceName": "Matabeleland North"
+      },
+      {
+        "cityId": 86631,
+        "cityName": "Masvingo",
+        "provinceId": 12847,
+        "provinceName": "Masvingo"
+      },
+      {
+        "cityId": 682584,
+        "cityName": "Nyanga",
+        "provinceId": 12843,
+        "provinceName": "Manicaland"
+      },
+      {
+        "cityId": 6233,
+        "cityName": "Victoria Falls",
+        "provinceId": 12848,
+        "provinceName": "Matabeleland North"
       }
     ]
   }
