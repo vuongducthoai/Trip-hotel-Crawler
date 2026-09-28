@@ -1169,6 +1169,24 @@
   $('done-kho').addEventListener('click', () => setView('kho'));
   try { const v = localStorage.getItem('crawler-auto-export'); if (v !== null) $('auto-export').checked = v === '1'; } catch (_) { /* bỏ qua */ }
   $('auto-export').addEventListener('change', () => { try { localStorage.setItem('crawler-auto-export', $('auto-export').checked ? '1' : '0'); } catch (_) { /* bỏ qua */ } });
+  // Đổi thư mục dữ liệu — chỉ có trong bản Electron (cầu nối preload).
+  if (window.tripHotelData && window.tripHotelData.isElectron) {
+    $('change-data-dir').hidden = false;
+    window.tripHotelData.getDataDir().then((info) => {
+      if (info && info.custom) $('reset-data-dir').hidden = false;
+    }).catch(() => {});
+    $('change-data-dir').addEventListener('click', async () => {
+      try {
+        const r = await window.tripHotelData.chooseDataDir();
+        if (r && r.error) toast(r.error, 'error');
+        else if (r && r.restarting) toast('Đang khởi động lại với thư mục mới…');
+      } catch (error) { toast(error.message, 'error'); }
+    });
+    $('reset-data-dir').addEventListener('click', async () => {
+      try { const r = await window.tripHotelData.resetDataDir(); if (r && r.restarting) toast('Đang khởi động lại…'); }
+      catch (error) { toast(error.message, 'error'); }
+    });
+  }
   $('open-log-dir').addEventListener('click', async () => {
     try { await post('/api/du-lieu/mo-thu-muc-log'); } catch (error) { toast(error.message, 'error'); }
   });

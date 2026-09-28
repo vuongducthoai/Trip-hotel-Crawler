@@ -11,7 +11,9 @@
     'Khu vực': 'Sections', 'Ngôn ngữ giao diện': 'Interface language', 'Đóng': 'Close', 'Mở': 'Open',
     'Xem': 'View', 'Xem trước': 'Preview', 'Tải về': 'Download', 'Bắt đầu': 'Started', 'Kết thúc': 'Finished',
     'Thời lượng': 'Duration', 'Trạng thái': 'Status', 'Xem log': 'View log', 'Không có log.': 'No log.',
-    'Mở thư mục': 'Open folder', 'Mở thư mục log': 'Open log folder', 'Thư mục dữ liệu': 'Data folder', 'Trip Hotel Data · Dữ liệu lưu tại': 'Trip Hotel Data · Data stored at',
+    'Mở thư mục': 'Open folder', 'Mở thư mục log': 'Open log folder', 'Đổi thư mục…': 'Change folder…', 'Dùng mặc định': 'Use default',
+    'Chọn thư mục khác để lưu dữ liệu, ví dụ ngoài thư mục cài đặt để không mất khi gỡ app': 'Pick another folder for data, e.g. outside the install folder so it survives uninstall',
+    'Đang khởi động lại với thư mục mới…': 'Restarting with the new folder…', 'Đang khởi động lại…': 'Restarting…', 'Thư mục dữ liệu': 'Data folder', 'Trip Hotel Data · Dữ liệu lưu tại': 'Trip Hotel Data · Data stored at',
     'Thống kê dữ liệu': 'Data stats', 'raw đã lưu': 'raw files saved', 'file CSV': 'CSV files', 'khách sạn': 'hotels',
     'Tiếng Việt': 'Vietnamese', 'English': 'English', 'Ngôn ngữ': 'Languages',
     // --- thiết lập ---

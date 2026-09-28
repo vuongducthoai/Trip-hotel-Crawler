@@ -1,5 +1,5 @@
 // Khởi động server Python, đợi cổng sẵn sàng rồi mới mở cửa sổ ứng dụng.
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain } = require('electron');
 const { spawn, spawnSync } = require('child_process');
 const fs = require('fs');
 const { existsSync } = fs;
@@ -23,19 +23,98 @@ function portDangDuocDung(port) {
 
 // Thư mục dữ liệu (output/, browser_profile/): ưu tiên thư mục cài đặt để người dùng
 // dễ tìm; nếu nơi đó không ghi được (Program Files không có quyền) thì dùng AppData.
-function dataDir(root) {
-  if (!app.isPackaged) return root;
-  const candidate = path.join(path.dirname(process.execPath), 'data');
+// Cài đặt của người dùng: %APPDATA%\Trip Hotel Data\settings.json — KHÔNG bị xoá khi gỡ app.
+const SETTINGS_PATH = path.join(app.getPath('userData'), 'settings.json');
+function readSettings() {
+  try { return JSON.parse(fs.readFileSync(SETTINGS_PATH, 'utf8')) || {}; } catch (_) { return {}; }
+}
+function writeSettings(patch) {
+  const next = { ...readSettings(), ...patch };
+  fs.mkdirSync(path.dirname(SETTINGS_PATH), { recursive: true });
+  fs.writeFileSync(SETTINGS_PATH, JSON.stringify(next, null, 2));
+  return next;
+}
+function isWritableDir(dir) {
   try {
-    fs.mkdirSync(candidate, { recursive: true });
-    const probe = path.join(candidate, '.write-test');
+    fs.mkdirSync(dir, { recursive: true });
+    const probe = path.join(dir, '.write-test');
     fs.writeFileSync(probe, 'ok');
     fs.unlinkSync(probe);
-    return candidate;
-  } catch (_) {
-    return app.getPath('userData');
-  }
+    return true;
+  } catch (_) { return false; }
 }
+function defaultDataDir() {
+  return path.join(path.dirname(process.execPath), 'data');
+}
+function dataDir(root) {
+  if (process.env.TOOL_CRAWLER_DATA_DIR && isWritableDir(process.env.TOOL_CRAWLER_DATA_DIR)) return process.env.TOOL_CRAWLER_DATA_DIR;
+  if (!app.isPackaged) return root;
+  const custom = readSettings().dataDir;
+  if (custom && isWritableDir(custom)) return custom;
+  const candidate = defaultDataDir();
+  if (isWritableDir(candidate)) return candidate;
+  return app.getPath('userData');
+}
+
+// Chép dữ liệu (output/, browser_profile_*) từ thư mục cũ sang thư mục mới.
+function copyDataFolders(from, to) {
+  let copied = 0;
+  for (const name of fs.readdirSync(from)) {
+    if (name !== 'output' && !name.startsWith('browser_profile')) continue;
+    const src = path.join(from, name);
+    if (!fs.statSync(src).isDirectory()) continue;
+    fs.cpSync(src, path.join(to, name), { recursive: true, force: false, errorOnExist: false });
+    copied += 1;
+  }
+  return copied;
+}
+
+let mainWindow = null;
+ipcMain.handle('data-dir:get', () => ({
+  current: dataDir(projectRoot()), default: app.isPackaged ? defaultDataDir() : projectRoot(),
+  custom: readSettings().dataDir || null, packaged: app.isPackaged,
+}));
+ipcMain.handle('data-dir:choose', async () => {
+  const current = dataDir(projectRoot());
+  const picked = await dialog.showOpenDialog(mainWindow, {
+    title: 'Chọn thư mục lưu dữ liệu Trip Hotel Data',
+    defaultPath: current, properties: ['openDirectory', 'createDirectory'],
+  });
+  if (picked.canceled || !picked.filePaths.length) return { ok: false, canceled: true };
+  const target = picked.filePaths[0];
+  if (path.resolve(target) === path.resolve(current)) return { ok: false, canceled: true };
+  if (!isWritableDir(target)) return { ok: false, error: 'Thư mục này không ghi được. Hãy chọn thư mục khác.' };
+  const { response } = await dialog.showMessageBox(mainWindow, {
+    type: 'question', title: 'Đổi thư mục dữ liệu',
+    message: `Dùng thư mục:\n${target}`,
+    detail: `Thư mục hiện tại: ${current}\n\nChuyển dữ liệu đã cào (raw, CSV, cookie, profile Chrome) sang thư mục mới? Dữ liệu cũ vẫn được giữ nguyên tại chỗ cũ. Ứng dụng sẽ khởi động lại.`,
+    buttons: ['Chuyển dữ liệu rồi đổi', 'Chỉ đổi thư mục (bắt đầu trống)', 'Huỷ'], defaultId: 0, cancelId: 2,
+  });
+  if (response === 2) return { ok: false, canceled: true };
+  try {
+    stopServer();   // tránh file đang bị backend giữ khi chép
+    if (response === 0) copyDataFolders(current, target);
+    writeSettings({ dataDir: target });
+  } catch (err) {
+    return { ok: false, error: `Không chuyển được dữ liệu: ${err.message}` };
+  }
+  app.relaunch();
+  app.exit(0);
+  return { ok: true, restarting: true };
+});
+ipcMain.handle('data-dir:reset', async () => {
+  const { response } = await dialog.showMessageBox(mainWindow, {
+    type: 'question', title: 'Thư mục dữ liệu',
+    message: 'Dùng lại thư mục mặc định (trong thư mục cài đặt)?',
+    detail: 'Dữ liệu ở thư mục tuỳ chỉnh không bị xoá, nhưng app sẽ không đọc nữa. Ứng dụng sẽ khởi động lại.',
+    buttons: ['Dùng mặc định', 'Huỷ'], defaultId: 0, cancelId: 1,
+  });
+  if (response !== 0) return { ok: false, canceled: true };
+  const settings = readSettings(); delete settings.dataDir;
+  fs.writeFileSync(SETTINGS_PATH, JSON.stringify(settings, null, 2));
+  stopServer(); app.relaunch(); app.exit(0);
+  return { ok: true, restarting: true };
+});
 
 function projectRoot() {
   return app.isPackaged ? process.resourcesPath : path.resolve(__dirname, '..');
@@ -110,8 +189,12 @@ async function createWindow() {
   const win = new BrowserWindow({
     width: 1080, height: 820, minWidth: 760, minHeight: 620,
     title: 'Trip Hotel Data',
-    webPreferences: { contextIsolation: true, nodeIntegration: false, sandbox: true },
+    webPreferences: {
+      contextIsolation: true, nodeIntegration: false, sandbox: true,
+      preload: path.join(__dirname, 'preload.js'),
+    },
   });
+  mainWindow = win;
   await win.loadURL('http://127.0.0.1:8765');
   theoDoiTienDo(win);
   setupAutoUpdate(win);

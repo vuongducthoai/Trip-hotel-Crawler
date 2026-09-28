@@ -85,9 +85,12 @@ Bản cài (`Trip Hotel Data Setup x.y.z.exe`) lưu `output\` và `browser_profi
 Nếu thư mục cài không ghi được (ví dụ cài vào Program Files), app tự rơi về
 `%APPDATA%\Trip Hotel Data`. Đường dẫn đang dùng hiện ở chân trang, kèm nút *Mở thư mục*.
 
-Cảnh báo: gỡ cài đặt hoặc cài đè phiên bản mới sẽ xoá thư mục cài, **kể cả `data\`** —
-sao lưu `data\output` trước khi cập nhật. Muốn cố định một chỗ khác, đặt biến môi
-trường `TOOL_CRAWLER_DATA_DIR=D:\TripHotelData` trước khi mở app.
+Cảnh báo: gỡ cài đặt hoặc cài đè phiên bản mới sẽ xoá thư mục cài, **kể cả `data\`**.
+Để không mất dữ liệu, ở chân trang bấm **Đổi thư mục…** và chọn một nơi ngoài thư mục cài
+(ví dụ `D:\TripHotelData`): app hỏi có chuyển dữ liệu hiện có sang không rồi tự khởi động
+lại. Lựa chọn được ghi ở `%APPDATA%\Trip Hotel Data\settings.json` (không bị xoá khi gỡ
+app), nên cài lại phiên bản mới là app tự đọc đúng thư mục cũ. Nút **Dùng mặc định** để quay
+về `<thư mục cài>\data`. Biến môi trường `TOOL_CRAWLER_DATA_DIR` vẫn ghi đè tất cả.
 
 ## Khi cookie hết hạn hoặc bị chặn
 
