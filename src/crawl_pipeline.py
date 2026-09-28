@@ -1,4 +1,4 @@
-"""Chạy trọn một lượt: lấy danh sách rồi cào chi tiết cho các ngôn ngữ đã chọn."""
+"""Chạy trọn một lượt: lấy danh sách rồi crawl chi tiết cho các ngôn ngữ đã chọn."""
 from __future__ import annotations
 
 import argparse
@@ -56,7 +56,7 @@ def main(args) -> int:
     known_ids = set().union(*complete_by_market.values()) if complete_by_market else set()
     target_total = len(known_ids) + args.limit if continue_mode else args.limit
     if continue_mode:
-        print(f"CHẾ ĐỘ CÀO TIẾP · Đã có {len(known_ids)} khách sạn, "
+        print(f"CHẾ ĐỘ CRAWL TIẾP · Đã có {len(known_ids)} khách sạn, "
               f"cần tìm thêm {args.limit} → mục tiêu {target_total}.")
     print(f"BƯỚC 1/2 · Lấy tối đa {target_total} khách sạn tại {args.city_name}…")
     list_args = Namespace(
@@ -106,7 +106,7 @@ def main(args) -> int:
         if continue_mode:
             complete_ids = complete_by_market[(locale, currency)]
             detail_ids = [hotel_id for hotel_id in ids if hotel_id not in complete_ids][:args.limit]
-            print(f"  • Đã hoàn chỉnh: {len(complete_ids)} · ID mới/thiếu sẽ cào: "
+            print(f"  • Đã hoàn chỉnh: {len(complete_ids)} · ID mới/thiếu sẽ crawl: "
                   f"{len(detail_ids)}/{args.limit}")
             if len(detail_ids) < args.limit:
                 partial = True
@@ -137,12 +137,15 @@ def main(args) -> int:
         result = crawl_fast.main(detail_args)
         if result:
             return result
+    if had_work:
+        import tripadvisor
+        tripadvisor.ghep_sau_crawl(ids)
     if continue_mode and not had_work:
-        print("CHƯA CÀO THÊM ĐƯỢC: Trip.com chưa cung cấp ID khách sạn mới. "
+        print("CHƯA CRAWL THÊM ĐƯỢC: Trip.com chưa cung cấp ID khách sạn mới. "
               "Dữ liệu cũ được giữ nguyên; hãy thử lại sau.")
         return 3
     if partial:
-        print("HOÀN THÀNH MỘT PHẦN: đã cào mọi ID mới tìm được nhưng chưa đạt số lượng yêu cầu.")
+        print("HOÀN THÀNH MỘT PHẦN: đã crawl mọi ID mới tìm được nhưng chưa đạt số lượng yêu cầu.")
         return 3
     return 0
 

@@ -1,4 +1,4 @@
-"""Cào bù: cào lại đúng các khách sạn được chọn, ghi đè raw cũ.
+"""Crawl bù: crawl lại đúng các khách sạn được chọn, ghi đè raw cũ.
 
     python src/cao_bu.py --ids-file output/ids/cao_bu.txt --languages vi en
 
@@ -27,10 +27,10 @@ MARKETS = {"vi": ("vi-VN", "VND"), "en": ("en-US", "USD")}
 def main(args) -> int:
     ids = [x for x in re.split(r"\s+", Path(args.ids_file).read_text(encoding="utf-8").strip()) if x]
     if not ids:
-        print("Không có ID nào để cào bù.")
+        print("Không có ID nào để crawl bù.")
         return 2
-    che_do = "bỏ qua khách sạn đã đủ" if getattr(args, "bo_qua_da_co", False) else "cào lại tất cả"
-    print(f"{getattr(args, 'nhan', 'CÀO BÙ')} · {len(ids)} khách sạn · ngôn ngữ: {', '.join(args.languages)} · {che_do}")
+    che_do = "bỏ qua khách sạn đã đủ" if getattr(args, "bo_qua_da_co", False) else "crawl lại tất cả"
+    print(f"{getattr(args, 'nhan', 'CRAWL BÙ')} · {len(ids)} khách sạn · ngôn ngữ: {', '.join(args.languages)} · {che_do}")
     worst = 0
     for index, lang in enumerate(args.languages, 1):
         locale, currency = MARKETS[lang]
@@ -47,7 +47,9 @@ def main(args) -> int:
         worst = max(worst, code)
         if code and code != 3:
             return code
-    print("CÀO BÙ XONG." if not worst else "CÀO BÙ HOÀN THÀNH MỘT PHẦN.")
+    import tripadvisor
+    tripadvisor.ghep_sau_crawl(ids)
+    print("CRAWL BÙ XONG." if not worst else "CRAWL BÙ HOÀN THÀNH MỘT PHẦN.")
     return worst
 
 
@@ -55,6 +57,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--ids-file", required=True)
     parser.add_argument("--languages", nargs="+", choices=("vi", "en"), required=True)
-    parser.add_argument("--bo-qua-da-co", action="store_true", help="không cào lại raw đã hoàn chỉnh")
-    parser.add_argument("--nhan", default="CÀO BÙ", help="nhãn in ở dòng đầu log")
+    parser.add_argument("--bo-qua-da-co", action="store_true", help="không crawl lại raw đã hoàn chỉnh")
+    parser.add_argument("--nhan", default="CRAWL BÙ", help="nhãn in ở dòng đầu log")
     raise SystemExit(main(parser.parse_args()))

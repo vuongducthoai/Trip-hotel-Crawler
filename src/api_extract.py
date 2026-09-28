@@ -1,4 +1,4 @@
-"""Trích đúng mã và thông tin định danh cần để cào trang chi tiết."""
+"""Trích đúng mã và thông tin định danh cần để crawl trang chi tiết."""
 from __future__ import annotations
 
 import json

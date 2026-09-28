@@ -1,4 +1,4 @@
-"""Cấu hình chung của ứng dụng cào Trip.com, không dùng cơ sở dữ liệu."""
+"""Cấu hình chung của ứng dụng crawl Trip.com, không dùng cơ sở dữ liệu."""
 from __future__ import annotations
 
 import os

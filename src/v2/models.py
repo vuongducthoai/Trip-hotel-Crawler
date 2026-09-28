@@ -21,6 +21,9 @@ class Country(Row):
 class Hotel(Row):
     trip_hotel_id: int = Field(gt=0)
     room_count: Optional[int] = Field(default=None, ge=1, le=10000)
+    # Toạ độ Trip.com công bố (hotelPositionInfo.lat/lng) — dùng để ghép Tripadvisor.
+    latitude: Optional[float] = Field(default=None, ge=-90, le=90)
+    longitude: Optional[float] = Field(default=None, ge=-180, le=180)
 
 
 class HotelI18n(Row):

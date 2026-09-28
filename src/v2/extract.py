@@ -51,6 +51,15 @@ def api(dump: dict, name: str) -> Any:
     return None
 
 
+def toa_do(value: Any) -> float | None:
+    """Trip.com trả lat/lng dạng chuỗi; giá trị trống/0 coi như không có."""
+    try:
+        so = float(value)
+    except (TypeError, ValueError):
+        return None
+    return so if so and so == so else None
+
+
 def find_detail(dump: dict) -> dict | None:
     value = api(dump, "embedded:hotel-detail-response")
     return value if isinstance(value, dict) else None
@@ -154,7 +163,8 @@ def build_bundle(dump: dict, *, raw_locale: str, currency: str,
         }, issues, "country")
     described = api(dump, "embedded:hotel-description")
     bundle.hotel = valid(M.Hotel, {
-        "trip_hotel_id": int(hotel_id), "room_count": room_count(detail, described)
+        "trip_hotel_id": int(hotel_id), "room_count": room_count(detail, described),
+        "latitude": toa_do(position.get("lat")), "longitude": toa_do(position.get("lng")),
     }, issues, "hotel", hotel_id)
 
     description = description_text(((described or {}).get("hotelDescriptionInfo") or {}))

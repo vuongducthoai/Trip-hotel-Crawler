@@ -533,7 +533,7 @@ async def harvest_ssr_variants(
         updated = len(dedupe(collector.rows))
         gained = updated - current
         empty_streak = 0 if gained else empty_streak + 1
-        # Không in dạng "[x/y]" — app đọc mẫu đó làm tiến độ cào chi tiết.
+        # Không in dạng "[x/y]" — app đọc mẫu đó làm tiến độ crawl chi tiết.
         print(f"    SSR {index}·{len(variants)} {flt}: {len(rows)} KS (nhóm {meta.get('total')}) "
               f"→ +{gained} → {updated} trên {target_count}")
         if empty_streak >= config.SSR_SPLIT_STOP_AFTER_EMPTY:

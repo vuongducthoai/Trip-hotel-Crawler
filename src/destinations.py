@@ -1,5 +1,6 @@
 """Quản lý danh mục 151 quốc gia quốc tế và 1.050 thành phố cào Trip.com (không gồm Việt Nam),
 hỗ trợ ưu tiên các điểm đến có gắn nhãn #Vinfast và #GreenSM lên đầu danh sách."""
+
 from __future__ import annotations
 
 import json

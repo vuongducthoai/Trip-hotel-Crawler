@@ -1,4 +1,4 @@
-"""Kho dữ liệu: đọc raw đã cào → danh sách, chi tiết và quét thiếu.
+"""Kho dữ liệu: đọc raw đã crawl → danh sách, chi tiết và quét thiếu.
 
 Không cần PostgreSQL. Mỗi khách sạn/thị trường lấy file raw MỚI NHẤT (giống
 xuat_csv.doc_raw). Kết quả bóc được cache theo mtime để UI gọi lặp lại không
@@ -19,6 +19,7 @@ sys.path.insert(0, str(ROOT / "src"))
 import config                       # noqa: E402
 import raw_store                    # noqa: E402
 import thay_doi                     # noqa: E402
+import tripadvisor                  # noqa: E402
 from crawl_fast import detail_url, raw_city_info, raw_complete  # noqa: E402
 from v2.extract import build_bundle  # noqa: E402
 
@@ -101,13 +102,13 @@ def _flags(item: dict) -> list[str]:
     for lang in ("vi", "en"):
         ban = item["ngon_ngu"].get(lang)
         if ban is None:
-            continue  # chưa cào ngôn ngữ này — không tính là thiếu, chỉ là chưa chọn
+            continue  # chưa crawl ngôn ngữ này — không tính là thiếu, chỉ là chưa chọn
         if not ban["doc_duoc"]:
             flags.append(f"loi_{lang}")
             continue
         # Raw đã đủ packet (trang chi tiết + API lân cận) mà vẫn trống → Trip.com
-        # không cung cấp phần đó cho khách sạn này: cờ "khong_*" (không phải lỗi cào).
-        # Raw chưa đủ packet mà trống → có thể cào thiếu: cờ "mo_ta_*"… (cần cào bù).
+        # không cung cấp phần đó cho khách sạn này: cờ "khong_*" (không phải lỗi crawl).
+        # Raw chưa đủ packet mà trống → có thể crawl thiếu: cờ "mo_ta_*"… (cần crawl bù).
         prefix = "khong_" if ban["hoan_chinh"] else ""
         if not ban["co_mo_ta"]:
             flags.append(f"{prefix}mo_ta_{lang}")
@@ -124,7 +125,7 @@ def _flags(item: dict) -> list[str]:
 
 def chat_luong(items: list[dict], city_ids: set[int] | None = None,
                ids: set[str] | None = None, chi_moi: bool = False) -> dict:
-    """Báo cáo chất lượng cho một phạm vi: thiếu gì, bao nhiêu, ID nào cần cào bù.
+    """Báo cáo chất lượng cho một phạm vi: thiếu gì, bao nhiêu, ID nào cần crawl bù.
 
     chi_moi=True → chỉ tính khách sạn chưa xuất CSV (mới từ lần xuất trước).
     """
@@ -149,7 +150,7 @@ def chat_luong(items: list[dict], city_ids: set[int] | None = None,
             if any(f.startswith(f"khong_{key}_") for f in flags):
                 khong[key] += 1
         for lang in ("vi", "en"):
-            # Chỉ cào bù khi thiếu do cào (không tính cờ khong_*).
+            # Chỉ crawl bù khi thiếu do crawl (không tính cờ khong_*).
             if any(f.endswith(f"_{lang}") and not f.startswith("khong_") for f in flags):
                 can_cao_bu[lang].add(it["trip_hotel_id"])
             ban = it["ngon_ngu"].get(lang)
@@ -163,7 +164,7 @@ def chat_luong(items: list[dict], city_ids: set[int] | None = None,
     for it in items:
         if it["city_id"] is not None and it["trip_hotel_id"] in moi_all:
             theo_tp[it["city_id"]] = theo_tp.get(it["city_id"], 0) + 1
-    # "Thiếu do cào" = có cờ không phải khong_* (Trip.com không có) và không phải
+    # "Thiếu do crawl" = có cờ không phải khong_* (Trip.com không có) và không phải
     # thieu_ngon_ngu (người dùng chỉ chọn 1 ngôn ngữ).
     thieu_that = sum(1 for it in scope
                      if any(not f.startswith("khong_") and f != "thieu_ngon_ngu" for f in it["thieu"]))
@@ -193,6 +194,7 @@ def danh_sach() -> list[dict]:
         if _LIST_MEMO["value"] is not None and time.time() - _LIST_MEMO["at"] < LIST_MEMO_SECONDS:
             return _LIST_MEMO["value"]
         changes = {lang: thay_doi.doc_tat_ca(*MARKETS[lang]) for lang in MARKETS}
+        ta = tripadvisor.doc_tat_ca()
         hotels: dict[str, dict] = {}
         for (hid, lang), (path, mtime) in _newest_raws_with_mtime().items():
             s = _summarize(path, hid, lang, mtime)
@@ -217,6 +219,12 @@ def danh_sach() -> list[dict]:
         for item in hotels.values():
             item["ten"] = item["ten_vi"] or item["ten_en"] or f"Khách sạn {item['trip_hotel_id']}"
             item["thieu"] = _flags(item)
+            row = ta.get(item["trip_hotel_id"])
+            item["tripadvisor"] = {
+                "trang_thai": row.get("match_status") if row else None,
+                "id": tripadvisor.tripadvisor_id(row),
+                "ten": row.get("tripadvisor_name") if row else None,
+            }
             result.append(item)
         result.sort(key=lambda x: (x["cap_nhat"] or ""), reverse=True)
         _LIST_MEMO.update(at=time.time(), value=result)
@@ -326,8 +334,10 @@ def chi_tiet(hotel_id: str, lang: str) -> dict:
     }
     if bundle is None:
         return out
+    out["tripadvisor"] = tripadvisor.doc_ket_qua(hotel_id)
     if bundle.hotel is not None:
         out["so_phong"] = bundle.hotel.room_count
+        out["toa_do"] = {"lat": bundle.hotel.latitude, "lng": bundle.hotel.longitude}
     if bundle.hotel_i18n is not None:
         i = bundle.hotel_i18n
         out.update({"ten": i.name, "ten_dia_phuong": i.local_name,

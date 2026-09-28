@@ -4,7 +4,7 @@ Raw là JSON thuần nên nén được khoảng 10 lần — với quy mô nhi�
 khác biệt giữa vài GB và vài chục GB.
 
 Quy ước: **ghi ra `.json.gz`, nhưng đọc được cả `.json` cũ.** Nhờ vậy toàn bộ
-raw đã cào trước đó vẫn dùng được, không phải cào lại. Mọi nơi trong dự án
+raw đã crawl trước đó vẫn dùng được, không phải crawl lại. Mọi nơi trong dự án
 truyền vào đường dẫn `.json` như cũ, module này tự tìm bản có thật.
 """
 from __future__ import annotations
