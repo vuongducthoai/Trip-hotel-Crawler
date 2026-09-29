@@ -504,3 +504,8 @@ footer code { padding:2px 7px; border-radius:6px; background:#eef2f7; color:#526
 #ta-stats { margin-top:8px; }
 #ta-stats:empty { display:none; }
 @media (max-width:900px) { .sql-grid, .ta-grid { grid-template-columns:1fr; } }
+
+.ta-detail { display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+.ta-table { border-collapse:collapse; font-size:13px; }
+.ta-table th { text-align:left; padding:4px 14px 4px 0; color:#64708a; font-weight:700; white-space:nowrap; vertical-align:top; }
+.ta-table td { padding:4px 0; }

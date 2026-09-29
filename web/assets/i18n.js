@@ -82,6 +82,12 @@
     'Ghép TripAdvisor · hoàn tất': 'TripAdvisor matching · finished', 'Ghép TripAdvisor · dừng sớm': 'TripAdvisor matching · stopped early',
     'Ghép bằng Tripadvisor Content API (tên + toạ độ Trip.com), ~2 lần gọi/khách sạn, hạn mức ~10.000 lần/ngày. Chỉ trạng thái "matched" mới được xuất ID; "review" xem lại trong Kho.': 'Matched through the Tripadvisor Content API (name + Trip.com coordinates), ~2 calls per hotel, quota ~10,000 calls/day. Only "matched" hotels get an exported ID; "review" ones are listed in the Data store for a manual check.',
     'Xuất CSV/SQL để có field tripAdvisorId; khách sạn "review" xem lại trong Kho.': 'Export CSV/SQL to get the tripAdvisorId field; check "review" hotels in the Data store.',
+    'Đã ghép — tên và vị trí đều khớp, ID sẽ được xuất': 'Matched — name and location both agree; the ID will be exported',
+    'Cần xem lại — tên hoặc vị trí chưa khớp hẳn, ID KHÔNG được xuất': 'Needs review — name or location does not fully agree; the ID is NOT exported',
+    'TripAdvisor không có khách sạn phù hợp quanh đây': 'No matching hotel on TripAdvisor nearby', 'Gọi API lỗi — sẽ thử lại ở lần ghép sau': 'API error — will retry on the next matching run',
+    'Chưa ghép. Bấm "Ghép TripAdvisor" ở tab File CSV (cần API key), hoặc crawl lại khách sạn này.': 'Not matched yet. Click "Match TripAdvisor" in the CSV tab (API key required) or re-crawl this hotel.',
+    'Tên Trip.com': 'Trip.com name', 'Tên TripAdvisor': 'TripAdvisor name', 'Độ giống tên': 'Name similarity', 'Khoảng cách': 'Distance', 'Đánh giá': 'Rating', 'Ghép lúc': 'Matched at', 'Lỗi': 'Error',
+    '(ghép khi ≥ 80%)': '(matched at ≥ 80%)', '(ghép khi ≤ 300 m)': '(matched at ≤ 300 m)', 'Mở trang TripAdvisor để đối chiếu ↗': 'Open the TripAdvisor page to compare ↗',
     'TripAdvisor: chưa ghép': 'TripAdvisor: not matched yet', 'TripAdvisor: lỗi ghép': 'TripAdvisor: match error', 'TripAdvisor: không có': 'TripAdvisor: not found',
     'Tự động xuất khi crawl xong': 'Export automatically when crawl finishes', 'Định dạng xuất tự động': 'Auto-export format',
     '⇩ Xuất file ngay': '⇩ Export now', 'Mở file vừa xuất': 'Open exported file', '⇩ Xuất lại': '⇩ Export again', 'XEM TRƯỚC SQL': 'SQL PREVIEW', 'Phạm vi xuất': 'Export scope', 'Tất cả khách sạn đã crawl': 'All crawled hotels',
@@ -140,6 +146,7 @@
   // Mẫu có số / tên: [regex, thay thế]. Chạy sau khi không khớp EXACT.
   const RULES = [
     [/^Ghép TripAdvisor (\d[\d.,]*) khách sạn$/, 'Match TripAdvisor for $1 hotels'],
+    [/^([\d.]+)★ · (\d[\d.,]*) lượt$/, '$1★ · $2 reviews'],
     [/^Ghép TripAdvisor · (\d[\d.,]*) khách sạn( · ghép lại)?$/, (m, n, r) => `TripAdvisor matching · ${n} hotels${r ? ' · re-match' : ''}`],
     [/^(\d[\d.,]*)\/(\d[\d.,]*) đã ghép · (\d[\d.,]*) chưa ghép$/, '$1/$2 matched · $3 not matched yet'],
     [/^Đang dùng key (\S+)\. Kết quả lưu trong (.+)\.$/, 'Using key $1. Results stored in $2.'],

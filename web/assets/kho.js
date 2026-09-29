@@ -218,9 +218,34 @@
         </div>
       </div>
       <nav class="detail-jump">
-        <a href="#dt-mo-ta">Mô tả</a><a href="#dt-chinh-sach">Chính sách (${d.chinh_sach.length})</a><a href="#dt-lan-can">Lân cận (${d.lan_can.length})</a>
+        <a href="#dt-tripadvisor">TripAdvisor</a><a href="#dt-mo-ta">Mô tả</a><a href="#dt-chinh-sach">Chính sách (${d.chinh_sach.length})</a><a href="#dt-lan-can">Lân cận (${d.lan_can.length})</a>
       </nav>`;
 
+    const ta = d.tripadvisor;
+    const TA_STATUS = {
+      matched: ['Đã ghép — tên và vị trí đều khớp, ID sẽ được xuất', 'success'],
+      review: ['Cần xem lại — tên hoặc vị trí chưa khớp hẳn, ID KHÔNG được xuất', 'warning'],
+      no_match: ['TripAdvisor không có khách sạn phù hợp quanh đây', ''],
+      error: ['Gọi API lỗi — sẽ thử lại ở lần ghép sau', 'failed'],
+    };
+    const taBlock = `<section class="detail-block ta-block" id="dt-tripadvisor">
+        <div class="detail-block-title"><span>field = tripAdvisorId</span><h3>TripAdvisor</h3></div>
+        ${!ta ? '<p class="muted">Chưa ghép. Bấm "Ghép TripAdvisor" ở tab File CSV (cần API key), hoặc crawl lại khách sạn này.</p>' : `
+        <div class="ta-detail">
+          <span class="badge ${(TA_STATUS[ta.match_status] || ['', ''])[1]}">${esc((TA_STATUS[ta.match_status] || [ta.match_status])[0])}</span>
+          <table class="ta-table">
+            <tr><th>Tên Trip.com</th><td>${esc(ta.trip_name || d.ten || '')}</td></tr>
+            <tr><th>Tên TripAdvisor</th><td>${esc(ta.tripadvisor_name || '—')}</td></tr>
+            <tr><th>TripAdvisor ID</th><td class="mono">${esc(ta.tripadvisor_location_id ?? '—')}</td></tr>
+            <tr><th>Độ giống tên</th><td>${ta.name_similarity == null ? '—' : `${Math.round(ta.name_similarity * 100)}% <small class="muted">(ghép khi ≥ 80%)</small>`}</td></tr>
+            <tr><th>Khoảng cách</th><td>${ta.distance_m == null ? '—' : `${num(ta.distance_m)} m <small class="muted">(ghép khi ≤ 300 m)</small>`}</td></tr>
+            <tr><th>Đánh giá</th><td>${ta.rating ? `${ta.rating}★${ta.review_count ? ` · ${num(ta.review_count)} lượt` : ''}` : '—'}</td></tr>
+            ${ta.last_error ? `<tr><th>Lỗi</th><td class="mono">${esc(ta.last_error)}</td></tr>` : ''}
+            <tr><th>Ghép lúc</th><td>${ta.searched_at ? dateTime(ta.searched_at) : '—'}</td></tr>
+          </table>
+          ${ta.tripadvisor_url ? `<a class="button secondary mini" href="${esc(ta.tripadvisor_url)}" target="_blank" rel="noopener">Mở trang TripAdvisor để đối chiếu ↗</a>` : ''}
+        </div>`}
+      </section>`;
     const moTa = `<section class="detail-block" id="dt-mo-ta">
         <div class="detail-block-title"><span>type = DESCRIPTION</span><h3>Mô tả khách sạn</h3></div>
         ${d.mo_ta
@@ -309,7 +334,7 @@
     const issues = d.loi_boc && d.loi_boc.length
       ? `<details class="detail-issues"><summary>${d.loi_boc.length} cảnh báo khi bóc raw</summary><ul>${d.loi_boc.map((i) => `<li>${esc(i)}</li>`).join('')}</ul></details>` : '';
 
-    $('detail-body').innerHTML = summary + thayDoi + moTa + chinhSach + lanCan + issues;
+    $('detail-body').innerHTML = summary + thayDoi + taBlock + moTa + chinhSach + lanCan + issues;
   }
 
   /* ---------- Sự kiện ---------- */
