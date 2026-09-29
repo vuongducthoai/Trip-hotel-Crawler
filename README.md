@@ -169,7 +169,7 @@ Khi đang crawl, thanh taskbar Windows hiện phần trăm tiến độ và tiê
 Cạnh **Xuất CSV** có **Xuất SQL**: cùng nguồn dữ liệu và phạm vi với CSV (dùng chung
 `sinh_dong()` của `xuat_csv.py` nên hai file luôn khớp), ra file `.sql` gồm chú thích đầu
 file, `SET client_encoding`, `BEGIN; … COMMIT;` và các câu
-`INSERT INTO splatform_meta.trip_tmp_property_translation (row_uuid, property_id, type,
+`INSERT INTO splatform_meta.trip_tmp_property_translation (property_id, row_uuid, type,
 section_type, lang, field, value) VALUES (...)`. Mục *Định dạng SQL* cho phép đổi tên bảng,
 bật/tắt `ON CONFLICT (row_uuid, lang, field) DO UPDATE` (mặc định bật → nạp lại nhiều lần
 không trùng), thêm `CREATE TABLE IF NOT EXISTS`, hoặc mỗi bản ghi một INSERT như mẫu cũ
@@ -299,7 +299,7 @@ API nội bộ: `GET /api/kho/danh-sach`, `GET /api/kho/khach-san/<id>?lang=vi|e
 File dùng UTF-8 có BOM để mở bằng Excel và có đúng 7 cột:
 
 ```text
-row_uuid, property_id, type, section_type, lang, field, value
+property_id, row_uuid, type, section_type, lang, field, value
 ```
 
 Logic xuất nằm trong `src/xuat_csv.py`, được giữ theo bản đã đối chiếu với SQL cũ.

@@ -43,8 +43,8 @@ def create_table_sql(bang: str) -> str:
         parts.append(f"CREATE SCHEMA IF NOT EXISTS {bang.split('.', 1)[0]};")
     parts.append(
         f"CREATE TABLE IF NOT EXISTS {bang} (\n"
-        "  row_uuid uuid NOT NULL,\n"
         "  property_id bigint NOT NULL,\n"
+        "  row_uuid uuid NOT NULL,\n"
         "  type text NOT NULL,\n"
         "  section_type text,\n"
         "  lang text NOT NULL,\n"
@@ -69,7 +69,7 @@ def ghi_sql(ks: dict, ra: Path, *, bang: str = BANG_MAC_DINH, on_conflict: bool 
 
     def gia_tri(d) -> str:
         pid, lang, _, _, uid, loai, section, ten, gt = d
-        return f"({sql_str(uid)}, {int(pid)}, {sql_str(loai)}, {sql_str(section)}, {sql_str(lang)}, {sql_str(ten)}, {sql_str(gt)})"
+        return f"({int(pid)}, {sql_str(uid)}, {sql_str(loai)}, {sql_str(section)}, {sql_str(lang)}, {sql_str(ten)}, {sql_str(gt)})"
 
     ra.parent.mkdir(parents=True, exist_ok=True)
     with ra.open("w", encoding="utf-8", newline="\n") as f:

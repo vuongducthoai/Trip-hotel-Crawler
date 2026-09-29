@@ -10,7 +10,7 @@ bên phải chép sang bên kia, nếu không dữ liệu anh mentor nhận sẽ
     python src/xuat_csv.py --thu-muc-raw output/details/raw
 
 Ra một file CSV 7 cột, khớp thẳng bảng trip_tmp_property_translation:
-    row_uuid, property_id, type, section_type, lang, field, value
+    property_id, row_uuid, type, section_type, lang, field, value
 
 Field tripAdvisorId (type DESCRIPTION) lấy từ kết quả ghép của src/tripadvisor.py;
 khách sạn chưa ghép hoặc ghép chưa chắc (review) thì không có dòng này.
@@ -63,7 +63,8 @@ MA_QUOC_GIA = {
 # Trip.com thỉnh thoảng trả tên POI placeholder kiểu "size?" — bỏ cả địa điểm.
 TEN_POI_RAC = re.compile(r"^(size\?|n/?a|null|-+|\?+)$", re.IGNORECASE)
 
-CAC_COT = ["row_uuid", "property_id", "type", "section_type", "lang", "field", "value"]
+# Thứ tự cột theo yêu cầu 2026-09-29: property_id đứng đầu, row_uuid thứ hai.
+CAC_COT = ["property_id", "row_uuid", "type", "section_type", "lang", "field", "value"]
 
 
 def ma_uuid(khoa: str) -> str:
@@ -372,7 +373,7 @@ def main(args) -> int:
         w = csv.writer(f, quoting=csv.QUOTE_MINIMAL, lineterminator="\r\n")
         w.writerow(CAC_COT)
         for pid, lang, _, _, uid, loai, section, ten, gt in dong:
-            w.writerow([uid, pid, loai, section, lang, ten, gt])
+            w.writerow([pid, uid, loai, section, lang, ten, gt])
     return _tom_tat(ks, dong, ra)
 
 
