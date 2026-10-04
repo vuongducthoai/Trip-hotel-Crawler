@@ -56,7 +56,7 @@ def main(args) -> int:
     known_ids = set().union(*complete_by_market.values()) if complete_by_market else set()
     target_total = len(known_ids) + args.limit if continue_mode else args.limit
     if continue_mode:
-        print(f"CHẾ ĐỘ CRAWL TIẾP · Đã có {len(known_ids)} khách sạn, "
+        print(f"CHẾ ĐỘ ĐỒNG BỘ THÊM · Đã có {len(known_ids)} khách sạn, "
               f"cần tìm thêm {args.limit} → mục tiêu {target_total}.")
     print(f"BƯỚC 1/2 · Lấy tối đa {target_total} khách sạn tại {args.city_name}…")
     list_args = Namespace(
@@ -87,7 +87,7 @@ def main(args) -> int:
             print("Nếu vẫn lỗi, cho phép Google Chrome qua Firewall/antivirus và thử lại.")
         elif "ERR_" in message:
             print(f"Chrome không mở được trang Trip.com: {message.splitlines()[0]}")
-            print("Hãy kiểm tra mạng, VPN/proxy và bấm Lấy lại cookie trước khi thử lại.")
+            print("Hãy kiểm tra mạng, VPN/proxy và bấm Làm mới phiên Trip.com trước khi thử lại.")
         else:
             print(f"Không lấy được danh sách: {type(exc).__name__}: {message}")
         return 1
@@ -106,7 +106,7 @@ def main(args) -> int:
         if continue_mode:
             complete_ids = complete_by_market[(locale, currency)]
             detail_ids = [hotel_id for hotel_id in ids if hotel_id not in complete_ids][:args.limit]
-            print(f"  • Đã hoàn chỉnh: {len(complete_ids)} · ID mới/thiếu sẽ crawl: "
+            print(f"  • Đã hoàn chỉnh: {len(complete_ids)} · ID mới/thiếu sẽ đồng bộ: "
                   f"{len(detail_ids)}/{args.limit}")
             if len(detail_ids) < args.limit:
                 partial = True
@@ -141,11 +141,11 @@ def main(args) -> int:
         import tripadvisor
         tripadvisor.ghep_sau_crawl(ids)
     if continue_mode and not had_work:
-        print("CHƯA CRAWL THÊM ĐƯỢC: Trip.com chưa cung cấp ID khách sạn mới. "
+        print("CHƯA ĐỒNG BỘ THÊM ĐƯỢC: Trip.com chưa cung cấp ID khách sạn mới. "
               "Dữ liệu cũ được giữ nguyên; hãy thử lại sau.")
         return 3
     if partial:
-        print("HOÀN THÀNH MỘT PHẦN: đã crawl mọi ID mới tìm được nhưng chưa đạt số lượng yêu cầu.")
+        print("HOÀN THÀNH MỘT PHẦN: đã đồng bộ mọi ID mới tìm được nhưng chưa đạt số lượng yêu cầu.")
         return 3
     return 0
 

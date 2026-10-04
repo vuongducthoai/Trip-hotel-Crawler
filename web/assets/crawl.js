@@ -1,8 +1,11 @@
-/* Dashboard một trang: crawl, theo dõi, xem lịch sử và quản lý CSV. */
-(() => {
+/* Dashboard một trang: đồng bộ metadata, theo dõi, lịch sử và xuất dữ liệu.
+   Mọi chữ hiển thị lấy qua t('khoá') từ /locales/<lang>.json. */
+window.I18N.ready.then(() => {
   'use strict';
 
   const $ = (id) => document.getElementById(id);
+  const t = window.t;
+  const fmtN = (v) => Number(v || 0).toLocaleString('vi-VN');
   let timer;
   let toastTimer;
   let cityTimer;
@@ -15,7 +18,7 @@
     const response = await fetch(path, options);
     let data = {};
     try { data = await response.json(); } catch (_) { /* Phản hồi không có JSON. */ }
-    if (!response.ok) throw new Error(data.error || `Lỗi ${response.status}`);
+    if (!response.ok) throw new Error(data.error || t('error.http', { status: response.status }));
     return data;
   }
 
@@ -62,15 +65,11 @@
 
   function setContinueMode(enabled) {
     continueMode = Boolean(enabled);
-    $('amount-label').textContent = continueMode
-      ? 'Số lượng khách sạn muốn crawl thêm'
-      : 'Số lượng khách sạn (tổng mục tiêu)';
+    $('amount-label').textContent = continueMode ? t('amount.more') : t('amount.target');
     if (activeTab === 'ids') return;
-    $('crawl-label').textContent = queueCities.size ? `Crawl ${queueCities.size} thành phố` : (continueMode ? 'Crawl tiếp dữ liệu' : 'Crawl dữ liệu');
+    $('crawl-label').textContent = queueCities.size ? t('action.syncCities', { n: queueCities.size }) : (continueMode ? t('action.syncMore') : t('action.sync'));
     $('cancel-resume').hidden = !continueMode;
-    $('resume-note').textContent = continueMode
-      ? 'Chế độ crawl thêm · không tính lại khách sạn đã đủ'
-      : 'App tự bỏ qua dữ liệu hoàn chỉnh';
+    $('resume-note').textContent = continueMode ? t('city.resumeOn') : t('city.resumeNote');
     scheduleCityStats();
   }
 
@@ -90,13 +89,13 @@
     $('crawl').disabled = isIds && !idsSelected().length;
     if (isIds) {
       $('amount').dataset.saved = $('amount').dataset.saved || $('amount').value;
-      $('amount-label').textContent = 'Số khách sạn trong danh sách (tự tính)';
+      $('amount-label').textContent = t('amount.list');
       $('amount').value = idsState.ids.length || '';
       $('city-status').hidden = true;
-      if (idsState.ids.length) idsUpdateSummary(); else $('crawl-label').textContent = 'Crawl danh sách';
+      if (idsState.ids.length) idsUpdateSummary(); else $('crawl-label').textContent = t('action.syncList');
     } else {
       if ($('amount').dataset.saved) { $('amount').value = $('amount').dataset.saved; delete $('amount').dataset.saved; }
-      $('amount-label').textContent = continueMode ? 'Số lượng khách sạn muốn crawl thêm' : 'Số lượng khách sạn (tổng mục tiêu)';
+      $('amount-label').textContent = continueMode ? t('amount.more') : t('amount.target');
       renderQueueChips();
     }
     scheduleCityStats();
@@ -157,12 +156,9 @@
       });
       if (catalogData.countries && catalogData.countries.length) {
         const totalCities = Object.values(catalogData.catalog || {}).reduce((acc, list) => acc + list.length, 0);
-        const tabBtn = $('tab-destination');
-        if (tabBtn) tabBtn.textContent = `Chọn điểm đến (${totalCities.toLocaleString('vi-VN')} TP)`;
-        const countryLabel = document.querySelector('#pane-destination label.field span');
-        if (countryLabel && countryLabel.textContent.includes('Quốc gia')) {
-          countryLabel.textContent = `Quốc gia (${catalogData.countries.length} quốc gia)`;
-        }
+        $('tab-destination').textContent = t('setup.tabDestination', { n: fmtN(totalCities) });
+        $('country-label').textContent = t('setup.country', { n: catalogData.countries.length });
+        $('setup-subtitle').textContent = t('setup.subtitle', { n: fmtN(totalCities) });
         const defaultCountry = catalogData.countries.includes('Thailand') ? 'Thailand' : catalogData.countries[0];
         countrySelect.value = defaultCountry;
         populateCitiesForCountry(defaultCountry);
@@ -199,31 +195,31 @@
 
     box.hidden = false;
     box.classList.add('loading');
-    $('city-status-title').textContent = 'Đang kiểm tra dữ liệu đã lưu…';
+    $('city-status-title').textContent = t('city.checking');
     $('city-status-text').textContent = '';
     try {
       const endpoint = activeTab === 'destination' ? '/api/destinations/preview' : '/api/crawl/thong-ke';
       const data = await post(endpoint, requestBody);
       if (activeTab === 'destination' && data.url && previewUrlNode) {
-        previewUrlNode.textContent = `URL tự sinh: ${data.url}`;
+        previewUrlNode.textContent = t('setup.previewUrl', { url: data.url });
       }
       const selected = languages();
       const labels = { vi: 'VI', en: 'EN' };
       const target = Math.max(1, Number($('amount').value) || 1);
       const parts = selected.map((lang) => {
         const item = data.languages[lang] || { total: 0, complete: 0, incomplete: 0 };
-        const repair = item.incomplete ? ` · ${item.incomplete} raw cũ sẽ crawl lại` : '';
+        const repair = item.incomplete ? t('city.repair', { n: item.incomplete }) : '';
         if (continueMode) {
-          return `${labels[lang]}: đã có ${item.complete} · tìm thêm ${target} → mục tiêu ${item.complete + target}${repair}`;
+          return t('city.statMore', { lang: labels[lang], complete: item.complete, target, total: item.complete + target, repair });
         }
         const remaining = Math.max(0, target - item.complete);
-        return `${labels[lang]}: ${item.complete} hoàn chỉnh · còn ${remaining} để đạt ${target}${repair}`;
+        return t('city.statTarget', { lang: labels[lang], complete: item.complete, remaining, target, repair });
       });
       const cityName = data.city_name || (data.place && data.place.city_name);
       const countryName = data.country_name || (data.place && data.place.country_name);
       const titleCountry = countryName ? ` (${countryName})` : '';
-      $('city-status-title').textContent = `${cityName}${titleCountry} · có thể tiếp tục lượt trước`;
-      $('city-status-text').textContent = parts.join('  |  ') || 'Chọn ngôn ngữ để xem thống kê.';
+      $('city-status-title').textContent = t('city.canResume', { city: `${cityName}${titleCountry}` });
+      $('city-status-text').textContent = parts.join('  |  ') || t('city.pickLang');
       box.classList.remove('loading');
     } catch (_) {
       box.hidden = true;
@@ -244,23 +240,23 @@
   function renderQueueChips() {
     const box = $('queue-list');
     if (!queueCities.size) {
-      box.innerHTML = '<span class="muted">Chưa có thành phố nào trong hàng đợi — bấm "Crawl dữ liệu" sẽ crawl thành phố đang chọn.</span>';
+      box.innerHTML = `<span class="muted">${esc(t('queue.empty'))}</span>`;
     } else {
-      box.innerHTML = [...queueCities.values()].map((c, i) => `<span class="chip-toggle queued"><b>${i + 1}</b> ${c.city_name}<small>${c.country}</small><button type="button" class="chip-x" data-remove="${c.city_id}" title="Bỏ khỏi hàng đợi">×</button></span>`).join('');
+      box.innerHTML = [...queueCities.values()].map((c, i) => `<span class="chip-toggle queued"><b>${i + 1}</b> ${c.city_name}<small>${c.country}</small><button type="button" class="chip-x" data-remove="${c.city_id}" title="${esc(t('queue.remove'))}">×</button></span>`).join('');
     }
     $('crawl-label').textContent = queueCities.size
-      ? `Crawl ${queueCities.size} thành phố`
-      : (continueMode ? 'Crawl tiếp dữ liệu' : 'Crawl dữ liệu');
+      ? t('action.syncCities', { n: queueCities.size })
+      : (continueMode ? t('action.syncMore') : t('action.sync'));
   }
 
   function buildPayload() {
     const amount = Number($('amount').value);
-    if (!languages().length) { toast('Hãy chọn ít nhất một ngôn ngữ.', 'error'); return null; }
-    if (activeTab !== 'ids' && (!Number.isInteger(amount) || amount < 1)) { toast('Số lượng khách sạn không hợp lệ.', 'error'); return null; }
+    if (!languages().length) { toast(t('lang.needOne'), 'error'); return null; }
+    if (activeTab !== 'ids' && (!Number.isInteger(amount) || amount < 1)) { toast(t('amount.invalid'), 'error'); return null; }
     if (activeTab === 'ids') {
-      if (!idsState.ids.length) { toast('Hãy dán ID/URL hoặc nhập file rồi bấm "Kiểm tra danh sách".', 'error'); return null; }
+      if (!idsState.ids.length) { toast(t('ids.needCheck'), 'error'); return null; }
       const chosen = idsSelected();
-      if (!chosen.length) { toast('Hãy tick chọn ít nhất một khách sạn trong bảng.', 'error'); return null; }
+      if (!chosen.length) { toast(t('ids.needPick'), 'error'); return null; }
       return { ids: chosen, ngon_ngu: languages(), cao_lai: $('ids-cao-lai').checked };
     }
     if (queueCities.size) {
@@ -268,11 +264,11 @@
     }
     if (activeTab === 'destination') {
       const city_id = Number($('select-city').value);
-      if (!city_id) { toast('Hãy chọn thành phố trong danh mục.', 'error'); return null; }
+      if (!city_id) { toast(t('action.pickCatalogCity'), 'error'); return null; }
       return { city_id, so_luong: amount, ngon_ngu: languages(), tiep_tuc: continueMode };
     }
     const url = $('url').value.trim();
-    if (!url) { toast('Hãy dán URL trang danh sách Trip.com.', 'error'); return null; }
+    if (!url) { toast(t('action.pasteUrl'), 'error'); return null; }
     return { url, so_luong: amount, ngon_ngu: languages(), tiep_tuc: continueMode };
   }
 
@@ -281,18 +277,18 @@
     try {
       if (payload.ids) {
         await post('/api/crawl/start-ids', payload);
-        toast(`Đang crawl ${payload.ids.length} khách sạn trong danh sách.`);
+        toast(t('action.startedList', { n: payload.ids.length }));
         $('preflight').hidden = true;
         await refreshJob();
         return;
       }
       await post('/api/crawl/start', payload);
       if (payload.city_ids) {
-        toast(`Đã xếp ${payload.city_ids.length} thành phố vào hàng đợi.`);
+        toast(t('queue.queued', { n: payload.city_ids.length }));
         queueCities.clear();
         renderQueueChips();
       } else {
-        toast(continueMode ? `Đang tìm và crawl thêm ${payload.so_luong} khách sạn.` : 'Đã bắt đầu crawl dữ liệu.');
+        toast(continueMode ? t('action.startedMore', { n: payload.so_luong }) : t('action.started'));
       }
       $('preflight').hidden = true;
       await refreshJob();
@@ -314,14 +310,14 @@
     const overwrite = $('ids-cao-lai').checked;
     const daDu = chosen.filter(idsIsComplete);
     const willCrawl = overwrite ? chosen.length : chosen.length - daDu.length;
-    const chip = (n, label, cls) => `<span class="q-chip ${cls}"><b>${n.toLocaleString('vi-VN')}</b> ${label}</span>`;
+    const chip = (n, label, cls) => `<span class="q-chip ${cls}"><b>${n.toLocaleString('vi-VN')}</b> ${esc(label)}</span>`;
     $('ids-summary').innerHTML = [
-      chip(idsState.ids.length, 'ID hợp lệ', idsState.ids.length ? 'ok' : 'bad'),
-      chip(chosen.length, 'đang chọn', 'info'),
-      chip(chosen.length - daDu.length, 'mới (chưa có trong kho)', 'none'),
-      chip(daDu.length, overwrite ? 'đã có đủ · sẽ ghi đè' : 'đã có đủ · sẽ bỏ qua', overwrite ? 'warn' : 'none'),
-      chip(idsState.trung || 0, 'trùng lặp đã gộp', 'none'),
-      chip(idsState.soKhongHieu || 0, 'dòng không hiểu', (idsState.soKhongHieu || 0) ? 'warn' : 'none'),
+      chip(idsState.ids.length, t('ids.chipValid'), idsState.ids.length ? 'ok' : 'bad'),
+      chip(chosen.length, t('ids.chipPicked'), 'info'),
+      chip(chosen.length - daDu.length, t('ids.chipNew'), 'none'),
+      chip(daDu.length, overwrite ? t('ids.chipExistOverwrite') : t('ids.chipExistSkip'), overwrite ? 'warn' : 'none'),
+      chip(idsState.trung || 0, t('ids.chipDup'), 'none'),
+      chip(idsState.soKhongHieu || 0, t('ids.chipUnknown'), (idsState.soKhongHieu || 0) ? 'warn' : 'none'),
     ].join('');
     // cập nhật nhãn "Sẽ ghi đè" từng dòng + checkbox chọn tất cả
     document.querySelectorAll('#ids-preview tr[data-id]').forEach((tr) => {
@@ -333,7 +329,7 @@
     });
     const all = $('ids-check-all');
     if (all) { all.checked = idsState.ids.length > 0 && chosen.length === idsState.ids.length; all.indeterminate = chosen.length > 0 && chosen.length < idsState.ids.length; }
-    $('crawl-label').textContent = willCrawl ? `Crawl ${willCrawl} khách sạn đã chọn` : 'Crawl danh sách';
+    $('crawl-label').textContent = willCrawl ? t('action.syncPicked', { n: willCrawl }) : t('action.syncList');
     $('crawl').disabled = willCrawl === 0 && activeTab === 'ids';
     $('amount').value = willCrawl || '';
   }
@@ -347,28 +343,28 @@
     $('ids-summary').hidden = false;
     const rows = idsState.ids.slice(0, 500).map((id) => {
       const d = idsState.daCo[id];
-      const status = !d ? '<span class="chip none">mới</span>'
-        : ['vi', 'en'].map((l) => (d[l] === undefined ? '' : `<span class="chip ${d[l] ? 'ok' : 'warn'}">${l.toUpperCase()} ${d[l] ? 'đủ' : 'thiếu'}</span>`)).join('')
-          + '<span class="chip warn ids-overwrite" hidden>sẽ ghi đè</span>';
+      const status = !d ? `<span class="chip none">${esc(t('ids.rowNew'))}</span>`
+        : ['vi', 'en'].map((l) => (d[l] === undefined ? '' : `<span class="chip ${d[l] ? 'ok' : 'warn'}">${esc(t(d[l] ? 'ids.rowOk' : 'ids.rowMissing', { lang: l.toUpperCase() }))}</span>`)).join('')
+          + `<span class="chip warn ids-overwrite" hidden>${esc(t('ids.rowOverwrite'))}</span>`;
       return `<tr data-id="${id}" class="picked"><td class="col-check"><input type="checkbox" data-pick="${id}" checked></td><td class="mono">${id}</td><td>${d ? esc(d.ten || '') : ''}</td><td>${d ? esc(d.city_name || '') : ''}</td><td>${status}</td></tr>`;
     }).join('');
-    const bad = (r.khong_hieu || []).slice(0, 20).map((l) => `<tr><td></td><td class="mono muted">—</td><td colspan="3" class="muted">Không hiểu: ${esc(l)}</td></tr>`).join('');
+    const bad = (r.khong_hieu || []).slice(0, 20).map((l) => `<tr><td></td><td class="mono muted">—</td><td colspan="3" class="muted">${esc(t('ids.unknownLine', { line: l }))}</td></tr>`).join('');
     $('ids-preview').hidden = !(rows || bad);
     $('ids-preview').innerHTML = `
       <div class="ids-toolbar">
-        <label class="kho-check"><input id="ids-check-all" type="checkbox" checked><span>Chọn tất cả (<b id="ids-count-all">${idsState.ids.length}</b>)</span></label>
-        <button type="button" class="text-button" data-ids-pick="new">Chỉ chọn mới</button>
-        <button type="button" class="text-button" data-ids-pick="existing">Chỉ chọn đã có</button>
-        <button type="button" class="text-button" data-ids-pick="none">Bỏ chọn tất cả</button>
+        <label class="kho-check"><input id="ids-check-all" type="checkbox" checked><span>${esc(t('ids.selectAll'))}<b id="ids-count-all">${idsState.ids.length}</b>)</span></label>
+        <button type="button" class="text-button" data-ids-pick="new">${esc(t('ids.pickNew'))}</button>
+        <button type="button" class="text-button" data-ids-pick="existing">${esc(t('ids.pickExisting'))}</button>
+        <button type="button" class="text-button" data-ids-pick="none">${esc(t('ids.pickNone'))}</button>
       </div>
-      <table><thead><tr><th class="col-check"></th><th>Hotel ID</th><th>Tên (nếu đã có)</th><th>Thành phố</th><th>Trạng thái</th></tr></thead><tbody>${rows}${bad}</tbody></table>${idsState.ids.length > 500 ? `<p class="muted" style="padding:8px 10px">… và ${idsState.ids.length - 500} ID nữa (vẫn được tick theo "Chọn tất cả").</p>` : ''}`;
+      <table><thead><tr><th class="col-check"></th><th>${esc(t('ids.thId'))}</th><th>${esc(t('ids.thName'))}</th><th>${esc(t('ids.thCity'))}</th><th>${esc(t('ids.thStatus'))}</th></tr></thead><tbody>${rows}${bad}</tbody></table>${idsState.ids.length > 500 ? `<p class="muted" style="padding:8px 10px">${esc(t('ids.more', { n: idsState.ids.length - 500 }))}</p>` : ''}`;
     idsUpdateSummary();
   }
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
   async function checkIds() {
     const text = $('ids-text').value;
-    if (!text.trim()) return toast('Hãy dán danh sách hoặc nhập file trước.', 'error');
+    if (!text.trim()) return toast(t('ids.needInput'), 'error');
     $('ids-check').disabled = true;
     try { renderIdsResult(await post('/api/danh-sach/phan-tich', { text })); }
     catch (error) { toast(error.message, 'error'); }
@@ -377,14 +373,14 @@
 
   async function uploadIdsFile(file) {
     if (!file) return;
-    $('ids-file-name').textContent = `Đang đọc ${file.name}…`;
+    $('ids-file-name').textContent = t('ids.reading', { name: file.name });
     try {
       const response = await fetch(`/api/danh-sach/tai-file?ten=${encodeURIComponent(file.name)}`, {
         method: 'POST', headers: { 'Content-Type': 'application/octet-stream' }, body: file,
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error || `Lỗi ${response.status}`);
-      $('ids-file-name').textContent = `${file.name} · ${data.so_dong} dòng · ${data.ids.length} ID`;
+      if (!response.ok) throw new Error(data.error || t('error.http', { status: response.status }));
+      $('ids-file-name').textContent = t('ids.fileSummary', { name: file.name, lines: data.so_dong, ids: data.ids.length });
       // Đưa ID đọc được vào ô dán để người dùng thấy và sửa được
       const current = $('ids-text').value.trim();
       $('ids-text').value = (current ? current + '\n' : '') + data.ids.join('\n');
@@ -417,7 +413,7 @@
     document.querySelectorAll('#ids-preview input[data-pick]').forEach((cb) => { cb.checked = idsState.selected.has(cb.dataset.pick); });
     idsUpdateSummary();
   });
-  $('ids-text').addEventListener('input', () => { idsState.ids = []; idsState.selected = new Set(); $('ids-summary').hidden = true; $('ids-preview').hidden = true; $('crawl-label').textContent = 'Crawl danh sách'; $('crawl').disabled = true; });
+  $('ids-text').addEventListener('input', () => { idsState.ids = []; idsState.selected = new Set(); $('ids-summary').hidden = true; $('ids-preview').hidden = true; $('crawl-label').textContent = t('action.syncList'); $('crawl').disabled = true; });
   const drop = $('ids-drop');
   ['dragenter', 'dragover'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('over'); }));
   ['dragleave', 'drop'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('over'); }));
@@ -434,15 +430,15 @@
     const title = $('preflight-title');
     const actions = $('preflight-actions');
     if (result.ket_luan === 'fail') {
-      title.textContent = 'Không nên crawl lúc này';
+      title.textContent = t('preflight.fail');
       actions.hidden = false;
-      $('preflight-go').textContent = 'Vẫn crawl (không khuyến khích)';
+      $('preflight-go').textContent = t('preflight.goFail');
     } else if (result.ket_luan === 'warn') {
-      title.textContent = 'Có thể crawl, nhưng lưu ý';
+      title.textContent = t('preflight.warn');
       actions.hidden = false;
-      $('preflight-go').textContent = 'Crawl ngay';
+      $('preflight-go').textContent = t('preflight.goWarn');
     } else {
-      title.textContent = 'Mọi thứ sẵn sàng';
+      title.textContent = t('preflight.ok');
       actions.hidden = true;
     }
   }
@@ -452,7 +448,7 @@
     if (!payload) return;
     pendingPayload = payload;
     $('crawl').disabled = true;
-    $('crawl-label').textContent = 'Đang kiểm tra…';
+    $('crawl-label').textContent = t('action.checking');
     try {
       const result = await post('/api/kiem-tra', {
         ngon_ngu: payload.ngon_ngu,
@@ -467,7 +463,7 @@
       }
     } catch (error) {
       // Kiểm tra lỗi (ví dụ server cũ) thì vẫn cho crawl như trước.
-      toast(`Không kiểm tra được (${error.message}); crawl luôn.`, 'error');
+      toast(t('preflight.failed', { msg: error.message }), 'error');
       await sendCrawl(payload);
     } finally {
       $('crawl').disabled = false;
@@ -476,19 +472,19 @@
   }
 
   async function stopCrawl() {
-    if (!confirm('Dừng tác vụ đang chạy? Dữ liệu đã lưu vẫn được giữ lại.')) return;
+    if (!confirm(t('action.stopConfirm'))) return;
     try {
       await post('/api/crawl/stop');
-      toast('Đang dừng tác vụ…', 'warning');
+      toast(t('action.stopping'), 'warning');
       await refreshJob();
     } catch (error) { toast(error.message, 'error'); }
   }
 
   async function refreshCookie() {
-    if (!languages().length) return toast('Hãy chọn ít nhất một ngôn ngữ.', 'error');
+    if (!languages().length) return toast(t('lang.needOne'), 'error');
     try {
       await post('/api/cookie/refresh', { ngon_ngu: languages() });
-      toast('Chrome đang mở để lấy cookie.');
+      toast(t('action.sessionOpening'));
       await refreshJob();
     } catch (error) { toast(error.message, 'error'); }
   }
@@ -505,17 +501,17 @@
     const end = job.finished_at ? new Date(job.finished_at).getTime() : Date.now();
     if (!Number.isFinite(start) || !Number.isFinite(end)) return '';
     const seconds = Math.max(0, Math.round((end - start) / 1000));
-    if (seconds < 60) return `${seconds} giây`;
+    if (seconds < 60) return t('time.seconds', { s: seconds });
     const minutes = Math.floor(seconds / 60);
-    return `${minutes} phút ${seconds % 60} giây`;
+    return t('time.minutes', { m: minutes, s: seconds % 60 });
   }
 
   function jobStatus(job) {
-    if (job.running) return { text: job.stopping ? 'Đang dừng' : 'Đang chạy', css: 'running' };
-    if (job.returncode === 0) return { text: 'Thành công', css: 'success' };
-    if (job.returncode === 3) return { text: 'Chưa đủ', css: 'warning' };
-    if (job.stopping) return { text: 'Đã dừng', css: 'warning' };
-    return { text: 'Có lỗi', css: 'failed' };
+    if (job.running) return { text: job.stopping ? t('status.stopping') : t('status.running'), css: 'running' };
+    if (job.returncode === 0) return { text: t('status.success'), css: 'success' };
+    if (job.returncode === 3) return { text: t('status.partial'), css: 'warning' };
+    if (job.stopping) return { text: t('status.stopped'), css: 'warning' };
+    return { text: t('status.error'), css: 'failed' };
   }
 
   function renderQueueStatus(jobs) {
@@ -525,11 +521,12 @@
     box.hidden = false;
     const wait = jobs.queue_wait_seconds || 0;
     const running = Boolean(jobs.current && jobs.current.running);
+    const nameOf = (q) => (q.details && q.details.city_name) || q.label;
     const head = running
-      ? `Còn ${queue.length} thành phố chờ sau tác vụ này`
-      : wait ? `Nghỉ ${wait} giây rồi crawl tiếp ${queue[0].label.replace(/^Crawl /, '')}` : `Chuẩn bị crawl ${queue[0].label.replace(/^Crawl /, '')}`;
-    box.innerHTML = `<div class="queue-status-head"><span>⏳ ${head}</span><button id="queue-clear" class="text-button danger-text">Huỷ hàng đợi</button></div>
-      <div class="chip-select">${queue.map((q, i) => `<span class="chip-toggle queued"><b>${i + 1}</b> ${q.label.replace(/^Crawl /, '')}<small>${(q.details.languages || []).map((l) => l.toUpperCase()).join('+')} · ${q.details.limit}</small><button type="button" class="chip-x" data-dequeue="${q.id}" title="Bỏ">×</button></span>`).join('')}</div>`;
+      ? t('queue.waiting', { n: queue.length })
+      : wait ? t('queue.pause', { s: wait, name: nameOf(queue[0]) }) : t('queue.next', { name: nameOf(queue[0]) });
+    box.innerHTML = `<div class="queue-status-head"><span>⏳ ${esc(head)}</span><button id="queue-clear" class="text-button danger-text">${esc(t('queue.cancel'))}</button></div>
+      <div class="chip-select">${queue.map((q, i) => `<span class="chip-toggle queued"><b>${i + 1}</b> ${esc(nameOf(q))}<small>${(q.details.languages || []).map((l) => l.toUpperCase()).join('+')} · ${q.details.limit}</small><button type="button" class="chip-x" data-dequeue="${q.id}" title="${esc(t('queue.drop'))}">×</button></span>`).join('')}</div>`;
   }
 
   function renderJob(job) {
@@ -539,41 +536,53 @@
     $('stop').disabled = !running;
     $('export').disabled = running;
 
-    const status = job ? jobStatus(job) : { text: 'Sẵn sàng', css: '' };
+    const status = job ? jobStatus(job) : { text: t('progress.ready'), css: '' };
     $('state').textContent = status.text;
     $('state').className = `badge ${status.css}`;
     $('job-time').textContent = job
-      ? `${job.label} · bắt đầu ${dateTime(job.started_at)}${duration(job) ? ` · ${duration(job)}` : ''}`
-      : 'Chưa có tác vụ đang chạy.';
+      ? `${t('progress.jobTime', { label: jobLabel(job), time: dateTime(job.started_at) })}${duration(job) ? ` · ${duration(job)}` : ''}`
+      : t('progress.idle');
 
     const percent = job && job.total ? Math.min(job.percent || 0, 100) : 0;
     $('bar').style.width = `${percent}%`;
     $('progress-text').textContent = job && job.total
       ? `${job.done.toLocaleString('vi-VN')}/${job.total.toLocaleString('vi-VN')} · ${percent}%`
-      : running ? 'Đang thực hiện…' : '0/0 · 0%';
+      : running ? t('progress.working') : '0/0 · 0%';
 
     const log = $('log');
     const wasBottom = log.scrollHeight - log.scrollTop - log.clientHeight < 60;
-    log.textContent = job && job.lines && job.lines.length ? job.lines.join('\n') : 'Chưa chạy tác vụ nào.';
+    log.textContent = job && job.lines && job.lines.length ? job.lines.join('\n') : t('progress.noLog');
     if (wasBottom) log.scrollTop = log.scrollHeight;
+  }
+
+  /* Nhãn ngắn của tác vụ (thay cho job.label do backend đặt, để dịch được). */
+  function jobLabel(job) {
+    const details = job.details || {};
+    if (job.kind === 'crawl') return t('done.whatCity', { city: details.city_name || 'Trip.com' });
+    if (job.kind === 'caobu') {
+      const n = details.so_khach_san || job.total || 0;
+      return details.nguon === 'danh_sach' ? t('done.whatList', { n }) : t('done.whatFill', { n });
+    }
+    if (job.kind === 'tripadvisor') return t('history.ta', { n: details.so_khach_san || 0 });
+    if (job.kind === 'cookie') return t('history.session');
+    return job.label;
   }
 
   function historyTitle(job) {
     const details = job.details || {};
+    const langs = (details.languages || []).map((item) => item.toUpperCase()).join(', ');
     if (job.kind === 'crawl') {
-      const langs = (details.languages || []).map((item) => item.toUpperCase()).join(', ');
-      const mode = details.continue_mode ? 'Crawl thêm' : 'Crawl';
-      return `${mode} ${details.city_name || 'Trip.com'} · ${details.limit || job.total || 0} khách sạn${langs ? ` · ${langs}` : ''}`;
+      const mode = details.continue_mode ? t('history.syncMore') : t('history.sync');
+      return `${mode} ${details.city_name || 'Trip.com'} · ${t('history.hotels', { n: details.limit || job.total || 0 })}${langs ? ` · ${langs}` : ''}`;
     }
     if (job.kind === 'caobu') {
-      const langs = (details.languages || []).map((item) => item.toUpperCase()).join(', ');
-      const what = details.nguon === 'danh_sach' ? 'Crawl danh sách' : 'Crawl bù';
-      return `${what} ${details.so_khach_san || job.total || 0} khách sạn${langs ? ` · ${langs}` : ''}`;
+      const what = details.nguon === 'danh_sach' ? t('history.list') : t('history.fill');
+      return `${what} ${t('history.hotels', { n: details.so_khach_san || job.total || 0 })}${langs ? ` · ${langs}` : ''}`;
     }
     if (job.kind === 'tripadvisor') {
-      return `Ghép TripAdvisor · ${details.so_khach_san || 0} khách sạn${details.lam_lai ? ' · ghép lại' : ''}`;
+      return `${t('history.ta', { n: details.so_khach_san || 0 })}${details.lam_lai ? t('history.taRedo') : ''}`;
     }
-    return `Lấy lại cookie · ${(details.languages || []).map((item) => item.toUpperCase()).join(', ')}`;
+    return `${t('history.session')}${langs ? ` · ${langs}` : ''}`;
   }
 
   function renderHistory(history) {
@@ -581,7 +590,7 @@
     box.innerHTML = '';
     $('clear-history').disabled = !history.length;
     if (!history.length) {
-      box.innerHTML = '<p class="empty">Chưa có lịch sử. Các lượt hoàn tất sẽ xuất hiện tại đây.</p>';
+      box.innerHTML = `<p class="empty">${esc(t('history.empty'))}</p>`;
       return;
     }
     history.forEach((job) => {
@@ -602,7 +611,7 @@
       progress.textContent = job.total ? `${job.done}/${job.total}` : '—';
       const view = document.createElement('button');
       view.className = 'button mini ghost';
-      view.textContent = 'Xem log';
+      view.textContent = t('history.viewLog');
       view.addEventListener('click', () => showHistory(job));
       row.append(dot, info, progress, view);
       box.appendChild(row);
@@ -618,7 +627,7 @@
       renderHistory(jobs.history || []);
       const vi = progress.theo_ngon_ngu['vi-VN'] || 0;
       const en = progress.theo_ngon_ngu['en-US'] || 0;
-      $('raw-count').textContent = `${progress.total_raw.toLocaleString('vi-VN')} raw đã lưu`;
+      $('raw-count').textContent = t('progress.rawSaved', { n: fmtN(progress.total_raw) });
       $('stat-raw').textContent = progress.total_raw.toLocaleString('vi-VN');
       if (progress.thu_muc_du_lieu) $('data-dir').textContent = progress.thu_muc_du_lieu;
       if (progress.phien_ban) $('app-version').textContent = `v${progress.phien_ban}`;
@@ -657,13 +666,13 @@
   function renderExportCities(cities) {
     if (cities) exportCityList = cities;
     const box = $('export-cities');
-    if (!exportCityList.length) { box.innerHTML = '<span class="muted">Chưa có thành phố nào.</span>'; return; }
+    if (!exportCityList.length) { box.innerHTML = `<span class="muted">${esc(t('export.noCities'))}</span>`; return; }
     const fresh = document.querySelector('input[name=export-fresh]:checked');
     const onlyNew = !fresh || fresh.value === 'new';
     box.innerHTML = exportCityList.map((c) => {
       const n = newByCity[c.city_id] || 0;
       const label = onlyNew
-        ? `<small class="${n ? 'is-new' : ''}">${n.toLocaleString('vi-VN')} mới / ${c.total_hotels.toLocaleString('vi-VN')}</small>`
+        ? `<small class="${n ? 'is-new' : ''}">${esc(t('export.newOf', { n: fmtN(n), total: fmtN(c.total_hotels) }))}</small>`
         : `<small>${c.total_hotels.toLocaleString('vi-VN')}</small>`;
       return `<label class="chip-toggle"><input type="checkbox" value="${c.city_id}" ${exportCities.has(c.city_id) ? 'checked' : ''}> ${c.city_name}${label}</label>`;
     }).join('');
@@ -687,60 +696,60 @@
 
   function renderQuality(q, scope) {
     const box = $('quality');
-    if (!q || !q.tong_pham_vi) { box.hidden = true; $('export-new-count').textContent = '0 mới'; return; }
+    if (!q || !q.tong_pham_vi) { box.hidden = true; $('export-new-count').textContent = t('export.newCount', { n: 0 }); return; }
     box.hidden = false;
     qualityIds = q.cao_bu.ids || [];
-    const where = scope && scope.city_ids ? `${scope.city_ids.length} thành phố` : 'toàn bộ kho';
+    const where = scope && scope.city_ids ? t('quality.cities', { n: scope.city_ids.length }) : t('quality.whole');
     $('quality-sub').textContent = q.chi_moi
-      ? `${q.tong.toLocaleString('vi-VN')} khách sạn mới chưa xuất (trên ${q.tong_pham_vi.toLocaleString('vi-VN')}) · ${where}`
-      : `${q.tong.toLocaleString('vi-VN')} khách sạn · ${where}`;
-    $('export-new-count').textContent = `${(q.chua_xuat || 0).toLocaleString('vi-VN')} mới`;
+      ? t('quality.subNew', { n: fmtN(q.tong), total: fmtN(q.tong_pham_vi), where })
+      : t('quality.sub', { n: fmtN(q.tong), where });
+    $('export-new-count').textContent = t('export.newCount', { n: fmtN(q.chua_xuat || 0) });
     $('export-new-count').classList.toggle('has-new', (q.chua_xuat || 0) > 0);
     newByCity = q.chua_xuat_theo_thanh_pho || {};
     renderExportCities();
     if (q.chi_moi && !q.tong) {
-      $('quality-chips').innerHTML = '<span class="muted">Không có khách sạn mới kể từ lần xuất trước — mọi thứ trong phạm vi này đã nằm trong CSV. Chọn "Gộp tất cả" nếu muốn xuất lại.</span>';
+      $('quality-chips').innerHTML = `<span class="muted">${esc(t('quality.noNew'))}</span>`;
       $('quality-actions').hidden = true;
       box.className = 'quality ok';
       return;
     }
-    const chip = (n, label, cls) => `<span class="q-chip ${n ? cls : 'ok'}"><b>${n.toLocaleString('vi-VN')}</b> ${label}</span>`;
+    const chip = (n, label, cls) => `<span class="q-chip ${n ? cls : 'ok'}"><b>${n.toLocaleString('vi-VN')}</b> ${esc(label)}</span>`;
     $('quality-chips').innerHTML = [
-      chip(q.du, 'đủ 3 phần', 'ok'),
-      chip(q.dem.mo_ta, 'thiếu mô tả', 'bad'),
-      chip(q.dem.chinh_sach, 'thiếu chính sách', 'bad'),
-      chip(q.dem.lan_can, 'thiếu lân cận', 'bad'),
-      chip(q.dem.chua_du, 'raw thiếu packet', 'warn'),
-      chip(q.dem.thieu_ngon_ngu, 'chỉ 1 ngôn ngữ', 'warn'),
-      chip(q.thay_doi, 'có thay đổi so với lần trước', 'info'),
+      chip(q.du, t('quality.complete'), 'ok'),
+      chip(q.dem.mo_ta, t('quality.noDesc'), 'bad'),
+      chip(q.dem.chinh_sach, t('quality.noPolicy'), 'bad'),
+      chip(q.dem.lan_can, t('quality.noNearby'), 'bad'),
+      chip(q.dem.chua_du, t('quality.incomplete'), 'warn'),
+      chip(q.dem.thieu_ngon_ngu, t('quality.oneLang'), 'warn'),
+      chip(q.thay_doi, t('quality.changed'), 'info'),
     ].join('') + (q.khong_co ? `<span class="q-sep"></span>${[
-      chip(q.khong_co.mo_ta, 'Trip.com không có mô tả', 'none'),
-      chip(q.khong_co.chinh_sach, 'Trip.com không có chính sách', 'none'),
-      chip(q.khong_co.lan_can, 'Trip.com không có lân cận', 'none'),
+      chip(q.khong_co.mo_ta, t('quality.tripNoDesc'), 'none'),
+      chip(q.khong_co.chinh_sach, t('quality.tripNoPolicy'), 'none'),
+      chip(q.khong_co.lan_can, t('quality.tripNoNearby'), 'none'),
     ].join('')}` : '');
     box.className = `quality ${q.thieu ? 'warn' : 'ok'}`;
     const actions = $('quality-actions');
     actions.hidden = !qualityIds.length;
     $('quality-note').textContent = qualityIds.length
-      ? `${qualityIds.length.toLocaleString('vi-VN')} khách sạn thiếu dữ liệu (VI ${q.cao_bu.vi}, EN ${q.cao_bu.en}). Crawl bù trước khi xuất để CSV đầy đủ hơn — hoặc xuất luôn phần đang có.`
+      ? t('quality.note', { n: fmtN(qualityIds.length), vi: q.cao_bu.vi, en: q.cao_bu.en })
       : '';
-    $('quality-cao-bu').textContent = `↻ Crawl bù ${qualityIds.length.toLocaleString('vi-VN')} khách sạn thiếu`;
+    $('quality-cao-bu').textContent = t('quality.fill', { n: fmtN(qualityIds.length) });
   }
 
   async function deleteCsv(name) {
-    if (!window.confirm(`Xoá file "${name}"? Không hoàn tác được (dữ liệu raw vẫn còn, có thể xuất lại).`)) return;
+    if (!window.confirm(t('export.deleteConfirm', { name }))) return;
     try {
       await post('/api/csv/xoa', { ten: name });
-      toast(`Đã xoá ${name}`);
+      toast(t('export.deleted', { name }));
       await refreshFiles();
     } catch (error) { toast(error.message, 'error'); }
   }
 
   async function deleteAllCsv() {
-    if (!window.confirm('Xoá TẤT CẢ file CSV/SQL trong thư mục output\\csv? Không hoàn tác được (dữ liệu raw vẫn còn, có thể xuất lại).')) return;
+    if (!window.confirm(t('export.deleteAllConfirm'))) return;
     try {
       const r = await post('/api/csv/xoa', { tat_ca: true });
-      toast(`Đã xoá ${r.da_xoa} file.`);
+      toast(t('export.deletedN', { n: r.da_xoa }));
       await refreshFiles();
     } catch (error) { toast(error.message, 'error'); }
   }
@@ -774,18 +783,18 @@
     const body = scope && typeof scope === 'object' && !(scope instanceof Event) ? { ...scope } : exportScope();
     body.dinh_dang = fmt;
     if (fmt === 'sql') body.sql = sqlOptions();
-    if (body.city_ids && !body.city_ids.length) { toast('Hãy tick ít nhất một thành phố để xuất.', 'error'); return null; }
+    if (body.city_ids && !body.city_ids.length) { toast(t('export.needCity'), 'error'); return null; }
     const btn = fmt === 'sql' ? $('export-sql') : $('export');
-    const label = fmt === 'sql' ? 'Xuất SQL' : 'Xuất CSV';
-    btn.disabled = true; btn.textContent = 'Đang xuất…';
+    const label = fmt === 'sql' ? t('export.sql') : t('export.csv');
+    btn.disabled = true; btn.textContent = t('export.exporting');
     try {
       const result = await post('/api/csv/xuat', body);
       await refreshFiles();
-      toast(`Đã tạo ${result.ten}${result.so_khach_san ? ` (${result.so_khach_san.toLocaleString('vi-VN')} khách sạn)` : ''}`);
+      toast(result.so_khach_san ? t('export.createdN', { name: result.ten, n: fmtN(result.so_khach_san) }) : t('export.created', { name: result.ten }));
       lastCsvName = result.ten;
       refreshQuality();
       $('done-open').hidden = false;
-      $('done-export').textContent = '⇩ Xuất lại';
+      $('done-export').textContent = t('done.exportAgain');
       return result.ten;
     } catch (error) { toast(error.message, 'error'); return null; }
     finally { btn.disabled = false; btn.textContent = label; }
@@ -827,12 +836,11 @@
       panel.hidden = false;
       panel.className = `job-done ${okTa ? 'success' : 'warning'}`;
       $('job-done-icon').textContent = okTa ? '✓' : '!';
-      $('job-done-title').textContent = okTa ? 'Ghép TripAdvisor · hoàn tất' : 'Ghép TripAdvisor · dừng sớm';
+      $('job-done-title').textContent = okTa ? t('done.taOk') : t('done.taStopped');
       const last = (job.lines || []).filter((l) => l.includes('TRIPADVISOR · xong') || l.includes('DỪNG')).pop();
-      $('job-done-text').textContent = (last ? last.replace(/^TRIPADVISOR · /, '') + '. ' : '')
-        + 'Xuất CSV/SQL để có field tripAdvisorId; khách sạn "review" xem lại trong Kho.';
+      $('job-done-text').textContent = (last ? last.replace(/^TRIPADVISOR · /, '') + '. ' : '') + t('done.taText');
       $('done-open').hidden = true;
-      $('done-export').textContent = `⇩ Xuất ${autoExportFormats().map((f) => f.toUpperCase()).join(' + ')} ngay`;
+      $('done-export').textContent = t('done.exportFmt', { fmt: autoExportFormats().map((f) => f.toUpperCase()).join(' + ') });
       $('done-export').disabled = false;
       refreshTripadvisor();
       return;
@@ -844,46 +852,41 @@
     panel.hidden = false;
     panel.className = `job-done ${status.css}`;
     $('job-done-icon').textContent = ok ? '✓' : partial ? '!' : '×';
-    const what = job.kind === 'caobu'
-      ? `${details.nguon === 'danh_sach' ? 'Crawl danh sách' : 'Crawl bù'} ${details.so_khach_san || job.total || 0} khách sạn`
-      : `Crawl ${details.city_name || 'Trip.com'}`;
-    $('job-done-title').textContent = ok ? `${what} · hoàn tất` : partial ? `${what} · chưa đủ số lượng` : `${what} · dừng vì lỗi`;
-    $('job-done-text').textContent = ok
-      ? `Đã crawl ${job.done.toLocaleString('vi-VN')}/${job.total.toLocaleString('vi-VN')} lượt. Dữ liệu nằm trong Kho, sẵn sàng xuất CSV.`
-      : partial
-        ? `Trip.com chỉ cung cấp ${job.done.toLocaleString('vi-VN')}/${job.total.toLocaleString('vi-VN')} lượt. Phần đã crawl vẫn dùng được; bấm "Crawl tiếp" sau vài phút để lấy thêm.`
-        : 'Xem nhật ký bên dưới để biết nguyên nhân. Dữ liệu đã crawl trước khi dừng vẫn được giữ.';
+    const what = jobLabel(job);
+    $('job-done-title').textContent = ok ? t('done.ok', { what }) : partial ? t('done.partial', { what }) : t('done.fail', { what });
+    const dt = { done: fmtN(job.done), total: fmtN(job.total) };
+    $('job-done-text').textContent = ok ? t('done.okText', dt) : partial ? t('done.partialText', dt) : t('done.failText');
     $('done-open').hidden = true;
-    $('done-export').textContent = `⇩ Xuất ${autoExportFormats().map((f) => f.toUpperCase()).join(' + ')} ngay`;
+    $('done-export').textContent = t('done.exportFmt', { fmt: autoExportFormats().map((f) => f.toUpperCase()).join(' + ') });
     $('done-export').disabled = false;
-    notifyDesktop('Trip Hotel Data', $('job-done-title').textContent);
+    notifyDesktop(t('app.name'), $('job-done-title').textContent);
     if (job.kind === 'crawl' && details.city_id) {
       try {
         const q = await api(`/api/kho/chat-luong?city_ids=${Number(details.city_id)}`);
         if (q.tong) {
           const parts = [];
-          if (q.dem.mo_ta) parts.push(`${q.dem.mo_ta} thiếu mô tả`);
-          if (q.dem.chinh_sach) parts.push(`${q.dem.chinh_sach} thiếu chính sách`);
-          if (q.dem.lan_can) parts.push(`${q.dem.lan_can} thiếu lân cận`);
-          if (q.thay_doi) parts.push(`${q.thay_doi} có thay đổi so với lần trước`);
-          if (q.khong_co && q.khong_co.mo_ta) parts.push(`${q.khong_co.mo_ta} Trip.com không có mô tả`);
+          if (q.dem.mo_ta) parts.push(t('done.qMissingDesc', { n: q.dem.mo_ta }));
+          if (q.dem.chinh_sach) parts.push(t('done.qMissingPolicy', { n: q.dem.chinh_sach }));
+          if (q.dem.lan_can) parts.push(t('done.qMissingNearby', { n: q.dem.lan_can }));
+          if (q.thay_doi) parts.push(t('done.qChanged', { n: q.thay_doi }));
+          if (q.khong_co && q.khong_co.mo_ta) parts.push(t('done.qNoDesc', { n: q.khong_co.mo_ta }));
           $('job-done-text').textContent += parts.length
-            ? ` Chất lượng: ${q.du}/${q.tong} đủ 3 phần; ${parts.join(', ')} (xem tab File CSV để crawl bù).`
-            : ` Chất lượng: ${q.du}/${q.tong} khách sạn đủ 3 phần.`;
+            ? t('done.quality', { ok: q.du, total: q.tong, parts: parts.join(', ') })
+            : t('done.qualityOk', { ok: q.du, total: q.tong });
         }
       } catch (_) { /* bỏ qua */ }
     }
     if ((ok || partial) && $('auto-export').checked && job.done > 0) {
       $('done-export').disabled = true;
-      $('done-export').textContent = 'Đang xuất…';
+      $('done-export').textContent = t('done.exporting');
       const scope = job.kind === 'crawl' && details.city_id
         ? { city_ids: [Number(details.city_id)], chi_moi: true }
         : { chi_moi: true };
       const name = await exportAuto(scope);
       $('done-export').disabled = false;
       if (name) {
-        $('job-done-text').textContent += ` Đã tự xuất ${name} (chỉ gồm phần vừa crawl; vì vậy huy hiệu "mới" ở tab CSV về 0).`;
-        $('done-export').textContent = '⇩ Xuất lại';
+        $('job-done-text').textContent += t('done.autoExported', { name });
+        $('done-export').textContent = t('done.exportAgain');
       }
     }
   }
@@ -910,7 +913,7 @@
       box.innerHTML = '';
       $('stat-csv').textContent = data.files.length.toLocaleString('vi-VN');
       if (!data.files.length) {
-        box.innerHTML = '<p class="empty">Chưa có file CSV. Sau khi crawl xong, bấm “Xuất CSV”.</p>';
+        box.innerHTML = `<p class="empty">${esc(t('export.noFilesHint'))}</p>`;
         return;
       }
       data.files.forEach((file, index) => {
@@ -925,21 +928,21 @@
         const name = document.createElement('strong');
         name.textContent = file.ten;
         const meta = document.createElement('span');
-        meta.textContent = `${bytes(file.kich_thuoc)} · ${dateTime(file.cap_nhat)}${index === 0 ? ' · Mới nhất' : ''}${file.da_tai ? ` · Đã tải ${dateTime(file.tai_luc)}` : ''}`;
+        meta.textContent = `${bytes(file.kich_thuoc)} · ${dateTime(file.cap_nhat)}${index === 0 ? t('export.latest') : ''}${file.da_tai ? t('export.downloadedAt', { time: dateTime(file.tai_luc) }) : ''}`;
         info.append(name, meta);
         const actions = document.createElement('div');
         actions.className = 'file-actions';
-        actions.append(fileButton('Xem trước', 'ghost', () => previewCsv(file.ten)));
-        actions.append(fileButton('Mở', 'secondary', () => openCsv(file.ten)));
+        actions.append(fileButton(t('export.preview'), 'ghost', () => previewCsv(file.ten)));
+        actions.append(fileButton(t('export.open'), 'secondary', () => openCsv(file.ten)));
         if (file.da_tai) {
           const badge = document.createElement('span');
           badge.className = 'downloaded-badge';
-          badge.textContent = '✓ Đã tải';
+          badge.textContent = t('export.downloaded');
           actions.appendChild(badge);
         } else {
-          actions.append(fileButton('Tải về', 'primary', () => downloadCsv(file.ten)));
-        actions.append(fileButton('Xoá', 'danger', () => deleteCsv(file.ten)));
+          actions.append(fileButton(t('export.download'), 'primary', () => downloadCsv(file.ten)));
         }
+        actions.append(fileButton(t('export.delete'), 'danger', () => deleteCsv(file.ten)));
         row.append(icon, info, actions);
         box.appendChild(row);
       });
@@ -962,7 +965,7 @@
     setContinueMode(true);
     saveForm();
     document.querySelector('.setup-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    toast(`Đã bật crawl tiếp ${item.city_name}. Nhập số lượng muốn crawl thêm.`);
+    toast(t('cities.resumeOn', { name: item.city_name }));
   }
 
   async function refreshCities() {
@@ -971,11 +974,11 @@
       const cities = data.cities || [];
       const box = $('cities-list');
       box.innerHTML = '';
-      $('city-count').textContent = `${cities.length.toLocaleString('vi-VN')} thành phố`;
+      $('city-count').textContent = t('cities.count', { n: fmtN(cities.length) });
       renderExportCities(cities);
       setTimeout(() => $('cities-search').dispatchEvent(new Event('input')), 0);
       if (!cities.length) {
-        box.innerHTML = '<p class="empty">Chưa có thành phố nào trong dữ liệu raw.</p>';
+        box.innerHTML = `<p class="empty">${esc(t('cities.emptyRaw'))}</p>`;
         return;
       }
       cities.forEach((item) => {
@@ -994,7 +997,7 @@
         const total = document.createElement('div');
         total.className = 'city-total';
         total.textContent = item.total_hotels.toLocaleString('vi-VN');
-        const totalLabel = document.createElement('small'); totalLabel.textContent = 'khách sạn raw';
+        const totalLabel = document.createElement('small'); totalLabel.textContent = t('cities.hotels');
         total.appendChild(totalLabel);
         head.append(avatar, title, total);
 
@@ -1003,9 +1006,9 @@
         const vi = item.languages.vi;
         const en = item.languages.en;
         [
-          ['Tiếng Việt', `${vi.complete}/${vi.total} đủ`],
-          ['English', `${en.complete}/${en.total} đủ`],
-          ['ID đã biết', item.listed_hotels.toLocaleString('vi-VN')],
+          [t('lang.vi'), t('cities.complete', { a: vi.complete, b: vi.total })],
+          [t('lang.en'), t('cities.complete', { a: en.complete, b: en.total })],
+          [t('cities.knownIds'), item.listed_hotels.toLocaleString('vi-VN')],
         ].forEach(([label, value]) => {
           const metric = document.createElement('div'); metric.className = 'city-metric';
           const small = document.createElement('span'); small.textContent = label;
@@ -1015,8 +1018,8 @@
 
         const foot = document.createElement('div');
         foot.className = 'city-card-foot';
-        const updated = document.createElement('span'); updated.textContent = `Cập nhật ${dateTime(item.updated_at)}`;
-        const resume = fileButton('Crawl tiếp', 'secondary', () => continueCity(item));
+        const updated = document.createElement('span'); updated.textContent = t('cities.updated', { time: dateTime(item.updated_at) });
+        const resume = fileButton(t('cities.resume'), 'secondary', () => continueCity(item));
         foot.append(updated, resume);
         card.append(head, metrics, foot);
         card.dataset.search = `${item.city_name} ${item.country_name || ''} ${item.city_id}`
@@ -1033,21 +1036,21 @@
     document.body.appendChild(link);
     link.click();
     link.remove();
-    toast('Đang tải file CSV…');
+    toast(t('export.downloading'));
     setTimeout(refreshFiles, 1400);
   }
 
   async function openCsv(name) {
     try {
       await post(`/api/csv/mo/${encodeURIComponent(name)}`);
-      toast('Đã mở file bằng ứng dụng mặc định.');
+      toast(t('export.opened'));
     } catch (error) { toast(error.message, 'error'); }
   }
 
   async function openFolder() {
     try {
       await post('/api/csv/mo-thu-muc');
-      toast('Đã mở thư mục chứa CSV.');
+      toast(t('export.folderOpened'));
     } catch (error) { toast(error.message, 'error'); }
   }
 
@@ -1072,13 +1075,13 @@
       const wrapper = document.createElement('div');
       const note = document.createElement('p');
       note.className = 'preview-note';
-      note.textContent = `Tổng ${data.tong_dong.toLocaleString('vi-VN')} dòng · đang hiển thị tối đa ${data.gioi_han} dòng đầu.`;
+      note.textContent = t('export.previewNote', { total: fmtN(data.tong_dong), limit: data.gioi_han });
       if (data.sql) {
         const pre = document.createElement('pre');
         pre.className = 'sql-preview';
         pre.textContent = data.lines.join('\n');
         wrapper.append(note, pre);
-        showModal(name, 'XEM TRƯỚC SQL', wrapper);
+        showModal(name, t('export.previewSql'), wrapper);
         return;
       }
       const scroll = document.createElement('div');
@@ -1097,7 +1100,7 @@
       table.append(head, tbody);
       scroll.appendChild(table);
       wrapper.append(note, scroll);
-      showModal(name, 'XEM TRƯỚC CSV', wrapper);
+      showModal(name, t('export.previewCsv'), wrapper);
     } catch (error) { toast(error.message, 'error'); }
   }
 
@@ -1107,8 +1110,8 @@
     summary.className = 'history-summary';
     const status = jobStatus(job);
     [
-      ['Trạng thái', status.text], ['Bắt đầu', dateTime(job.started_at)],
-      ['Kết thúc', dateTime(job.finished_at)], ['Thời lượng', duration(job)],
+      [t('history.status'), status.text], [t('history.start'), dateTime(job.started_at)],
+      [t('history.end'), dateTime(job.finished_at)], [t('history.duration'), duration(job)],
     ].forEach(([label, value]) => {
       const item = document.createElement('div');
       const small = document.createElement('span'); small.textContent = label;
@@ -1117,16 +1120,16 @@
     });
     const log = document.createElement('pre');
     log.className = 'history-log';
-    log.textContent = (job.lines || []).join('\n') || 'Không có log.';
+    log.textContent = (job.lines || []).join('\n') || t('history.noLog');
     wrapper.append(summary, log);
-    showModal(historyTitle(job), 'LỊCH SỬ TÁC VỤ', wrapper);
+    showModal(historyTitle(job), t('history.kicker'), wrapper);
   }
 
   async function clearHistory() {
-    if (!confirm('Xóa toàn bộ lịch sử tác vụ? Dữ liệu raw và CSV sẽ không bị xóa.')) return;
+    if (!confirm(t('history.clearConfirm'))) return;
     try {
       await post('/api/crawl/history/clear');
-      toast('Đã xóa lịch sử.');
+      toast(t('history.cleared'));
       await refreshJob();
     } catch (error) { toast(error.message, 'error'); }
   }
@@ -1134,8 +1137,8 @@
   async function copyLog() {
     try {
       await navigator.clipboard.writeText($('log').textContent);
-      toast('Đã sao chép log.');
-    } catch (_) { toast('Không thể sao chép log.', 'error'); }
+      toast(t('progress.copied'));
+    } catch (_) { toast(t('progress.copyFailed'), 'error'); }
   }
 
   function setView(name) {
@@ -1159,7 +1162,7 @@
   // Ô chọn gõ-tìm cho Quốc gia / Thành phố (select gốc vẫn giữ giá trị).
   if (window.makeCombo) {
     window.makeCombo($('select-country'), {
-      placeholder: 'Gõ tên quốc gia hoặc #Vinfast, #GreenSM…',
+      placeholder: t('setup.countryPlaceholder'),
       items: () => (catalogData.countries || []).map((country) => ({
         value: country,
         label: country,
@@ -1167,7 +1170,7 @@
       })),
     });
     window.makeCombo($('select-city'), {
-      placeholder: 'Gõ tên thành phố (vd. hk, bang) hoặc #Vinfast, #GreenSM…',
+      placeholder: t('setup.cityPlaceholder'),
       // Tìm trên toàn bộ danh mục; chọn thành phố nước khác thì tự đổi quốc gia.
       items: () => Object.entries(catalogData.catalog || {}).flatMap(([country, cities]) =>
         cities.map((c) => ({
@@ -1202,10 +1205,10 @@
   async function refreshBackups() {
     try {
       const data = await api('/api/du-lieu/sao-luu');
-      $('backup-dir').textContent = `Lưu tại ${data.thu_muc}`;
+      $('backup-dir').textContent = t('backup.dir', { dir: data.thu_muc });
       const box = $('backup-list');
       box.innerHTML = '';
-      if (!data.files.length) { box.innerHTML = '<p class="empty">Chưa có bản sao lưu.</p>'; return; }
+      if (!data.files.length) { box.innerHTML = `<p class="empty">${esc(t('backup.empty'))}</p>`; return; }
       data.files.forEach((file) => {
         const row = document.createElement('div');
         row.className = 'file';
@@ -1215,11 +1218,11 @@
         const meta = document.createElement('span'); meta.textContent = `${bytes(file.kich_thuoc)} · ${dateTime(file.cap_nhat)}`;
         info.append(name, meta);
         const actions = document.createElement('div'); actions.className = 'file-actions';
-        actions.append(fileButton('Khôi phục (giữ file mới hơn)', 'secondary', () => restoreBackup(file.ten, false)));
-        actions.append(fileButton('Khôi phục ghi đè', 'danger', () => restoreBackup(file.ten, true)));
-        actions.append(fileButton('Xoá', 'ghost', async () => {
-          if (!window.confirm(`Xoá bản sao lưu "${file.ten}"?`)) return;
-          try { await post('/api/du-lieu/xoa-sao-luu', { ten: file.ten }); toast(`Đã xoá ${file.ten}`); await refreshBackups(); }
+        actions.append(fileButton(t('backup.restoreKeep'), 'secondary', () => restoreBackup(file.ten, false)));
+        actions.append(fileButton(t('backup.restoreReplace'), 'danger', () => restoreBackup(file.ten, true)));
+        actions.append(fileButton(t('backup.delete'), 'ghost', async () => {
+          if (!window.confirm(t('backup.deleteConfirm', { name: file.ten }))) return;
+          try { await post('/api/du-lieu/xoa-sao-luu', { ten: file.ten }); toast(t('backup.deleted', { name: file.ten })); await refreshBackups(); }
           catch (error) { toast(error.message, 'error'); }
         }));
         row.append(icon, info, actions);
@@ -1230,23 +1233,21 @@
 
   async function createBackup() {
     const btn = $('backup-now');
-    btn.disabled = true; btn.textContent = 'Đang nén…';
+    btn.disabled = true; btn.textContent = t('backup.zipping');
     try {
       const r = await post('/api/du-lieu/sao-luu');
-      toast(`Đã sao lưu ${r.so_file} file → ${r.ten} (${bytes(r.kich_thuoc)})`);
+      toast(t('backup.done', { n: r.so_file, name: r.ten, size: bytes(r.kich_thuoc) }));
       await refreshBackups();
     } catch (error) { toast(error.message, 'error'); }
-    finally { btn.disabled = false; btn.textContent = '⛁ Sao lưu ngay'; }
+    finally { btn.disabled = false; btn.textContent = t('backup.now'); }
   }
 
   async function restoreBackup(name, replace) {
-    const msg = replace
-      ? `Khôi phục "${name}" và GHI ĐÈ dữ liệu hiện có trùng tên? Không hoàn tác được.`
-      : `Khôi phục "${name}"? File đã có trên máy sẽ được giữ nguyên, chỉ thêm file còn thiếu.`;
+    const msg = replace ? t('backup.restoreReplaceConfirm', { name }) : t('backup.restoreKeepConfirm', { name });
     if (!window.confirm(msg)) return;
     try {
       const r = await post('/api/du-lieu/khoi-phuc', { ten: name, ghi_de: replace });
-      toast(`Đã khôi phục ${r.phuc_hoi} file, bỏ qua ${r.bo_qua} file đã có.`);
+      toast(t('backup.restored', { n: r.phuc_hoi, skipped: r.bo_qua }));
       refreshJob(); refreshCities(); refreshFiles();
       document.dispatchEvent(new CustomEvent('job-finished', { detail: null }));
     } catch (error) { toast(error.message, 'error'); }
@@ -1260,10 +1261,10 @@
   $('open-folder').addEventListener('click', openFolder);
   $('csv-delete-all').addEventListener('click', deleteAllCsv);
   $('queue-add').addEventListener('click', () => {
-    if (activeTab !== 'destination') return toast('Hàng đợi chỉ dùng với thành phố trong danh mục.', 'error');
+    if (activeTab !== 'destination') return toast(t('queue.onlyCatalog'), 'error');
     const info = cityLabel($('select-city').value);
-    if (!info) return toast('Hãy chọn thành phố trước.', 'error');
-    if (queueCities.has(info.city_id)) return toast(`${info.city_name} đã có trong hàng đợi.`, 'error');
+    if (!info) return toast(t('queue.pickCity'), 'error');
+    if (queueCities.has(info.city_id)) return toast(t('queue.dup', { name: info.city_name }), 'error');
     queueCities.set(info.city_id, info);
     renderQueueChips();
   });
@@ -1275,7 +1276,7 @@
   });
   $('queue-status').addEventListener('click', async (e) => {
     try {
-      if (e.target.id === 'queue-clear') { await post('/api/crawl/queue/clear'); toast('Đã huỷ hàng đợi.'); }
+      if (e.target.id === 'queue-clear') { await post('/api/crawl/queue/clear'); toast(t('queue.cancelled')); }
       const btn = e.target.closest('[data-dequeue]');
       if (btn) await post('/api/crawl/queue/remove', { id: Number(btn.dataset.dequeue) });
       await refreshJob();
@@ -1296,13 +1297,13 @@
   $('auto-export-format').addEventListener('change', () => { try { localStorage.setItem('crawler-auto-export-format', $('auto-export-format').value); } catch (_) { /* bỏ qua */ } });
   document.querySelectorAll('input[name=export-fresh]').forEach((r) => r.addEventListener('change', refreshQuality));
   $('export-reset-state').addEventListener('click', async () => {
-    if (!window.confirm('Quên dấu "đã xuất"?\n\nSau đó TOÀN BỘ khách sạn trong kho sẽ được coi là "mới" và lần xuất "chỉ dữ liệu mới" kế tiếp sẽ gồm tất cả. Chỉ dùng khi muốn xuất lại từ đầu.')) return;
-    try { await post('/api/csv/dat-lai-da-xuat'); toast('Đã quên dấu đã xuất — mọi khách sạn giờ là "mới".'); refreshQuality(); }
+    if (!window.confirm(t('marks.resetConfirm'))) return;
+    try { await post('/api/csv/dat-lai-da-xuat'); toast(t('marks.resetDone')); refreshQuality(); }
     catch (error) { toast(error.message, 'error'); }
   });
   $('export-mark-all').addEventListener('click', async () => {
-    if (!window.confirm('Đánh dấu TẤT CẢ khách sạn trong kho là đã xuất (không tạo file)?\n\nSau đó chỉ những khách sạn crawl thêm / crawl lại mới được tính là "mới".')) return;
-    try { const r = await post('/api/csv/danh-dau-da-xuat'); toast(`Đã đánh dấu ${r.so_khach_san} khách sạn là đã xuất.`); refreshQuality(); }
+    if (!window.confirm(t('marks.allConfirm'))) return;
+    try { const r = await post('/api/csv/danh-dau-da-xuat'); toast(t('marks.allDone', { n: r.so_khach_san })); refreshQuality(); }
     catch (error) { toast(error.message, 'error'); }
   });
   document.querySelectorAll('input[name=export-scope]').forEach((r) => r.addEventListener('change', () => {
@@ -1318,7 +1319,7 @@
     if (!qualityIds.length) return;
     try {
       await post('/api/kho/cao-bu', { ids: qualityIds, ngon_ngu: ['vi', 'en'] });
-      toast(`Đang crawl bù ${qualityIds.length} khách sạn. Xong sẽ tự xuất CSV nếu bật tự động.`);
+      toast(t('quality.fillStarted', { n: qualityIds.length }));
       setView('crawl');
       await refreshJob();
     } catch (error) { toast(error.message, 'error'); }
@@ -1329,23 +1330,23 @@
     try {
       const params = new URLSearchParams();
       if (scope.city_ids) params.set('city_ids', scope.city_ids.join(','));
-      const t = await api(`/api/tripadvisor/thong-ke?${params.toString()}`);
-      $('ta-auto').checked = t.tu_dong !== false;
-      $('ta-key-note').textContent = t.co_key
-        ? `Đang dùng key ${t.key_che}. Kết quả lưu trong ${t.thu_muc}.`
-        : 'Chưa có key — field tripAdvisorId sẽ bị bỏ trống khi xuất.';
-      const chip = (n, label, cls) => `<span class="q-chip ${cls}"><b>${(n || 0).toLocaleString('vi-VN')}</b> ${label}</span>`;
-      $('ta-stats').innerHTML = t.tong ? [
-        chip(t.matched, 'đã ghép (matched)', 'ok'),
-        chip(t.review, 'cần xem lại', t.review ? 'warn' : 'ok'),
-        chip(t.no_match, 'TripAdvisor không có', 'none'),
-        chip(t.error, 'lỗi', t.error ? 'bad' : 'ok'),
-        chip(t.chua_ghep, 'chưa ghép', t.chua_ghep ? 'info' : 'ok'),
+      const s = await api(`/api/tripadvisor/thong-ke?${params.toString()}`);
+      $('ta-auto').checked = s.tu_dong !== false;
+      $('ta-key-note').textContent = s.co_key
+        ? t('ta.keyNote', { key: s.key_che, dir: s.thu_muc })
+        : t('ta.noKeyNote');
+      const chip = (n, label, cls) => `<span class="q-chip ${cls}"><b>${(n || 0).toLocaleString('vi-VN')}</b> ${esc(label)}</span>`;
+      $('ta-stats').innerHTML = s.tong ? [
+        chip(s.matched, t('ta.matched'), 'ok'),
+        chip(s.review, t('ta.review'), s.review ? 'warn' : 'ok'),
+        chip(s.no_match, t('ta.noMatch'), 'none'),
+        chip(s.error, t('ta.error'), s.error ? 'bad' : 'ok'),
+        chip(s.chua_ghep, t('ta.pending'), s.chua_ghep ? 'info' : 'ok'),
       ].join('') : '';
-      $('ta-summary').textContent = !t.co_key
-        ? 'chưa có API key'
-        : `${(t.matched || 0).toLocaleString('vi-VN')}/${(t.tong || 0).toLocaleString('vi-VN')} đã ghép · ${(t.chua_ghep || 0).toLocaleString('vi-VN')} chưa ghép`;
-      $('ta-run').disabled = !t.co_key;
+      $('ta-summary').textContent = !s.co_key
+        ? t('ta.noKey')
+        : t('ta.summaryStats', { matched: fmtN(s.matched), total: fmtN(s.tong), pending: fmtN(s.chua_ghep) });
+      $('ta-run').disabled = !s.co_key;
     } catch (_) { /* server cũ */ }
   }
   $('ta-key-save').addEventListener('click', async () => {
@@ -1353,7 +1354,7 @@
     try {
       const r = await post('/api/tripadvisor/cai-dat', { api_key: key });
       $('ta-key').value = '';
-      toast(r.co_key ? `Đã lưu API key ${r.key_che}.` : 'Đã xoá API key.');
+      toast(r.co_key ? t('ta.keySaved', { key: r.key_che }) : t('ta.keyRemoved'));
       refreshTripadvisor();
     } catch (error) { toast(error.message, 'error'); }
   });
@@ -1363,10 +1364,10 @@
   });
   $('ta-run').addEventListener('click', async () => {
     const scope = exportScope();
-    if (scope.city_ids && !scope.city_ids.length) { toast('Hãy tick ít nhất một thành phố.', 'error'); return; }
+    if (scope.city_ids && !scope.city_ids.length) { toast(t('ta.needCity'), 'error'); return; }
     try {
       const r = await post('/api/tripadvisor/ghep', { city_ids: scope.city_ids || [], lam_lai: $('ta-redo').checked });
-      toast(`Đang ghép TripAdvisor ${(r.details && r.details.so_khach_san) || ''} khách sạn.`);
+      toast(t('ta.started', { n: (r.details && r.details.so_khach_san) || '' }));
       setView('crawl');
       await refreshJob();
     } catch (error) { toast(error.message, 'error'); }
@@ -1387,11 +1388,11 @@
       try {
         const r = await window.tripHotelData.chooseDataDir();
         if (r && r.error) toast(r.error, 'error');
-        else if (r && r.restarting) toast('Đang khởi động lại với thư mục mới…');
+        else if (r && r.restarting) toast(t('footer.restartingNew'));
       } catch (error) { toast(error.message, 'error'); }
     });
     $('reset-data-dir').addEventListener('click', async () => {
-      try { const r = await window.tripHotelData.resetDataDir(); if (r && r.restarting) toast('Đang khởi động lại…'); }
+      try { const r = await window.tripHotelData.resetDataDir(); if (r && r.restarting) toast(t('footer.restarting')); }
       catch (error) { toast(error.message, 'error'); }
     });
   }
@@ -1429,4 +1430,4 @@
   refreshJob();
   refreshFiles();
   refreshCities();
-})();
+});

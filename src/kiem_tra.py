@@ -59,7 +59,7 @@ def kiem_tra_ngon_ngu(lang: str, city: dict | None = None, probe: bool = True) -
         out.append(_item(f"Cookie {tag}", "warn",
                          "Chưa có file cookie — app sẽ tự mở Chrome ~45 giây để lấy khi tới bước chi tiết."))
     elif not cookies:
-        out.append(_item(f"Cookie {tag}", "fail", "File cookie hỏng. Bấm 'Lấy lại cookie'."))
+        out.append(_item(f"Cookie {tag}", "fail", "File cookie hỏng. Bấm 'Làm mới phiên Trip.com'."))
     else:
         age_h = (time.time() - cookie_file(locale, currency).stat().st_mtime) / 3600
         logged = any(k in cookies for k in LOGIN_COOKIES)

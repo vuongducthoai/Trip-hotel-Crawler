@@ -1,8 +1,10 @@
 /* Ô chọn gõ-tìm: bọc một <select> có sẵn thành input + danh sách gợi ý.
    Select gốc vẫn giữ giá trị nên code cũ (đọc .value, nghe 'change') không đổi.
-   Hỗ trợ hiển thị và ưu tiên các điểm đến có gắn nhãn #Vinfast, #GreenSM. */
-(() => {
+   Hỗ trợ hiển thị và ưu tiên các điểm đến có gắn nhãn #Vinfast, #GreenSM.
+   Chạy sau khi từ điển giao diện (window.I18N) sẵn sàng; crawl.js chờ makeCombo qua cùng promise. */
+window.I18N.ready.then(() => {
   'use strict';
+  const t = window.t;
 
   const norm = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase().trim();
@@ -46,7 +48,7 @@
     input.className = 'combo-input';
     input.autocomplete = 'off';
     input.spellcheck = false;
-    input.placeholder = opts.placeholder || 'Gõ để tìm…';
+    input.placeholder = opts.placeholder || t('combo.placeholder');
     const caret = document.createElement('span');
     caret.className = 'combo-caret';
     caret.textContent = '⌄';
@@ -119,7 +121,7 @@
             </div>
             ${it.extra ? `<small>${escape(it.extra)}</small>` : ''}
           </div>`).join('')
-        : '<div class="combo-empty">Không có kết quả.</div>';
+        : `<div class="combo-empty">${escape(t('combo.empty'))}</div>`;
       list.hidden = false;
       open = true;
     }
@@ -172,4 +174,4 @@
     syncFromSelect();
     return { refresh: syncFromSelect };
   };
-})();
+});

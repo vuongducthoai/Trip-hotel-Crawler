@@ -430,6 +430,16 @@ class Handler(BaseHTTPRequestHandler):
                 city_ids = {int(x) for x in q.get("city_ids", [""])[0].split(",") if x.strip().lstrip("-").isdigit()} or None
                 chi_moi = (q.get("chi_moi", ["0"])[0] or "0") not in ("0", "", "false")
                 return self.send_json(kho_du_lieu.chat_luong(kho_du_lieu.danh_sach(), city_ids, chi_moi=chi_moi))
+            if parsed.path == "/api/locales/override":
+                # Ghi đè chữ giao diện theo máy: <thư mục dữ liệu>/locales/override.json
+                # dạng {"vi": {"khoá": "chữ"}, "en": {...}}. Không có file → {}.
+                path = config.DATA_ROOT / "locales" / "override.json"
+                try:
+                    value = json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+                except (OSError, ValueError) as exc:
+                    print(f"override.json không hợp lệ: {exc}", file=sys.stderr)
+                    value = {}
+                return self.send_json(value if isinstance(value, dict) else {})
             if parsed.path == "/api/tripadvisor/thong-ke":
                 q = parse_qs(parsed.query)
                 city_ids = {int(x) for x in q.get("city_ids", [""])[0].split(",") if x.strip().lstrip("-").isdigit()}

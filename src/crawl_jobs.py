@@ -127,7 +127,7 @@ class JobRunner:
             "limit": int(params["limit"]),
             "languages": list(languages), "continue_mode": bool(params.get("continue_mode")),
         }
-        return Job("crawl", f"Crawl {params['city_name']}", argv, expected, details)
+        return Job("crawl", f"Đồng bộ {params['city_name']}", argv, expected, details)
 
     def start_crawl(self, params: dict) -> dict:
         return self._start(self._crawl_job(params))
@@ -192,14 +192,14 @@ class JobRunner:
         ids_dir.mkdir(parents=True, exist_ok=True)
         ids_file = ids_dir / f"{nguon}_{datetime.now():%Y%m%d_%H%M%S}.txt"
         ids_file.write_text("\n".join(ids), encoding="utf-8")
-        nhan = "CRAWL DANH SÁCH" if nguon == "danh_sach" else "CRAWL BÙ"
+        nhan = "ĐỒNG BỘ DANH SÁCH" if nguon == "danh_sach" else "ĐỒNG BỘ BỔ SUNG"
         argv = self._worker_command("caobu") + ["--ids-file", str(ids_file), "--languages", *languages,
                                                "--nhan", nhan]
         if bo_qua_da_co:
             argv.append("--bo-qua-da-co")
         details = {"so_khach_san": len(ids), "languages": list(languages), "ids_file": str(ids_file),
                    "nguon": nguon, "bo_qua_da_co": bo_qua_da_co}
-        label = f"Crawl danh sách {len(ids)} khách sạn" if nguon == "danh_sach" else f"Crawl bù {len(ids)} khách sạn"
+        label = f"Đồng bộ danh sách {len(ids)} khách sạn" if nguon == "danh_sach" else f"Đồng bộ bổ sung {len(ids)} khách sạn"
         return self._start(Job("caobu", label, argv, len(ids) * len(languages), details))
 
     def start_tripadvisor(self, ids: list[str], *, lam_lai: bool = False, nguon: str = "tay") -> dict:
@@ -216,7 +216,7 @@ class JobRunner:
 
     def start_cookie(self, languages: list[str]) -> dict:
         argv = self._worker_command("cookie") + ["--languages", *languages]
-        return self._start(Job("cookie", "Lấy lại cookie", argv,
+        return self._start(Job("cookie", "Làm mới phiên Trip.com", argv,
                                details={"languages": list(languages)}))
 
     def clear_history(self) -> dict:

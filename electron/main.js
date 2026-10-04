@@ -87,7 +87,7 @@ ipcMain.handle('data-dir:choose', async () => {
   const { response } = await dialog.showMessageBox(mainWindow, {
     type: 'question', title: 'Đổi thư mục dữ liệu',
     message: `Dùng thư mục:\n${target}`,
-    detail: `Thư mục hiện tại: ${current}\n\nChuyển dữ liệu đã crawl (raw, CSV, cookie, profile Chrome) sang thư mục mới? Dữ liệu cũ vẫn được giữ nguyên tại chỗ cũ. Ứng dụng sẽ khởi động lại.`,
+    detail: `Thư mục hiện tại: ${current}\n\nChuyển toàn bộ dữ liệu (bản ghi gốc, file xuất, phiên đăng nhập, profile Chrome) sang thư mục mới? Dữ liệu cũ vẫn được giữ nguyên tại chỗ cũ. Ứng dụng sẽ khởi động lại.`,
     buttons: ['Chuyển dữ liệu rồi đổi', 'Chỉ đổi thư mục (bắt đầu trống)', 'Huỷ'], defaultId: 0, cancelId: 2,
   });
   if (response === 2) return { ok: false, canceled: true };
@@ -200,7 +200,7 @@ async function createWindow() {
   setupAutoUpdate(win);
 }
 
-// Hiện tiến độ crawl trên thanh taskbar + tiêu đề cửa sổ, để thu nhỏ app vẫn thấy.
+// Hiện tiến độ đồng bộ trên thanh taskbar + tiêu đề cửa sổ, để thu nhỏ app vẫn thấy.
 function theoDoiTienDo(win) {
   const TITLE = 'Trip Hotel Data';
   let wasRunning = false;
@@ -218,7 +218,7 @@ function theoDoiTienDo(win) {
             const pct = job.total ? Math.min(job.done / job.total, 1) : -1; // -1 = indeterminate
             win.setProgressBar(pct >= 0 ? pct : 2, { mode: pct >= 0 ? 'normal' : 'indeterminate' });
             win.setTitle(job.total
-              ? `Đang crawl ${job.done}/${job.total} (${Math.round(pct * 100)}%) · ${TITLE}`
+              ? `Đang đồng bộ ${job.done}/${job.total} (${Math.round(pct * 100)}%) · ${TITLE}`
               : `${job.label || 'Đang chạy'}… · ${TITLE}`);
           } else {
             if (wasRunning) {
@@ -227,8 +227,8 @@ function theoDoiTienDo(win) {
               if (!win.isFocused()) win.flashFrame(true);
               setTimeout(() => { if (!win.isDestroyed()) win.setProgressBar(-1); }, 2500);
               const ok = job && job.returncode === 0;
-              win.setTitle(`${ok ? 'Crawl xong' : job && job.returncode === 3 ? 'Crawl xong (chưa đủ)' : 'Đã dừng'} · ${TITLE}`);
-            } else if (win.getTitle() !== TITLE && !/Crawl xong|Đã dừng/.test(win.getTitle())) {
+              win.setTitle(`${ok ? 'Đồng bộ xong' : job && job.returncode === 3 ? 'Đồng bộ xong (chưa đủ)' : 'Đã dừng'} · ${TITLE}`);
+            } else if (win.getTitle() !== TITLE && !/Đồng bộ xong|Đã dừng/.test(win.getTitle())) {
               win.setTitle(TITLE);
             }
           }

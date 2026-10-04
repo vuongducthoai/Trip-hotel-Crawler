@@ -239,12 +239,26 @@ file mới hơn)* chỉ thêm file còn thiếu; *Khôi phục ghi đè* thay c�
 khôi phục khi đang có tác vụ chạy. API: `GET/POST /api/du-lieu/sao-luu`,
 `POST /api/du-lieu/khoi-phuc {ten, ghi_de}`.
 
-## Ngôn ngữ giao diện
+## Ngôn ngữ & thuật ngữ giao diện
 
-Nút **VI / EN** ở thanh điều hướng. Bản EN dịch trực tiếp trên giao diện bằng từ điển
-trong `web/assets/i18n.js` (chuỗi đúng-khớp + mẫu regex cho chuỗi có số), áp dụng cả cho
-nội dung sinh động (toast, trạng thái, khối kết quả). Không dịch: tên/mô tả/chính sách
-khách sạn, log của tiến trình Python, tên file. Thêm chuỗi mới → thêm vào `EXACT` hoặc `RULES`.
+Mọi chữ trên giao diện nằm trong **`web/locales/vi.json`** và **`web/locales/en.json`**
+(khoá → chữ; `{n}`, `{name}`… được điền lúc chạy). Nút **VI / EN** ở thanh điều hướng
+chọn file nào được dùng. Muốn đổi cách gọi (vd. "Đồng bộ metadata" → "Lấy dữ liệu") chỉ
+cần sửa JSON, không sửa code, không build lại backend (bản cài: `resources/web/locales/`).
+
+- HTML: `data-i18n="khoá"` (text), `data-i18n-html` (có thẻ), `data-i18n-placeholder`,
+  `data-i18n-title`, `data-i18n-aria`. JS: `t('khoá', {n: 5})`. Khoá thiếu → hiện chính
+  khoá và cảnh báo trong console để bổ sung.
+- **Ghi đè theo máy** không đụng file gốc: tạo `<thư mục dữ liệu>/locales/override.json`
+  dạng `{"vi": {"action.sync": "Lấy dữ liệu"}, "en": {"action.sync": "Fetch data"}}`.
+- Thêm ngôn ngữ mới: thêm `web/locales/<mã>.json`, thêm mã vào `SUPPORTED` trong
+  `web/assets/i18n.js` và một nút `data-ui-lang` trong `index.html`.
+- Không dịch: tên/mô tả/chính sách khách sạn (dữ liệu), log của tiến trình Python, tên file.
+
+Thuật ngữ mặc định (10/2026, theo yêu cầu của nhóm): giao diện dùng **"đồng bộ metadata"**,
+"dữ liệu khách sạn", "nội dung đa ngôn ngữ", "bản ghi gốc", "làm mới phiên Trip.com";
+không còn các từ "crawl / cào / kéo / raw / cookie" trên màn hình. Tên hàm, file, API nội
+bộ (`crawl_jobs.py`, `/api/crawl/...`) giữ nguyên.
 
 ## Tự cập nhật ứng dụng
 

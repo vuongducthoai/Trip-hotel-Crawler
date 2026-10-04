@@ -385,7 +385,7 @@ def ghep_sau_crawl(ids: list[str]) -> None:
     try:
         if not ids or not api_key() or not tu_dong_sau_crawl():
             return
-        print("TRIPADVISOR · ghép tự động sau crawl")
+        print("TRIPADVISOR · ghép tự động sau đồng bộ")
         ghep([str(x) for x in ids])
     except Exception as exc:   # pragma: no cover - phòng hờ
         print(f"TRIPADVISOR · lỗi không mong đợi: {exc}")

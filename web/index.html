@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Trip Hotel Data · Thu thập dữ liệu khách sạn Trip.com</title>
+  <title data-i18n="app.title">Trip Hotel Data · Metadata khách sạn Trip.com</title>
   <link rel="stylesheet" href="/assets/crawl.css">
 </head>
 <body>
@@ -14,24 +14,24 @@
       <div class="brand"><span class="brand-mark">TH</span><span>TRIP HOTEL DATA</span></div>
       <div class="hero-grid">
         <div>
-          <p class="eyebrow">HOTEL DATA FROM TRIP.COM</p>
-          <h1>Every Trip.com hotel,<br><span>all in one place.</span></h1>
-          <p class="lead">Descriptions, policies and nearby places for every hotel — collected automatically, stored right on your computer, and ready whenever you need them.</p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">HOTEL METADATA FROM TRIP.COM</p>
+          <h1><span data-i18n="hero.h1a">Every Trip.com hotel,</span><br><span class="accent" data-i18n="hero.h1b">all in one place.</span></h1>
+          <p class="lead" data-i18n="hero.lead">Mô tả, chính sách và địa điểm lân cận của từng khách sạn — đồng bộ tự động, lưu ngay trên máy của bạn, kèm nội dung đa ngôn ngữ.</p>
         </div>
-        <div class="stats" aria-label="Thống kê dữ liệu">
-          <div class="stat"><strong id="stat-raw">0</strong><span>raw đã lưu</span></div>
-          <div class="stat"><strong id="stat-vi">0</strong><span>Tiếng Việt</span></div>
-          <div class="stat"><strong id="stat-en">0</strong><span>English</span></div>
-          <div class="stat"><strong id="stat-csv">0</strong><span>file CSV</span></div>
+        <div class="stats" data-i18n-aria="stats.aria">
+          <div class="stat"><strong id="stat-raw">0</strong><span data-i18n="stats.raw">bản ghi gốc</span></div>
+          <div class="stat"><strong id="stat-vi">0</strong><span data-i18n="stats.vi">Tiếng Việt</span></div>
+          <div class="stat"><strong id="stat-en">0</strong><span data-i18n="stats.en">English</span></div>
+          <div class="stat"><strong id="stat-csv">0</strong><span data-i18n="stats.csv">file xuất</span></div>
         </div>
       </div>
     </header>
 
-    <nav class="view-nav" aria-label="Khu vực">
-      <button type="button" class="view-tab active" data-view="crawl">▶ Crawl dữ liệu</button>
-      <button type="button" class="view-tab" data-view="kho">▦ Kho dữ liệu <span id="nav-kho-count" class="nav-count">0</span></button>
-      <button type="button" class="view-tab" data-view="csv">⇩ File CSV</button>
-      <div class="lang-toggle" role="group" aria-label="Ngôn ngữ giao diện">
+    <nav class="view-nav" data-i18n-aria="nav.aria">
+      <button type="button" class="view-tab active" data-view="crawl" data-i18n="nav.sync">⟳ Đồng bộ</button>
+      <button type="button" class="view-tab" data-view="kho"><span data-i18n="nav.data">▦ Dữ liệu khách sạn</span> <span id="nav-kho-count" class="nav-count">0</span></button>
+      <button type="button" class="view-tab" data-view="csv" data-i18n="nav.export">⇩ Xuất dữ liệu</button>
+      <div class="lang-toggle" role="group" data-i18n-aria="nav.langAria">
         <button type="button" data-ui-lang="vi">VI</button><button type="button" data-ui-lang="en" class="active">EN</button>
       </div>
     </nav>
@@ -40,118 +40,118 @@
     <section class="card setup-card">
       <div class="card-heading">
         <div class="heading-icon">01</div>
-        <div><h2>Thiết lập lượt crawl</h2><p>Chọn từ 81 thành phố quốc tế có sẵn hoặc dán URL tùy biến.</p></div>
+        <div><h2 data-i18n="setup.title">Thiết lập đồng bộ</h2><p id="setup-subtitle"></p></div>
       </div>
       <div class="mode-tabs" role="tablist">
-        <button type="button" id="tab-destination" class="tab-button active" role="tab" aria-selected="true">Chọn điểm đến (1.050 TP)</button>
-        <button type="button" id="tab-custom-url" class="tab-button" role="tab" aria-selected="false">Dán URL tùy biến</button>
-        <button type="button" id="tab-ids" class="tab-button" role="tab" aria-selected="false">Danh sách ID / URL</button>
+        <button type="button" id="tab-destination" class="tab-button active" role="tab" aria-selected="true"></button>
+        <button type="button" id="tab-custom-url" class="tab-button" role="tab" aria-selected="false" data-i18n="setup.tabCustomUrl">Dán URL tùy biến</button>
+        <button type="button" id="tab-ids" class="tab-button" role="tab" aria-selected="false" data-i18n="setup.tabIds">Danh sách ID / URL</button>
       </div>
       <div id="pane-destination" class="tab-pane active">
         <div class="destination-grid">
-          <label class="field"><span>Quốc gia (151 quốc gia)</span>
+          <label class="field"><span id="country-label"></span>
             <select id="select-country" class="select-input"></select>
           </label>
-          <label class="field"><span>Thành phố</span>
+          <label class="field"><span data-i18n="setup.city">Thành phố</span>
             <select id="select-city" class="select-input"></select>
           </label>
         </div>
         <p id="destination-preview-url" class="field-hint"></p>
       </div>
       <div id="pane-custom-url" class="tab-pane" hidden>
-        <label class="field full"><span>URL trang danh sách Trip.com</span>
-          <input id="url" type="url" placeholder="https://vn.trip.com/hotels/list?cityId=…" autocomplete="off" spellcheck="false">
+        <label class="field full"><span data-i18n="setup.url">URL trang danh sách Trip.com</span>
+          <input id="url" type="url" data-i18n-placeholder="setup.urlPlaceholder" autocomplete="off" spellcheck="false">
         </label>
       </div>
       <div id="pane-ids" class="tab-pane" hidden>
         <div class="ids-grid">
-          <label class="field"><span>Dán danh sách <span class="help" tabindex="0"><span class="help-icon" aria-label="Hướng dẫn">?</span><span class="help-pop" role="tooltip"><b>Mỗi dòng một khách sạn</b>, chấp nhận:<br>• <code>1971156</code> — hotelId (số 4–12 chữ số)<br>• <code>https://vn.trip.com/hotels/detail/?hotelId=1971156…</code> — URL trang khách sạn<br>• <code>2068285, 427787</code> — nhiều ID trên một dòng, cách nhau bởi dấu phẩy / chấm phẩy / tab<br>• <code>ID: 427787 - Homeinn</code> — có chữ kèm theo vẫn nhận số đầu tiên<br>• Dòng bắt đầu bằng <code>#</code> là ghi chú, bị bỏ qua<br>ID trùng tự gộp; dòng không hiểu sẽ được liệt kê sau khi bấm <b>Kiểm tra danh sách</b>.</span></span></span>
-            <textarea id="ids-text" class="text-area" rows="7" placeholder="1971156&#10;https://vn.trip.com/hotels/detail/?hotelId=113902468&#10;2068285, 427787" spellcheck="false"></textarea>
+          <label class="field"><span><span data-i18n="ids.paste">Dán danh sách</span> <span class="help" tabindex="0"><span class="help-icon" data-i18n-aria="ids.helpAria">?</span><span class="help-pop" role="tooltip" data-i18n-html="ids.pasteHelp"></span></span></span>
+            <textarea id="ids-text" class="text-area" rows="7" data-i18n-placeholder="ids.pastePlaceholder" spellcheck="false"></textarea>
           </label>
-          <div class="field"><span>Hoặc nhập từ file <span class="help" tabindex="0"><span class="help-icon" aria-label="Hướng dẫn">?</span><span class="help-pop" role="tooltip"><b>Không cần định dạng đặc biệt.</b> Tool quét <b>mọi ô</b> trong file và nhặt ra hotelId (số 4–12 chữ số) hoặc URL trang khách sạn Trip.com; có dòng tiêu đề hay cột khác cũng không sao.<br><br>• <b>.txt</b>: mỗi dòng một ID/URL<br>• <b>.csv / .tsv</b>: bất kỳ cột nào, phân cách , ; tab đều được (UTF-8 hoặc Excel)<br>• <b>.xlsx</b>: quét mọi sheet, mọi ô; ô số dạng 1.97E+06 vẫn đọc đúng<br><br>Sau khi đọc, các ID được đổ vào ô dán bên trái để anh kiểm tra/sửa trước khi crawl. Tối đa 5.000 khách sạn một lần, file ≤ 25 MB.</span></span></span>
+          <div class="field"><span><span data-i18n="ids.file">Hoặc nhập từ file</span> <span class="help" tabindex="0"><span class="help-icon" data-i18n-aria="ids.helpAria">?</span><span class="help-pop" role="tooltip" data-i18n-html="ids.fileHelp"></span></span></span>
             <div id="ids-drop" class="drop-zone">
               <input id="ids-file" type="file" accept=".txt,.csv,.tsv,.xlsx,.xlsm" hidden>
-              <strong>Kéo thả file vào đây</strong>
-              <span>hoặc <button type="button" id="ids-browse" class="text-button">chọn file</button> · .txt .csv .tsv .xlsx</span>
+              <strong data-i18n="ids.drop">Kéo thả file vào đây</strong>
+              <span><span data-i18n="ids.or">hoặc</span> <button type="button" id="ids-browse" class="text-button" data-i18n="ids.browse">chọn file</button> <span data-i18n="ids.ext">· .txt .csv .tsv .xlsx</span></span>
               <small id="ids-file-name" class="muted"></small>
             </div>
-            <label class="check-line"><input id="ids-cao-lai" type="checkbox" checked> Ghi đè khách sạn đã có đủ trong kho (bỏ tick = bỏ qua chúng)</label>
-            <button type="button" id="ids-check" class="button secondary">Kiểm tra danh sách</button>
+            <label class="check-line"><input id="ids-cao-lai" type="checkbox" checked> <span data-i18n="ids.overwrite">Ghi đè khách sạn đã có đủ dữ liệu (bỏ tick = bỏ qua chúng)</span></label>
+            <button type="button" id="ids-check" class="button secondary" data-i18n="ids.check">Kiểm tra danh sách</button>
           </div>
         </div>
         <div id="ids-summary" class="ids-summary" hidden></div>
         <div id="ids-preview" class="ids-preview" hidden></div>
       </div>
       <div class="form-grid">
-        <label class="field"><span id="amount-label">Số lượng khách sạn (tổng mục tiêu)</span>
+        <label class="field"><span id="amount-label" data-i18n="amount.target">Số lượng khách sạn (tổng mục tiêu)</span>
           <input id="amount" type="number" min="1" max="100000" value="20">
         </label>
         <fieldset class="language-field">
-          <legend>Ngôn ngữ</legend>
-          <label class="language-option"><input id="lang-vi" type="checkbox" checked><span><b>VI</b> Tiếng Việt</span></label>
-          <label class="language-option"><input id="lang-en" type="checkbox"><span><b>EN</b> English</span></label>
+          <legend data-i18n="lang.legend">Ngôn ngữ nội dung</legend>
+          <label class="language-option"><input id="lang-vi" type="checkbox" checked><span><b>VI</b> <span data-i18n="lang.vi">Tiếng Việt</span></span></label>
+          <label class="language-option"><input id="lang-en" type="checkbox"><span><b>EN</b> <span data-i18n="lang.en">English</span></span></label>
         </fieldset>
       </div>
       <div class="queue-box">
         <div class="queue-head">
-          <strong>Hàng đợi nhiều thành phố</strong>
-          <span class="muted">Chọn thành phố ở trên rồi bấm thêm; app crawl lần lượt, nghỉ 60 giây giữa mỗi thành phố.</span>
-          <button id="queue-add" class="button mini secondary">＋ Thêm thành phố đang chọn</button>
+          <strong data-i18n="queue.title">Hàng đợi nhiều thành phố</strong>
+          <span class="muted" data-i18n="queue.hint">Chọn thành phố ở trên rồi bấm thêm; ứng dụng đồng bộ lần lượt, nghỉ 60 giây giữa mỗi thành phố.</span>
+          <button id="queue-add" class="button mini secondary" data-i18n="queue.add">＋ Thêm thành phố đang chọn</button>
         </div>
-        <div id="queue-list" class="chip-select"><span class="muted">Chưa có thành phố nào trong hàng đợi — bấm "Crawl dữ liệu" sẽ crawl thành phố đang chọn.</span></div>
+        <div id="queue-list" class="chip-select"><span class="muted" data-i18n="queue.empty"></span></div>
       </div>
       <div id="preflight" class="preflight" hidden>
-        <div class="preflight-head"><strong id="preflight-title">Kiểm tra trước khi crawl</strong><button id="preflight-close" class="text-button">Đóng</button></div>
+        <div class="preflight-head"><strong id="preflight-title" data-i18n="preflight.title">Kiểm tra trước khi đồng bộ</strong><button id="preflight-close" class="text-button" data-i18n="preflight.close">Đóng</button></div>
         <ul id="preflight-list"></ul>
         <div id="preflight-actions" class="preflight-actions" hidden>
-          <button id="preflight-go" class="button primary mini">Vẫn crawl</button>
-          <button id="preflight-cookie" class="button secondary mini">Lấy lại cookie</button>
+          <button id="preflight-go" class="button primary mini" data-i18n="preflight.go">Vẫn đồng bộ</button>
+          <button id="preflight-cookie" class="button secondary mini" data-i18n="action.session">Làm mới phiên Trip.com</button>
         </div>
       </div>
       <div id="city-status" class="city-status" hidden>
         <div class="city-status-icon">✓</div>
-        <div class="grow"><strong id="city-status-title">Dữ liệu đã có</strong><p id="city-status-text"></p></div>
-        <span id="resume-note" class="resume-note">App tự bỏ qua dữ liệu hoàn chỉnh</span>
-        <button id="cancel-resume" class="text-button danger-text" hidden>Thoát chế độ crawl tiếp</button>
+        <div class="grow"><strong id="city-status-title" data-i18n="city.have">Dữ liệu đã có</strong><p id="city-status-text"></p></div>
+        <span id="resume-note" class="resume-note" data-i18n="city.resumeNote">Ứng dụng tự bỏ qua dữ liệu hoàn chỉnh</span>
+        <button id="cancel-resume" class="text-button danger-text" hidden data-i18n="city.exitResume">Thoát chế độ đồng bộ thêm</button>
       </div>
       <div class="action-row">
-        <button id="crawl" class="button primary"><span class="button-icon">▶</span><span id="crawl-label">Crawl dữ liệu</span></button>
-        <button id="stop" class="button danger" disabled><span class="button-icon">■</span>Dừng</button>
-        <button id="cookie" class="button secondary"><span class="button-icon">↻</span>Lấy lại cookie</button>
-        <label class="auto-export"><input id="auto-export" type="checkbox" checked> Tự động xuất khi crawl xong</label>
-        <select id="auto-export-format" class="select-input mini" title="Định dạng xuất tự động">
+        <button id="crawl" class="button primary"><span class="button-icon">⟳</span><span id="crawl-label" data-i18n="action.sync">Đồng bộ metadata</span></button>
+        <button id="stop" class="button danger" disabled><span class="button-icon">■</span><span data-i18n="action.stop">Dừng</span></button>
+        <button id="cookie" class="button secondary"><span class="button-icon">↻</span><span data-i18n="action.session">Làm mới phiên Trip.com</span></button>
+        <label class="auto-export"><input id="auto-export" type="checkbox" checked> <span data-i18n="action.autoExport">Tự động xuất khi đồng bộ xong</span></label>
+        <select id="auto-export-format" class="select-input mini" data-i18n-title="action.autoExportFormat">
           <option value="sql">SQL</option>
           <option value="csv">CSV</option>
           <option value="both">SQL + CSV</option>
         </select>
-        <span class="action-note">Chrome sẽ mở khoảng 45 giây khi lấy cookie.</span>
+        <span class="action-note" data-i18n="action.note">Chrome sẽ mở khoảng 45 giây khi làm mới phiên.</span>
       </div>
     </section>
 
     <section class="card progress-card">
       <div class="card-heading compact">
         <div class="heading-icon">02</div>
-        <div class="grow"><h2>Tiến độ trực tiếp</h2><p id="job-time">Chưa có tác vụ đang chạy.</p></div>
-        <span id="state" class="badge">Sẵn sàng</span>
+        <div class="grow"><h2 data-i18n="progress.title">Tiến độ trực tiếp</h2><p id="job-time" data-i18n="progress.idle">Chưa có tác vụ đang chạy.</p></div>
+        <span id="state" class="badge" data-i18n="progress.ready">Sẵn sàng</span>
       </div>
       <div class="progress-track"><i id="bar"></i></div>
-      <div class="progress-meta"><strong id="progress-text">0/0 · 0%</strong><span id="raw-count">0 raw đã lưu</span></div>
+      <div class="progress-meta"><strong id="progress-text">0/0 · 0%</strong><span id="raw-count"></span></div>
       <div id="queue-status" class="queue-status" hidden></div>
       <div id="job-done" class="job-done" hidden>
         <div class="job-done-icon" id="job-done-icon">✓</div>
         <div class="grow">
-          <strong id="job-done-title">Crawl xong</strong>
+          <strong id="job-done-title" data-i18n="done.title">Đồng bộ hoàn tất</strong>
           <p id="job-done-text"></p>
         </div>
         <div class="job-done-actions">
-          <button id="done-export" class="button primary">⇩ Xuất file ngay</button>
-          <button id="done-open" class="button secondary" hidden>Mở file vừa xuất</button>
-          <button id="done-kho" class="button ghost">Xem Kho dữ liệu</button>
+          <button id="done-export" class="button primary" data-i18n="done.export">⇩ Xuất file ngay</button>
+          <button id="done-open" class="button secondary" hidden data-i18n="done.open">Mở file vừa xuất</button>
+          <button id="done-kho" class="button ghost" data-i18n="done.data">Xem dữ liệu khách sạn</button>
         </div>
       </div>
       <div class="log-shell">
-        <div class="log-toolbar"><span><i></i> Nhật ký tác vụ</span><button id="copy-log" class="text-button">Sao chép log</button></div>
-        <pre id="log">Chưa chạy tác vụ nào.</pre>
+        <div class="log-toolbar"><span><i></i> <span data-i18n="progress.logTitle">Nhật ký tác vụ</span></span><button id="copy-log" class="text-button" data-i18n="progress.copyLog">Sao chép log</button></div>
+        <pre id="log" data-i18n="progress.noLog">Chưa chạy tác vụ nào.</pre>
       </div>
     </section>
 
@@ -161,89 +161,89 @@
     <section class="card result-card">
       <div class="card-heading compact">
         <div class="heading-icon">03</div>
-        <div class="grow"><h2>File kết quả</h2><p>CSV hoặc SQL dump (PostgreSQL), đúng 7 cột theo cấu trúc bàn giao.</p></div>
+        <div class="grow"><h2 data-i18n="export.title">Xuất dữ liệu</h2><p data-i18n="export.subtitle">CSV hoặc SQL dump (PostgreSQL), đúng 7 cột theo cấu trúc bàn giao.</p></div>
         <div class="heading-actions">
-          <button id="csv-delete-all" class="button ghost danger-text" hidden>Xoá tất cả file</button>
-          <button id="open-folder" class="button ghost">Mở thư mục</button>
-          <button id="export" class="button secondary">Xuất CSV</button>
-          <button id="export-sql" class="button primary">Xuất SQL</button>
+          <button id="csv-delete-all" class="button ghost danger-text" hidden data-i18n="export.deleteAll">Xoá tất cả file</button>
+          <button id="open-folder" class="button ghost" data-i18n="export.openFolder">Mở thư mục</button>
+          <button id="export" class="button secondary" data-i18n="export.csv">Xuất CSV</button>
+          <button id="export-sql" class="button primary" data-i18n="export.sql">Xuất SQL</button>
         </div>
       </div>
       <div class="export-scope">
         <div class="export-scope-row">
-          <span class="export-scope-label">Dữ liệu</span>
-          <label class="radio"><input type="radio" name="export-fresh" value="new" checked> Chỉ dữ liệu mới từ lần xuất trước <span id="export-new-count" class="count-badge">0 mới</span></label>
-          <label class="radio"><input type="radio" name="export-fresh" value="all"> Gộp tất cả (cũ + mới)</label>
+          <span class="export-scope-label" data-i18n="export.data">Dữ liệu</span>
+          <label class="radio"><input type="radio" name="export-fresh" value="new" checked> <span data-i18n="export.onlyNew">Chỉ dữ liệu mới từ lần xuất trước</span> <span id="export-new-count" class="count-badge"></span></label>
+          <label class="radio"><input type="radio" name="export-fresh" value="all"> <span data-i18n="export.all">Gộp tất cả (cũ + mới)</span></label>
         </div>
         <div class="export-scope-row">
-          <span class="export-scope-label">Phạm vi</span>
-          <label class="radio"><input type="radio" name="export-scope" value="all" checked> Mọi thành phố</label>
-          <label class="radio"><input type="radio" name="export-scope" value="city"> Chỉ thành phố đã chọn</label>
+          <span class="export-scope-label" data-i18n="export.scope">Phạm vi</span>
+          <label class="radio"><input type="radio" name="export-scope" value="all" checked> <span data-i18n="export.allCities">Mọi thành phố</span></label>
+          <label class="radio"><input type="radio" name="export-scope" value="city"> <span data-i18n="export.pickedCities">Chỉ thành phố đã chọn</span></label>
         </div>
-        <div id="export-cities" class="chip-select" hidden><span class="muted">Chưa có thành phố nào.</span></div>
+        <div id="export-cities" class="chip-select" hidden><span class="muted" data-i18n="export.noCities"></span></div>
         <details class="sql-settings">
-          <summary>Định dạng SQL (PostgreSQL) — bảng <code id="sql-table-preview">splatform_meta.trip_tmp_property_translation</code></summary>
+          <summary><span data-i18n="sql.summary">Định dạng SQL (PostgreSQL) — bảng</span> <code id="sql-table-preview">splatform_meta.trip_tmp_property_translation</code></summary>
           <div class="sql-grid">
-            <label class="field"><span>Tên bảng</span><input id="sql-table" type="text" class="text-input compact wide" value="splatform_meta.trip_tmp_property_translation" spellcheck="false"></label>
+            <label class="field"><span data-i18n="sql.table">Tên bảng</span><input id="sql-table" type="text" class="text-input compact wide" value="splatform_meta.trip_tmp_property_translation" spellcheck="false"></label>
             <div class="sql-opts">
-              <label class="check-line"><input id="sql-on-conflict" type="checkbox" checked> <span>ON CONFLICT (row_uuid, lang, field) DO UPDATE — nạp lại nhiều lần không trùng</span></label>
-              <label class="check-line"><input id="sql-create-table" type="checkbox"> <span>Thêm CREATE TABLE IF NOT EXISTS ở đầu file (DB trống)</span></label>
-              <label class="check-line"><input id="sql-per-row" type="checkbox"> <span>Mỗi bản ghi một câu INSERT (giống mẫu cũ; mặc định gộp 500 bản ghi/câu)</span></label>
+              <label class="check-line"><input id="sql-on-conflict" type="checkbox" checked> <span data-i18n="sql.onConflict"></span></label>
+              <label class="check-line"><input id="sql-create-table" type="checkbox"> <span data-i18n="sql.createTable"></span></label>
+              <label class="check-line"><input id="sql-per-row" type="checkbox"> <span data-i18n="sql.perRow"></span></label>
             </div>
           </div>
         </details>
         <details class="sql-settings ta-settings" id="ta-settings">
-          <summary>TripAdvisor — field <code>tripAdvisorId</code> · <span id="ta-summary" class="muted">chưa có API key</span></summary>
+          <summary><span data-i18n="ta.summary">TripAdvisor — field</span> <code>tripAdvisorId</code> · <span id="ta-summary" class="muted" data-i18n="ta.noKey">chưa có API key</span></summary>
           <div class="ta-grid">
-            <label class="field"><span>Tripadvisor Content API key</span>
+            <label class="field"><span data-i18n="ta.keyLabel">Tripadvisor Content API key</span>
               <div class="ta-key-row">
-                <input id="ta-key" type="password" class="text-input compact wide" placeholder="Dán API key rồi bấm Lưu" spellcheck="false" autocomplete="off">
-                <button id="ta-key-save" class="button secondary mini">Lưu</button>
+                <input id="ta-key" type="password" class="text-input compact wide" data-i18n-placeholder="ta.keyPlaceholder" spellcheck="false" autocomplete="off">
+                <button id="ta-key-save" class="button secondary mini" data-i18n="ta.save">Lưu</button>
               </div>
-              <small id="ta-key-note" class="muted">Chưa có key — field tripAdvisorId sẽ bị bỏ trống khi xuất.</small>
+              <small id="ta-key-note" class="muted" data-i18n="ta.noKeyNote"></small>
             </label>
             <div class="sql-opts">
-              <label class="check-line"><input id="ta-auto" type="checkbox" checked> <span>Tự ghép TripAdvisor ngay sau khi crawl xong (chỉ khách sạn chưa ghép)</span></label>
-              <label class="check-line"><input id="ta-redo" type="checkbox"> <span>Ghép lại cả khách sạn đã có kết quả</span></label>
+              <label class="check-line"><input id="ta-auto" type="checkbox" checked> <span data-i18n="ta.auto"></span></label>
+              <label class="check-line"><input id="ta-redo" type="checkbox"> <span data-i18n="ta.redo"></span></label>
               <div id="ta-stats" class="quality-chips"></div>
               <div class="ta-actions">
-                <button id="ta-run" class="button secondary mini">⇄ Ghép TripAdvisor theo phạm vi trên</button>
-                <small class="muted">Ghép bằng Tripadvisor Content API (tên + toạ độ Trip.com), ~2 lần gọi/khách sạn, hạn mức ~10.000 lần/ngày. Chỉ trạng thái "matched" mới được xuất ID; "review" xem lại trong Kho.</small>
+                <button id="ta-run" class="button secondary mini" data-i18n="ta.run">⇄ Ghép TripAdvisor theo phạm vi trên</button>
+                <small class="muted" data-i18n="ta.note"></small>
               </div>
             </div>
           </div>
         </details>
       </div>
       <div id="quality" class="quality" hidden>
-        <div class="quality-head"><strong>Chất lượng dữ liệu trong phạm vi</strong><span id="quality-sub" class="muted"></span></div>
+        <div class="quality-head"><strong data-i18n="quality.title">Chất lượng dữ liệu trong phạm vi</strong><span id="quality-sub" class="muted"></span></div>
         <div id="quality-chips" class="quality-chips"></div>
         <div id="quality-actions" class="quality-actions" hidden>
           <span id="quality-note"></span>
-          <button id="quality-cao-bu" class="button secondary mini">↻ Crawl bù khách sạn thiếu</button>
+          <button id="quality-cao-bu" class="button secondary mini"></button>
         </div>
       </div>
       <div class="schema"><span>property_id</span><span>row_uuid</span><span>type</span><span>section_type</span><span>lang</span><span>field</span><span>value</span></div>
-      <div id="csv-list" class="files"><p class="empty">Chưa có file CSV.</p></div>
+      <div id="csv-list" class="files"><p class="empty" data-i18n="export.noFiles"></p></div>
     </section>
 
     <section class="card backup-card">
       <div class="card-heading compact">
         <div class="heading-icon">⛁</div>
-        <div class="grow"><h2>Sao lưu &amp; khôi phục</h2><p>Nén toàn bộ dữ liệu đã crawl (raw, thay đổi, cookie, CSV) thành một file zip. Nên sao lưu trước khi cập nhật hoặc gỡ ứng dụng.</p></div>
+        <div class="grow"><h2 data-i18n="backup.title">Sao lưu &amp; khôi phục</h2><p data-i18n="backup.subtitle"></p></div>
         <div class="heading-actions">
-          <button id="backup-open" class="button ghost">Mở thư mục</button>
-          <button id="backup-now" class="button primary">⛁ Sao lưu ngay</button>
+          <button id="backup-open" class="button ghost" data-i18n="backup.open">Mở thư mục</button>
+          <button id="backup-now" class="button primary" data-i18n="backup.now">⛁ Sao lưu ngay</button>
         </div>
       </div>
       <p id="backup-dir" class="field-hint"></p>
-      <div id="backup-list" class="files"><p class="empty">Chưa có bản sao lưu.</p></div>
+      <div id="backup-list" class="files"><p class="empty" data-i18n="backup.empty"></p></div>
       <div class="export-marks">
         <div class="grow">
-          <strong>Dấu "đã xuất CSV"</strong>
-          <p>Tool nhớ khách sạn nào đã nằm trong CSV để lần sau chỉ xuất phần mới. Bình thường không cần đụng vào.</p>
+          <strong data-i18n="marks.title"></strong>
+          <p data-i18n="marks.hint"></p>
         </div>
-        <button id="export-mark-all" class="button ghost">✓ Đánh dấu tất cả là đã xuất</button>
-        <button id="export-reset-state" class="button ghost danger-text">↺ Quên dấu đã xuất (xuất lại từ đầu)</button>
+        <button id="export-mark-all" class="button ghost" data-i18n="marks.all"></button>
+        <button id="export-reset-state" class="button ghost danger-text" data-i18n="marks.reset"></button>
       </div>
     </section>
     </div>
@@ -252,67 +252,67 @@
     <section class="card kho-card">
       <div class="card-heading compact">
         <div class="heading-icon">▦</div>
-        <div class="grow"><h2>Kho dữ liệu đã crawl</h2><p>Đối soát mô tả · chính sách · lân cận với trang Trip.com thật, và crawl bù phần còn thiếu.</p></div>
+        <div class="grow"><h2 data-i18n="data.title">Dữ liệu khách sạn</h2><p data-i18n="data.subtitle"></p></div>
         <div class="heading-actions">
-          <button id="kho-reload" class="button ghost">↻ Quét lại</button>
-          <button id="kho-cao-bu" class="button primary" disabled>Crawl bù <span id="kho-cao-bu-count">0</span></button>
+          <button id="kho-reload" class="button ghost" data-i18n="data.reload">↻ Quét lại</button>
+          <button id="kho-cao-bu" class="button primary" disabled><span data-i18n="data.fill">Đồng bộ bổ sung</span> <span id="kho-cao-bu-count">0</span></button>
         </div>
       </div>
       <div class="kho-stats">
-        <div class="kho-stat"><strong id="kho-tong">0</strong><span>khách sạn</span></div>
-        <div class="kho-stat"><strong id="kho-vi">0</strong><span>có bản VI</span></div>
-        <div class="kho-stat"><strong id="kho-en">0</strong><span>có bản EN</span></div>
-        <div class="kho-stat warn"><strong id="kho-thieu">0</strong><span>thiếu do crawl</span></div>
+        <div class="kho-stat"><strong id="kho-tong">0</strong><span data-i18n="data.hotels">khách sạn</span></div>
+        <div class="kho-stat"><strong id="kho-vi">0</strong><span data-i18n="data.hasVi">có bản VI</span></div>
+        <div class="kho-stat"><strong id="kho-en">0</strong><span data-i18n="data.hasEn">có bản EN</span></div>
+        <div class="kho-stat warn"><strong id="kho-thieu">0</strong><span data-i18n="data.missing">thiếu dữ liệu</span></div>
       </div>
       <div class="kho-toolbar">
-        <input id="kho-search" type="search" class="text-input" placeholder="Tìm theo tên hoặc mã khách sạn…" autocomplete="off">
-        <select id="kho-city" class="select-input"><option value="">Tất cả thành phố</option></select>
+        <input id="kho-search" type="search" class="text-input" data-i18n-placeholder="data.searchPlaceholder" autocomplete="off">
+        <select id="kho-city" class="select-input"><option value="" data-i18n="data.allCities">Tất cả thành phố</option></select>
         <select id="kho-filter" class="select-input">
-          <option value="">Tất cả khách sạn</option>
-          <option value="thieu">Thiếu do crawl (nên crawl bù)</option>
-          <option value="mo_ta">Thiếu mô tả (do crawl)</option>
-          <option value="chinh_sach">Thiếu chính sách (do crawl)</option>
-          <option value="lan_can">Thiếu lân cận (do crawl)</option>
-          <option value="khong_co">Trip.com không có mô tả / CS / LC</option>
-          <option value="chua_du">Raw chưa đủ (thiếu packet)</option>
-          <option value="thieu_ngon_ngu">Chỉ có 1 ngôn ngữ</option>
-          <option value="loi">Raw lỗi, không đọc được</option>
-          <option value="thay_doi">Có thay đổi so với lần crawl trước</option>
+          <option value="" data-i18n="data.fAll">Tất cả khách sạn</option>
+          <option value="thieu" data-i18n="data.fMissing"></option>
+          <option value="mo_ta" data-i18n="data.fDesc"></option>
+          <option value="chinh_sach" data-i18n="data.fPolicy"></option>
+          <option value="lan_can" data-i18n="data.fNearby"></option>
+          <option value="khong_co" data-i18n="data.fNone"></option>
+          <option value="chua_du" data-i18n="data.fIncomplete"></option>
+          <option value="thieu_ngon_ngu" data-i18n="data.fOneLang"></option>
+          <option value="loi" data-i18n="data.fError"></option>
+          <option value="thay_doi" data-i18n="data.fChanged"></option>
         </select>
-        <fieldset class="kho-langs"><legend>Crawl bù cho</legend>
+        <fieldset class="kho-langs"><legend data-i18n="data.fillFor">Đồng bộ bổ sung cho</legend>
           <label><input id="kho-lang-vi" type="checkbox" checked> VI</label>
           <label><input id="kho-lang-en" type="checkbox" checked> EN</label>
         </fieldset>
       </div>
       <div class="kho-select-row">
-        <label class="kho-check"><input id="kho-check-all" type="checkbox"><span>Chọn tất cả đang hiện (<span id="kho-visible">0</span>)</span></label>
-        <span id="kho-selected-note" class="muted">Chưa chọn khách sạn nào.</span>
+        <label class="kho-check"><input id="kho-check-all" type="checkbox"><span><span data-i18n="data.selectAll">Chọn tất cả đang hiện (</span><span id="kho-visible">0</span>)</span></label>
+        <span id="kho-selected-note" class="muted" data-i18n="data.noneSelected"></span>
       </div>
       <div class="table-wrap">
         <table class="kho-table">
           <colgroup><col class="c-check"><col class="c-name"><col class="c-city"><col class="c-lang"><col class="c-lang"><col class="c-time"><col class="c-act"></colgroup>
           <thead><tr>
-            <th class="col-check"></th><th>Khách sạn</th><th>Thành phố</th>
-            <th>Tiếng Việt</th><th>English</th><th>Cập nhật</th><th></th>
+            <th class="col-check"></th><th data-i18n="data.thHotel">Khách sạn</th><th data-i18n="data.thCity">Thành phố</th>
+            <th data-i18n="data.thVi">Tiếng Việt</th><th data-i18n="data.thEn">English</th><th data-i18n="data.thUpdated">Cập nhật</th><th></th>
           </tr></thead>
-          <tbody id="kho-body"><tr><td colspan="7" class="empty">Đang đọc kho…</td></tr></tbody>
+          <tbody id="kho-body"><tr><td colspan="7" class="empty" data-i18n="data.loading"></td></tr></tbody>
         </table>
       </div>
-      <div class="kho-more-row"><button id="kho-more" class="button ghost" hidden>Hiện thêm</button></div>
+      <div class="kho-more-row"><button id="kho-more" class="button ghost" hidden data-i18n="data.more">Hiện thêm</button></div>
     </section>
 
     <section id="kho-detail" class="card kho-detail" hidden>
       <div class="detail-topbar">
-        <button id="detail-back" class="button ghost">← Danh sách</button>
+        <button id="detail-back" class="button ghost" data-i18n="detail.back">← Danh sách</button>
         <div class="grow"></div>
         <div class="lang-switch" role="tablist">
-          <button type="button" class="tab-button active" data-lang="vi">Tiếng Việt</button>
-          <button type="button" class="tab-button" data-lang="en">English</button>
+          <button type="button" class="tab-button active" data-lang="vi" data-i18n="detail.vi">Tiếng Việt</button>
+          <button type="button" class="tab-button" data-lang="en" data-i18n="detail.en">English</button>
         </div>
-        <button id="detail-cao-bu" class="button secondary">↻ Crawl bù khách sạn này</button>
-        <a id="detail-trip" class="button primary" href="#" target="_blank" rel="noopener">Mở trên Trip.com ↗</a>
+        <button id="detail-cao-bu" class="button secondary" data-i18n="detail.fill"></button>
+        <a id="detail-trip" class="button primary" href="#" target="_blank" rel="noopener" data-i18n="detail.openTrip">Mở trên Trip.com ↗</a>
       </div>
-      <div id="detail-body"><p class="empty">Chọn một khách sạn.</p></div>
+      <div id="detail-body"><p class="empty" data-i18n="detail.pick"></p></div>
     </section>
     </div>
 
@@ -320,32 +320,32 @@
     <section class="card cities-card">
       <div class="card-heading compact">
         <div class="heading-icon">04</div>
-        <div class="grow"><h2>Thành phố đã crawl</h2><p>Tổng hợp từ raw và checkpoint đang lưu trên máy.</p></div>
-        <input id="cities-search" type="search" class="text-input compact" placeholder="Tìm thành phố, quốc gia, mã…" autocomplete="off">
-        <span id="city-count" class="count-badge">0 thành phố</span>
+        <div class="grow"><h2 data-i18n="cities.title">Thành phố đã đồng bộ</h2><p data-i18n="cities.subtitle"></p></div>
+        <input id="cities-search" type="search" class="text-input compact" data-i18n-placeholder="cities.searchPlaceholder" autocomplete="off">
+        <span id="city-count" class="count-badge"></span>
       </div>
-      <div id="cities-list" class="cities-list"><p class="empty">Chưa có thành phố nào.</p></div>
-      <p id="cities-empty-search" class="empty" hidden>Không có thành phố nào khớp.</p>
+      <div id="cities-list" class="cities-list"><p class="empty" data-i18n="cities.empty"></p></div>
+      <p id="cities-empty-search" class="empty" hidden data-i18n="cities.noMatch"></p>
     </section>
 
     <section class="card history-card">
       <div class="card-heading compact">
         <div class="heading-icon">05</div>
-        <div class="grow"><h2>Lịch sử hoạt động</h2><p>Lịch sử được giữ lại sau khi đóng và mở lại ứng dụng.</p></div>
-        <button id="clear-history" class="text-button danger-text">Xóa lịch sử</button>
+        <div class="grow"><h2 data-i18n="history.title">Lịch sử hoạt động</h2><p data-i18n="history.subtitle"></p></div>
+        <button id="clear-history" class="text-button danger-text" data-i18n="history.clear">Xóa lịch sử</button>
       </div>
-      <div id="history-list" class="history-list"><p class="empty">Chưa có lịch sử.</p></div>
+      <div id="history-list" class="history-list"><p class="empty" data-i18n="history.empty"></p></div>
     </section>
 
     </div>
 
-    <footer>Trip Hotel Data · Dữ liệu lưu tại <code id="data-dir" title="Thư mục dữ liệu">…</code> <button id="open-data-dir" class="text-button">Mở thư mục</button> · <button id="change-data-dir" class="text-button" hidden title="Chọn thư mục khác để lưu dữ liệu, ví dụ ngoài thư mục cài đặt để không mất khi gỡ app">Đổi thư mục…</button> <button id="reset-data-dir" class="text-button" hidden>Dùng mặc định</button> · <button id="open-log-dir" class="text-button">Mở thư mục log</button> · <span id="app-version"></span></footer>
+    <footer><span data-i18n="app.name">Trip Hotel Data</span> · <span data-i18n="footer.storedAt">Dữ liệu lưu tại</span> <code id="data-dir" data-i18n-title="footer.dataDirTitle">…</code> <button id="open-data-dir" class="text-button" data-i18n="footer.openDir">Mở thư mục</button> · <button id="change-data-dir" class="text-button" hidden data-i18n="footer.changeDir" data-i18n-title="footer.changeDirTitle">Đổi thư mục…</button> <button id="reset-data-dir" class="text-button" hidden data-i18n="footer.resetDir">Dùng mặc định</button> · <button id="open-log-dir" class="text-button" data-i18n="footer.openLog">Mở thư mục log</button> · <span id="app-version"></span></footer>
   </main>
 
   <div id="modal" class="modal" hidden>
     <div class="modal-backdrop" data-close-modal></div>
     <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="modal-header"><div><p class="eyebrow" id="modal-kicker">XEM CHI TIẾT</p><h2 id="modal-title">Chi tiết</h2></div><button class="modal-close" data-close-modal aria-label="Đóng">×</button></div>
+      <div class="modal-header"><div><p class="eyebrow" id="modal-kicker" data-i18n="modal.kicker">XEM CHI TIẾT</p><h2 id="modal-title" data-i18n="modal.title">Chi tiết</h2></div><button class="modal-close" data-close-modal data-i18n-aria="modal.close">×</button></div>
       <div id="modal-body" class="modal-body"></div>
     </section>
   </div>

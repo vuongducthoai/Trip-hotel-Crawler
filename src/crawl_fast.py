@@ -248,7 +248,7 @@ def save(dump: dict, hotel_id: str, locale: str, currency: str) -> Path:
             thay_doi.ghi(thay_doi.so_sanh(old_dump, dump, hotel_id, locale, currency),
                          hotel_id, locale, currency)
         except Exception as exc:  # không để việc so sánh làm hỏng lượt crawl
-            print(f"    (không so sánh được với raw cũ: {type(exc).__name__}: {exc})")
+            print(f"    (không so sánh được với bản ghi cũ: {type(exc).__name__}: {exc})")
     return raw_store.write(folder / name, dump)
 
 
@@ -350,7 +350,7 @@ def main(args) -> int:
         ids = ids[:args.limit]
     checkin, checkout = args.checkin or default_stay()[0], args.checkout or default_stay()[1]
     cookies, visitor_id = load_cookies(args.locale, args.currency)
-    print(f"Crawl chi tiết: {len(ids)} khách sạn | {args.locale}/{args.currency.upper()} | "
+    print(f"Đồng bộ chi tiết: {len(ids)} khách sạn | {args.locale}/{args.currency.upper()} | "
           f"nghỉ {args.delay}–{args.delay + args.jitter:.1f}s mỗi lượt")
 
     stopped = threading.Event()
@@ -414,9 +414,9 @@ def main(args) -> int:
                     future.result()
 
     if blocked_reasons:
-        print("Dừng lại: Trip.com đang chặn. Hãy nghỉ vài giờ hoặc lấy lại cookie; app không tự vượt chặn.")
+        print("Dừng lại: Trip.com đang chặn. Hãy nghỉ vài giờ hoặc làm mới phiên Trip.com; app không tự vượt chặn.")
         return 2
-    print(f"Xong: {stats['done']} crawl mới, {stats['skipped']} đã có, {stats['failed']} hỏng.")
+    print(f"Xong: {stats['done']} đồng bộ mới, {stats['skipped']} đã có, {stats['failed']} hỏng.")
     return 0 if stats["done"] or stats["skipped"] else 1
 
 
