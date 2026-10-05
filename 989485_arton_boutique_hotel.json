@@ -1,0 +1,1632 @@
+{
+  "property_id": 989485,
+  "hotel_name": "Arton Boutique Hotel",
+  "source_table": "splatform_meta.trip_tmp_property_translation",
+  "note": "Gom lại từ các dòng (property_id,row_uuid,type,section_type,lang,field,value) cho dễ đọc; file *.rows.json là bản phẳng đúng 7 cột. row_uuid = md5(key)::uuid với key = '<property_id>:DESCRIPTION' | '<property_id>:POLICY:<section_type>' | '<property_id>:SURROUNDING:<trip_poi_id>'.",
+  "DESCRIPTION": {
+    "row_uuid": "9f825221-e287-a1fa-9744-932a2de879c7",
+    "section_type": "hotelInfo",
+    "row_key": "989485:DESCRIPTION",
+    "en": {
+      "hotel_name": "Arton Boutique Hotel",
+      "hotel_address": "176 Tyrwhitt Rd, 207576, Singapore",
+      "room_count": "109",
+      "description": "<p>With a stay at Arton Boutique Hotel (SG Clean), you'll be centrally located in Singapore, within a 5-minute drive of Gardens by the Bay and Orchard Road. This hotel is 2.8 mi (4.5 km) from Marina Bay Sands Casino and 6.1 mi (9.9 km) from Universal Studios Singapore.</p><p>Make use of convenient amenities such as complimentary wireless Internet access, concierge services, and a television in a common area.</p><p>Continental breakfasts are available daily from 7:30 AM to 10:30 AM for a fee.</p><p>Featured amenities include a business center, complimentary newspapers in the lobby, and dry cleaning/laundry services.</p><p>Make yourself at home in one of the 109 air-conditioned rooms featuring flat-screen televisions. Complimentary wired and wireless Internet access is available. Bathrooms have showers and hair dryers. Conveniences include safes and desks, as well as phones with free local calls.</p>",
+      "tripAdvisorId": "5887964"
+    },
+    "vi": {
+      "hotel_name": "Arton Boutique Hotel",
+      "hotel_address": "176 Tyrwhitt Rd, 207576, Singapore",
+      "room_count": "109",
+      "description": "<p>Arton Boutique Hotel là nơi lý tưởng để thư giãn sau một ngày đi du lịch hoặc làm việc.</p><p>Thuộc tính này cũng cung cấp nơi chứa hành lý và dịch vụ giặt là (tại chỗ nghỉ).</p>",
+      "tripAdvisorId": "5887964"
+    }
+  },
+  "POLICY": [
+    {
+      "section_type": "checkInAndOut",
+      "row_uuid": "06038045-01e2-a213-1f7f-e144a43895f3",
+      "row_key": "989485:POLICY:checkInAndOut",
+      "en": {
+        "policy_title": "Check-in and Check-out Times",
+        "policy_content": "<p>Check-in: <strong>After 15:00</strong></p><p>Check-out: <strong>Before 12:00</strong></p><p>Front desk hours: 24/7</p>"
+      },
+      "vi": {
+        "policy_title": "Thời gian nhận và trả phòng",
+        "policy_content": "<p>Nhận phòng: <strong>Sau 15:00</strong></p><p>Trả phòng: <strong>Trước 12:00</strong></p><p>Giờ làm việc của quầy lễ tân: 24/7</p>"
+      }
+    },
+    {
+      "section_type": "childPolicy",
+      "row_uuid": "99e66e37-72dd-708f-9572-7f7c886703b2",
+      "row_key": "989485:POLICY:childPolicy",
+      "en": {
+        "policy_title": "Child policies",
+        "policy_content": "<p>Children of all ages are welcome at this property.</p><p>Additional fees may be charged for children using existing beds. Add the number of children to get a more accurate price.</p>"
+      },
+      "vi": {
+        "policy_title": "Chính sách cho trẻ em",
+        "policy_content": "<p>Trẻ em thuộc mọi độ tuổi đều được chào đón tại cơ sở lưu trú này.</p><p>Bạn có thể mất thêm phí để trẻ em sử dụng giường có sẵn. Hãy thêm số lượng trẻ em đi cùng để nhận được mức giá chính xác hơn.</p>"
+      }
+    },
+    {
+      "section_type": "cribAndExtraBed",
+      "row_uuid": "8f97582e-ee57-ec88-66f6-6cc3f3f6e7cc",
+      "row_key": "989485:POLICY:cribAndExtraBed",
+      "en": {
+        "policy_title": "Cribs and Extra Beds",
+        "policy_content": "<p>For all room types, cribs and extra beds cannot be added.</p>"
+      },
+      "vi": {
+        "policy_title": "Nôi/cũi và giường phụ",
+        "policy_content": "<p>Mọi loại phòng đều không thể bổ sung cũi và giường phụ.</p>"
+      }
+    },
+    {
+      "section_type": "breakfast",
+      "row_uuid": "56ee8d0e-f2b7-7e86-bf4e-15646b654394",
+      "row_key": "989485:POLICY:breakfast",
+      "en": {
+        "policy_title": "Breakfast",
+        "policy_content": "<p>Breakfast not provided</p>"
+      },
+      "vi": {
+        "policy_title": "Bữa sáng",
+        "policy_content": "<p>Không có bữa sáng.</p>"
+      }
+    },
+    {
+      "section_type": "deposit",
+      "row_uuid": "36c76f85-b2a3-0573-de60-01be3794283d",
+      "row_key": "989485:POLICY:deposit",
+      "en": {
+        "policy_title": "Deposit Policy",
+        "policy_content": "<p>Deposit: <strong>No deposit required by the property</strong></p>"
+      },
+      "vi": {
+        "policy_title": "Chính sách đặt cọc",
+        "policy_content": "<p>Đặt cọc: <strong>Chỗ nghỉ không yêu cầu đặt cọc</strong></p>"
+      }
+    },
+    {
+      "section_type": "pet",
+      "row_uuid": "6e223570-f046-96df-243c-ad9998e9151f",
+      "row_key": "989485:POLICY:pet",
+      "en": {
+        "policy_title": "Pets",
+        "policy_content": "<p>Pets are not allowed</p>"
+      },
+      "vi": {
+        "policy_title": "Thú cưng",
+        "policy_content": "<p>Không được phép mang theo thú cưng</p>"
+      }
+    },
+    {
+      "section_type": "ageLimit",
+      "row_uuid": "bd167a02-bf5e-f65e-ed54-3ace4e154271",
+      "row_key": "989485:POLICY:ageLimit",
+      "en": {
+        "policy_title": "Age Requirements",
+        "policy_content": "<p>The main guest checking in must be at least 18 years old</p>"
+      },
+      "vi": {
+        "policy_title": "Giới hạn độ tuổi",
+        "policy_content": "<p>Khách chính nhận phòng phải từ 18 tuổi trở lên.</p>"
+      }
+    }
+  ],
+  "SURROUNDING": [
+    {
+      "group_code": "02",
+      "section_type": {
+        "en": "02_Transport",
+        "vi": "02_Giao thông"
+      },
+      "places": [
+        {
+          "row_uuid": "84b41476-b0a1-91d9-c3e3-b9a806b75164",
+          "en": {
+            "surrounding_name": "Bendemeer MRT",
+            "surrounding_kind": "Metro station",
+            "surrounding_label": "Metro",
+            "surrounding_distance": "410m",
+            "surrounding_distance_m": "410",
+            "surrounding_lat": "1.3135724",
+            "surrounding_lng": "103.8632588"
+          },
+          "vi": {
+            "surrounding_name": "Bendemeer MRT",
+            "surrounding_kind": "Ga tàu điện ngầm",
+            "surrounding_label": "Tàu Điện Ngầm",
+            "surrounding_distance": "410m",
+            "surrounding_distance_m": "410",
+            "surrounding_lat": "1.3135724",
+            "surrounding_lng": "103.8632588"
+          }
+        },
+        {
+          "row_uuid": "15983a4a-ffc6-a3ae-43ef-5e164ca6f53c",
+          "en": {
+            "surrounding_name": "Lavender",
+            "surrounding_kind": "Metro station",
+            "surrounding_label": "Metro",
+            "surrounding_distance": "710m",
+            "surrounding_distance_m": "710",
+            "surrounding_lat": "1.3072636",
+            "surrounding_lng": "103.8629202"
+          },
+          "vi": {
+            "surrounding_name": "Lavender",
+            "surrounding_kind": "Ga tàu điện ngầm",
+            "surrounding_label": "Tàu Điện Ngầm",
+            "surrounding_distance": "710m",
+            "surrounding_distance_m": "710",
+            "surrounding_lat": "1.3072636",
+            "surrounding_lng": "103.8629202"
+          }
+        },
+        {
+          "row_uuid": "06b1b0c3-e8dc-fdd2-3104-7214f2dc614d",
+          "en": {
+            "surrounding_name": "Seletar Airport",
+            "surrounding_kind": "Airport",
+            "surrounding_label": "Airport",
+            "surrounding_distance": "14,4km",
+            "surrounding_distance_m": "14430",
+            "surrounding_lat": "1.4152511",
+            "surrounding_lng": "103.8671796"
+          },
+          "vi": {
+            "surrounding_name": "Sân Bay Seletar",
+            "surrounding_kind": "Sân bay",
+            "surrounding_label": "Sân Bay",
+            "surrounding_distance": "14,4km",
+            "surrounding_distance_m": "14430",
+            "surrounding_lat": "1.4152511",
+            "surrounding_lng": "103.8671796"
+          }
+        },
+        {
+          "row_uuid": "f628ce16-e0e5-49b1-76ea-609a179ccd22",
+          "en": {
+            "surrounding_name": "Singapore Changi Airport",
+            "surrounding_kind": "Airport",
+            "surrounding_label": "Airport",
+            "surrounding_distance": "15,7km",
+            "surrounding_distance_m": "15690",
+            "surrounding_lat": "1.358604",
+            "surrounding_lng": "103.9899436"
+          },
+          "vi": {
+            "surrounding_name": "Sân bay quốc tế Singapore Changi",
+            "surrounding_kind": "Sân bay",
+            "surrounding_label": "Sân Bay",
+            "surrounding_distance": "15,7km",
+            "surrounding_distance_m": "15690",
+            "surrounding_lat": "1.358604",
+            "surrounding_lng": "103.9899436"
+          }
+        },
+        {
+          "row_uuid": "4cc8009c-fa8b-5536-c278-a6df50871907",
+          "en": {
+            "surrounding_name": "MacPherson",
+            "surrounding_kind": "Train station",
+            "surrounding_label": "Train",
+            "surrounding_distance": "5,8km",
+            "surrounding_distance_m": "5780",
+            "surrounding_lat": "1.3250307",
+            "surrounding_lng": "103.8885062"
+          },
+          "vi": {
+            "surrounding_name": "MacPherson",
+            "surrounding_kind": "Ga tàu",
+            "surrounding_label": "Vé Tàu",
+            "surrounding_distance": "5,8km",
+            "surrounding_distance_m": "5780",
+            "surrounding_lat": "1.3250307",
+            "surrounding_lng": "103.8885062"
+          }
+        },
+        {
+          "row_uuid": "ca2cc8fc-441b-c357-961e-b52cbf96c39b",
+          "en": {
+            "surrounding_name": "Sentosa Express",
+            "surrounding_kind": "Train station",
+            "surrounding_label": "Train",
+            "surrounding_distance": "12,8km",
+            "surrounding_distance_m": "12840",
+            "surrounding_lat": "1.255383",
+            "surrounding_lng": "103.820863"
+          },
+          "vi": {
+            "surrounding_name": "Sentosa Express",
+            "surrounding_kind": "Ga tàu",
+            "surrounding_label": "Vé Tàu",
+            "surrounding_distance": "12,8km",
+            "surrounding_distance_m": "12840",
+            "surrounding_lat": "1.255383",
+            "surrounding_lng": "103.820863"
+          }
+        }
+      ]
+    },
+    {
+      "group_code": "03",
+      "section_type": {
+        "en": "03_Landmarks",
+        "vi": "03_Điểm nổi bật"
+      },
+      "places": [
+        {
+          "row_uuid": "1232f59e-5720-ef18-bccc-d2dd4354bf6e",
+          "en": {
+            "surrounding_name": "Sultan Mosque",
+            "surrounding_kind": "Mosques",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1120",
+            "surrounding_lat": "1.3022854",
+            "surrounding_lng": "103.8589636"
+          },
+          "vi": {
+            "surrounding_name": "Sultan Mosque",
+            "surrounding_kind": "Thánh Đường Hồi Giáo",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1120",
+            "surrounding_lat": "1.3022854",
+            "surrounding_lng": "103.8589636"
+          }
+        },
+        {
+          "row_uuid": "563aca53-b0f7-62bf-c750-c25f55ebe24e",
+          "en": {
+            "surrounding_name": "Little India",
+            "surrounding_kind": "Featured Neighborhoods",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1185",
+            "surrounding_lat": "1.3065597",
+            "surrounding_lng": "103.851819"
+          },
+          "vi": {
+            "surrounding_name": "Little India",
+            "surrounding_kind": "Khu Dân Cư Nổi Bật",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1185",
+            "surrounding_lat": "1.3065597",
+            "surrounding_lng": "103.851819"
+          }
+        },
+        {
+          "row_uuid": "582baf03-9f3a-1eac-3d4a-7cc8b59e4d8c",
+          "en": {
+            "surrounding_name": "Haji Ln",
+            "surrounding_kind": "Featured Neighborhoods",
+            "surrounding_distance": "1,3km",
+            "surrounding_distance_m": "1290",
+            "surrounding_lat": "1.3007065",
+            "surrounding_lng": "103.8591356"
+          },
+          "vi": {
+            "surrounding_name": "Haji Ln",
+            "surrounding_kind": "Khu Dân Cư Nổi Bật",
+            "surrounding_distance": "1,3km",
+            "surrounding_distance_m": "1290",
+            "surrounding_lat": "1.3007065",
+            "surrounding_lng": "103.8591356"
+          }
+        },
+        {
+          "row_uuid": "27c5468a-e38f-f433-1986-9495c5278e7f",
+          "en": {
+            "surrounding_name": "The Kallang",
+            "surrounding_kind": "Stadiums",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1728",
+            "surrounding_lat": "1.3044376",
+            "surrounding_lng": "103.8743321"
+          },
+          "vi": {
+            "surrounding_name": "The Kallang",
+            "surrounding_kind": "Sân Vận Động",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1728",
+            "surrounding_lat": "1.3044376",
+            "surrounding_lng": "103.8743321"
+          }
+        },
+        {
+          "row_uuid": "b5642e2f-8d01-ffcd-e5bf-2386fbcde949",
+          "en": {
+            "surrounding_name": "Singapore | BIGBANG 2026-2027 WORLD TOUR IN SINGAPORE",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1734",
+            "surrounding_lat": "1.3042637",
+            "surrounding_lng": "103.8742986"
+          },
+          "vi": {
+            "surrounding_name": "Singapore | BIGBANG 2026-2027 WORLD TOUR IN SINGAPORE",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1734",
+            "surrounding_lat": "1.3042637",
+            "surrounding_lng": "103.8742986"
+          }
+        },
+        {
+          "row_uuid": "bfc2aaf5-b07d-e18b-cfca-37cbc425cbc6",
+          "en": {
+            "surrounding_name": "National Stadium",
+            "surrounding_kind": "Stadiums",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "National Stadium",
+            "surrounding_kind": "Sân Vận Động",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "02465cbb-d126-a750-0c56-d48c8b4c71f6",
+          "en": {
+            "surrounding_name": "Singapore | The Weeknd: After Hours Til Dawn Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Singapore | The Weeknd: After Hours Til Dawn Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "caf61b88-4e64-a946-1456-a8579ff85405",
+          "en": {
+            "surrounding_name": "Singapore | Jay Chou “Carnival Ⅱ” World Tour 2027",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Singapore | Jay Chou “Carnival Ⅱ” World Tour 2027",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "701fbba6-95ba-ec9a-5bf3-6800cd40784f",
+          "en": {
+            "surrounding_name": "Bruno Mars - The Romantic Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Bruno Mars - The Romantic Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "d55d05ec-09a8-8128-1600-81b273b3a5ce",
+          "en": {
+            "surrounding_name": "Singapore | YOASOBI 10-CITY DOME & STADIUM TOUR 2026-2027 超惑星 “SUPER PLANET” in SINGAPORE",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Singapore | YOASOBI 10-CITY DOME & STADIUM TOUR 2026-2027 超惑星 “SUPER PLANET” in SINGAPORE",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "01650974-91c2-6d99-4fe6-f69a24637aaf",
+          "en": {
+            "surrounding_name": "Singapore | Guns N' Roses World Tour 2026",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Singapore | Guns N' Roses World Tour 2026",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "c0197321-03fc-6a71-3d41-f994e1b13b04",
+          "en": {
+            "surrounding_name": "Singapore · Maroon 5 Concert",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Singapore · Maroon 5 Concert",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "97b8d370-b2a6-c63d-c625-0747dd252ae9",
+          "en": {
+            "surrounding_name": "Singapore | BTS World Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Singapore | BTS World Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "680cb805-65d2-da64-24e2-2323890ff32c",
+          "en": {
+            "surrounding_name": "Singapore | ENHYPEN 2026-2027《BLOOD SAGA》World Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          },
+          "vi": {
+            "surrounding_name": "Singapore | ENHYPEN 2026-2027《BLOOD SAGA》World Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.304013",
+            "surrounding_lng": "103.8748426"
+          }
+        },
+        {
+          "row_uuid": "b8b791f7-0bf3-98ce-6eb1-f1d7656f356d",
+          "en": {
+            "surrounding_name": "Singapore DUCKtours",
+            "surrounding_kind": "Boat Tours",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.2960653",
+            "surrounding_lng": "103.8593237"
+          },
+          "vi": {
+            "surrounding_name": "Singapore DUCKtours",
+            "surrounding_kind": "Tour Thuyền",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1800",
+            "surrounding_lat": "1.2960653",
+            "surrounding_lng": "103.8593237"
+          }
+        },
+        {
+          "row_uuid": "4c97f6b5-7f34-31cb-cb37-a4821d17ca22",
+          "en": {
+            "surrounding_name": "MINT Museum of Toys",
+            "surrounding_kind": "Museums",
+            "surrounding_distance": "1,9km",
+            "surrounding_distance_m": "1895",
+            "surrounding_lat": "1.2963208",
+            "surrounding_lng": "103.8546329"
+          },
+          "vi": {
+            "surrounding_name": "MINT Museum of Toys",
+            "surrounding_kind": "Viện Bảo Tàng",
+            "surrounding_distance": "1,9km",
+            "surrounding_distance_m": "1895",
+            "surrounding_lat": "1.2963208",
+            "surrounding_lng": "103.8546329"
+          }
+        },
+        {
+          "row_uuid": "feb45bb9-4fce-cf9b-7e44-4d226b5bea06",
+          "en": {
+            "surrounding_name": "Singapore Indoor Stadium",
+            "surrounding_kind": "Stadiums",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1983",
+            "surrounding_lat": "1.3005709",
+            "surrounding_lng": "103.874394"
+          },
+          "vi": {
+            "surrounding_name": "Sân vận động trong nhà Singapore",
+            "surrounding_kind": "Sân Vận Động",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1983",
+            "surrounding_lat": "1.3005709",
+            "surrounding_lng": "103.874394"
+          }
+        },
+        {
+          "row_uuid": "7fb5b31b-4e82-0442-5bd1-e5244c3f74c8",
+          "en": {
+            "surrounding_name": "Singapore丨Stray Kids 2026 World Tour in Singapore",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1983",
+            "surrounding_lat": "1.3005709",
+            "surrounding_lng": "103.874394"
+          },
+          "vi": {
+            "surrounding_name": "Singapore丨Stray Kids 2026 World Tour in Singapore",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1983",
+            "surrounding_lat": "1.3005709",
+            "surrounding_lng": "103.874394"
+          }
+        },
+        {
+          "row_uuid": "ab96991d-dc10-45ee-e1e4-7decc3c52c63",
+          "en": {
+            "surrounding_name": "Anime Festival Asia Singapore 2026",
+            "surrounding_kind": "Exhibitions",
+            "surrounding_distance": "2,1km",
+            "surrounding_distance_m": "2098",
+            "surrounding_lat": "1.2936739",
+            "surrounding_lng": "103.8572447"
+          },
+          "vi": {
+            "surrounding_name": "Anime Festival Asia Singapore 2026",
+            "surrounding_kind": "Triển Lãm",
+            "surrounding_distance": "2,1km",
+            "surrounding_distance_m": "2098",
+            "surrounding_lat": "1.2936739",
+            "surrounding_lng": "103.8572447"
+          }
+        },
+        {
+          "row_uuid": "723f970c-a75d-f16c-6725-29d7385be8dc",
+          "en": {
+            "surrounding_name": "CHIJMES",
+            "surrounding_kind": "Historical Architectures",
+            "surrounding_distance": "2,1km",
+            "surrounding_distance_m": "2140",
+            "surrounding_lat": "1.2951469",
+            "surrounding_lng": "103.8519332"
+          },
+          "vi": {
+            "surrounding_name": "CHIJMES",
+            "surrounding_kind": "Di Tích Kiến Trúc",
+            "surrounding_distance": "2,1km",
+            "surrounding_distance_m": "2140",
+            "surrounding_lat": "1.2951469",
+            "surrounding_lng": "103.8519332"
+          }
+        },
+        {
+          "row_uuid": "a6c9abd8-5e27-f609-41a6-66fcab18efdd",
+          "en": {
+            "surrounding_name": "National Museum of Singapore",
+            "surrounding_kind": "Museums",
+            "surrounding_distance": "2,2km",
+            "surrounding_distance_m": "2211",
+            "surrounding_lat": "1.296613",
+            "surrounding_lng": "103.8485091"
+          },
+          "vi": {
+            "surrounding_name": "National Museum of Singapore",
+            "surrounding_kind": "Viện Bảo Tàng",
+            "surrounding_distance": "2,2km",
+            "surrounding_distance_m": "2211",
+            "surrounding_lat": "1.296613",
+            "surrounding_lng": "103.8485091"
+          }
+        },
+        {
+          "row_uuid": "8befbed8-d679-a241-8635-f03b992e62b1",
+          "en": {
+            "surrounding_name": "Formula 1 Singapore Grand Prix",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2333",
+            "surrounding_lat": "1.2914319",
+            "surrounding_lng": "103.8639097"
+          },
+          "vi": {
+            "surrounding_name": "Formula 1 Singapore Grand Prix",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2333",
+            "surrounding_lat": "1.2914319",
+            "surrounding_lng": "103.8639097"
+          }
+        },
+        {
+          "row_uuid": "8a9c49e6-fba3-a8b1-fc06-ebb7f305b621",
+          "en": {
+            "surrounding_name": "Singapore · Regina Song's \"everland: the launch show\" concert",
+            "surrounding_kind": "Drama",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2334",
+            "surrounding_lat": "1.2934845",
+            "surrounding_lng": "103.8513529"
+          },
+          "vi": {
+            "surrounding_name": "Singapore · Regina Song's \"everland: the launch show\" concert",
+            "surrounding_kind": "Kịch nghệ",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2334",
+            "surrounding_lat": "1.2934845",
+            "surrounding_lng": "103.8513529"
+          }
+        },
+        {
+          "row_uuid": "3f6c9aec-a950-d048-4140-9825f3d20fde",
+          "en": {
+            "surrounding_name": "Capitol Theatre",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2334",
+            "surrounding_lat": "1.2934845",
+            "surrounding_lng": "103.8513529"
+          },
+          "vi": {
+            "surrounding_name": "Capitol Theatre",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2334",
+            "surrounding_lat": "1.2934845",
+            "surrounding_lng": "103.8513529"
+          }
+        },
+        {
+          "row_uuid": "f73ac2f1-dd03-5bdc-fc0e-fd20deaf3420",
+          "en": {
+            "surrounding_name": "Esplanade - Theatres on the Bay, Singapore",
+            "surrounding_kind": "Cultural Center",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2553",
+            "surrounding_lat": "1.2897934",
+            "surrounding_lng": "103.8558166"
+          },
+          "vi": {
+            "surrounding_name": "Esplanade - Theatres on the Bay, Singapore",
+            "surrounding_kind": "Trung tâm Văn hóa",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2553",
+            "surrounding_lat": "1.2897934",
+            "surrounding_lng": "103.8558166"
+          }
+        },
+        {
+          "row_uuid": "966a300e-b412-0c00-0d9c-547c2ca3deee",
+          "en": {
+            "surrounding_name": "Fort Canning Park",
+            "surrounding_kind": "City Parks",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2594",
+            "surrounding_lat": "1.2943876",
+            "surrounding_lng": "103.8458033"
+          },
+          "vi": {
+            "surrounding_name": "Fort Canning Park",
+            "surrounding_kind": "Công Viên Thành Phố",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2594",
+            "surrounding_lat": "1.2943876",
+            "surrounding_lng": "103.8458033"
+          }
+        },
+        {
+          "row_uuid": "763718ef-468c-3a80-7718-8b08e74c1dc0",
+          "en": {
+            "surrounding_name": "Marina Bay",
+            "surrounding_kind": "Ports/Bays",
+            "surrounding_distance": "2,8km",
+            "surrounding_distance_m": "2786",
+            "surrounding_lat": "1.2877936",
+            "surrounding_lng": "103.8665551"
+          },
+          "vi": {
+            "surrounding_name": "Marina Bay",
+            "surrounding_kind": "Cảng/Vịnh",
+            "surrounding_distance": "2,8km",
+            "surrounding_distance_m": "2786",
+            "surrounding_lat": "1.2877936",
+            "surrounding_lng": "103.8665551"
+          }
+        },
+        {
+          "row_uuid": "fb21ab5e-4cdf-c228-4a00-7668b6ea765a",
+          "en": {
+            "surrounding_name": "Clarke Quay",
+            "surrounding_kind": "Ports/Bays",
+            "surrounding_distance": "2,9km",
+            "surrounding_distance_m": "2886",
+            "surrounding_lat": "1.2906024",
+            "surrounding_lng": "103.8464742"
+          },
+          "vi": {
+            "surrounding_name": "Bến Clarke",
+            "surrounding_kind": "Cảng/Vịnh",
+            "surrounding_distance": "2,9km",
+            "surrounding_distance_m": "2886",
+            "surrounding_lat": "1.2906024",
+            "surrounding_lng": "103.8464742"
+          }
+        },
+        {
+          "row_uuid": "4a2b0949-d632-aa60-92ed-bc864db0c161",
+          "en": {
+            "surrounding_name": "Merlion Park",
+            "surrounding_kind": "Fountains",
+            "surrounding_distance": "2,9km",
+            "surrounding_distance_m": "2920",
+            "surrounding_lat": "1.2867449",
+            "surrounding_lng": "103.8543872"
+          },
+          "vi": {
+            "surrounding_name": "Công viên Sư tử biển",
+            "surrounding_kind": "Đài Phun Nước",
+            "surrounding_distance": "2,9km",
+            "surrounding_distance_m": "2920",
+            "surrounding_lat": "1.2867449",
+            "surrounding_lng": "103.8543872"
+          }
+        },
+        {
+          "row_uuid": "5685124c-dadd-1f9c-703d-3226ff62fc31",
+          "en": {
+            "surrounding_name": "Gardens by the Bay",
+            "surrounding_kind": "Observation Decks",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3420",
+            "surrounding_lat": "1.2815683",
+            "surrounding_lng": "103.8636132"
+          },
+          "vi": {
+            "surrounding_name": "Gardens by the Bay",
+            "surrounding_kind": "Đài Quan Sát",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3420",
+            "surrounding_lat": "1.2815683",
+            "surrounding_lng": "103.8636132"
+          }
+        }
+      ]
+    },
+    {
+      "group_code": "04",
+      "section_type": {
+        "en": "04_Dining"
+      },
+      "places": [
+        {
+          "row_uuid": "24ce946b-cccb-5f89-43b5-c2b0851e1f60",
+          "en": {
+            "surrounding_name": "Chye Seng Huat Hardware",
+            "surrounding_kind": "Coffee shop",
+            "surrounding_distance": "88m",
+            "surrounding_distance_m": "88",
+            "surrounding_lat": "1.3115404",
+            "surrounding_lng": "103.8603828"
+          }
+        },
+        {
+          "row_uuid": "3513b239-52cf-d3e2-3f72-11915a1a2a96",
+          "en": {
+            "surrounding_name": "PUTIEN Kitchener Road",
+            "surrounding_kind": "Fujian cuisine",
+            "surrounding_distance": "490m",
+            "surrounding_distance_m": "490",
+            "surrounding_lat": "1.309551",
+            "surrounding_lng": "103.8573328"
+          }
+        },
+        {
+          "row_uuid": "97713f48-8e9f-1c40-368b-b6a8d9046ef1",
+          "en": {
+            "surrounding_name": "Sungei Road Laksa",
+            "surrounding_kind": "Snacks",
+            "surrounding_distance": "690m",
+            "surrounding_distance_m": "690",
+            "surrounding_lat": "1.3067257",
+            "surrounding_lng": "103.8578874"
+          }
+        },
+        {
+          "row_uuid": "6b51c0be-f91c-6602-f9c2-7083834f2f61",
+          "en": {
+            "surrounding_name": "Hill Street Tai Hwa Pork Noodle, Crawford Lane",
+            "surrounding_kind": "Snacks",
+            "surrounding_distance": "785m",
+            "surrounding_distance_m": "785",
+            "surrounding_lat": "1.3052773",
+            "surrounding_lng": "103.8624005"
+          }
+        },
+        {
+          "row_uuid": "6a813f20-0f9f-0e0f-bf6b-b7c533486229",
+          "en": {
+            "surrounding_name": "Symmetry",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "946m",
+            "surrounding_distance_m": "946",
+            "surrounding_lat": "1.3038325",
+            "surrounding_lng": "103.859201"
+          }
+        },
+        {
+          "row_uuid": "27cd580d-c20f-1e7e-93e8-d97cf9b5bbbb",
+          "en": {
+            "surrounding_name": "Legendary Bak Kut Teh (Rangoon)",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "947m",
+            "surrounding_distance_m": "947",
+            "surrounding_lat": "1.3162606",
+            "surrounding_lng": "103.8534135"
+          }
+        },
+        {
+          "row_uuid": "cd8755f0-b180-df04-75fe-0a3abd37284c",
+          "en": {
+            "surrounding_name": "NG AH SIO Bak Kut Teh (Rangoon Road)",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1079",
+            "surrounding_lat": "1.3176018",
+            "surrounding_lng": "103.8528465"
+          }
+        },
+        {
+          "row_uuid": "d52609ad-d7ce-4a10-a5c9-62d4f3cf2009",
+          "en": {
+            "surrounding_name": "Singapore Zam Zam Restaurant",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1141",
+            "surrounding_lat": "1.302188",
+            "surrounding_lng": "103.8585366"
+          }
+        },
+        {
+          "row_uuid": "aee23176-6146-42fe-d9a8-cfb7e292dc90",
+          "en": {
+            "surrounding_name": "The Coconut Club Beach Road",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "1,3km",
+            "surrounding_distance_m": "1286",
+            "surrounding_lat": "1.3006368",
+            "surrounding_lng": "103.8601786"
+          }
+        },
+        {
+          "row_uuid": "a4fc2b2c-f9a9-e60d-88ed-0758c4ed3e8c",
+          "en": {
+            "surrounding_name": "Balestier Road Hoover Rojak 豪華羅雜",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "1,4km",
+            "surrounding_distance_m": "1362",
+            "surrounding_lat": "1.3229041",
+            "surrounding_lng": "103.8550108"
+          }
+        },
+        {
+          "row_uuid": "06f28067-ad74-ba64-02ca-d129a8e4982e",
+          "en": {
+            "surrounding_name": "Seroja",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "1,4km",
+            "surrounding_distance_m": "1422",
+            "surrounding_lat": "1.2996321",
+            "surrounding_lng": "103.8583743"
+          }
+        },
+        {
+          "row_uuid": "bec5b3b0-4789-eb15-0e73-a2dd4cf7f305",
+          "en": {
+            "surrounding_name": "Ah Chew Desserts",
+            "surrounding_kind": "Bakery",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1654",
+            "surrounding_lat": "1.2980222",
+            "surrounding_lng": "103.8563056"
+          }
+        },
+        {
+          "row_uuid": "a483b689-1308-3874-d496-911debfc93e7",
+          "en": {
+            "surrounding_name": "Founder Bak Kut Teh",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1737",
+            "surrounding_lat": "1.3242731",
+            "surrounding_lng": "103.8510223"
+          }
+        },
+        {
+          "row_uuid": "1a3378dd-0ced-142b-8c54-f4af6f6afe40",
+          "en": {
+            "surrounding_name": "Geylang Lor 9 Fresh Frog Porridge",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1739",
+            "surrounding_lat": "1.312255",
+            "surrounding_lng": "103.8764986"
+          }
+        },
+        {
+          "row_uuid": "316a8ab4-52f7-df11-703c-916d4c238e85",
+          "en": {
+            "surrounding_name": "Chin Chin Restaurant",
+            "surrounding_kind": "Other Chinese cuisine",
+            "surrounding_distance": "1,9km",
+            "surrounding_distance_m": "1858",
+            "surrounding_lat": "1.2963222",
+            "surrounding_lng": "103.8556139"
+          }
+        },
+        {
+          "row_uuid": "3b07ddd1-1d10-cb7c-2a96-69b92a25c84c",
+          "en": {
+            "surrounding_name": "YY Kafei Dian",
+            "surrounding_kind": "Coffee shop",
+            "surrounding_distance": "1,9km",
+            "surrounding_distance_m": "1876",
+            "surrounding_lat": "1.296082",
+            "surrounding_lng": "103.8558212"
+          }
+        },
+        {
+          "row_uuid": "22570812-9ed2-a43d-9ccc-70e910b7e5c3",
+          "en": {
+            "surrounding_name": "Boon Tong Kee Restaurant",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1965",
+            "surrounding_lat": "1.3255336",
+            "surrounding_lng": "103.8493339"
+          }
+        },
+        {
+          "row_uuid": "c05af673-913a-8fa8-2121-0fa89bb58561",
+          "en": {
+            "surrounding_name": "Yì By Jereme Leung",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1997",
+            "surrounding_lat": "1.2955861",
+            "surrounding_lng": "103.8540165"
+          }
+        },
+        {
+          "row_uuid": "ba85d0de-f865-736a-c40f-26a230d84674",
+          "en": {
+            "surrounding_name": "Eminent Frog Porridge & Seafood",
+            "surrounding_kind": "Southeast Asian cuisine",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "2045",
+            "surrounding_lat": "1.3127383",
+            "surrounding_lng": "103.879233"
+          }
+        },
+        {
+          "row_uuid": "a6d26c6d-946a-ff8e-0ded-38fe2c3808f1",
+          "en": {
+            "surrounding_name": "Whitegrass",
+            "surrounding_kind": "Fusion cuisine",
+            "surrounding_distance": "2,1km",
+            "surrounding_distance_m": "2103",
+            "surrounding_lat": "1.2953948",
+            "surrounding_lng": "103.8521742"
+          }
+        }
+      ]
+    },
+    {
+      "group_code": "05",
+      "section_type": {
+        "en": "05_Shopping",
+        "vi": "05_Mua Sắm"
+      },
+      "places": [
+        {
+          "row_uuid": "4d6453c0-4a93-3084-be9f-f884b2d16e9e",
+          "en": {
+            "surrounding_name": "Thai Supermarket @ Aperia Mall",
+            "surrounding_kind": "Supermarkets & Convenience Stores",
+            "surrounding_distance": "472m",
+            "surrounding_distance_m": "472",
+            "surrounding_lat": "1.3096539",
+            "surrounding_lng": "103.8642831"
+          },
+          "vi": {
+            "surrounding_name": "Thai Supermarket @ Aperia Mall",
+            "surrounding_kind": "Siêu thị & cửa hàng tiện lợi",
+            "surrounding_distance": "472m",
+            "surrounding_distance_m": "472",
+            "surrounding_lat": "1.3096539",
+            "surrounding_lng": "103.8642831"
+          }
+        },
+        {
+          "row_uuid": "8f23fa7d-c027-f460-af5d-81dee9a430bf",
+          "en": {
+            "surrounding_name": "DON DON DONKI",
+            "surrounding_kind": "Supermarkets & Convenience Stores",
+            "surrounding_distance": "484m",
+            "surrounding_distance_m": "484",
+            "surrounding_lat": "1.3113982",
+            "surrounding_lng": "103.8565897"
+          },
+          "vi": {
+            "surrounding_name": "DON DON DONKI",
+            "surrounding_kind": "Siêu thị & cửa hàng tiện lợi",
+            "surrounding_distance": "484m",
+            "surrounding_distance_m": "484",
+            "surrounding_lat": "1.3113982",
+            "surrounding_lng": "103.8565897"
+          }
+        },
+        {
+          "row_uuid": "43a6d178-e330-6f11-b9f7-82f366257617",
+          "en": {
+            "surrounding_name": "City Square Mall",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "530m",
+            "surrounding_distance_m": "530",
+            "surrounding_lat": "1.3114516",
+            "surrounding_lng": "103.8561608"
+          },
+          "vi": {
+            "surrounding_name": "City Square Mall",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "530m",
+            "surrounding_distance_m": "530",
+            "surrounding_lat": "1.3114516",
+            "surrounding_lng": "103.8561608"
+          }
+        },
+        {
+          "row_uuid": "0227a489-e918-de96-6aee-d96faa65c8c3",
+          "en": {
+            "surrounding_name": "Mustafa Centre",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "654m",
+            "surrounding_distance_m": "654",
+            "surrounding_lat": "1.3099676",
+            "surrounding_lng": "103.8554251"
+          },
+          "vi": {
+            "surrounding_name": "Mustafa Centre",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "654m",
+            "surrounding_distance_m": "654",
+            "surrounding_lat": "1.3099676",
+            "surrounding_lng": "103.8554251"
+          }
+        },
+        {
+          "row_uuid": "4c7b3c7f-1b2d-6adf-7c9f-610be0cc3493",
+          "en": {
+            "surrounding_name": "SMS Mobiles Private Limited",
+            "surrounding_kind": "Electronics & Appliances",
+            "surrounding_distance": "672m",
+            "surrounding_distance_m": "672",
+            "surrounding_lat": "1.3095452",
+            "surrounding_lng": "103.8554279"
+          },
+          "vi": {
+            "surrounding_name": "SMS Mobiles Private Limited",
+            "surrounding_kind": "Thiết bị điện tử & thiết bị gia dụng",
+            "surrounding_distance": "672m",
+            "surrounding_distance_m": "672",
+            "surrounding_lat": "1.3095452",
+            "surrounding_lng": "103.8554279"
+          }
+        },
+        {
+          "row_uuid": "2384a013-8ac3-49c9-edd9-ca53bc375e13",
+          "en": {
+            "surrounding_name": "Watsons Towner Road (Click & Collect)",
+            "surrounding_kind": "Cosmetics",
+            "surrounding_distance": "795m",
+            "surrounding_distance_m": "795",
+            "surrounding_lat": "1.3193077",
+            "surrounding_lng": "103.8609838"
+          },
+          "vi": {
+            "surrounding_name": "Watsons Towner Road (Click & Collect)",
+            "surrounding_kind": "Mỹ phẩm",
+            "surrounding_distance": "795m",
+            "surrounding_distance_m": "795",
+            "surrounding_lat": "1.3193077",
+            "surrounding_lng": "103.8609838"
+          }
+        },
+        {
+          "row_uuid": "51506882-48f7-3eef-2dae-dad816e6643e",
+          "en": {
+            "surrounding_name": "D & J Florist",
+            "surrounding_kind": "Other",
+            "surrounding_distance": "829m",
+            "surrounding_distance_m": "829",
+            "surrounding_lat": "1.3048558",
+            "surrounding_lng": "103.8622971"
+          },
+          "vi": {
+            "surrounding_name": "D & J Florist",
+            "surrounding_kind": "Khác",
+            "surrounding_distance": "829m",
+            "surrounding_distance_m": "829",
+            "surrounding_lat": "1.3048558",
+            "surrounding_lng": "103.8622971"
+          }
+        },
+        {
+          "row_uuid": "911059ec-9d77-a417-93d9-3a351e8fc2b3",
+          "en": {
+            "surrounding_name": "The Heritage Shop",
+            "surrounding_kind": "Second-hand Stores",
+            "surrounding_distance": "1,0km",
+            "surrounding_distance_m": "1006",
+            "surrounding_lat": "1.3031283",
+            "surrounding_lng": "103.8611304"
+          },
+          "vi": {
+            "surrounding_name": "The Heritage Shop",
+            "surrounding_kind": "Cửa hàng đồ cũ",
+            "surrounding_distance": "1,0km",
+            "surrounding_distance_m": "1006",
+            "surrounding_lat": "1.3031283",
+            "surrounding_lng": "103.8611304"
+          }
+        },
+        {
+          "row_uuid": "82f8f6a2-edd5-64e2-c766-b7d526b46560",
+          "en": {
+            "surrounding_name": "Sze Thye Cake Shop",
+            "surrounding_kind": "Specialty Stores",
+            "surrounding_distance": "1,0km",
+            "surrounding_distance_m": "1028",
+            "surrounding_lat": "1.3038215",
+            "surrounding_lng": "103.8648345"
+          },
+          "vi": {
+            "surrounding_name": "Sze Thye Cake Shop",
+            "surrounding_kind": "Cửa hàng đặc sản",
+            "surrounding_distance": "1,0km",
+            "surrounding_distance_m": "1028",
+            "surrounding_lat": "1.3038215",
+            "surrounding_lng": "103.8648345"
+          }
+        },
+        {
+          "row_uuid": "d5dc480b-4471-5154-e8e0-d86a33800b22",
+          "en": {
+            "surrounding_name": "Jamal Kazura Aromatics (728 North Bridge Road)",
+            "surrounding_kind": "Cosmetics",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1068",
+            "surrounding_lat": "1.3027625",
+            "surrounding_lng": "103.8589726"
+          },
+          "vi": {
+            "surrounding_name": "Jamal Kazura Aromatics (728 North Bridge Road)",
+            "surrounding_kind": "Mỹ phẩm",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1068",
+            "surrounding_lat": "1.3027625",
+            "surrounding_lng": "103.8589726"
+          }
+        },
+        {
+          "row_uuid": "7c5a17bb-34a2-6086-2823-2847579b03bb",
+          "en": {
+            "surrounding_name": "The Golden Mile",
+            "surrounding_kind": "Flea Markets",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1148",
+            "surrounding_lat": "1.3027855",
+            "surrounding_lng": "103.8651561"
+          },
+          "vi": {
+            "surrounding_name": "The Golden Mile",
+            "surrounding_kind": "Chợ trời",
+            "surrounding_distance": "1,1km",
+            "surrounding_distance_m": "1148",
+            "surrounding_lat": "1.3027855",
+            "surrounding_lng": "103.8651561"
+          }
+        },
+        {
+          "row_uuid": "3347b3f0-8ad1-21a2-3f58-b8564ba32670",
+          "en": {
+            "surrounding_name": "Mahaco Impex",
+            "surrounding_kind": "Fashion & Accessories",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1201",
+            "surrounding_lat": "1.301589",
+            "surrounding_lng": "103.8587561"
+          },
+          "vi": {
+            "surrounding_name": "Mahaco Impex",
+            "surrounding_kind": "Thời trang & phụ kiện",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1201",
+            "surrounding_lat": "1.301589",
+            "surrounding_lng": "103.8587561"
+          }
+        },
+        {
+          "row_uuid": "4009f448-d324-0885-2be0-443209a7f691",
+          "en": {
+            "surrounding_name": "Toko Aljunied - House of Batik and Nyonya Kebaya",
+            "surrounding_kind": "Specialty Stores",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1222",
+            "surrounding_lat": "1.3013728",
+            "surrounding_lng": "103.8588869"
+          },
+          "vi": {
+            "surrounding_name": "Toko Aljunied - House of Batik and Nyonya Kebaya",
+            "surrounding_kind": "Cửa hàng đặc sản",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1222",
+            "surrounding_lat": "1.3013728",
+            "surrounding_lng": "103.8588869"
+          }
+        },
+        {
+          "row_uuid": "45521342-c301-2d7f-9c8e-4614ffaa04d4",
+          "en": {
+            "surrounding_name": "Little India Arcade",
+            "surrounding_kind": "Outlets",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1239",
+            "surrounding_lat": "1.3053728",
+            "surrounding_lng": "103.8520505"
+          },
+          "vi": {
+            "surrounding_name": "Little India Arcade",
+            "surrounding_kind": "Outlet",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1239",
+            "surrounding_lat": "1.3053728",
+            "surrounding_lng": "103.8520505"
+          }
+        },
+        {
+          "row_uuid": "1b13548d-3e56-e9ff-21c7-a0baea4f1e5a",
+          "en": {
+            "surrounding_name": "Jewel Palace Pte Ltd",
+            "surrounding_kind": "Jewelry & Watches",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1244",
+            "surrounding_lat": "1.3063421",
+            "surrounding_lng": "103.8513317"
+          },
+          "vi": {
+            "surrounding_name": "Jewel Palace Pte Ltd",
+            "surrounding_kind": "Trang sức & đồng hồ",
+            "surrounding_distance": "1,2km",
+            "surrounding_distance_m": "1244",
+            "surrounding_lat": "1.3063421",
+            "surrounding_lng": "103.8513317"
+          }
+        },
+        {
+          "row_uuid": "e51ba385-64a7-4723-8176-c4af97c23e6d",
+          "en": {
+            "surrounding_name": "Tekka Centre",
+            "surrounding_kind": "Second-hand Stores",
+            "surrounding_distance": "1,3km",
+            "surrounding_distance_m": "1314",
+            "surrounding_lat": "1.306251",
+            "surrounding_lng": "103.850654"
+          },
+          "vi": {
+            "surrounding_name": "Tekka Centre",
+            "surrounding_kind": "Cửa hàng đồ cũ",
+            "surrounding_distance": "1,3km",
+            "surrounding_distance_m": "1314",
+            "surrounding_lat": "1.306251",
+            "surrounding_lng": "103.850654"
+          }
+        },
+        {
+          "row_uuid": "c124e841-d464-5e41-8259-5a85f888f1e5",
+          "en": {
+            "surrounding_name": "Sim Lim Square",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "1,3km",
+            "surrounding_distance_m": "1347",
+            "surrounding_lat": "1.3030433",
+            "surrounding_lng": "103.8529208"
+          },
+          "vi": {
+            "surrounding_name": "Sim Lim Square",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "1,3km",
+            "surrounding_distance_m": "1347",
+            "surrounding_lat": "1.3030433",
+            "surrounding_lng": "103.8529208"
+          }
+        },
+        {
+          "row_uuid": "d455a4a1-e217-2556-d379-33a277582a1c",
+          "en": {
+            "surrounding_name": "Bugis Street",
+            "surrounding_distance": "1,4km",
+            "surrounding_distance_m": "1402",
+            "surrounding_lat": "1.3007835",
+            "surrounding_lng": "103.8554794"
+          },
+          "vi": {
+            "surrounding_name": "Bugis Street",
+            "surrounding_distance": "1,4km",
+            "surrounding_distance_m": "1402",
+            "surrounding_lat": "1.3007835",
+            "surrounding_lng": "103.8554794"
+          }
+        },
+        {
+          "row_uuid": "188c2919-6160-3bf4-26c6-bc4ff7876ad5",
+          "en": {
+            "surrounding_name": "Bugis Street",
+            "surrounding_kind": "Second-hand Stores",
+            "surrounding_distance": "1,5km",
+            "surrounding_distance_m": "1474",
+            "surrounding_lat": "1.3001991",
+            "surrounding_lng": "103.8552015"
+          },
+          "vi": {
+            "surrounding_name": "Bugis Street",
+            "surrounding_kind": "Cửa hàng đồ cũ",
+            "surrounding_distance": "1,5km",
+            "surrounding_distance_m": "1474",
+            "surrounding_lat": "1.3001991",
+            "surrounding_lng": "103.8552015"
+          }
+        },
+        {
+          "row_uuid": "ae06cc04-3066-7911-5b37-c69b7349b9c8",
+          "en": {
+            "surrounding_name": "Bugis Junction",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "1,5km",
+            "surrounding_distance_m": "1543",
+            "surrounding_lat": "1.2993754",
+            "surrounding_lng": "103.8555261"
+          },
+          "vi": {
+            "surrounding_name": "Bugis Junction",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "1,5km",
+            "surrounding_distance_m": "1543",
+            "surrounding_lat": "1.2993754",
+            "surrounding_lng": "103.8555261"
+          }
+        },
+        {
+          "row_uuid": "54ac5e30-4f31-4470-bec3-7f054dcd473a",
+          "en": {
+            "surrounding_name": "Bugis+",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "1,6km",
+            "surrounding_distance_m": "1583",
+            "surrounding_lat": "1.2995955",
+            "surrounding_lng": "103.8542191"
+          },
+          "vi": {
+            "surrounding_name": "Bugis+",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "1,6km",
+            "surrounding_distance_m": "1583",
+            "surrounding_lat": "1.2995955",
+            "surrounding_lng": "103.8542191"
+          }
+        },
+        {
+          "row_uuid": "d4e71c2c-a9c6-e521-7419-817cf8ee6720",
+          "en": {
+            "surrounding_name": "Noodle Around",
+            "surrounding_kind": "Other Chinese cuisine",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1661",
+            "surrounding_lat": "1.2981788",
+            "surrounding_lng": "103.8556728"
+          },
+          "vi": {
+            "surrounding_name": "Noodle Around",
+            "surrounding_kind": "Ẩm thực Trung Hoa khác",
+            "surrounding_distance": "1,7km",
+            "surrounding_distance_m": "1661",
+            "surrounding_lat": "1.2981788",
+            "surrounding_lng": "103.8556728"
+          }
+        },
+        {
+          "row_uuid": "9dc9e131-1911-7248-3198-c3a2b59aa90a",
+          "en": {
+            "surrounding_name": "Kallang Wave Mall",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1782",
+            "surrounding_lat": "1.3026669",
+            "surrounding_lng": "103.8737641"
+          },
+          "vi": {
+            "surrounding_name": "Kallang Wave Mall",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1782",
+            "surrounding_lat": "1.3026669",
+            "surrounding_lng": "103.8737641"
+          }
+        },
+        {
+          "row_uuid": "4e64afd4-32de-2810-a212-b871546cb2ca",
+          "en": {
+            "surrounding_name": "Parklane Shopping Mall",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1813",
+            "surrounding_lat": "1.300661",
+            "surrounding_lng": "103.8493367"
+          },
+          "vi": {
+            "surrounding_name": "Parklane Shopping Mall",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1813",
+            "surrounding_lat": "1.300661",
+            "surrounding_lng": "103.8493367"
+          }
+        },
+        {
+          "row_uuid": "1012c894-fda7-eaf3-e4c3-e24058430a7c",
+          "en": {
+            "surrounding_name": "Suntec City",
+            "surrounding_distance": "1,9km",
+            "surrounding_distance_m": "1928",
+            "surrounding_lat": "1.2950324",
+            "surrounding_lng": "103.8583015"
+          },
+          "vi": {
+            "surrounding_name": "Suntec City",
+            "surrounding_distance": "1,9km",
+            "surrounding_distance_m": "1928",
+            "surrounding_lat": "1.2950324",
+            "surrounding_lng": "103.8583015"
+          }
+        },
+        {
+          "row_uuid": "94a4d55a-e3ae-f3a8-54a1-c3020538023f",
+          "en": {
+            "surrounding_name": "Raffles Hotel Arcade",
+            "surrounding_kind": "Specialty Stores",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1971",
+            "surrounding_lat": "1.295759",
+            "surrounding_lng": "103.85422"
+          },
+          "vi": {
+            "surrounding_name": "Raffles Hotel Arcade",
+            "surrounding_kind": "Cửa hàng đặc sản",
+            "surrounding_distance": "2,0km",
+            "surrounding_distance_m": "1971",
+            "surrounding_lat": "1.295759",
+            "surrounding_lng": "103.85422"
+          }
+        },
+        {
+          "row_uuid": "9186c98c-9910-d492-a6b8-84372d2e3ce2",
+          "en": {
+            "surrounding_name": "Marks & Spencer",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "2,1km",
+            "surrounding_distance_m": "2137",
+            "surrounding_lat": "1.2945804",
+            "surrounding_lng": "103.8531697"
+          },
+          "vi": {
+            "surrounding_name": "Marks & Spencer",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "2,1km",
+            "surrounding_distance_m": "2137",
+            "surrounding_lat": "1.2945804",
+            "surrounding_lng": "103.8531697"
+          }
+        },
+        {
+          "row_uuid": "d0f0dbd2-367a-d023-3ecd-804b9e1e2a1d",
+          "en": {
+            "surrounding_name": "Raffles City Shopping Centre",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "2,2km",
+            "surrounding_distance_m": "2196",
+            "surrounding_lat": "1.29401",
+            "surrounding_lng": "103.8531473"
+          },
+          "vi": {
+            "surrounding_name": "Raffles City Shopping Centre",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "2,2km",
+            "surrounding_distance_m": "2196",
+            "surrounding_lat": "1.29401",
+            "surrounding_lng": "103.8531473"
+          }
+        },
+        {
+          "row_uuid": "5d00c711-0ce4-e141-3a29-7619318e4637",
+          "en": {
+            "surrounding_name": "Millenia Walk",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2286",
+            "surrounding_lat": "1.2916585",
+            "surrounding_lng": "103.8597629"
+          },
+          "vi": {
+            "surrounding_name": "Millenia Walk",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2286",
+            "surrounding_lat": "1.2916585",
+            "surrounding_lng": "103.8597629"
+          }
+        },
+        {
+          "row_uuid": "d6d2c049-e768-d3e1-30a4-8d08d96eb76e",
+          "en": {
+            "surrounding_name": "Funan",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2612",
+            "surrounding_lat": "1.2912647",
+            "surrounding_lng": "103.8501932"
+          },
+          "vi": {
+            "surrounding_name": "Funan",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2612",
+            "surrounding_lat": "1.2912647",
+            "surrounding_lng": "103.8501932"
+          }
+        }
+      ]
+    }
+  ]
+}
