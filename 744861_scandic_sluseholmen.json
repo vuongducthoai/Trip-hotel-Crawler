@@ -1,0 +1,1588 @@
+{
+  "property_id": 744861,
+  "hotel_name": "Scandic Sluseholmen",
+  "source_table": "splatform_meta.trip_tmp_property_translation",
+  "note": "Gom lại từ các dòng (property_id,row_uuid,type,section_type,lang,field,value) cho dễ đọc; file *.rows.json là bản phẳng đúng 7 cột. row_uuid = md5(row_key)::uuid.",
+  "DESCRIPTION": {
+    "row_uuid": "69db8e9b-f626-c98c-f229-27aa5f2fecfa",
+    "section_type": "hotelInfo",
+    "row_key": "744861:DESCRIPTION",
+    "en": {
+      "hotel_name": "Scandic Sluseholmen",
+      "hotel_address": "Molestien 11, Copenhagen, Hovedstaden, 2450, Denmark",
+      "countryCode": "DK",
+      "room_count": "215",
+      "description": "<p>A stay at Scandic Sluseholmen places you in the heart of Copenhagen, within a 10-minute drive of Tivoli Gardens and City Hall Square. This hotel is 3.8 mi (6 km) from Nyhavn and 3.9 mi (6.3 km) from Amalienborg Palace.</p><p>Enjoy a range of recreational amenities, including a hot tub, a sauna, and a 24-hour fitness center. Additional amenities at this hotel include complimentary wireless internet access, concierge services, and a reception hall.</p><p>Grab a bite to eat at Elements, a restaurant where you can enjoy drinks at the bar/lounge and dine alfresco. Or stay in and take advantage of the room service (during limited hours). Buffet breakfasts are served on weekdays from 6:30 AM to 9:30 AM and on weekends from 7:00 AM to 10:00 AM for a fee.</p><p>Featured amenities include dry cleaning/laundry services, a 24-hour front desk, and luggage storage. Planning an event in Copenhagen? This hotel has 5608 square feet (521 square meters) of space consisting of conference space and 20 meeting rooms. Self parking (subject to charges) is available onsite.</p><p>Stay in one of 215 guestrooms featuring LED televisions. Complimentary wireless internet access keeps you connected, and satellite programming is available for your entertainment. Private bathrooms have complimentary toiletries and hair dryers. Conveniences include phones, as well as safes and desks.</p>",
+      "tripAdvisorId": "274637"
+    },
+    "vi": {
+      "hotel_name": "Scandic Sluseholmen",
+      "hotel_address": "Molestien 11, 2450 Copenhagen, Hovedstaden, Đan Mạch",
+      "countryCode": "DK",
+      "room_count": "215",
+      "description": "<p>Tọa lạc tại trung tâm Copenhagen, Scandic Sluseholmen cách Công viên Tivoli và Quảng trường Tòa thị chính 10 phút lái xe. Khách sạn cách Khu Nyhavn 6 km và cách Cung điện Amalienborg 6,3 km.</p><p>Hãy tận hưởng nhiều dịch vụ, tiện nghi thể thao, giải trí như bồn tắm thủy lực, phòng tắm hơi và trung tâm thể dục phục vụ 24 giờ. Các dịch vụ, tiện ích khác tại Khách sạn này bao gồm quyền truy cập Internet không dây miễn phí, dịch vụ tư vấn/hỗ trợ khách và sảnh tiếp tân.</p><p>Khách có thể dùng bữa tại nhà hàng Elements hay gọi những ly nước từ quầy bar/khu lounge hoặc dùng bữa tối ngoài trời. Ngoài ra, khách cũng có thể nghỉ lại trong phòng và thưởng thức những bữa ăn ngon với dịch vụ phòng (có giới hạn thời gian). Khách có thể dùng bữa sáng buffet các ngày trong tuần từ 6:30 đến 9:30 và cuối tuần (phụ phí) từ 7:00 đến 10:00.</p><p>Có nhiều dịch vụ, tiện ích dành cho khách, bao gồm dịch vụ giặt ủi/giặt khô, quầy tiếp tân phục vụ 24 giờ/ngày và dịch vụ trông giữ/bảo quản hành lý. Có kế hoạch tổ chức sự kiện tại Copenhagen? Khách sạn này có khu vực tổ chức rộng 521 mét vuông, bao gồm khu hội nghị và 20 phòng họp. Có bãi đậu xe tự phục vụ (phụ phí) trong khuôn viên.</p><p>Hãy nghỉ tại một trong 215 phòng được trang bị TV LED. Bạn luôn có thể giữ liên lạc bằng kết nối internet không dây miễn phí; trong khi các chương trình truyền hình vệ tinh sẽ mang đến những phút giây giải trí thoải mái. Phòng tắm riêng có đồ dùng nhà tắm miễn phí và máy sấy tóc. Tiện nghi phòng bao gồm điện thoại, cùng két bảo mật và bàn.</p>",
+      "tripAdvisorId": "274637"
+    }
+  },
+  "POLICY": [
+    {
+      "section_type": "checkInAndOut",
+      "row_uuid": "80b959d8-a301-16e4-b8e9-d0683d89e255",
+      "row_key": "744861:POLICY:checkInAndOut",
+      "en": {
+        "policy_title": "Check-in and Check-out Times",
+        "policy_content": "<p>Check-in: <strong>16:00–01:00 the next day</strong></p><p>Check-out: <strong>Before 12:00</strong></p><p>Front desk hours: 24/7</p>"
+      },
+      "vi": {
+        "policy_title": "Thời gian nhận và trả phòng",
+        "policy_content": "<p>Nhận phòng: <strong>16:00 – 01:00 ngày hôm sau</strong></p><p>Trả phòng: <strong>Trước 12:00</strong></p><p>Giờ làm việc của quầy lễ tân: 24/7</p>"
+      }
+    },
+    {
+      "section_type": "childPolicy",
+      "row_uuid": "ff1d2d10-35c3-827b-f81b-e90073bfd19d",
+      "row_key": "744861:POLICY:childPolicy",
+      "en": {
+        "policy_title": "Child policies",
+        "policy_content": "<p>Children of all ages are welcome at this property.</p><p>Additional fees may be charged for children using existing beds. Add the number of children to get a more accurate price.</p>"
+      },
+      "vi": {
+        "policy_title": "Chính sách cho trẻ em",
+        "policy_content": "<p>Trẻ em thuộc mọi độ tuổi đều được chào đón tại cơ sở lưu trú này.</p><p>Bạn có thể mất thêm phí để trẻ em sử dụng giường có sẵn. Hãy thêm số lượng trẻ em đi cùng để nhận được mức giá chính xác hơn.</p>"
+      }
+    },
+    {
+      "section_type": "cribAndExtraBed",
+      "row_uuid": "8a53db35-bec3-24ee-9e19-a12e0991d41c",
+      "row_key": "744861:POLICY:cribAndExtraBed",
+      "en": {
+        "policy_title": "Cribs and Extra Beds",
+        "policy_content": "<p>For all room types, extra beds cannot be added. Crib policies vary according to room type. Please refer to the relevant room type policy.</p>"
+      },
+      "vi": {
+        "policy_title": "Nôi/cũi và giường phụ",
+        "policy_content": "<p>Mọi loại phòng đều không thể bổ sung giường phụ. Chính sách về cũi khác nhau tùy theo loại phòng. Vui lòng tham khảo chính sách phòng liên quan.</p>"
+      }
+    },
+    {
+      "section_type": "breakfast",
+      "row_uuid": "f057eb2d-3563-3f72-8bdf-e2ae745f9b15",
+      "row_key": "744861:POLICY:breakfast",
+      "en": {
+        "policy_title": "Breakfast",
+        "policy_content": "<p>Option: Buffet</p><p>Cuisine: Western, Continental</p><p>Opening hours: [Mon - Fri] 06:30-09:00 Open [Sat - Sun] 06:30-09:30 Open</p><table><tr><td>Children 6 years old and under</td><td>Free</td></tr><tr><td>Children 7–11 years old</td><td>DKK 75 (approx. $11.26) per person</td></tr><tr><td>Children 12–17 years old</td><td>DKK 159 (approx. $23.88) per person</td></tr><tr><td>Adult</td><td>DKK 159 (approx. $23.88) per person</td></tr></table><p>Contact the property to see if extra breakfast is available. If so, you can pay for it at the property.</p>"
+      },
+      "vi": {
+        "policy_title": "Bữa sáng",
+        "policy_content": "<p>Lựa chọn: Tự chọn</p><p>Ẩm thực: Tây phương, Đại lục</p><p>Giờ mở cửa: [Thứ 2 - Thứ 6] 06:30-09:00 Đang Mở [Thứ 7 - CN] 06:30-09:30 Đang Mở</p><table><tr><td>Trẻ em 6 tuổi trở xuống</td><td>Miễn phí</td></tr><tr><td>Trẻ em 7–11 tuổi</td><td>75 DKK(khoảng 292.799₫) mỗi người</td></tr><tr><td>Trẻ em 12–17 tuổi</td><td>159 DKK(khoảng 620.733₫) mỗi người</td></tr><tr><td>Người lớn</td><td>159 DKK(khoảng 620.733₫) mỗi người</td></tr></table><p>Vui lòng liên hệ với cơ sở lưu trú để kiểm tra xem họ có dịch vụ thêm bữa sáng không. Nếu có, bạn có thể thanh toán cho dịch vụ này tại cơ sở lưu trú.</p>"
+      }
+    },
+    {
+      "section_type": "deposit",
+      "row_uuid": "dc0ea096-f992-f070-c3d0-34424c921bc3",
+      "row_key": "744861:POLICY:deposit",
+      "en": {
+        "policy_title": "Deposit Policy",
+        "policy_content": "<p>Deposit: <strong>No deposit required by the property</strong></p>"
+      },
+      "vi": {
+        "policy_title": "Chính sách đặt cọc",
+        "policy_content": "<p>Đặt cọc: <strong>Chỗ nghỉ không yêu cầu đặt cọc</strong></p>"
+      }
+    },
+    {
+      "section_type": "pet",
+      "row_uuid": "d1c13c45-2177-8371-916c-7ab40d92abfa",
+      "row_key": "744861:POLICY:pet",
+      "en": {
+        "policy_title": "Pets",
+        "policy_content": "<p>Pets are allowed</p><p>Fee: DKK 200 (approx. $30.03) per pet per night</p>"
+      },
+      "vi": {
+        "policy_title": "Thú cưng",
+        "policy_content": "<p>Được phép mang theo thú cưng</p><p>Phí: 200 DKK (khoảng 780.797₫)/thú cưng/đêm</p>"
+      }
+    },
+    {
+      "section_type": "serviceAnimal",
+      "row_uuid": "557e6ef0-ca25-48b1-6148-033eb06a4f76",
+      "row_key": "744861:POLICY:serviceAnimal",
+      "en": {
+        "policy_title": "Service animals",
+        "policy_content": "<p>Service animals are allowed</p>"
+      },
+      "vi": {
+        "policy_title": "Động vật hỗ trợ",
+        "policy_content": "<p>Được phép mang theo động vật hỗ trợ</p>"
+      }
+    },
+    {
+      "section_type": "ageLimit",
+      "row_uuid": "91141604-5174-a22f-e7d3-cbb097179b66",
+      "row_key": "744861:POLICY:ageLimit",
+      "en": {
+        "policy_title": "Age Requirements",
+        "policy_content": "<p>The main guest checking in must be at least 18 years old</p>"
+      },
+      "vi": {
+        "policy_title": "Giới hạn độ tuổi",
+        "policy_content": "<p>Khách chính nhận phòng phải từ 18 tuổi trở lên.</p>"
+      }
+    }
+  ],
+  "SURROUNDING": [
+    {
+      "group_code": "02",
+      "section_type": {
+        "en": "02_Transport",
+        "vi": "02_Giao thông"
+      },
+      "places": [
+        {
+          "row_uuid": "8360d5c2-8289-28ff-7a9f-1ffe4172e229",
+          "en": {
+            "surrounding_name": "Sluseholmen",
+            "surrounding_kind": "Metro station",
+            "surrounding_label": "Metro",
+            "surrounding_distance": "272m",
+            "surrounding_distance_m": "272",
+            "surrounding_lat": "55.6458355",
+            "surrounding_lng": "12.5437466"
+          },
+          "vi": {
+            "surrounding_name": "Sluseholmen",
+            "surrounding_kind": "Ga tàu điện ngầm",
+            "surrounding_label": "Tàu Điện Ngầm",
+            "surrounding_distance": "272m",
+            "surrounding_distance_m": "272",
+            "surrounding_lat": "55.6458355",
+            "surrounding_lng": "12.5437466"
+          }
+        },
+        {
+          "row_uuid": "7c03603f-cb62-6e23-6875-d273a5cd5a6d",
+          "en": {
+            "surrounding_name": "Mozarts Plads",
+            "surrounding_kind": "Metro station",
+            "surrounding_label": "Metro",
+            "surrounding_distance": "924m",
+            "surrounding_distance_m": "924",
+            "surrounding_lat": "55.6490494",
+            "surrounding_lng": "12.5339558"
+          },
+          "vi": {
+            "surrounding_name": "Mozarts Plads",
+            "surrounding_kind": "Ga tàu điện ngầm",
+            "surrounding_label": "Tàu Điện Ngầm",
+            "surrounding_distance": "924m",
+            "surrounding_distance_m": "924",
+            "surrounding_lat": "55.6490494",
+            "surrounding_lng": "12.5339558"
+          }
+        },
+        {
+          "row_uuid": "5acd3f46-3129-2614-92bd-210fad827d95",
+          "en": {
+            "surrounding_name": "Sydhavn",
+            "surrounding_kind": "Train station",
+            "surrounding_label": "Train",
+            "surrounding_distance": "1,6km",
+            "surrounding_distance_m": "1560",
+            "surrounding_lat": "55.6547438",
+            "surrounding_lng": "12.537444"
+          },
+          "vi": {
+            "surrounding_name": "Sydhavn",
+            "surrounding_kind": "Ga tàu",
+            "surrounding_label": "Vé Tàu",
+            "surrounding_distance": "1,6km",
+            "surrounding_distance_m": "1560",
+            "surrounding_lat": "55.6547438",
+            "surrounding_lng": "12.537444"
+          }
+        },
+        {
+          "row_uuid": "15f225e7-9010-fa57-4316-497c17162034",
+          "en": {
+            "surrounding_name": "Sjælør",
+            "surrounding_kind": "Train station",
+            "surrounding_label": "Train",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1840",
+            "surrounding_lat": "55.6517284",
+            "surrounding_lng": "12.5271002"
+          },
+          "vi": {
+            "surrounding_name": "Sjælør",
+            "surrounding_kind": "Ga tàu",
+            "surrounding_label": "Vé Tàu",
+            "surrounding_distance": "1,8km",
+            "surrounding_distance_m": "1840",
+            "surrounding_lat": "55.6517284",
+            "surrounding_lng": "12.5271002"
+          }
+        }
+      ]
+    },
+    {
+      "group_code": "03",
+      "section_type": {
+        "en": "03_Landmarks",
+        "vi": "03_Điểm nổi bật"
+      },
+      "places": [
+        {
+          "row_uuid": "2cc55f84-6f30-ca78-f870-39a200ba0427",
+          "en": {
+            "surrounding_name": "Valby Park",
+            "surrounding_kind": "City Parks",
+            "surrounding_distance": "1,5km",
+            "surrounding_distance_m": "1534",
+            "surrounding_lat": "55.6415103",
+            "surrounding_lng": "12.5206795"
+          },
+          "vi": {
+            "surrounding_name": "Valby Park",
+            "surrounding_kind": "Công Viên Thành Phố",
+            "surrounding_distance": "1,5km",
+            "surrounding_distance_m": "1534",
+            "surrounding_lat": "55.6415103",
+            "surrounding_lng": "12.5206795"
+          }
+        },
+        {
+          "row_uuid": "ccb54e16-2e58-4dc9-af18-231e23b773a6",
+          "en": {
+            "surrounding_name": "Bella Center Copenhagen",
+            "surrounding_kind": "Modern Architecture",
+            "surrounding_distance": "2,2km",
+            "surrounding_distance_m": "2221",
+            "surrounding_lat": "55.6380111",
+            "surrounding_lng": "12.5788393"
+          },
+          "vi": {
+            "surrounding_name": "Bella Center Copenhagen",
+            "surrounding_kind": "Kiến Trúc Hiện Đại",
+            "surrounding_distance": "2,2km",
+            "surrounding_distance_m": "2221",
+            "surrounding_lat": "55.6380111",
+            "surrounding_lng": "12.5788393"
+          }
+        },
+        {
+          "row_uuid": "39ce20b3-d9af-7799-9ef2-38dc3839c9e6",
+          "en": {
+            "surrounding_name": "Home of Carlsberg",
+            "surrounding_distance": "2,5km",
+            "surrounding_distance_m": "2520",
+            "surrounding_lat": "55.664575",
+            "surrounding_lng": "12.5302954"
+          },
+          "vi": {
+            "surrounding_name": "Home of Carlsberg",
+            "surrounding_distance": "2,5km",
+            "surrounding_distance_m": "2520",
+            "surrounding_lat": "55.664575",
+            "surrounding_lng": "12.5302954"
+          }
+        },
+        {
+          "row_uuid": "428d455b-8701-5bcb-f8c2-e67ad67ab47d",
+          "en": {
+            "surrounding_name": "Copenhagen | Gilli Concert 2026",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2705",
+            "surrounding_lat": "55.6254495",
+            "surrounding_lng": "12.5737085"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Gilli Concert 2026",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2705",
+            "surrounding_lat": "55.6254495",
+            "surrounding_lng": "12.5737085"
+          }
+        },
+        {
+          "row_uuid": "dfe67261-d647-4790-987e-e2064c819c07",
+          "en": {
+            "surrounding_name": "Phoebe Bridgers - The Lost Tour 2026",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Phoebe Bridgers - The Lost Tour 2026",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "3a2b8e53-fae6-457a-71ed-cbc39a334a45",
+          "en": {
+            "surrounding_name": "Bryson Tiller - The Neo Trapsoul Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Bryson Tiller - The Neo Trapsoul Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "2c4fcd5f-20d8-767b-bae9-efecb930fd50",
+          "en": {
+            "surrounding_name": "Copenhagen | Niall Horan 2026 Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Niall Horan 2026 Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "e4df4f79-2623-c740-5601-2d3646f1333a",
+          "en": {
+            "surrounding_name": "Copenhagen | J. Cole: The Fall-Off Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | J. Cole: The Fall-Off Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "f7cff8c1-d541-12c6-d7c8-f74d9c8dfe6b",
+          "en": {
+            "surrounding_name": "Copenhagen | Stevie Wonder: Songs In The Key of Life - 50th Anniversary Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Stevie Wonder: Songs In The Key of Life - 50th Anniversary Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "0eb6f293-8cbd-306b-852c-04ae763d0942",
+          "en": {
+            "surrounding_name": "Copenhagen | Westlife 25 - The Anniversary World Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Westlife 25 - The Anniversary World Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "0e5c8bd2-ae39-086e-8766-410129bc520e",
+          "en": {
+            "surrounding_name": "Copenhagen | 2026 LE SSERAFIM TOUR ‘PUREFLOW’ IN UK & EUROPE",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | 2026 LE SSERAFIM TOUR ‘PUREFLOW’ IN UK & EUROPE",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "898658ef-fbc6-b653-c98e-bd03c3eaba06",
+          "en": {
+            "surrounding_name": "Royal Arena",
+            "surrounding_kind": "Stadiums",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          },
+          "vi": {
+            "surrounding_name": "Royal Arena",
+            "surrounding_kind": "Sân Vận Động",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2706",
+            "surrounding_lat": "55.6254401",
+            "surrounding_lng": "12.5737102"
+          }
+        },
+        {
+          "row_uuid": "e7c07721-c13a-4172-4ebf-1a3d84bf078c",
+          "en": {
+            "surrounding_name": "Copenhagen | French Kiwi Juice 2026 Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | French Kiwi Juice 2026 Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          }
+        },
+        {
+          "row_uuid": "dac8d073-36be-4271-3a0f-c646373f9a51",
+          "en": {
+            "surrounding_name": "Copenhagen | D-Block Europe Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | D-Block Europe Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          }
+        },
+        {
+          "row_uuid": "789fde74-caf1-e9ce-6972-65e327ebe9f8",
+          "en": {
+            "surrounding_name": "Copenhagen | Olivver the Kid Concert",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Olivver the Kid Concert",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          }
+        },
+        {
+          "row_uuid": "f6b95eb8-ccd0-beb7-0e51-fe8696bde324",
+          "en": {
+            "surrounding_name": "Copenhagen | Josiah and the Bonnevilles European tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Josiah and the Bonnevilles European tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          }
+        },
+        {
+          "row_uuid": "ec278196-d193-f632-52b9-53d88fa07c16",
+          "en": {
+            "surrounding_name": "Vega",
+            "surrounding_kind": "Theaters",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          },
+          "vi": {
+            "surrounding_name": "Vega",
+            "surrounding_kind": "Nhà Hát",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2743",
+            "surrounding_lat": "55.6681108",
+            "surrounding_lng": "12.5438031"
+          }
+        },
+        {
+          "row_uuid": "a9f49fa6-56e9-10e3-21f0-a4b7d2811612",
+          "en": {
+            "surrounding_name": "Øksnehallen",
+            "surrounding_kind": "Historical Sites",
+            "surrounding_distance": "3,1km",
+            "surrounding_distance_m": "3090",
+            "surrounding_lat": "55.6694724",
+            "surrounding_lng": "12.5621014"
+          },
+          "vi": {
+            "surrounding_name": "Øksnehallen",
+            "surrounding_kind": "Di Tích Lịch Sử",
+            "surrounding_distance": "3,1km",
+            "surrounding_distance_m": "3090",
+            "surrounding_lat": "55.6694724",
+            "surrounding_lng": "12.5621014"
+          }
+        },
+        {
+          "row_uuid": "57d9f9f5-00c2-4a83-855a-f9efad50d078",
+          "en": {
+            "surrounding_name": "Koncerthuset",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889685"
+          },
+          "vi": {
+            "surrounding_name": "Koncerthuset",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889685"
+          }
+        },
+        {
+          "row_uuid": "f52432fa-e37a-767e-9833-939371bc8958",
+          "en": {
+            "surrounding_name": "Copenhagen | Glen Hansard 2026 Solo Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889684"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Glen Hansard 2026 Solo Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889684"
+          }
+        },
+        {
+          "row_uuid": "a5048602-78d3-f1a5-17c9-05c6ccb9a35e",
+          "en": {
+            "surrounding_name": "Copenhagen | Blanco White 2027 Tour",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889684"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Blanco White 2027 Tour",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889684"
+          }
+        },
+        {
+          "row_uuid": "c551409c-8a5f-9ebd-e93f-27ad99f47ad3",
+          "en": {
+            "surrounding_name": "Copenhagen | Tori Kelly-God Must Really Love Me Europe Tour 2026",
+            "surrounding_kind": "Vocal Concerts",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889684"
+          },
+          "vi": {
+            "surrounding_name": "Copenhagen | Tori Kelly-God Must Really Love Me Europe Tour 2026",
+            "surrounding_kind": "Biểu Diễn Ca Nhạc",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3199",
+            "surrounding_lat": "55.6578249",
+            "surrounding_lng": "12.5889684"
+          }
+        },
+        {
+          "row_uuid": "4f7eede1-7961-c984-9678-76763e58b45b",
+          "en": {
+            "surrounding_name": "Kulturhuset Islands Brygge",
+            "surrounding_kind": "Historical Architectures",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3270",
+            "surrounding_lat": "55.6668739",
+            "surrounding_lng": "12.5763044"
+          },
+          "vi": {
+            "surrounding_name": "Kulturhuset Islands Brygge",
+            "surrounding_kind": "Di Tích Kiến Trúc",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3270",
+            "surrounding_lat": "55.6668739",
+            "surrounding_lng": "12.5763044"
+          }
+        },
+        {
+          "row_uuid": "9ae2dac5-bcff-c807-bb86-4f868826207a",
+          "en": {
+            "surrounding_name": "Det Ny Teater",
+            "surrounding_kind": "Theaters",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3372",
+            "surrounding_lat": "55.6731861",
+            "surrounding_lng": "12.5552862"
+          },
+          "vi": {
+            "surrounding_name": "Det Ny Teater",
+            "surrounding_kind": "Nhà Hát",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3372",
+            "surrounding_lat": "55.6731861",
+            "surrounding_lng": "12.5552862"
+          }
+        },
+        {
+          "row_uuid": "a0637b64-6555-06d4-fd07-e4d7fa46ccf3",
+          "en": {
+            "surrounding_name": "RED Sightseeing Copenhagen",
+            "surrounding_kind": "Bus Tours",
+            "surrounding_distance": "3,6km",
+            "surrounding_distance_m": "3564",
+            "surrounding_lat": "55.673331",
+            "surrounding_lng": "12.5653467"
+          },
+          "vi": {
+            "surrounding_name": "RED Sightseeing Copenhagen",
+            "surrounding_kind": "Tour Buýt",
+            "surrounding_distance": "3,6km",
+            "surrounding_distance_m": "3564",
+            "surrounding_lat": "55.673331",
+            "surrounding_lng": "12.5653467"
+          }
+        },
+        {
+          "row_uuid": "90fb9e15-6c28-a602-2612-5b1c2018527b",
+          "en": {
+            "surrounding_name": "Degas' Obsession",
+            "surrounding_kind": "Exhibitions",
+            "surrounding_distance": "3,7km",
+            "surrounding_distance_m": "3717",
+            "surrounding_lat": "55.67298",
+            "surrounding_lng": "12.572543"
+          },
+          "vi": {
+            "surrounding_name": "Degas' Obsession",
+            "surrounding_kind": "Triển Lãm",
+            "surrounding_distance": "3,7km",
+            "surrounding_distance_m": "3717",
+            "surrounding_lat": "55.67298",
+            "surrounding_lng": "12.572543"
+          }
+        },
+        {
+          "row_uuid": "19a5c42b-511a-2462-d28c-0fcc039d08f2",
+          "en": {
+            "surrounding_name": "BLOX",
+            "surrounding_kind": "Historical Architectures",
+            "surrounding_distance": "3,8km",
+            "surrounding_distance_m": "3821",
+            "surrounding_lat": "55.6720417",
+            "surrounding_lng": "12.5785699"
+          },
+          "vi": {
+            "surrounding_name": "BLOX",
+            "surrounding_kind": "Di Tích Kiến Trúc",
+            "surrounding_distance": "3,8km",
+            "surrounding_distance_m": "3821",
+            "surrounding_lat": "55.6720417",
+            "surrounding_lng": "12.5785699"
+          }
+        },
+        {
+          "row_uuid": "0aed0d40-9860-3be5-dafb-d98e35c5d6f2",
+          "en": {
+            "surrounding_name": "KA-CHING!",
+            "surrounding_kind": "Exhibitions",
+            "surrounding_distance": "3,9km",
+            "surrounding_distance_m": "3928",
+            "surrounding_lat": "55.6744995",
+            "surrounding_lng": "12.5746442"
+          },
+          "vi": {
+            "surrounding_name": "KA-CHING!",
+            "surrounding_kind": "Triển Lãm",
+            "surrounding_distance": "3,9km",
+            "surrounding_distance_m": "3928",
+            "surrounding_lat": "55.6744995",
+            "surrounding_lng": "12.5746442"
+          }
+        },
+        {
+          "row_uuid": "85e55c8a-61cb-e549-0e77-696722af4266",
+          "en": {
+            "surrounding_name": "Pumpehuset",
+            "surrounding_distance": "4,0km",
+            "surrounding_distance_m": "3962",
+            "surrounding_lat": "55.6771524",
+            "surrounding_lng": "12.5652471"
+          },
+          "vi": {
+            "surrounding_name": "Pumpehuset",
+            "surrounding_distance": "4,0km",
+            "surrounding_distance_m": "3962",
+            "surrounding_lat": "55.6771524",
+            "surrounding_lng": "12.5652471"
+          }
+        },
+        {
+          "row_uuid": "5c627f31-aa0c-d209-6f67-3b7c7d64c4d8",
+          "en": {
+            "surrounding_name": "Museum of Illusions | Copenhagen",
+            "surrounding_distance": "4,1km",
+            "surrounding_distance_m": "4088",
+            "surrounding_lat": "55.6772537",
+            "surrounding_lng": "12.5703976"
+          },
+          "vi": {
+            "surrounding_name": "Museum of Illusions | Copenhagen",
+            "surrounding_distance": "4,1km",
+            "surrounding_distance_m": "4088",
+            "surrounding_lat": "55.6772537",
+            "surrounding_lng": "12.5703976"
+          }
+        }
+      ]
+    },
+    {
+      "group_code": "04",
+      "section_type": {
+        "en": "04_Dining"
+      },
+      "places": [
+        {
+          "row_uuid": "10aad2ea-36ab-2dd2-fcbf-3bfc7a05f2b9",
+          "en": {
+            "surrounding_name": "Tramonto Rooftop",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "2,7km",
+            "surrounding_distance_m": "2667",
+            "surrounding_lat": "55.6664571",
+            "surrounding_lng": "12.5328463"
+          }
+        },
+        {
+          "row_uuid": "087ef6b8-0894-1391-f153-93f0f1aada81",
+          "en": {
+            "surrounding_name": "Sticks'n'Sushi - Tivoli Hotel",
+            "surrounding_kind": "Japanese cuisine",
+            "surrounding_distance": "2,8km",
+            "surrounding_distance_m": "2821",
+            "surrounding_lat": "55.6657773",
+            "surrounding_lng": "12.5661667"
+          }
+        },
+        {
+          "row_uuid": "67d0da0b-f9e6-d21f-4809-e8b2113f9358",
+          "en": {
+            "surrounding_name": "Kodbyens Fiskebar",
+            "surrounding_kind": "Seafood",
+            "surrounding_distance": "2,9km",
+            "surrounding_distance_m": "2865",
+            "surrounding_lat": "55.6678839",
+            "surrounding_lng": "12.5592894"
+          }
+        },
+        {
+          "row_uuid": "15820512-a437-ef69-d91e-9d99c306f63c",
+          "en": {
+            "surrounding_name": "Fleisch",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "3,0km",
+            "surrounding_distance_m": "2973",
+            "surrounding_lat": "55.6689887",
+            "surrounding_lng": "12.5588229"
+          }
+        },
+        {
+          "row_uuid": "22a9d689-9bc0-db67-8a47-dd2c5412f53f",
+          "en": {
+            "surrounding_name": "Pate Pate",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "3,0km",
+            "surrounding_distance_m": "2989",
+            "surrounding_lat": "55.6691778",
+            "surrounding_lng": "12.5585798"
+          }
+        },
+        {
+          "row_uuid": "39bf7b7f-a6b0-5782-c51a-e854c2215ae5",
+          "en": {
+            "surrounding_name": "Restaurant Cofoco",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3268",
+            "surrounding_lat": "55.6718143",
+            "surrounding_lng": "12.5584284"
+          }
+        },
+        {
+          "row_uuid": "888617fb-dfb0-7648-b74c-380e36adfbdb",
+          "en": {
+            "surrounding_name": "Madklubben Vesterbro",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3296",
+            "surrounding_lat": "55.6727069",
+            "surrounding_lng": "12.5531287"
+          }
+        },
+        {
+          "row_uuid": "d8cc698f-a0a7-1b3d-4312-276e2b258554",
+          "en": {
+            "surrounding_name": "Frk. Barners Kælder",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3349",
+            "surrounding_lat": "55.6721542",
+            "surrounding_lng": "12.5609318"
+          }
+        },
+        {
+          "row_uuid": "a44e9fe0-59b1-d4f3-e23c-2a595197d1ef",
+          "en": {
+            "surrounding_name": "KoD Vesterbro",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3359",
+            "surrounding_lat": "55.672682",
+            "surrounding_lng": "12.558267"
+          }
+        },
+        {
+          "row_uuid": "14f171b2-8ec5-c09b-d52b-b73a25a4de98",
+          "en": {
+            "surrounding_name": "Maple Casual Dining",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3394",
+            "surrounding_lat": "55.6729973",
+            "surrounding_lng": "12.5583409"
+          }
+        },
+        {
+          "row_uuid": "d8e75e2b-0dc8-b79a-ee35-b460304597d1",
+          "en": {
+            "surrounding_name": "Kadeau Copenhagen",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "4,2km",
+            "surrounding_distance_m": "4240",
+            "surrounding_lat": "55.6722944",
+            "surrounding_lng": "12.5889809"
+          }
+        },
+        {
+          "row_uuid": "d0118a55-a26c-4f1c-3386-85ed6dc2ad7d",
+          "en": {
+            "surrounding_name": "King Hans Cellar",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "4,6km",
+            "surrounding_distance_m": "4640",
+            "surrounding_lat": "55.678775",
+            "surrounding_lng": "12.584143"
+          }
+        },
+        {
+          "row_uuid": "6b7402da-4910-20a6-fb86-e87f5d0c7160",
+          "en": {
+            "surrounding_name": "Marchal",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "4,8km",
+            "surrounding_distance_m": "4826",
+            "surrounding_lat": "55.680559",
+            "surrounding_lng": "12.584643"
+          }
+        },
+        {
+          "row_uuid": "57f5ddc2-f9a0-bfd5-2100-78a6d881201c",
+          "en": {
+            "surrounding_name": "Alouette",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "5,0km",
+            "surrounding_distance_m": "4980",
+            "surrounding_lat": "55.6831601",
+            "surrounding_lng": "12.581445"
+          }
+        },
+        {
+          "row_uuid": "e731f9c6-9342-a568-423f-24d8bb9c6bbc",
+          "en": {
+            "surrounding_name": "Pluto",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "5,1km",
+            "surrounding_distance_m": "5122",
+            "surrounding_lat": "55.683458",
+            "surrounding_lng": "12.5851983"
+          }
+        },
+        {
+          "row_uuid": "02d1aa2b-06d0-e8ff-5f9c-32a40fb53233",
+          "en": {
+            "surrounding_name": "AOC",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "5,2km",
+            "surrounding_distance_m": "5219",
+            "surrounding_lat": "55.6832701",
+            "surrounding_lng": "12.5887971"
+          }
+        },
+        {
+          "row_uuid": "1bc25a62-32ff-5352-ae06-17a83e5a092a",
+          "en": {
+            "surrounding_name": "Noma",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "6,0km",
+            "surrounding_distance_m": "6015",
+            "surrounding_lat": "55.6828273",
+            "surrounding_lng": "12.6104808"
+          }
+        },
+        {
+          "row_uuid": "4999ad2b-ecff-4b03-bfb9-d75588f7ec9f",
+          "en": {
+            "surrounding_name": "Restaurant Koan",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "6,8km",
+            "surrounding_distance_m": "6751",
+            "surrounding_lat": "55.6955598",
+            "surrounding_lng": "12.5999281"
+          }
+        },
+        {
+          "row_uuid": "b1877782-0be1-0bb4-42e7-8e8a1b23178a",
+          "en": {
+            "surrounding_name": "Geranium",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "6,9km",
+            "surrounding_distance_m": "6926",
+            "surrounding_lat": "55.703748",
+            "surrounding_lng": "12.5721913"
+          }
+        },
+        {
+          "row_uuid": "36e59423-66d2-5bc8-18b1-ee7efb6cbadc",
+          "en": {
+            "surrounding_name": "ALCHEMIST",
+            "surrounding_kind": "Western cuisine",
+            "surrounding_distance": "7,1km",
+            "surrounding_distance_m": "7073",
+            "surrounding_lat": "55.6937822",
+            "surrounding_lng": "12.6136532"
+          }
+        }
+      ]
+    },
+    {
+      "group_code": "05",
+      "section_type": {
+        "en": "05_Shopping",
+        "vi": "05_Mua Sắm"
+      },
+      "places": [
+        {
+          "row_uuid": "e7cfa06b-6700-7f36-29f7-e10a5b7b39ba",
+          "en": {
+            "surrounding_name": "føtex",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2323",
+            "surrounding_lat": "55.6637264",
+            "surrounding_lng": "12.5359527"
+          },
+          "vi": {
+            "surrounding_name": "føtex",
+            "surrounding_distance": "2,3km",
+            "surrounding_distance_m": "2323",
+            "surrounding_lat": "55.6637264",
+            "surrounding_lng": "12.5359527"
+          }
+        },
+        {
+          "row_uuid": "c42d1976-516f-ab74-32d1-293bcbfdd150",
+          "en": {
+            "surrounding_name": "Humletorvet",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2368",
+            "surrounding_lat": "55.6640297",
+            "surrounding_lng": "12.5351503"
+          },
+          "vi": {
+            "surrounding_name": "Humletorvet",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2368",
+            "surrounding_lat": "55.6640297",
+            "surrounding_lng": "12.5351503"
+          }
+        },
+        {
+          "row_uuid": "2a4a3ea8-cf5d-13fd-1251-a26d841e6f8c",
+          "en": {
+            "surrounding_name": "JD Sports",
+            "surrounding_kind": "Sporting Goods",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2393",
+            "surrounding_lat": "55.63103",
+            "surrounding_lng": "12.5758901"
+          },
+          "vi": {
+            "surrounding_name": "JD Sports",
+            "surrounding_kind": "Đồ thể thao",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2393",
+            "surrounding_lat": "55.63103",
+            "surrounding_lng": "12.5758901"
+          }
+        },
+        {
+          "row_uuid": "a32fcc8c-1fe8-5bf4-bfd7-220a1cd469ca",
+          "en": {
+            "surrounding_name": "Fisketorvet Copenhagen Mall",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2404",
+            "surrounding_lat": "55.662632",
+            "surrounding_lng": "12.5624944"
+          },
+          "vi": {
+            "surrounding_name": "Fisketorvet Copenhagen Mall",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2404",
+            "surrounding_lat": "55.662632",
+            "surrounding_lng": "12.5624944"
+          }
+        },
+        {
+          "row_uuid": "db782339-5d52-f87f-56a0-4000e0986e4c",
+          "en": {
+            "surrounding_name": "Magasin",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2409",
+            "surrounding_lat": "55.6309527",
+            "surrounding_lng": "12.5761207"
+          },
+          "vi": {
+            "surrounding_name": "Magasin",
+            "surrounding_distance": "2,4km",
+            "surrounding_distance_m": "2409",
+            "surrounding_lat": "55.6309527",
+            "surrounding_lng": "12.5761207"
+          }
+        },
+        {
+          "row_uuid": "346f39fc-547f-7f47-3704-9e332f1df866",
+          "en": {
+            "surrounding_name": "Bilka Fields",
+            "surrounding_distance": "2,5km",
+            "surrounding_distance_m": "2508",
+            "surrounding_lat": "55.6309263",
+            "surrounding_lng": "12.5779852"
+          },
+          "vi": {
+            "surrounding_name": "Bilka Fields",
+            "surrounding_distance": "2,5km",
+            "surrounding_distance_m": "2508",
+            "surrounding_lat": "55.6309263",
+            "surrounding_lng": "12.5779852"
+          }
+        },
+        {
+          "row_uuid": "d45b90b1-e4a5-dec2-9b67-31fb27809bd4",
+          "en": {
+            "surrounding_name": "Field's",
+            "surrounding_kind": "Shopping Malls",
+            "surrounding_distance": "2,5km",
+            "surrounding_distance_m": "2511",
+            "surrounding_lat": "55.6302456",
+            "surrounding_lng": "12.5772173"
+          },
+          "vi": {
+            "surrounding_name": "Field's",
+            "surrounding_kind": "Trung tâm mua sắm",
+            "surrounding_distance": "2,5km",
+            "surrounding_distance_m": "2511",
+            "surrounding_lat": "55.6302456",
+            "surrounding_lng": "12.5772173"
+          }
+        },
+        {
+          "row_uuid": "a13949d7-1d06-d944-2f6a-395671726ba5",
+          "en": {
+            "surrounding_name": "Børneloppen Valby",
+            "surrounding_kind": "Markets",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2558",
+            "surrounding_lat": "55.6450366",
+            "surrounding_lng": "12.5042264"
+          },
+          "vi": {
+            "surrounding_name": "Børneloppen Valby",
+            "surrounding_kind": "Chợ",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2558",
+            "surrounding_lat": "55.6450366",
+            "surrounding_lng": "12.5042264"
+          }
+        },
+        {
+          "row_uuid": "ff020650-864d-6863-3466-72291ef9da70",
+          "en": {
+            "surrounding_name": "Baisikeli",
+            "surrounding_kind": "Cycling",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2588",
+            "surrounding_lat": "55.6655358",
+            "surrounding_lng": "12.5578536"
+          },
+          "vi": {
+            "surrounding_name": "Baisikeli",
+            "surrounding_kind": "Xe Đạp",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2588",
+            "surrounding_lat": "55.6655358",
+            "surrounding_lng": "12.5578536"
+          }
+        },
+        {
+          "row_uuid": "533a95f8-4eb4-0022-634e-93bfd470b71d",
+          "en": {
+            "surrounding_name": "KIHOSKH",
+            "surrounding_kind": "Deli/braised & roast meats",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2611",
+            "surrounding_lat": "55.6664718",
+            "surrounding_lng": "12.5530376"
+          },
+          "vi": {
+            "surrounding_name": "KIHOSKH",
+            "surrounding_kind": "Đồ nguội/thịt kho & quay",
+            "surrounding_distance": "2,6km",
+            "surrounding_distance_m": "2611",
+            "surrounding_lat": "55.6664718",
+            "surrounding_lng": "12.5530376"
+          }
+        },
+        {
+          "row_uuid": "20f6574f-8ba0-b7f6-51c6-1aab44a2c204",
+          "en": {
+            "surrounding_name": "Heidi & Bjarne",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "2,8km",
+            "surrounding_distance_m": "2816",
+            "surrounding_lat": "55.6684975",
+            "surrounding_lng": "12.551362"
+          },
+          "vi": {
+            "surrounding_name": "Heidi & Bjarne",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "2,8km",
+            "surrounding_distance_m": "2816",
+            "surrounding_lat": "55.6684975",
+            "surrounding_lng": "12.551362"
+          }
+        },
+        {
+          "row_uuid": "74279e7b-5463-150d-f36f-37a88a9e9132",
+          "en": {
+            "surrounding_name": "Monday Studio / Art Monday",
+            "surrounding_kind": "Bookstores & Galleries",
+            "surrounding_distance": "2,9km",
+            "surrounding_distance_m": "2942",
+            "surrounding_lat": "55.6697348",
+            "surrounding_lng": "12.5501581"
+          },
+          "vi": {
+            "surrounding_name": "Monday Studio / Art Monday",
+            "surrounding_kind": "Nhà sách & phòng tranh",
+            "surrounding_distance": "2,9km",
+            "surrounding_distance_m": "2942",
+            "surrounding_lat": "55.6697348",
+            "surrounding_lng": "12.5501581"
+          }
+        },
+        {
+          "row_uuid": "481de6fd-e862-560b-2dbb-333cfaa4e475",
+          "en": {
+            "surrounding_name": "Spinderiet",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3163",
+            "surrounding_lat": "55.6648556",
+            "surrounding_lng": "12.5116853"
+          },
+          "vi": {
+            "surrounding_name": "Spinderiet",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3163",
+            "surrounding_lat": "55.6648556",
+            "surrounding_lng": "12.5116853"
+          }
+        },
+        {
+          "row_uuid": "4f05fd65-2b51-3549-ef8d-bd3ceccb7528",
+          "en": {
+            "surrounding_name": "Bryggens tehus",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3240",
+            "surrounding_lat": "55.6656145",
+            "surrounding_lng": "12.5783373"
+          },
+          "vi": {
+            "surrounding_name": "Bryggens tehus",
+            "surrounding_distance": "3,2km",
+            "surrounding_distance_m": "3240",
+            "surrounding_lat": "55.6656145",
+            "surrounding_lng": "12.5783373"
+          }
+        },
+        {
+          "row_uuid": "7b996185-52f2-118d-afb5-e475e90ff2cc",
+          "en": {
+            "surrounding_name": "Hats, Boots & Bourbon",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3253",
+            "surrounding_lat": "55.671409",
+            "surrounding_lng": "12.560042"
+          },
+          "vi": {
+            "surrounding_name": "Hats, Boots & Bourbon",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3253",
+            "surrounding_lat": "55.671409",
+            "surrounding_lng": "12.560042"
+          }
+        },
+        {
+          "row_uuid": "4865c3e5-5f4d-85f9-711d-15264d638754",
+          "en": {
+            "surrounding_name": "Toft Wine",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3268",
+            "surrounding_lat": "55.6666459",
+            "surrounding_lng": "12.5767988"
+          },
+          "vi": {
+            "surrounding_name": "Toft Wine",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3268",
+            "surrounding_lat": "55.6666459",
+            "surrounding_lng": "12.5767988"
+          }
+        },
+        {
+          "row_uuid": "ceb09cdc-4363-5819-2401-62905738aa0c",
+          "en": {
+            "surrounding_name": "7 Eleven",
+            "surrounding_kind": "Quick bites",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3334",
+            "surrounding_lat": "55.6725675",
+            "surrounding_lng": "12.5574301"
+          },
+          "vi": {
+            "surrounding_name": "7 Eleven",
+            "surrounding_kind": "Ăn nhanh",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3334",
+            "surrounding_lat": "55.6725675",
+            "surrounding_lng": "12.5574301"
+          }
+        },
+        {
+          "row_uuid": "7e1505f6-4b14-8e27-1f1e-165246a65e49",
+          "en": {
+            "surrounding_name": "Dora",
+            "surrounding_kind": "Second-hand Stores",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3342",
+            "surrounding_lat": "55.673349",
+            "surrounding_lng": "12.5500913"
+          },
+          "vi": {
+            "surrounding_name": "Dora",
+            "surrounding_kind": "Cửa hàng đồ cũ",
+            "surrounding_distance": "3,3km",
+            "surrounding_distance_m": "3342",
+            "surrounding_lat": "55.673349",
+            "surrounding_lng": "12.5500913"
+          }
+        },
+        {
+          "row_uuid": "54c848fe-2359-ab71-94db-bd79d259559f",
+          "en": {
+            "surrounding_name": "SuperBrugsen Islands Brygge",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3357",
+            "surrounding_lat": "55.665722",
+            "surrounding_lng": "12.580919"
+          },
+          "vi": {
+            "surrounding_name": "SuperBrugsen Islands Brygge",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3357",
+            "surrounding_lat": "55.665722",
+            "surrounding_lng": "12.580919"
+          }
+        },
+        {
+          "row_uuid": "08cf44dd-cfc2-d8d7-12e0-c80c812773c7",
+          "en": {
+            "surrounding_name": "CAN",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3394",
+            "surrounding_lat": "55.6737377",
+            "surrounding_lng": "12.5514517"
+          },
+          "vi": {
+            "surrounding_name": "CAN",
+            "surrounding_distance": "3,4km",
+            "surrounding_distance_m": "3394",
+            "surrounding_lat": "55.6737377",
+            "surrounding_lng": "12.5514517"
+          }
+        },
+        {
+          "row_uuid": "39773e59-2ca7-9872-b149-1cf30ee2815c",
+          "en": {
+            "surrounding_name": "7-Eleven",
+            "surrounding_distance": "3,5km",
+            "surrounding_distance_m": "3512",
+            "surrounding_lat": "55.6728777",
+            "surrounding_lng": "12.5651086"
+          },
+          "vi": {
+            "surrounding_name": "7-Eleven",
+            "surrounding_distance": "3,5km",
+            "surrounding_distance_m": "3512",
+            "surrounding_lat": "55.6728777",
+            "surrounding_lng": "12.5651086"
+          }
+        },
+        {
+          "row_uuid": "298df241-93db-ff01-67c2-ae2781e8bbab",
+          "en": {
+            "surrounding_name": "Sound Station",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "3,5km",
+            "surrounding_distance_m": "3546",
+            "surrounding_lat": "55.6753028",
+            "surrounding_lng": "12.5468792"
+          },
+          "vi": {
+            "surrounding_name": "Sound Station",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "3,5km",
+            "surrounding_distance_m": "3546",
+            "surrounding_lat": "55.6753028",
+            "surrounding_lng": "12.5468792"
+          }
+        },
+        {
+          "row_uuid": "5cc38736-a7a2-ef95-1a63-5f7dc8832200",
+          "en": {
+            "surrounding_name": "GB Antiques Copenhagen",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "3,5km",
+            "surrounding_distance_m": "3547",
+            "surrounding_lat": "55.6715701",
+            "surrounding_lng": "12.5714888"
+          },
+          "vi": {
+            "surrounding_name": "GB Antiques Copenhagen",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "3,5km",
+            "surrounding_distance_m": "3547",
+            "surrounding_lat": "55.6715701",
+            "surrounding_lng": "12.5714888"
+          }
+        },
+        {
+          "row_uuid": "3f711fe3-1ae8-98c4-609f-157d9731d5cc",
+          "en": {
+            "surrounding_name": "The Food Cooperative",
+            "surrounding_kind": "Second-hand Stores",
+            "surrounding_distance": "3,6km",
+            "surrounding_distance_m": "3570",
+            "surrounding_lat": "55.67342",
+            "surrounding_lng": "12.565181"
+          },
+          "vi": {
+            "surrounding_name": "The Food Cooperative",
+            "surrounding_kind": "Cửa hàng đồ cũ",
+            "surrounding_distance": "3,6km",
+            "surrounding_distance_m": "3570",
+            "surrounding_lat": "55.67342",
+            "surrounding_lng": "12.565181"
+          }
+        },
+        {
+          "row_uuid": "5aa984e4-d684-de8e-79c1-d0cbd677b454",
+          "en": {
+            "surrounding_name": "House of Amber(Copenhagen Flagship Store )",
+            "surrounding_kind": "Arts & Crafts",
+            "surrounding_distance": "3,8km",
+            "surrounding_distance_m": "3841",
+            "surrounding_lat": "55.6754734",
+            "surrounding_lng": "12.5677267"
+          },
+          "vi": {
+            "surrounding_name": "House of Amber(Copenhagen Flagship Store )",
+            "surrounding_kind": "Nghệ thuật & thủ công",
+            "surrounding_distance": "3,8km",
+            "surrounding_distance_m": "3841",
+            "surrounding_lat": "55.6754734",
+            "surrounding_lng": "12.5677267"
+          }
+        },
+        {
+          "row_uuid": "ae17c25e-0ed9-64d6-67b3-6d8e6edbf454",
+          "en": {
+            "surrounding_name": "Politikens Boghal",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "4,0km",
+            "surrounding_distance_m": "4003",
+            "surrounding_lat": "55.6768538",
+            "surrounding_lng": "12.5685555"
+          },
+          "vi": {
+            "surrounding_name": "Politikens Boghal",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "4,0km",
+            "surrounding_distance_m": "4003",
+            "surrounding_lat": "55.6768538",
+            "surrounding_lng": "12.5685555"
+          }
+        },
+        {
+          "row_uuid": "105c2b3e-6bdd-53e3-5d5d-d38bd1c2bc77",
+          "en": {
+            "surrounding_name": "Sommerfuglen",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "4,1km",
+            "surrounding_distance_m": "4072",
+            "surrounding_lat": "55.676026",
+            "surrounding_lng": "12.5744169"
+          },
+          "vi": {
+            "surrounding_name": "Sommerfuglen",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "4,1km",
+            "surrounding_distance_m": "4072",
+            "surrounding_lat": "55.676026",
+            "surrounding_lng": "12.5744169"
+          }
+        },
+        {
+          "row_uuid": "ceca91e7-a8c7-7e68-9e1d-a80a4ca39420",
+          "en": {
+            "surrounding_name": "KarlsKicks - Copenhagen Sneaker Concept Store",
+            "surrounding_kind": "Gift Stores",
+            "surrounding_distance": "4,2km",
+            "surrounding_distance_m": "4182",
+            "surrounding_lat": "55.6784291",
+            "surrounding_lng": "12.569264"
+          },
+          "vi": {
+            "surrounding_name": "KarlsKicks - Copenhagen Sneaker Concept Store",
+            "surrounding_kind": "Cửa hàng quà tặng",
+            "surrounding_distance": "4,2km",
+            "surrounding_distance_m": "4182",
+            "surrounding_lat": "55.6784291",
+            "surrounding_lng": "12.569264"
+          }
+        },
+        {
+          "row_uuid": "ea1000d5-5d28-5edf-625e-82505aaeec0e",
+          "en": {
+            "surrounding_name": "Silkevejen",
+            "surrounding_kind": "Markets",
+            "surrounding_distance": "4,2km",
+            "surrounding_distance_m": "4207",
+            "surrounding_lat": "55.678722",
+            "surrounding_lng": "12.568999"
+          },
+          "vi": {
+            "surrounding_name": "Silkevejen",
+            "surrounding_kind": "Chợ",
+            "surrounding_distance": "4,2km",
+            "surrounding_distance_m": "4207",
+            "surrounding_lat": "55.678722",
+            "surrounding_lng": "12.568999"
+          }
+        },
+        {
+          "row_uuid": "f1c1397a-a22f-876d-26a1-14620fabbe04",
+          "en": {
+            "surrounding_name": "Crime Passionnel",
+            "surrounding_kind": "Other",
+            "surrounding_distance": "4,3km",
+            "surrounding_distance_m": "4329",
+            "surrounding_lat": "55.6779742",
+            "surrounding_lng": "12.5766659"
+          },
+          "vi": {
+            "surrounding_name": "Crime Passionnel",
+            "surrounding_kind": "Khác",
+            "surrounding_distance": "4,3km",
+            "surrounding_distance_m": "4329",
+            "surrounding_lat": "55.6779742",
+            "surrounding_lng": "12.5766659"
+          }
+        }
+      ]
+    }
+  ]
+}
