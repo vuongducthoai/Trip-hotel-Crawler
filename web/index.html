@@ -122,7 +122,9 @@
         <select id="auto-export-format" class="select-input mini" data-i18n-title="action.autoExportFormat">
           <option value="sql">SQL</option>
           <option value="csv">CSV</option>
+          <option value="json">JSON</option>
           <option value="both">SQL + CSV</option>
+          <option value="all">SQL + CSV + JSON</option>
         </select>
         <span class="action-note" data-i18n="action.note">Chrome sẽ mở khoảng 45 giây khi làm mới phiên.</span>
       </div>
@@ -161,11 +163,12 @@
     <section class="card result-card">
       <div class="card-heading compact">
         <div class="heading-icon">03</div>
-        <div class="grow"><h2 data-i18n="export.title">Xuất dữ liệu</h2><p data-i18n="export.subtitle">CSV hoặc SQL dump (PostgreSQL), đúng 7 cột theo cấu trúc bàn giao.</p></div>
+        <div class="grow"><h2 data-i18n="export.title">Xuất dữ liệu</h2><p data-i18n="export.subtitle"></p></div>
         <div class="heading-actions">
           <button id="csv-delete-all" class="button ghost danger-text" hidden data-i18n="export.deleteAll">Xoá tất cả file</button>
           <button id="open-folder" class="button ghost" data-i18n="export.openFolder">Mở thư mục</button>
           <button id="export" class="button secondary" data-i18n="export.csv">Xuất CSV</button>
+          <button id="export-json" class="button secondary" data-i18n="export.json">Xuất JSON</button>
           <button id="export-sql" class="button primary" data-i18n="export.sql">Xuất SQL</button>
         </div>
       </div>

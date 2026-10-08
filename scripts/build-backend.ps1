@@ -23,6 +23,7 @@ if (-not (Test-Path -LiteralPath $python)) { $python = 'python' }
   --hidden-import thay_doi `
   --hidden-import danh_sach_id `
   --hidden-import xuat_sql `
+  --hidden-import xuat_json `
   --hidden-import tripadvisor `
   --hidden-import xuat_csv `
   --hidden-import destinations `

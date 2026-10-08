@@ -1,0 +1,3414 @@
+{
+  "source_table": "splatform_meta.trip_tmp_property_translation",
+  "columns": [
+    "property_id",
+    "row_uuid",
+    "type",
+    "section_type",
+    "lang",
+    "field",
+    "value"
+  ],
+  "generated_at": "2026-10-08T17:14:18",
+  "scope": "moi_bang_coc",
+  "hotel_count": 2,
+  "row_count": 1874,
+  "note": "Mỗi khách sạn gom theo type; row_uuid = md5(row_key)::uuid. Field room_count / tripAdvisorId có thể vắng ở một số khách sạn.",
+  "hotels": [
+    {
+      "property_id": 701102,
+      "hotel_name": "The Embassy Sathorn",
+      "source_table": "splatform_meta.trip_tmp_property_translation",
+      "DESCRIPTION": {
+        "row_uuid": "7c51e668-5461-2962-137a-478a3e54afdf",
+        "section_type": "hotelInfo",
+        "row_key": "701102:DESCRIPTION",
+        "en": {
+          "hotel_name": "The Embassy Sathorn",
+          "local_name": "ดิ แอมบาสซี สาทร",
+          "hotel_address": "31 S Sathon Rd, Thung Maha Mek, Sathon, Bangkok, 10120, Thailand",
+          "room_count": "107",
+          "description": "<p>Located in Bangkok (Bangkok Central Business District), The Embassy Sathorn is within a 15-minute walk of Lumphini Park and Thaniya Plaza. This spa hotel is 2.4 mi (3.9 km) from CentralWorld and 2.6 mi (4.1 km) from MBK Center.</p><p>Relax at the full-service spa, where you can enjoy massages and body treatments. This hotel also features complimentary wireless internet access, concierge services, and a television in a common area.</p><p>Enjoy a meal at the restaurant or snacks in the hotel's coffee shop/cafe. Mingle with other guests at the complimentary reception, held daily.</p><p>Featured amenities include a business center, complimentary newspapers in the lobby, and dry cleaning/laundry services. Free valet parking is available onsite.</p><p>Make yourself at home in one of the 107 air-conditioned rooms featuring refrigerators and LCD televisions. Complimentary wireless internet access keeps you connected, and cable programming is available for your entertainment. Private bathrooms with showers feature rainfall showerheads and complimentary toiletries. Conveniences include phones, as well as safes and desks.</p>",
+          "tripAdvisorId": "850470"
+        },
+        "vi": {
+          "hotel_name": "The Embassy Sathorn",
+          "local_name": "ดิ แอมบาสซี สาทร",
+          "hotel_address": "31 S Sathon Rd, Thung Maha Mek, Sathon 10120, Băng Cốc, Thái Lan",
+          "room_count": "107",
+          "description": "<p>The Embassy Sathorn ở Khu Thương mại Trung tâm Bangkok, Bangkok, cách Công viên Lumphini và Trung tâm Thương mại Thaniya 15 phút đi bộ. Khách sạn spa này cách CentralWorld 4 km và cách Trung tâm MBK 4,1 km.</p><p>Hãy thư giãn tại khu spa phục vụ đầy đủ các liệu pháp, tận hưởng các dịch vụ massage và trị liệu toàn thân. Khách sạn này còn có quyền truy cập Internet không dây miễn phí, dịch vụ tư vấn/hỗ trợ khách và TV ở khu vực chung.</p><p>Khách có thể thưởng thức nhiều món ăn ngon tại nhà hàng hoặc dùng bữa nhẹ ở quán cà phê của Khách sạn. Hòa mình cùng đám đông tại tiệc chiêu đãi miễn phí được tổ chức hàng ngày.</p><p>Có nhiều dịch vụ, tiện ích dành cho khách, bao gồm trung tâm dịch vụ văn phòng, báo miễn phí ở sảnh và dịch vụ giặt ủi/giặt khô. Có bãi đậu xe có người phục vụ miễn phí trong khuôn viên.</p><p>Hãy nghỉ ngơi thoải mái như đang ở nhà mình tại một trong 107 phòng được trang bị máy điều hòa cùng tủ lạnh và TV LCD. Bạn luôn có thể giữ liên lạc bằng kết nối internet không dây miễn phí; trong khi các chương trình truyền hình cáp sẽ mang đến những phút giây giải trí thoải mái. Phòng tắm riêng với buồng tắm vòi sen có vòi sen phun mưa và đồ dùng nhà tắm miễn phí. Tiện nghi phòng bao gồm điện thoại, cùng két bảo mật và bàn.</p>",
+          "tripAdvisorId": "850470"
+        }
+      },
+      "POLICY": [
+        {
+          "section_type": "checkInAndOut",
+          "row_uuid": "db6758bd-dd33-0f2a-b4d7-d7d589ffcfd6",
+          "row_key": "701102:POLICY:checkInAndOut",
+          "en": {
+            "policy_title": "Check-in and Check-out Times",
+            "policy_content": "<p>Check-in: <strong>After 14:00</strong></p><p>Check-out: <strong>Before 12:00</strong></p><p>Front desk hours: 24/7</p>"
+          },
+          "vi": {
+            "policy_title": "Thời gian nhận và trả phòng",
+            "policy_content": "<p>Nhận phòng: <strong>Sau 14:00</strong></p><p>Trả phòng: <strong>Trước 12:00</strong></p><p>Giờ làm việc của quầy lễ tân: 24/7</p>"
+          }
+        },
+        {
+          "section_type": "childPolicy",
+          "row_uuid": "6d8aceb8-01ec-e09a-8cb8-83915593b612",
+          "row_key": "701102:POLICY:childPolicy",
+          "en": {
+            "policy_title": "Child policies",
+            "policy_content": "<p>Children of all ages are welcome at this property.</p><p>Additional fees may be charged for children using existing beds. Add the number of children to get a more accurate price.</p>"
+          },
+          "vi": {
+            "policy_title": "Chính sách cho trẻ em",
+            "policy_content": "<p>Trẻ em thuộc mọi độ tuổi đều được chào đón tại cơ sở lưu trú này.</p><p>Bạn có thể mất thêm phí để trẻ em sử dụng giường có sẵn. Hãy thêm số lượng trẻ em đi cùng để nhận được mức giá chính xác hơn.</p>"
+          }
+        },
+        {
+          "section_type": "cribAndExtraBed",
+          "row_uuid": "b4b386b5-096d-8af0-39ff-94993eafabe2",
+          "row_key": "701102:POLICY:cribAndExtraBed",
+          "en": {
+            "policy_title": "Cribs and Extra Beds",
+            "policy_content": "<p>For all room types, cribs cannot be added. Extra bed policies vary according to room type. Please refer to the relevant room type policy.</p>"
+          },
+          "vi": {
+            "policy_title": "Nôi/cũi và giường phụ",
+            "policy_content": "<p>Tất cả các loại phòng đều không thể thêm cũi. Mỗi loại phòng có chính sách về giường phụ khác nhau. Vui lòng tham khảo chính sách của loại phòng liên quan.</p>"
+          }
+        },
+        {
+          "section_type": "breakfast",
+          "row_uuid": "e07b9edc-c67e-4e42-439b-36cd9d9b9881",
+          "row_key": "701102:POLICY:breakfast",
+          "en": {
+            "policy_title": "Breakfast",
+            "policy_content": "<table><tr><td>Adult</td><td>Contact property</td></tr></table><p>Contact the property to see if extra breakfast is available. If so, you can pay for it at the property.</p>"
+          },
+          "vi": {
+            "policy_title": "Bữa sáng",
+            "policy_content": "<table><tr><td>Người lớn</td><td>Liên hệ khách sạn</td></tr></table><p>Vui lòng liên hệ với cơ sở lưu trú để kiểm tra xem họ có dịch vụ thêm bữa sáng không. Nếu có, bạn có thể thanh toán cho dịch vụ này tại cơ sở lưu trú.</p>"
+          }
+        },
+        {
+          "section_type": "deposit",
+          "row_uuid": "66af8833-d59f-ee44-22f5-39a73c809a86",
+          "row_key": "701102:POLICY:deposit",
+          "en": {
+            "policy_title": "Deposit Policy",
+            "policy_content": "<p>Deposit: <strong>No deposit required by the property</strong></p>"
+          },
+          "vi": {
+            "policy_title": "Chính sách đặt cọc",
+            "policy_content": "<p>Đặt cọc: <strong>Chỗ nghỉ không yêu cầu đặt cọc</strong></p>"
+          }
+        },
+        {
+          "section_type": "pet",
+          "row_uuid": "05a7c741-fa1b-1e4c-ccca-7d0a35725f02",
+          "row_key": "701102:POLICY:pet",
+          "en": {
+            "policy_title": "Pets",
+            "policy_content": "<p>Pets are not allowed</p>"
+          },
+          "vi": {
+            "policy_title": "Thú cưng",
+            "policy_content": "<p>Không được phép mang theo thú cưng</p>"
+          }
+        },
+        {
+          "section_type": "serviceAnimal",
+          "row_uuid": "7bc0a54b-c94c-69ca-c65d-edcd66147588",
+          "row_key": "701102:POLICY:serviceAnimal",
+          "en": {
+            "policy_title": "Service animals",
+            "policy_content": "<p>Service animals are not allowed</p>"
+          },
+          "vi": {
+            "policy_title": "Động vật hỗ trợ",
+            "policy_content": "<p>Không được phép mang theo động vật hỗ trợ</p>"
+          }
+        },
+        {
+          "section_type": "ageLimit",
+          "row_uuid": "6452995b-1c5f-bf96-fe6a-d675e1d9ed93",
+          "row_key": "701102:POLICY:ageLimit",
+          "en": {
+            "policy_title": "Age Requirements",
+            "policy_content": "<p>The main guest checking in must be at least 18 years old</p>"
+          },
+          "vi": {
+            "policy_title": "Giới hạn độ tuổi",
+            "policy_content": "<p>Khách chính nhận phòng phải từ 18 tuổi trở lên.</p>"
+          }
+        }
+      ],
+      "SURROUNDING": [
+        {
+          "group_code": "02",
+          "section_type": {
+            "en": "02_Transport",
+            "vi": "02_Giao thông"
+          },
+          "places": [
+            {
+              "row_uuid": "63c2f8cb-035e-792b-3d31-0eb5d4ca29ce",
+              "row_key": "701102:SURROUNDING:64283047",
+              "en": {
+                "surrounding_name": "Lumphini",
+                "surrounding_kind": "Metro station",
+                "surrounding_label": "Metro",
+                "surrounding_distance": "790m",
+                "surrounding_distance_m": "790",
+                "surrounding_lat": "13.7257642",
+                "surrounding_lng": "100.5456664"
+              },
+              "vi": {
+                "surrounding_name": "Lumphini",
+                "surrounding_kind": "Ga tàu điện ngầm",
+                "surrounding_label": "Tàu Điện Ngầm",
+                "surrounding_distance": "790m",
+                "surrounding_distance_m": "790",
+                "surrounding_lat": "13.7257642",
+                "surrounding_lng": "100.5456664"
+              }
+            },
+            {
+              "row_uuid": "2f84908b-cdca-8588-1ffa-6fe512fa58ec",
+              "row_key": "701102:SURROUNDING:64288714",
+              "en": {
+                "surrounding_name": "Si Lom",
+                "surrounding_kind": "Metro station",
+                "surrounding_label": "Metro",
+                "surrounding_distance": "840m",
+                "surrounding_distance_m": "840",
+                "surrounding_lat": "13.7292504",
+                "surrounding_lng": "100.5365446"
+              },
+              "vi": {
+                "surrounding_name": "Si Lom",
+                "surrounding_kind": "Ga tàu điện ngầm",
+                "surrounding_label": "Tàu Điện Ngầm",
+                "surrounding_distance": "840m",
+                "surrounding_distance_m": "840",
+                "surrounding_lat": "13.7292504",
+                "surrounding_lng": "100.5365446"
+              }
+            },
+            {
+              "row_uuid": "449039d9-1537-8f4e-a44a-92f7330a1808",
+              "row_key": "701102:SURROUNDING:13099857",
+              "en": {
+                "surrounding_name": "Don Mueang International Airport",
+                "surrounding_kind": "Airport",
+                "surrounding_label": "Airport",
+                "surrounding_distance": "25,1km",
+                "surrounding_distance_m": "25060",
+                "surrounding_lat": "13.9150135",
+                "surrounding_lng": "100.6054823"
+              },
+              "vi": {
+                "surrounding_name": "Sân bay quốc tế Don Mueang",
+                "surrounding_kind": "Sân bay",
+                "surrounding_label": "Sân Bay",
+                "surrounding_distance": "25,1km",
+                "surrounding_distance_m": "25060",
+                "surrounding_lat": "13.9150135",
+                "surrounding_lng": "100.6054823"
+              }
+            },
+            {
+              "row_uuid": "a75a15c4-cd36-110e-6b26-5aec855d7284",
+              "row_key": "701102:SURROUNDING:141305950",
+              "en": {
+                "surrounding_name": "Silom MRT Station",
+                "surrounding_kind": "Train station",
+                "surrounding_label": "Train",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1120",
+                "surrounding_lat": "13.7293606",
+                "surrounding_lng": "100.5378782"
+              },
+              "vi": {
+                "surrounding_name": "Silom MRT Station",
+                "surrounding_kind": "Ga tàu",
+                "surrounding_label": "Vé Tàu",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1120",
+                "surrounding_lat": "13.7293606",
+                "surrounding_lng": "100.5378782"
+              }
+            },
+            {
+              "row_uuid": "a3e04c63-adef-81ef-f994-ce3f30c7de3f",
+              "row_key": "701102:SURROUNDING:142209891",
+              "en": {
+                "surrounding_name": "Mae Nam Railway Station",
+                "surrounding_kind": "Train station",
+                "surrounding_label": "Train",
+                "surrounding_distance": "4,0km",
+                "surrounding_distance_m": "4030",
+                "surrounding_lat": "13.7139353",
+                "surrounding_lng": "100.5536168"
+              },
+              "vi": {
+                "surrounding_name": "Mae Nam Railway Station",
+                "surrounding_kind": "Ga tàu",
+                "surrounding_label": "Vé Tàu",
+                "surrounding_distance": "4,0km",
+                "surrounding_distance_m": "4030",
+                "surrounding_lat": "13.7139353",
+                "surrounding_lng": "100.5536168"
+              }
+            }
+          ]
+        },
+        {
+          "group_code": "03",
+          "section_type": {
+            "en": "03_Landmarks",
+            "vi": "03_Điểm nổi bật"
+          },
+          "places": [
+            {
+              "row_uuid": "3785a831-2c44-d30d-dc03-46f22ade494b",
+              "row_key": "701102:SURROUNDING:77030",
+              "en": {
+                "surrounding_name": "Lumphini Park",
+                "surrounding_kind": "City Parks",
+                "surrounding_distance": "918m",
+                "surrounding_distance_m": "918",
+                "surrounding_lat": "13.7314281",
+                "surrounding_lng": "100.5416984"
+              },
+              "vi": {
+                "surrounding_name": "Lumphini Park",
+                "surrounding_kind": "Công Viên Thành Phố",
+                "surrounding_distance": "918m",
+                "surrounding_distance_m": "918",
+                "surrounding_lat": "13.7314281",
+                "surrounding_lng": "100.5416984"
+              }
+            },
+            {
+              "row_uuid": "e904a6b7-63e0-b25b-3e4e-3d334dd1c3ee",
+              "row_key": "701102:SURROUNDING:10523392",
+              "en": {
+                "surrounding_name": "Patpong Night Market",
+                "surrounding_kind": "Featured Neighborhoods",
+                "surrounding_distance": "923m",
+                "surrounding_distance_m": "923",
+                "surrounding_lat": "13.7292485",
+                "surrounding_lng": "100.531574"
+              },
+              "vi": {
+                "surrounding_name": "Patpong Night Market",
+                "surrounding_kind": "Khu Dân Cư Nổi Bật",
+                "surrounding_distance": "923m",
+                "surrounding_distance_m": "923",
+                "surrounding_lat": "13.7292485",
+                "surrounding_lng": "100.531574"
+              }
+            },
+            {
+              "row_uuid": "e8260eb3-52eb-5b5a-b49a-dcab6e82bbda",
+              "row_key": "701102:SURROUNDING:144011752",
+              "en": {
+                "surrounding_name": "One Bangkok",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1044",
+                "surrounding_lat": "13.7270531",
+                "surrounding_lng": "100.5472545"
+              },
+              "vi": {
+                "surrounding_name": "One Bangkok",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1044",
+                "surrounding_lat": "13.7270531",
+                "surrounding_lng": "100.5472545"
+              }
+            },
+            {
+              "row_uuid": "106958a0-97fe-3699-0b9d-04e7112a4faf",
+              "row_key": "701102:SURROUNDING:36932169",
+              "en": {
+                "surrounding_name": "King Power Mahanakhon Tower",
+                "surrounding_kind": "Modern Architecture",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1045",
+                "surrounding_lat": "13.7240107",
+                "surrounding_lng": "100.5284771"
+              },
+              "vi": {
+                "surrounding_name": "King Power Mahanakhon Tower",
+                "surrounding_kind": "Kiến Trúc Hiện Đại",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1045",
+                "surrounding_lat": "13.7240107",
+                "surrounding_lng": "100.5284771"
+              }
+            },
+            {
+              "row_uuid": "894c8fee-e5cd-98ea-c6fb-874f70b06efb",
+              "row_key": "701102:SURROUNDING:56594174",
+              "en": {
+                "surrounding_name": "King Power Mahanakhon Sky Walk",
+                "surrounding_kind": "Observation Decks",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1081",
+                "surrounding_lat": "13.723358",
+                "surrounding_lng": "100.52816"
+              },
+              "vi": {
+                "surrounding_name": "King Power Mahanakhon Sky Walk",
+                "surrounding_kind": "Đài Quan Sát",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1081",
+                "surrounding_lat": "13.723358",
+                "surrounding_lng": "100.52816"
+              }
+            },
+            {
+              "row_uuid": "390a54d4-9ac0-15cc-e9fa-089f2a1bf208",
+              "row_key": "701102:SURROUNDING:156848780",
+              "en": {
+                "surrounding_name": "Bangkok丨2026 GONG YOO ASIA FANMEETING TOUR (THE LONG TAKE) IN BANGKOK",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1143",
+                "surrounding_lat": "13.7274205",
+                "surrounding_lng": "100.5480847"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok丨2026 GONG YOO ASIA FANMEETING TOUR (THE LONG TAKE) IN BANGKOK",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1143",
+                "surrounding_lat": "13.7274205",
+                "surrounding_lng": "100.5480847"
+              }
+            },
+            {
+              "row_uuid": "9de97ca8-f617-e7af-ebb9-a5ee564dabc8",
+              "row_key": "701102:SURROUNDING:156453551",
+              "en": {
+                "surrounding_name": "Bangkok | Bangkok International Card Show 2026",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1531",
+                "surrounding_lat": "13.7338286",
+                "surrounding_lng": "100.528296"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Bangkok International Card Show 2026",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1531",
+                "surrounding_lat": "13.7338286",
+                "surrounding_lng": "100.528296"
+              }
+            },
+            {
+              "row_uuid": "d3f15737-74b8-d262-bfc2-7385f2a2f666",
+              "row_key": "701102:SURROUNDING:20905341",
+              "en": {
+                "surrounding_name": "Sri Maha Mariamman Temple (Wat Khaek)",
+                "surrounding_kind": "Temples",
+                "surrounding_distance": "1,6km",
+                "surrounding_distance_m": "1647",
+                "surrounding_lat": "13.7242482",
+                "surrounding_lng": "100.5229171"
+              },
+              "vi": {
+                "surrounding_name": "Sri Maha Mariamman Temple (Wat Khaek)",
+                "surrounding_kind": "Đền",
+                "surrounding_distance": "1,6km",
+                "surrounding_distance_m": "1647",
+                "surrounding_lat": "13.7242482",
+                "surrounding_lng": "100.5229171"
+              }
+            },
+            {
+              "row_uuid": "c5c82596-b763-3929-eb12-5e59e9c1db5d",
+              "row_key": "701102:SURROUNDING:13242741",
+              "en": {
+                "surrounding_name": "Chulalongkorn University",
+                "surrounding_kind": "Schools",
+                "surrounding_distance": "1,8km",
+                "surrounding_distance_m": "1752",
+                "surrounding_lat": "13.7385647",
+                "surrounding_lng": "100.5321342"
+              },
+              "vi": {
+                "surrounding_name": "Đại học Chulalongkorn",
+                "surrounding_kind": "Trường Học",
+                "surrounding_distance": "1,8km",
+                "surrounding_distance_m": "1752",
+                "surrounding_lat": "13.7385647",
+                "surrounding_lng": "100.5321342"
+              }
+            },
+            {
+              "row_uuid": "3aa32ec2-6f26-5e79-42a8-c39a7719149a",
+              "row_key": "701102:SURROUNDING:153992092",
+              "en": {
+                "surrounding_name": "Akara Sky Hanuman Bangkok",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2196",
+                "surrounding_lat": "13.7420325",
+                "surrounding_lng": "100.5462515"
+              },
+              "vi": {
+                "surrounding_name": "Akara Sky Hanuman Bangkok",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2196",
+                "surrounding_lat": "13.7420325",
+                "surrounding_lng": "100.5462515"
+              }
+            },
+            {
+              "row_uuid": "6f928673-9dfc-c630-703d-75a0dc35e5a3",
+              "row_key": "701102:SURROUNDING:22847028",
+              "en": {
+                "surrounding_name": "Queen Sirikit National Convention Center",
+                "surrounding_kind": "Memorial Halls",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2255",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              },
+              "vi": {
+                "surrounding_name": "Queen Sirikit National Convention Center",
+                "surrounding_kind": "Sảnh Tưởng Niệm",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2255",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              }
+            },
+            {
+              "row_uuid": "ebbc870f-c07d-daa1-6d4a-90e44ef7f2e8",
+              "row_key": "701102:SURROUNDING:156405127",
+              "en": {
+                "surrounding_name": "gamescom asia x Thailand Game Show 2026",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2255",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              },
+              "vi": {
+                "surrounding_name": "gamescom asia x Thailand Game Show 2026",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2255",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              }
+            },
+            {
+              "row_uuid": "666e8540-9331-d8a6-274f-25b02ce1f515",
+              "row_key": "701102:SURROUNDING:150881302",
+              "en": {
+                "surrounding_name": "LV The Place Bangkok - Louis Vuitton Visionary Journeys",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2260",
+                "surrounding_lat": "13.7439979",
+                "surrounding_lng": "100.5413947"
+              },
+              "vi": {
+                "surrounding_name": "LV The Place Bangkok - Louis Vuitton Visionary Journeys",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2260",
+                "surrounding_lat": "13.7439979",
+                "surrounding_lng": "100.5413947"
+              }
+            },
+            {
+              "row_uuid": "9fbc8e03-6fe5-f135-c98f-9b690919d130",
+              "row_key": "701102:SURROUNDING:77017",
+              "en": {
+                "surrounding_name": "Erawan Shrine",
+                "surrounding_kind": "Other Places of Worship",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2284",
+                "surrounding_lat": "13.7443437",
+                "surrounding_lng": "100.5404554"
+              },
+              "vi": {
+                "surrounding_name": "Erawan Shrine",
+                "surrounding_kind": "Những Nơi Thờ Cúng Khác",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2284",
+                "surrounding_lat": "13.7443437",
+                "surrounding_lng": "100.5404554"
+              }
+            },
+            {
+              "row_uuid": "b6e8a941-f799-1835-a83e-1155963af88b",
+              "row_key": "701102:SURROUNDING:156633804",
+              "en": {
+                "surrounding_name": "The Little Galaxy - MOLLY 20th Anniversary Exhibition - Bangkok",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2322",
+                "surrounding_lat": "13.7394304",
+                "surrounding_lng": "100.5237535"
+              },
+              "vi": {
+                "surrounding_name": "The Little Galaxy - MOLLY 20th Anniversary Exhibition - Bangkok",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2322",
+                "surrounding_lat": "13.7394304",
+                "surrounding_lng": "100.5237535"
+              }
+            },
+            {
+              "row_uuid": "f16fe9d9-2977-0f9a-150b-105cccec2b9b",
+              "row_key": "701102:SURROUNDING:156463221",
+              "en": {
+                "surrounding_name": "Vivienne Westwood & Jewellery Exhibition",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2338",
+                "surrounding_lat": "13.7440648",
+                "surrounding_lng": "100.5443437"
+              },
+              "vi": {
+                "surrounding_name": "Vivienne Westwood & Jewellery Exhibition",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2338",
+                "surrounding_lat": "13.7440648",
+                "surrounding_lng": "100.5443437"
+              }
+            },
+            {
+              "row_uuid": "97ef65e0-b818-6c8d-ea71-df195dcd85e2",
+              "row_key": "701102:SURROUNDING:90777",
+              "en": {
+                "surrounding_name": "SEA LIFE Bangkok Ocean World",
+                "surrounding_kind": "Aquariums",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2468",
+                "surrounding_lat": "13.7459351",
+                "surrounding_lng": "100.5352057"
+              },
+              "vi": {
+                "surrounding_name": "SEA LIFE Bangkok Ocean World",
+                "surrounding_kind": "Thủy Cung",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2468",
+                "surrounding_lat": "13.7459351",
+                "surrounding_lng": "100.5352057"
+              }
+            },
+            {
+              "row_uuid": "d19a0567-0721-0626-0a71-7f22a4137896",
+              "row_key": "701102:SURROUNDING:156445966",
+              "en": {
+                "surrounding_name": "2026 AMAZING THAILAND MARATHON BANGKOK",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2480",
+                "surrounding_lat": "13.7447542",
+                "surrounding_lng": "100.529956"
+              },
+              "vi": {
+                "surrounding_name": "2026 AMAZING THAILAND MARATHON BANGKOK",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2480",
+                "surrounding_lat": "13.7447542",
+                "surrounding_lng": "100.529956"
+              }
+            },
+            {
+              "row_uuid": "ee984147-2bd1-e01d-75f7-67e08762bd07",
+              "row_key": "701102:SURROUNDING:153412577",
+              "en": {
+                "surrounding_name": "MELAND(Bangkok SIAM PARAGON)",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2496",
+                "surrounding_lat": "13.7461302",
+                "surrounding_lng": "100.5347792"
+              },
+              "vi": {
+                "surrounding_name": "MELAND(Bangkok SIAM PARAGON)",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2496",
+                "surrounding_lat": "13.7461302",
+                "surrounding_lng": "100.5347792"
+              }
+            },
+            {
+              "row_uuid": "007cff48-5d50-9e13-ac4a-f000b3e4cb20",
+              "row_key": "701102:SURROUNDING:18687606",
+              "en": {
+                "surrounding_name": "Nana Plaza",
+                "surrounding_kind": "Bar/Club",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2540",
+                "surrounding_lat": "13.7413718",
+                "surrounding_lng": "100.5533082"
+              },
+              "vi": {
+                "surrounding_name": "Nana Plaza",
+                "surrounding_kind": "Bar/Club",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2540",
+                "surrounding_lat": "13.7413718",
+                "surrounding_lng": "100.5533082"
+              }
+            },
+            {
+              "row_uuid": "8bba1538-3674-71a5-d9e6-8f4e9ef3a72c",
+              "row_key": "701102:SURROUNDING:134087196",
+              "en": {
+                "surrounding_name": "Bangkok Elephant Hop-on Hop off",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2593",
+                "surrounding_lat": "13.7470782",
+                "surrounding_lng": "100.5353086"
+              },
+              "vi": {
+                "surrounding_name": "Xe Buýt Tham Quan Bangkok Elephant Hop-on Hop-off",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2593",
+                "surrounding_lat": "13.7470782",
+                "surrounding_lng": "100.5353086"
+              }
+            },
+            {
+              "row_uuid": "318e3720-d759-3432-8d36-4ea745949dc7",
+              "row_key": "701102:SURROUNDING:70090064",
+              "en": {
+                "surrounding_name": "Thai Bus Food Tour",
+                "surrounding_kind": "Bus Tours",
+                "surrounding_distance": "2,7km",
+                "surrounding_distance_m": "2739",
+                "surrounding_lat": "13.7305779",
+                "surrounding_lng": "100.5137464"
+              },
+              "vi": {
+                "surrounding_name": "Thai Bus Food Tour",
+                "surrounding_kind": "Tour Buýt",
+                "surrounding_distance": "2,7km",
+                "surrounding_distance_m": "2739",
+                "surrounding_lat": "13.7305779",
+                "surrounding_lng": "100.5137464"
+              }
+            },
+            {
+              "row_uuid": "134ed8b1-b6cb-577d-9085-6891c4795e8e",
+              "row_key": "701102:SURROUNDING:33589785",
+              "en": {
+                "surrounding_name": "White Orchid River Cruise",
+                "surrounding_kind": "Boat Tours",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2764",
+                "surrounding_lat": "13.7302036",
+                "surrounding_lng": "100.5134112"
+              },
+              "vi": {
+                "surrounding_name": "White Orchid River Cruise",
+                "surrounding_kind": "Tour Thuyền",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2764",
+                "surrounding_lat": "13.7302036",
+                "surrounding_lng": "100.5134112"
+              }
+            },
+            {
+              "row_uuid": "0db741ad-00f3-1ba4-5da7-c2aab50a0c5f",
+              "row_key": "701102:SURROUNDING:136007821",
+              "en": {
+                "surrounding_name": "River City Bangkok",
+                "surrounding_kind": "Cultural Center",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2779",
+                "surrounding_lat": "13.7302124",
+                "surrounding_lng": "100.5132654"
+              },
+              "vi": {
+                "surrounding_name": "River City Bangkok",
+                "surrounding_kind": "Trung tâm Văn hóa",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2779",
+                "surrounding_lat": "13.7302124",
+                "surrounding_lng": "100.5132654"
+              }
+            },
+            {
+              "row_uuid": "d62c7c8c-d28a-0b8d-93fa-f547fa32169f",
+              "row_key": "701102:SURROUNDING:33573594",
+              "en": {
+                "surrounding_name": "Wonderful Pearl Cruise",
+                "surrounding_kind": "Boat Tours",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2802",
+                "surrounding_lat": "13.7300699",
+                "surrounding_lng": "100.5130082"
+              },
+              "vi": {
+                "surrounding_name": "Wonderful Pearl Cruise",
+                "surrounding_kind": "Tour Thuyền",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2802",
+                "surrounding_lat": "13.7300699",
+                "surrounding_lng": "100.5130082"
+              }
+            },
+            {
+              "row_uuid": "3b7c0bc1-e614-9cb1-ec11-d3c53d7d6698",
+              "row_key": "701102:SURROUNDING:33555176",
+              "en": {
+                "surrounding_name": "Grand Pearl Cruise",
+                "surrounding_kind": "Boat Tours",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2823",
+                "surrounding_lat": "13.7305101",
+                "surrounding_lng": "100.5129246"
+              },
+              "vi": {
+                "surrounding_name": "Grand Pearl Cruise",
+                "surrounding_kind": "Tour Thuyền",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2823",
+                "surrounding_lat": "13.7305101",
+                "surrounding_lng": "100.5129246"
+              }
+            },
+            {
+              "row_uuid": "fa550e79-e74d-a773-cab4-57b2b1f09bec",
+              "row_key": "701102:SURROUNDING:154241279",
+              "en": {
+                "surrounding_name": "Super Galaxy Cruise",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3102",
+                "surrounding_lat": "13.7264548",
+                "surrounding_lng": "100.5095694"
+              },
+              "vi": {
+                "surrounding_name": "Super Galaxy Cruise",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3102",
+                "surrounding_lat": "13.7264548",
+                "surrounding_lng": "100.5095694"
+              }
+            },
+            {
+              "row_uuid": "3efc314a-73d5-24c0-7eea-178cda6b2db6",
+              "row_key": "701102:SURROUNDING:15011654",
+              "en": {
+                "surrounding_name": "Yunomori Onsen & Spa Sukhumvit Soi 26",
+                "surrounding_kind": "Hot Springs",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3130",
+                "surrounding_lat": "13.7196417",
+                "surrounding_lng": "100.5667472"
+              },
+              "vi": {
+                "surrounding_name": "Yunomori Onsen & Spa Sukhumvit Soi 26",
+                "surrounding_kind": "Suối Nước Nóng",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3130",
+                "surrounding_lat": "13.7196417",
+                "surrounding_lng": "100.5667472"
+              }
+            },
+            {
+              "row_uuid": "f23d196b-90d3-b96a-0285-cfb1e6a504d7",
+              "row_key": "701102:SURROUNDING:153994917",
+              "en": {
+                "surrounding_name": "Chao Phraya River Cruise",
+                "surrounding_kind": "Boat Tours",
+                "surrounding_distance": "6,3km",
+                "surrounding_distance_m": "6305",
+                "surrounding_lat": "13.7522808",
+                "surrounding_lng": "100.4876581"
+              },
+              "vi": {
+                "surrounding_name": "Du thuyền trên sông Chao Phraya",
+                "surrounding_kind": "Tour Thuyền",
+                "surrounding_distance": "6,3km",
+                "surrounding_distance_m": "6305",
+                "surrounding_lat": "13.7522808",
+                "surrounding_lng": "100.4876581"
+              }
+            },
+            {
+              "row_uuid": "25797610-0d77-e3dc-76d8-c8468985a816",
+              "row_key": "701102:SURROUNDING:82078",
+              "en": {
+                "surrounding_name": "Chao Phraya River",
+                "surrounding_kind": "Rivers",
+                "surrounding_distance": "6,4km",
+                "surrounding_distance_m": "6360",
+                "surrounding_lat": "13.7530142",
+                "surrounding_lng": "100.4875065"
+              },
+              "vi": {
+                "surrounding_name": "Sông Chao Phraya",
+                "surrounding_kind": "Sông",
+                "surrounding_distance": "6,4km",
+                "surrounding_distance_m": "6360",
+                "surrounding_lat": "13.7530142",
+                "surrounding_lng": "100.4875065"
+              }
+            }
+          ]
+        },
+        {
+          "group_code": "04",
+          "section_type": {
+            "en": "04_Dining"
+          },
+          "places": [
+            {
+              "row_uuid": "545496c3-e3d9-6586-27f1-5b20de3d9ce5",
+              "row_key": "701102:SURROUNDING:487397",
+              "en": {
+                "surrounding_name": "nahm",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "120m",
+                "surrounding_distance_m": "120",
+                "surrounding_lat": "13.7235741",
+                "surrounding_lng": "100.5391861"
+              }
+            },
+            {
+              "row_uuid": "2d532945-fc90-f758-1903-045f3fa32be0",
+              "row_key": "701102:SURROUNDING:134224605",
+              "en": {
+                "surrounding_name": "Samrub Samrub Thai",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "337m",
+                "surrounding_distance_m": "337",
+                "surrounding_lat": "13.7268983",
+                "surrounding_lng": "100.5374615"
+              }
+            },
+            {
+              "row_uuid": "aa534978-3895-f2c7-149d-a853d032f940",
+              "row_key": "701102:SURROUNDING:487407",
+              "en": {
+                "surrounding_name": "EAT ME RESTAURANT",
+                "surrounding_kind": "Fusion cuisine",
+                "surrounding_distance": "489m",
+                "surrounding_distance_m": "489",
+                "surrounding_lat": "13.7254648",
+                "surrounding_lng": "100.5338985"
+              }
+            },
+            {
+              "row_uuid": "0013102c-ce91-e262-f6ba-c099e4143832",
+              "row_key": "701102:SURROUNDING:136320111",
+              "en": {
+                "surrounding_name": "Lon Lon Local Diner",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "802m",
+                "surrounding_distance_m": "802",
+                "surrounding_lat": "13.7246312",
+                "surrounding_lng": "100.5307626"
+              }
+            },
+            {
+              "row_uuid": "af0b398e-4a9f-95e8-59c6-0c86109fefb0",
+              "row_key": "701102:SURROUNDING:145028125",
+              "en": {
+                "surrounding_name": "Fran's Sathorn",
+                "surrounding_kind": "Fusion cuisine",
+                "surrounding_distance": "898m",
+                "surrounding_distance_m": "898",
+                "surrounding_lat": "13.7216461",
+                "surrounding_lng": "100.5461039"
+              }
+            },
+            {
+              "row_uuid": "64876911-46b6-b6c4-c83c-2bb4fe51b2bc",
+              "row_key": "701102:SURROUNDING:149569812",
+              "en": {
+                "surrounding_name": "Le Du Kaan",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "931m",
+                "surrounding_distance_m": "931",
+                "surrounding_lat": "13.7204935",
+                "surrounding_lng": "100.5302969"
+              }
+            },
+            {
+              "row_uuid": "7c0c95de-fb68-9e8b-c41a-abc8bdf73c02",
+              "row_key": "701102:SURROUNDING:17041293",
+              "en": {
+                "surrounding_name": "Le Du",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "958m",
+                "surrounding_distance_m": "958",
+                "surrounding_lat": "13.7250312",
+                "surrounding_lng": "100.5293521"
+              }
+            },
+            {
+              "row_uuid": "7c396688-9413-72bb-a573-71c7f3a3e04d",
+              "row_key": "701102:SURROUNDING:10354992",
+              "en": {
+                "surrounding_name": "Mango Tree",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1016",
+                "surrounding_lat": "13.7285218",
+                "surrounding_lng": "100.5300159"
+              }
+            },
+            {
+              "row_uuid": "c12db13b-6a82-e81a-07e6-c56fdfb883a7",
+              "row_key": "701102:SURROUNDING:139971639",
+              "en": {
+                "surrounding_name": "iODE",
+                "surrounding_kind": "Western cuisine",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1144",
+                "surrounding_lat": "13.7194336",
+                "surrounding_lng": "100.5476443"
+              }
+            },
+            {
+              "row_uuid": "6b0481dc-1395-57b0-6233-7da8e8b29817",
+              "row_key": "701102:SURROUNDING:153912826",
+              "en": {
+                "surrounding_name": "Capricci",
+                "surrounding_kind": "Western cuisine",
+                "surrounding_distance": "1,3km",
+                "surrounding_distance_m": "1270",
+                "surrounding_lat": "13.7162987",
+                "surrounding_lng": "100.5468565"
+              }
+            },
+            {
+              "row_uuid": "bb7fc085-50fb-e238-ce3e-5d17701e9eb8",
+              "row_key": "701102:SURROUNDING:136319241",
+              "en": {
+                "surrounding_name": "Baan Suan Sathon",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1528",
+                "surrounding_lat": "13.7192844",
+                "surrounding_lng": "100.551428"
+              }
+            },
+            {
+              "row_uuid": "8b34d2c9-7164-5bdc-0ba0-8cb8404931a8",
+              "row_key": "701102:SURROUNDING:31112649",
+              "en": {
+                "surrounding_name": "Saneh Jaan",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1534",
+                "surrounding_lat": "13.7355537",
+                "surrounding_lng": "100.5457857"
+              }
+            },
+            {
+              "row_uuid": "ccf2a805-e3c7-47e5-6815-be42d5543dfe",
+              "row_key": "701102:SURROUNDING:10791832",
+              "en": {
+                "surrounding_name": "Issaya Siamese Club",
+                "surrounding_kind": "Innovative cuisine",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1539",
+                "surrounding_lat": "13.7205621",
+                "surrounding_lng": "100.5519393"
+              }
+            },
+            {
+              "row_uuid": "940fc659-f2a6-463d-5375-300d884bd710",
+              "row_key": "701102:SURROUNDING:136327425",
+              "en": {
+                "surrounding_name": "Flourish",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,6km",
+                "surrounding_distance_m": "1571",
+                "surrounding_lat": "13.7369783",
+                "surrounding_lng": "100.543712"
+              }
+            },
+            {
+              "row_uuid": "d4ed9cc3-622d-065f-7e25-b6869fb26916",
+              "row_key": "701102:SURROUNDING:30738374",
+              "en": {
+                "surrounding_name": "Sühring",
+                "surrounding_kind": "Western cuisine",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1664",
+                "surrounding_lat": "13.7108133",
+                "surrounding_lng": "100.5454871"
+              }
+            },
+            {
+              "row_uuid": "dfe0fae7-6097-da28-db3d-87ac650ccff4",
+              "row_key": "701102:SURROUNDING:129754634",
+              "en": {
+                "surrounding_name": "IGNIV Bangkok",
+                "surrounding_kind": "Fusion cuisine",
+                "surrounding_distance": "1,8km",
+                "surrounding_distance_m": "1805",
+                "surrounding_lat": "13.740062",
+                "surrounding_lng": "100.539962"
+              }
+            },
+            {
+              "row_uuid": "dcd2e73c-db20-e336-8516-4f6a0079f3e0",
+              "row_key": "701102:SURROUNDING:487441",
+              "en": {
+                "surrounding_name": "Blue Elephant Bangkok Sathorn Cooking School & Restaurant",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,9km",
+                "surrounding_distance_m": "1893",
+                "surrounding_lat": "13.7187019",
+                "surrounding_lng": "100.5214907"
+              }
+            },
+            {
+              "row_uuid": "d46fb533-82e8-ca52-128f-ebfcb91e8cb8",
+              "row_key": "701102:SURROUNDING:121122214",
+              "en": {
+                "surrounding_name": "Chef’s Table by lebua",
+                "surrounding_kind": "Western cuisine",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2291",
+                "surrounding_lat": "13.7219465",
+                "surrounding_lng": "100.51706"
+              }
+            },
+            {
+              "row_uuid": "623b1ee0-9828-8179-cf53-df03fc1a0372",
+              "row_key": "701102:SURROUNDING:17040641",
+              "en": {
+                "surrounding_name": "Sirocco",
+                "surrounding_kind": "Western cuisine",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2291",
+                "surrounding_lat": "13.7219279",
+                "surrounding_lng": "100.5170543"
+              }
+            },
+            {
+              "row_uuid": "5b50651c-9ee6-5c4d-93bf-fe620869eab2",
+              "row_key": "701102:SURROUNDING:487351",
+              "en": {
+                "surrounding_name": "Breeze",
+                "surrounding_kind": "Other Chinese cuisine",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2300",
+                "surrounding_lat": "13.7219751",
+                "surrounding_lng": "100.5169734"
+              }
+            }
+          ]
+        },
+        {
+          "group_code": "05",
+          "section_type": {
+            "en": "05_Shopping",
+            "vi": "05_Mua Sắm"
+          },
+          "places": [
+            {
+              "row_uuid": "16f87de5-825a-908f-7e11-5d093ddc1b0e",
+              "row_key": "701102:SURROUNDING:153106095",
+              "en": {
+                "surrounding_name": "Dusit Central Park",
+                "surrounding_distance": "490m",
+                "surrounding_distance_m": "490",
+                "surrounding_lat": "13.7283069",
+                "surrounding_lng": "100.5375444"
+              },
+              "vi": {
+                "surrounding_name": "Dusit Central Park",
+                "surrounding_distance": "490m",
+                "surrounding_distance_m": "490",
+                "surrounding_lat": "13.7283069",
+                "surrounding_lng": "100.5375444"
+              }
+            },
+            {
+              "row_uuid": "870d9ac6-4904-c39f-d969-c511d747b4a3",
+              "row_key": "701102:SURROUNDING:31768413",
+              "en": {
+                "surrounding_name": "central Silom Complex",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "546m",
+                "surrounding_distance_m": "546",
+                "surrounding_lat": "13.7278527",
+                "surrounding_lng": "100.5350931"
+              },
+              "vi": {
+                "surrounding_name": "central Silom Complex",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "546m",
+                "surrounding_distance_m": "546",
+                "surrounding_lat": "13.7278527",
+                "surrounding_lng": "100.5350931"
+              }
+            },
+            {
+              "row_uuid": "1437066d-51d6-c1d7-e324-cea681b953f2",
+              "row_key": "701102:SURROUNDING:17046169",
+              "en": {
+                "surrounding_name": "Hong Kong Plaza",
+                "surrounding_kind": "Coffee shop",
+                "surrounding_distance": "817m",
+                "surrounding_distance_m": "817",
+                "surrounding_lat": "13.7208921",
+                "surrounding_lng": "100.5312678"
+              },
+              "vi": {
+                "surrounding_name": "Hong Kong Plaza",
+                "surrounding_kind": "Quán cà phê",
+                "surrounding_distance": "817m",
+                "surrounding_distance_m": "817",
+                "surrounding_lat": "13.7208921",
+                "surrounding_lng": "100.5312678"
+              }
+            },
+            {
+              "row_uuid": "908c7e7b-6c47-b539-b1c4-9c665a8418e7",
+              "row_key": "701102:SURROUNDING:102149",
+              "en": {
+                "surrounding_name": "Jim Thompson Surawong Flagship Store",
+                "surrounding_kind": "Fashion & Accessories",
+                "surrounding_distance": "877m",
+                "surrounding_distance_m": "877",
+                "surrounding_lat": "13.7303854",
+                "surrounding_lng": "100.5334683"
+              },
+              "vi": {
+                "surrounding_name": "Jim Thompson Surawong Flagship Store",
+                "surrounding_kind": "Thời trang & phụ kiện",
+                "surrounding_distance": "877m",
+                "surrounding_distance_m": "877",
+                "surrounding_lat": "13.7303854",
+                "surrounding_lng": "100.5334683"
+              }
+            },
+            {
+              "row_uuid": "b912e751-c595-41f3-1811-92a070a0632a",
+              "row_key": "701102:SURROUNDING:70269202",
+              "en": {
+                "surrounding_name": "Rolex Boutique - Cortina Watch One Bangkok",
+                "surrounding_kind": "Other",
+                "surrounding_distance": "933m",
+                "surrounding_distance_m": "933",
+                "surrounding_lat": "13.7279915",
+                "surrounding_lng": "100.545697"
+              },
+              "vi": {
+                "surrounding_name": "Rolex Boutique - Cortina Watch One Bangkok",
+                "surrounding_kind": "Khác",
+                "surrounding_distance": "933m",
+                "surrounding_distance_m": "933",
+                "surrounding_lat": "13.7279915",
+                "surrounding_lng": "100.545697"
+              }
+            },
+            {
+              "row_uuid": "d19e415a-8f7d-136c-d47e-ed7dd0b42bcf",
+              "row_key": "701102:SURROUNDING:99590612",
+              "en": {
+                "surrounding_name": "Lalai Sap Market",
+                "surrounding_kind": "Featured Neighborhoods",
+                "surrounding_distance": "967m",
+                "surrounding_distance_m": "967",
+                "surrounding_lat": "13.7266547",
+                "surrounding_lng": "100.5296412"
+              },
+              "vi": {
+                "surrounding_name": "Lalai Sap Market",
+                "surrounding_kind": "Khu Dân Cư Nổi Bật",
+                "surrounding_distance": "967m",
+                "surrounding_distance_m": "967",
+                "surrounding_lat": "13.7266547",
+                "surrounding_lng": "100.5296412"
+              }
+            },
+            {
+              "row_uuid": "a1d1261e-1857-5a83-7c5f-478f7f012fd9",
+              "row_key": "701102:SURROUNDING:38106403",
+              "en": {
+                "surrounding_name": "Mahanakhon CUBE",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1027",
+                "surrounding_lat": "13.7239053",
+                "surrounding_lng": "100.5286479"
+              },
+              "vi": {
+                "surrounding_name": "Mahanakhon CUBE",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1027",
+                "surrounding_lat": "13.7239053",
+                "surrounding_lng": "100.5286479"
+              }
+            },
+            {
+              "row_uuid": "7a06e284-841f-9246-972a-5b416a726ca3",
+              "row_key": "701102:SURROUNDING:18189516",
+              "en": {
+                "surrounding_name": "Venus Jewellery",
+                "surrounding_kind": "Jewelry & Watches",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1132",
+                "surrounding_lat": "13.7310383",
+                "surrounding_lng": "100.5456475"
+              },
+              "vi": {
+                "surrounding_name": "Venus Jewellery",
+                "surrounding_kind": "Trang sức & đồng hồ",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1132",
+                "surrounding_lat": "13.7310383",
+                "surrounding_lng": "100.5456475"
+              }
+            },
+            {
+              "row_uuid": "dc6ed4ca-0fe2-8988-99bb-00e2b19e58a9",
+              "row_key": "701102:SURROUNDING:61224971",
+              "en": {
+                "surrounding_name": "Chamchuri Square",
+                "surrounding_kind": "Squares",
+                "surrounding_distance": "1,3km",
+                "surrounding_distance_m": "1313",
+                "surrounding_lat": "13.7327297",
+                "surrounding_lng": "100.5300438"
+              },
+              "vi": {
+                "surrounding_name": "Chamchuri Square",
+                "surrounding_kind": "Quảng Trường",
+                "surrounding_distance": "1,3km",
+                "surrounding_distance_m": "1313",
+                "surrounding_lat": "13.7327297",
+                "surrounding_lng": "100.5300438"
+              }
+            },
+            {
+              "row_uuid": "a91984ba-2bb1-1a7a-a96d-2f96901b80bd",
+              "row_key": "701102:SURROUNDING:88876873",
+              "en": {
+                "surrounding_name": "Samyan Mitrtown",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1509",
+                "surrounding_lat": "13.7333846",
+                "surrounding_lng": "100.5281227"
+              },
+              "vi": {
+                "surrounding_name": "Samyan Mitrtown",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1509",
+                "surrounding_lat": "13.7333846",
+                "surrounding_lng": "100.5281227"
+              }
+            },
+            {
+              "row_uuid": "c62065ed-af80-51eb-8b6e-9f0bd04eaf18",
+              "row_key": "701102:SURROUNDING:31112256",
+              "en": {
+                "surrounding_name": "Love by Lumière",
+                "surrounding_kind": "Coffee shop",
+                "surrounding_distance": "1,6km",
+                "surrounding_distance_m": "1554",
+                "surrounding_lat": "13.7242814",
+                "surrounding_lng": "100.523778"
+              },
+              "vi": {
+                "surrounding_name": "Love by Lumière",
+                "surrounding_kind": "Quán cà phê",
+                "surrounding_distance": "1,6km",
+                "surrounding_distance_m": "1554",
+                "surrounding_lat": "13.7242814",
+                "surrounding_lng": "100.523778"
+              }
+            },
+            {
+              "row_uuid": "e755eefd-c9c3-5186-69c2-ac72aa133ea5",
+              "row_key": "701102:SURROUNDING:32129752",
+              "en": {
+                "surrounding_name": "Makro Sathon",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "1,6km",
+                "surrounding_distance_m": "1606",
+                "surrounding_lat": "13.7097744",
+                "surrounding_lng": "100.5353689"
+              },
+              "vi": {
+                "surrounding_name": "Makro Sathon",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "1,6km",
+                "surrounding_distance_m": "1606",
+                "surrounding_lat": "13.7097744",
+                "surrounding_lng": "100.5353689"
+              }
+            },
+            {
+              "row_uuid": "0c815c61-5366-135d-f4c6-60226d7e2343",
+              "row_key": "701102:SURROUNDING:55802144",
+              "en": {
+                "surrounding_name": "Five Prows Barber Shop",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1668",
+                "surrounding_lat": "13.7237205",
+                "surrounding_lng": "100.5227187"
+              },
+              "vi": {
+                "surrounding_name": "Five Prows Barber Shop",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1668",
+                "surrounding_lat": "13.7237205",
+                "surrounding_lng": "100.5227187"
+              }
+            },
+            {
+              "row_uuid": "eebbc796-6dbd-7c9e-c323-5abc640d092c",
+              "row_key": "701102:SURROUNDING:10567658",
+              "en": {
+                "surrounding_name": "Lambert Gems",
+                "surrounding_kind": "Jewelry & Watches",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1722",
+                "surrounding_lat": "13.7238153",
+                "surrounding_lng": "100.5222167"
+              },
+              "vi": {
+                "surrounding_name": "Lambert Gems",
+                "surrounding_kind": "Trang sức & đồng hồ",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1722",
+                "surrounding_lat": "13.7238153",
+                "surrounding_lng": "100.5222167"
+              }
+            },
+            {
+              "row_uuid": "929d0301-330a-2b91-333e-e0b2e7892eac",
+              "row_key": "701102:SURROUNDING:18189387",
+              "en": {
+                "surrounding_name": "Jewelry Trade Center",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "1954",
+                "surrounding_lat": "13.7230779",
+                "surrounding_lng": "100.5200978"
+              },
+              "vi": {
+                "surrounding_name": "Jewelry Trade Center",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "1954",
+                "surrounding_lat": "13.7230779",
+                "surrounding_lng": "100.5200978"
+              }
+            },
+            {
+              "row_uuid": "851eb7fe-aeb5-eeb1-2137-ee78ad4343bf",
+              "row_key": "701102:SURROUNDING:18170116",
+              "en": {
+                "surrounding_name": "Erawan Bangkok",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2208",
+                "surrounding_lat": "13.743631",
+                "surrounding_lng": "100.5406107"
+              },
+              "vi": {
+                "surrounding_name": "Erawan Bangkok",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2208",
+                "surrounding_lat": "13.743631",
+                "surrounding_lng": "100.5406107"
+              }
+            },
+            {
+              "row_uuid": "0c781769-6008-95cf-db36-2f82b75ae59a",
+              "row_key": "701102:SURROUNDING:78727963",
+              "en": {
+                "surrounding_name": "Victor Tailor",
+                "surrounding_kind": "Gift Stores",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2319",
+                "surrounding_lat": "13.7226519",
+                "surrounding_lng": "100.5167386"
+              },
+              "vi": {
+                "surrounding_name": "Victor Tailor",
+                "surrounding_kind": "Cửa hàng quà tặng",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2319",
+                "surrounding_lat": "13.7226519",
+                "surrounding_lng": "100.5167386"
+              }
+            },
+            {
+              "row_uuid": "c4daa2ac-2300-fcee-5a11-7ba33d49145f",
+              "row_key": "701102:SURROUNDING:18170118",
+              "en": {
+                "surrounding_name": "Central Festival(Central Chidlom)",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2358",
+                "surrounding_lat": "13.7442305",
+                "surrounding_lng": "100.5444095"
+              },
+              "vi": {
+                "surrounding_name": "Central Festival(Central Chidlom)",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2358",
+                "surrounding_lat": "13.7442305",
+                "surrounding_lng": "100.5444095"
+              }
+            },
+            {
+              "row_uuid": "2d16775e-e2da-074f-c040-dc79074af731",
+              "row_key": "701102:SURROUNDING:30767686",
+              "en": {
+                "surrounding_name": "Siam Square One",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2362",
+                "surrounding_lat": "13.7447505",
+                "surrounding_lng": "100.5338589"
+              },
+              "vi": {
+                "surrounding_name": "Siam Square One",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2362",
+                "surrounding_lat": "13.7447505",
+                "surrounding_lng": "100.5338589"
+              }
+            },
+            {
+              "row_uuid": "2da5cc23-4956-b5b9-ba0a-b7c907089aa8",
+              "row_key": "701102:SURROUNDING:55694743",
+              "en": {
+                "surrounding_name": "Lacoste(Central Embassy)",
+                "surrounding_kind": "Markets",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2387",
+                "surrounding_lat": "13.7438371",
+                "surrounding_lng": "100.5463885"
+              },
+              "vi": {
+                "surrounding_name": "Lacoste(Central Embassy)",
+                "surrounding_kind": "Chợ",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2387",
+                "surrounding_lat": "13.7438371",
+                "surrounding_lng": "100.5463885"
+              }
+            },
+            {
+              "row_uuid": "d24fcac2-e77b-c091-3483-336a52728c83",
+              "row_key": "701102:SURROUNDING:30767671",
+              "en": {
+                "surrounding_name": "Khlong Toei Market",
+                "surrounding_kind": "Second-hand Stores",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2401",
+                "surrounding_lat": "13.7195235",
+                "surrounding_lng": "100.559874"
+              },
+              "vi": {
+                "surrounding_name": "Khlong Toei Market",
+                "surrounding_kind": "Cửa hàng đồ cũ",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2401",
+                "surrounding_lat": "13.7195235",
+                "surrounding_lng": "100.559874"
+              }
+            },
+            {
+              "row_uuid": "70cb87f3-e43e-48ec-2da5-4894d9bd00ee",
+              "row_key": "701102:SURROUNDING:137253523",
+              "en": {
+                "surrounding_name": "Central @centralwOrld",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2412",
+                "surrounding_lat": "13.7455726",
+                "surrounding_lng": "100.539429"
+              },
+              "vi": {
+                "surrounding_name": "Central @centralwOrld",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2412",
+                "surrounding_lat": "13.7455726",
+                "surrounding_lng": "100.539429"
+              }
+            },
+            {
+              "row_uuid": "9b5fc434-1cc3-7362-922d-e3b5d049b3aa",
+              "row_key": "701102:SURROUNDING:38106330",
+              "en": {
+                "surrounding_name": "Open House Central Embassy",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2419",
+                "surrounding_lat": "13.743919",
+                "surrounding_lng": "100.546953"
+              },
+              "vi": {
+                "surrounding_name": "Open House Central Embassy",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2419",
+                "surrounding_lat": "13.743919",
+                "surrounding_lng": "100.546953"
+              }
+            },
+            {
+              "row_uuid": "a18e04b6-2aa7-b4c4-ae84-34d2559ba241",
+              "row_key": "701102:SURROUNDING:10567642",
+              "en": {
+                "surrounding_name": "Siam Paragon",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2509",
+                "surrounding_lat": "13.7462411",
+                "surrounding_lng": "100.5347402"
+              },
+              "vi": {
+                "surrounding_name": "Siam Paragon",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2509",
+                "surrounding_lat": "13.7462411",
+                "surrounding_lng": "100.5347402"
+              }
+            },
+            {
+              "row_uuid": "8fcafa70-8172-00ab-1769-3cd4e181932e",
+              "row_key": "701102:SURROUNDING:10567634",
+              "en": {
+                "surrounding_name": "centralwOrld",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2517",
+                "surrounding_lat": "13.7465337",
+                "surrounding_lng": "100.5391488"
+              },
+              "vi": {
+                "surrounding_name": "centralwOrld",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2517",
+                "surrounding_lat": "13.7465337",
+                "surrounding_lng": "100.5391488"
+              }
+            },
+            {
+              "row_uuid": "024b6414-2cdb-7cdc-5dcf-c95ec1611596",
+              "row_key": "701102:SURROUNDING:37870784",
+              "en": {
+                "surrounding_name": "C P S",
+                "surrounding_kind": "Other",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2528",
+                "surrounding_lat": "13.7466356",
+                "surrounding_lng": "100.5391266"
+              },
+              "vi": {
+                "surrounding_name": "C P S",
+                "surrounding_kind": "Khác",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2528",
+                "surrounding_lat": "13.7466356",
+                "surrounding_lng": "100.5391266"
+              }
+            },
+            {
+              "row_uuid": "dbd7e251-b6b0-087b-01a0-611684aaa1cc",
+              "row_key": "701102:SURROUNDING:37885556",
+              "en": {
+                "surrounding_name": "Power Mall",
+                "surrounding_kind": "Other",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2547",
+                "surrounding_lat": "13.7466179",
+                "surrounding_lng": "100.5349609"
+              },
+              "vi": {
+                "surrounding_name": "Power Mall",
+                "surrounding_kind": "Khác",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2547",
+                "surrounding_lat": "13.7466179",
+                "surrounding_lng": "100.5349609"
+              }
+            },
+            {
+              "row_uuid": "36d03a09-90a6-8d52-2262-719d59f2e3c2",
+              "row_key": "701102:SURROUNDING:136007426",
+              "en": {
+                "surrounding_name": "Siam Center",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2555",
+                "surrounding_lat": "13.7462793",
+                "surrounding_lng": "100.5326779"
+              },
+              "vi": {
+                "surrounding_name": "Siam Center",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2555",
+                "surrounding_lat": "13.7462793",
+                "surrounding_lng": "100.5326779"
+              }
+            },
+            {
+              "row_uuid": "f66b03a1-189d-adca-c2e2-452543c3c744",
+              "row_key": "701102:SURROUNDING:61926817",
+              "en": {
+                "surrounding_name": "Bang Rak Bazaar",
+                "surrounding_kind": "Markets",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2586",
+                "surrounding_lat": "13.7196991",
+                "surrounding_lng": "100.5146355"
+              },
+              "vi": {
+                "surrounding_name": "Bang Rak Bazaar",
+                "surrounding_kind": "Chợ",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2586",
+                "surrounding_lat": "13.7196991",
+                "surrounding_lng": "100.5146355"
+              }
+            },
+            {
+              "row_uuid": "a8e2c9f7-f01b-d8c2-3081-bdeee81c217d",
+              "row_key": "701102:SURROUNDING:10354854",
+              "en": {
+                "surrounding_name": "Big C Supercenter Ratchadamri",
+                "surrounding_kind": "Supermarkets & Convenience Stores",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2603",
+                "surrounding_lat": "13.7471417",
+                "surrounding_lng": "100.5411994"
+              },
+              "vi": {
+                "surrounding_name": "Big C Supercenter Ratchadamri",
+                "surrounding_kind": "Siêu thị & cửa hàng tiện lợi",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2603",
+                "surrounding_lat": "13.7471417",
+                "surrounding_lng": "100.5411994"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "property_id": 2804010,
+      "hotel_name": "Annex Lumpini Bangkok",
+      "source_table": "splatform_meta.trip_tmp_property_translation",
+      "DESCRIPTION": {
+        "row_uuid": "8db0e597-4bbc-db2d-000f-e0ee0bd59cba",
+        "section_type": "hotelInfo",
+        "row_key": "2804010:DESCRIPTION",
+        "en": {
+          "hotel_name": "Annex Lumpini Bangkok",
+          "local_name": "แอนเน็กซ์ ลุมพินี กรุงเทพ",
+          "hotel_address": "112/9 Soi Suwansawat, Rama 4 Road, Thungmahamek, Sathorn, Sathon, Bangkok, 10120, Thailand",
+          "room_count": "55",
+          "description": "<p>With a stay at Annex Lumpini Bangkok, you'll be centrally located in Bangkok, within a 5-minute drive of Siam Paragon Mall and Pratunam Market. This hotel is 0.6 mi (1 km) from Lumphini Park and 3.4 mi (5.5 km) from Terminal 21 Shopping Mall.</p><p>Take advantage of recreation opportunities such as a fitness center, or other amenities including complimentary wireless Internet access and a television in a common area.</p><p>Featured amenities include a 24-hour front desk, and genuinely staff. A roundtrip airport shuttle is provided for a surcharge (available 24 hours), and free self parking is available onsite.</p><p>Make yourself at home in one of the 53 air-conditioned rooms featuring refrigerators and LCD televisions. Complimentary wireless Internet access keeps you connected, and cable programming is available for your entertainment. Private bathrooms with showers feature complimentary toiletries and hair dryers.</p>",
+          "tripAdvisorId": "8488777"
+        },
+        "vi": {
+          "hotel_name": "Annex Lumpini Bangkok",
+          "local_name": "แอนเน็กซ์ ลุมพินี กรุงเทพ",
+          "hotel_address": "112/9 Soi Suwansawat, Rama 4 Road, Thungmahamek, Sathorn, Sathon 10120, Băng Cốc, Thái Lan",
+          "room_count": "55",
+          "description": "<p>Khám phá tất cả những gì Sathon mang lại trong thời gian bạn lưu trú tại Annex Lumpini Bangkok.</p><p>Hãy duy trì chế độ tập thể dục của bạn bằng cách ghé thăm phòng gym.</p><p>Để thuận tiện hơn, miễn phí nơi chứa hành lý và dịch vụ giặt là (tại chỗ nghỉ) cũng có sẵn tại chỗ nghỉ.</p>",
+          "tripAdvisorId": "8488777"
+        }
+      },
+      "POLICY": [
+        {
+          "section_type": "checkInAndOut",
+          "row_uuid": "fa5f13fe-7533-9b5a-3ecd-99c650e18dd2",
+          "row_key": "2804010:POLICY:checkInAndOut",
+          "en": {
+            "policy_title": "Check-in and Check-out Times",
+            "policy_content": "<p>Check-in: <strong>After 14:00</strong></p><p>Check-out: <strong>Before 12:00</strong></p><p>Front desk hours: 24/7</p>"
+          },
+          "vi": {
+            "policy_title": "Thời gian nhận và trả phòng",
+            "policy_content": "<p>Nhận phòng: <strong>Sau 14:00</strong></p><p>Trả phòng: <strong>Trước 12:00</strong></p><p>Giờ làm việc của quầy lễ tân: 24/7</p>"
+          }
+        },
+        {
+          "section_type": "childPolicy",
+          "row_uuid": "a57df957-f417-97e3-fe10-2b77eb1690ea",
+          "row_key": "2804010:POLICY:childPolicy",
+          "en": {
+            "policy_title": "Child policies",
+            "policy_content": "<p>Children of all ages are welcome at this property.</p><p>Additional fees may be charged for children using existing beds. Add the number of children to get a more accurate price.</p>"
+          },
+          "vi": {
+            "policy_title": "Chính sách cho trẻ em",
+            "policy_content": "<p>Trẻ em thuộc mọi độ tuổi đều được chào đón tại cơ sở lưu trú này.</p><p>Bạn có thể mất thêm phí để trẻ em sử dụng giường có sẵn. Hãy thêm số lượng trẻ em đi cùng để nhận được mức giá chính xác hơn.</p>"
+          }
+        },
+        {
+          "section_type": "cribAndExtraBed",
+          "row_uuid": "b6ce12ba-76cb-6790-2703-c87f7fce96ea",
+          "row_key": "2804010:POLICY:cribAndExtraBed",
+          "en": {
+            "policy_title": "Cribs and Extra Beds",
+            "policy_content": "<p>For all room types, cribs and extra beds cannot be added.</p>"
+          },
+          "vi": {
+            "policy_title": "Nôi/cũi và giường phụ",
+            "policy_content": "<p>Mọi loại phòng đều không thể bổ sung cũi và giường phụ.</p>"
+          }
+        },
+        {
+          "section_type": "breakfast",
+          "row_uuid": "b6e26be9-8675-5951-8971-92c81b7b570c",
+          "row_key": "2804010:POLICY:breakfast",
+          "en": {
+            "policy_title": "Breakfast",
+            "policy_content": "<p>Breakfast not provided</p>"
+          },
+          "vi": {
+            "policy_title": "Bữa sáng",
+            "policy_content": "<p>Không có bữa sáng.</p>"
+          }
+        },
+        {
+          "section_type": "deposit",
+          "row_uuid": "ebf3e273-5178-2900-352b-e4a6fdf8a963",
+          "row_key": "2804010:POLICY:deposit",
+          "en": {
+            "policy_title": "Deposit Policy",
+            "policy_content": "<p>Deposit: <strong>Deposit required</strong></p><p>Deposit Collection Methods: <strong>The deposit is determined based on the duration of your stay. The charge is THB 1,000.00 (approx. $29.69) per night.</strong></p>"
+          },
+          "vi": {
+            "policy_title": "Chính sách đặt cọc",
+            "policy_content": "<p>Đặt cọc: <strong>Yêu cầu đặt cọc</strong></p><p>Hình thức thu tiền cọc: <strong>Khoản tiền cọc được tính dựa trên độ dài lưu trú của bạn. Mức phí là 1.000,00 THB (khoảng 769.782₫)/đêm.</strong></p>"
+          }
+        },
+        {
+          "section_type": "pet",
+          "row_uuid": "39fae5d1-67af-19ca-d020-3f6188ccd940",
+          "row_key": "2804010:POLICY:pet",
+          "en": {
+            "policy_title": "Pets",
+            "policy_content": "<p>Pets are not allowed</p>"
+          },
+          "vi": {
+            "policy_title": "Thú cưng",
+            "policy_content": "<p>Không được phép mang theo thú cưng</p>"
+          }
+        },
+        {
+          "section_type": "ageLimit",
+          "row_uuid": "1a26ae1e-87de-b8ed-0d65-9ff0ca084104",
+          "row_key": "2804010:POLICY:ageLimit",
+          "en": {
+            "policy_title": "Age Requirements",
+            "policy_content": "<p>The main guest checking in must be at least 18 years old</p>"
+          },
+          "vi": {
+            "policy_title": "Giới hạn độ tuổi",
+            "policy_content": "<p>Khách chính nhận phòng phải từ 18 tuổi trở lên.</p>"
+          }
+        }
+      ],
+      "SURROUNDING": [
+        {
+          "group_code": "02",
+          "section_type": {
+            "en": "02_Transport",
+            "vi": "02_Giao thông"
+          },
+          "places": [
+            {
+              "row_uuid": "09c9417d-2769-64a3-afbe-677d3d7835d0",
+              "row_key": "2804010:SURROUNDING:64278949",
+              "en": {
+                "surrounding_name": "Khlong Toei",
+                "surrounding_kind": "Metro station",
+                "surrounding_label": "Metro",
+                "surrounding_distance": "540m",
+                "surrounding_distance_m": "540",
+                "surrounding_lat": "13.7222992",
+                "surrounding_lng": "100.5539149"
+              },
+              "vi": {
+                "surrounding_name": "Khlong Toei",
+                "surrounding_kind": "Ga tàu điện ngầm",
+                "surrounding_label": "Tàu Điện Ngầm",
+                "surrounding_distance": "540m",
+                "surrounding_distance_m": "540",
+                "surrounding_lat": "13.7222992",
+                "surrounding_lng": "100.5539149"
+              }
+            },
+            {
+              "row_uuid": "b6c7bd69-74fb-efd5-52eb-bae0c09dc10a",
+              "row_key": "2804010:SURROUNDING:64283047",
+              "en": {
+                "surrounding_name": "Lumphini",
+                "surrounding_kind": "Metro station",
+                "surrounding_label": "Metro",
+                "surrounding_distance": "580m",
+                "surrounding_distance_m": "580",
+                "surrounding_lat": "13.7257642",
+                "surrounding_lng": "100.5456664"
+              },
+              "vi": {
+                "surrounding_name": "Lumphini",
+                "surrounding_kind": "Ga tàu điện ngầm",
+                "surrounding_label": "Tàu Điện Ngầm",
+                "surrounding_distance": "580m",
+                "surrounding_distance_m": "580",
+                "surrounding_lat": "13.7257642",
+                "surrounding_lng": "100.5456664"
+              }
+            },
+            {
+              "row_uuid": "683c65f2-94ca-9843-dd41-4173ec27039f",
+              "row_key": "2804010:SURROUNDING:13099857",
+              "en": {
+                "surrounding_name": "Don Mueang International Airport",
+                "surrounding_kind": "Airport",
+                "surrounding_label": "Airport",
+                "surrounding_distance": "24,4km",
+                "surrounding_distance_m": "24370",
+                "surrounding_lat": "13.9150135",
+                "surrounding_lng": "100.6054823"
+              },
+              "vi": {
+                "surrounding_name": "Sân bay quốc tế Don Mueang",
+                "surrounding_kind": "Sân bay",
+                "surrounding_label": "Sân Bay",
+                "surrounding_distance": "24,4km",
+                "surrounding_distance_m": "24370",
+                "surrounding_lat": "13.9150135",
+                "surrounding_lng": "100.6054823"
+              }
+            },
+            {
+              "row_uuid": "2f934cb6-d9d8-c148-e923-b545bcb32dc4",
+              "row_key": "2804010:SURROUNDING:142209891",
+              "en": {
+                "surrounding_name": "Mae Nam Railway Station",
+                "surrounding_kind": "Train station",
+                "surrounding_label": "Train",
+                "surrounding_distance": "1,4km",
+                "surrounding_distance_m": "1400",
+                "surrounding_lat": "13.7139353",
+                "surrounding_lng": "100.5536168"
+              },
+              "vi": {
+                "surrounding_name": "Mae Nam Railway Station",
+                "surrounding_kind": "Ga tàu",
+                "surrounding_label": "Vé Tàu",
+                "surrounding_distance": "1,4km",
+                "surrounding_distance_m": "1400",
+                "surrounding_lat": "13.7139353",
+                "surrounding_lng": "100.5536168"
+              }
+            },
+            {
+              "row_uuid": "3820f477-7b2a-9ce8-561d-1ddad004dfef",
+              "row_key": "2804010:SURROUNDING:141305950",
+              "en": {
+                "surrounding_name": "Silom MRT Station",
+                "surrounding_kind": "Train station",
+                "surrounding_label": "Train",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1670",
+                "surrounding_lat": "13.7293606",
+                "surrounding_lng": "100.5378782"
+              },
+              "vi": {
+                "surrounding_name": "Silom MRT Station",
+                "surrounding_kind": "Ga tàu",
+                "surrounding_label": "Vé Tàu",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1670",
+                "surrounding_lat": "13.7293606",
+                "surrounding_lng": "100.5378782"
+              }
+            }
+          ]
+        },
+        {
+          "group_code": "03",
+          "section_type": {
+            "en": "03_Landmarks",
+            "vi": "03_Điểm nổi bật"
+          },
+          "places": [
+            {
+              "row_uuid": "1ae462ad-df0f-ee54-e83d-ae0eb5af06bc",
+              "row_key": "2804010:SURROUNDING:156848780",
+              "en": {
+                "surrounding_name": "Bangkok丨2026 GONG YOO ASIA FANMEETING TOUR (THE LONG TAKE) IN BANGKOK",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "546m",
+                "surrounding_distance_m": "546",
+                "surrounding_lat": "13.7274205",
+                "surrounding_lng": "100.5480847"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok丨2026 GONG YOO ASIA FANMEETING TOUR (THE LONG TAKE) IN BANGKOK",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "546m",
+                "surrounding_distance_m": "546",
+                "surrounding_lat": "13.7274205",
+                "surrounding_lng": "100.5480847"
+              }
+            },
+            {
+              "row_uuid": "93fc0fb3-60c3-8c0e-2f05-349d2e47de86",
+              "row_key": "2804010:SURROUNDING:144011752",
+              "en": {
+                "surrounding_name": "One Bangkok",
+                "surrounding_distance": "546m",
+                "surrounding_distance_m": "546",
+                "surrounding_lat": "13.7270531",
+                "surrounding_lng": "100.5472545"
+              },
+              "vi": {
+                "surrounding_name": "One Bangkok",
+                "surrounding_distance": "546m",
+                "surrounding_distance_m": "546",
+                "surrounding_lat": "13.7270531",
+                "surrounding_lng": "100.5472545"
+              }
+            },
+            {
+              "row_uuid": "30d9098b-9abf-d604-826c-ee69c1485edb",
+              "row_key": "2804010:SURROUNDING:22847028",
+              "en": {
+                "surrounding_name": "Queen Sirikit National Convention Center",
+                "surrounding_kind": "Memorial Halls",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1016",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              },
+              "vi": {
+                "surrounding_name": "Queen Sirikit National Convention Center",
+                "surrounding_kind": "Sảnh Tưởng Niệm",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1016",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              }
+            },
+            {
+              "row_uuid": "e51c168e-d96f-d305-5abf-010181254fe1",
+              "row_key": "2804010:SURROUNDING:156405127",
+              "en": {
+                "surrounding_name": "gamescom asia x Thailand Game Show 2026",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1016",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              },
+              "vi": {
+                "surrounding_name": "gamescom asia x Thailand Game Show 2026",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1016",
+                "surrounding_lat": "13.7245354",
+                "surrounding_lng": "100.5589822"
+              }
+            },
+            {
+              "row_uuid": "f4c8b5cc-a7a3-6c20-ce14-40da4106b341",
+              "row_key": "2804010:SURROUNDING:77030",
+              "en": {
+                "surrounding_name": "Lumphini Park",
+                "surrounding_kind": "City Parks",
+                "surrounding_distance": "1,3km",
+                "surrounding_distance_m": "1298",
+                "surrounding_lat": "13.7314281",
+                "surrounding_lng": "100.5416984"
+              },
+              "vi": {
+                "surrounding_name": "Lumphini Park",
+                "surrounding_kind": "Công Viên Thành Phố",
+                "surrounding_distance": "1,3km",
+                "surrounding_distance_m": "1298",
+                "surrounding_lat": "13.7314281",
+                "surrounding_lng": "100.5416984"
+              }
+            },
+            {
+              "row_uuid": "436b3445-2321-1711-2f42-6eb57dd53d2d",
+              "row_key": "2804010:SURROUNDING:15011654",
+              "en": {
+                "surrounding_name": "Yunomori Onsen & Spa Sukhumvit Soi 26",
+                "surrounding_kind": "Hot Springs",
+                "surrounding_distance": "1,9km",
+                "surrounding_distance_m": "1870",
+                "surrounding_lat": "13.7196417",
+                "surrounding_lng": "100.5667472"
+              },
+              "vi": {
+                "surrounding_name": "Yunomori Onsen & Spa Sukhumvit Soi 26",
+                "surrounding_kind": "Suối Nước Nóng",
+                "surrounding_distance": "1,9km",
+                "surrounding_distance_m": "1870",
+                "surrounding_lat": "13.7196417",
+                "surrounding_lng": "100.5667472"
+              }
+            },
+            {
+              "row_uuid": "f8909709-cd44-0c0f-b9c3-e1c5eba0bafa",
+              "row_key": "2804010:SURROUNDING:18687620",
+              "en": {
+                "surrounding_name": "Soi Cowboy",
+                "surrounding_kind": "Featured Neighborhoods",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2061",
+                "surrounding_lat": "13.7370674",
+                "surrounding_lng": "100.5618986"
+              },
+              "vi": {
+                "surrounding_name": "Soi Cowboy",
+                "surrounding_kind": "Khu Dân Cư Nổi Bật",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2061",
+                "surrounding_lat": "13.7370674",
+                "surrounding_lng": "100.5618986"
+              }
+            },
+            {
+              "row_uuid": "5c897493-4f8a-68f3-5e5c-70d37b702522",
+              "row_key": "2804010:SURROUNDING:156363798",
+              "en": {
+                "surrounding_name": "Bangkok | Khalid: It's Always Summer Somewhere Tour in Bangkok",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Khalid: It's Always Summer Somewhere Tour in Bangkok",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              }
+            },
+            {
+              "row_uuid": "0a25ec88-7f2c-6418-6b1e-e2a0ac1c57be",
+              "row_key": "2804010:SURROUNDING:156358122",
+              "en": {
+                "surrounding_name": "Bangkok | Zara Larsson - Midnight Sun Tour",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Zara Larsson - Midnight Sun Tour",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              }
+            },
+            {
+              "row_uuid": "e6d062f8-9671-1203-7333-918f10a483d0",
+              "row_key": "2804010:SURROUNDING:154502505",
+              "en": {
+                "surrounding_name": "Bangkok | 5SOS: EVERYONE’S A STAR! WORLD TOUR",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | 5SOS: EVERYONE’S A STAR! WORLD TOUR",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              }
+            },
+            {
+              "row_uuid": "cc830185-626c-de91-110d-49c7146aa135",
+              "row_key": "2804010:SURROUNDING:155071584",
+              "en": {
+                "surrounding_name": "Bangkok | wave to earth - the pieces tour",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | wave to earth - the pieces tour",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2064",
+                "surrounding_lat": "13.7322314",
+                "surrounding_lng": "100.5661923"
+              }
+            },
+            {
+              "row_uuid": "3c9ad445-07cc-0685-0331-87ec7a48a8ff",
+              "row_key": "2804010:SURROUNDING:156460459",
+              "en": {
+                "surrounding_name": "Bangkok | ENCHANTED FEST 2026",
+                "surrounding_kind": "Music Festivals",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | ENCHANTED FEST 2026",
+                "surrounding_kind": "Lễ Hội Âm Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              }
+            },
+            {
+              "row_uuid": "e5746378-27dc-d9a4-b2c6-8227a371e97d",
+              "row_key": "2804010:SURROUNDING:156780042",
+              "en": {
+                "surrounding_name": "Bangkok | Tiffany Young Tour",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Tiffany Young Tour",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              }
+            },
+            {
+              "row_uuid": "5613847e-98fe-384e-cb31-a199d68a945d",
+              "row_key": "2804010:SURROUNDING:156465483",
+              "en": {
+                "surrounding_name": "Bangkok | Interstellar - Live in Bangkok",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Interstellar - Live in Bangkok",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              }
+            },
+            {
+              "row_uuid": "39f756c3-cb3a-2b1d-667e-b1fe22f6ff69",
+              "row_key": "2804010:SURROUNDING:156480281",
+              "en": {
+                "surrounding_name": "Bangkok | Harry Potter and The Goblet of Fire™ in Concert",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Harry Potter and The Goblet of Fire™ in Concert",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              }
+            },
+            {
+              "row_uuid": "0b50b563-1906-f685-0d2d-b92d97eadb2b",
+              "row_key": "2804010:SURROUNDING:156710670",
+              "en": {
+                "surrounding_name": "2026 SO JI SUB ASIA FANMEETING TOUR [Soulmate The Timeless] IN BANGKOK",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              },
+              "vi": {
+                "surrounding_name": "2026 SO JI SUB ASIA FANMEETING TOUR [Soulmate The Timeless] IN BANGKOK",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7322338",
+                "surrounding_lng": "100.5662012"
+              }
+            },
+            {
+              "row_uuid": "a8cbda2c-7080-7bdd-bcfe-d6aee7dbdc95",
+              "row_key": "2804010:SURROUNDING:10523392",
+              "en": {
+                "surrounding_name": "Patpong Night Market",
+                "surrounding_kind": "Featured Neighborhoods",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2094",
+                "surrounding_lat": "13.7292485",
+                "surrounding_lng": "100.531574"
+              },
+              "vi": {
+                "surrounding_name": "Patpong Night Market",
+                "surrounding_kind": "Khu Dân Cư Nổi Bật",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2094",
+                "surrounding_lat": "13.7292485",
+                "surrounding_lng": "100.531574"
+              }
+            },
+            {
+              "row_uuid": "22f4de8a-0e86-d9af-a6c6-51fbb7834037",
+              "row_key": "2804010:SURROUNDING:18687606",
+              "en": {
+                "surrounding_name": "Nana Plaza",
+                "surrounding_kind": "Bar/Club",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2104",
+                "surrounding_lat": "13.7413718",
+                "surrounding_lng": "100.5533082"
+              },
+              "vi": {
+                "surrounding_name": "Nana Plaza",
+                "surrounding_kind": "Bar/Club",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2104",
+                "surrounding_lat": "13.7413718",
+                "surrounding_lng": "100.5533082"
+              }
+            },
+            {
+              "row_uuid": "92102515-500d-371a-1d6d-4c0e63f0b398",
+              "row_key": "2804010:SURROUNDING:153992092",
+              "en": {
+                "surrounding_name": "Akara Sky Hanuman Bangkok",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2175",
+                "surrounding_lat": "13.7420325",
+                "surrounding_lng": "100.5462515"
+              },
+              "vi": {
+                "surrounding_name": "Akara Sky Hanuman Bangkok",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2175",
+                "surrounding_lat": "13.7420325",
+                "surrounding_lng": "100.5462515"
+              }
+            },
+            {
+              "row_uuid": "23a214d9-215d-8437-fc48-6f5f2f7155e6",
+              "row_key": "2804010:SURROUNDING:36932169",
+              "en": {
+                "surrounding_name": "King Power Mahanakhon Tower",
+                "surrounding_kind": "Modern Architecture",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2306",
+                "surrounding_lat": "13.7240107",
+                "surrounding_lng": "100.5284771"
+              },
+              "vi": {
+                "surrounding_name": "King Power Mahanakhon Tower",
+                "surrounding_kind": "Kiến Trúc Hiện Đại",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2306",
+                "surrounding_lat": "13.7240107",
+                "surrounding_lng": "100.5284771"
+              }
+            },
+            {
+              "row_uuid": "0ca590cd-94a5-0b8d-d953-75372069a9b3",
+              "row_key": "2804010:SURROUNDING:56594174",
+              "en": {
+                "surrounding_name": "King Power Mahanakhon Sky Walk",
+                "surrounding_kind": "Observation Decks",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2337",
+                "surrounding_lat": "13.723358",
+                "surrounding_lng": "100.52816"
+              },
+              "vi": {
+                "surrounding_name": "King Power Mahanakhon Sky Walk",
+                "surrounding_kind": "Đài Quan Sát",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2337",
+                "surrounding_lat": "13.723358",
+                "surrounding_lng": "100.52816"
+              }
+            },
+            {
+              "row_uuid": "c9003f84-91a0-713a-e457-d1a42d9f5ac7",
+              "row_key": "2804010:SURROUNDING:156463221",
+              "en": {
+                "surrounding_name": "Vivienne Westwood & Jewellery Exhibition",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2440",
+                "surrounding_lat": "13.7440648",
+                "surrounding_lng": "100.5443437"
+              },
+              "vi": {
+                "surrounding_name": "Vivienne Westwood & Jewellery Exhibition",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2440",
+                "surrounding_lat": "13.7440648",
+                "surrounding_lng": "100.5443437"
+              }
+            },
+            {
+              "row_uuid": "df7ee966-6dc6-966f-51c7-880f7996d1cd",
+              "row_key": "2804010:SURROUNDING:13242741",
+              "en": {
+                "surrounding_name": "Chulalongkorn University",
+                "surrounding_kind": "Schools",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2592",
+                "surrounding_lat": "13.7385647",
+                "surrounding_lng": "100.5321342"
+              },
+              "vi": {
+                "surrounding_name": "Đại học Chulalongkorn",
+                "surrounding_kind": "Trường Học",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2592",
+                "surrounding_lat": "13.7385647",
+                "surrounding_lng": "100.5321342"
+              }
+            },
+            {
+              "row_uuid": "02e5b198-ecbd-fc70-6c15-7aea9842f3ee",
+              "row_key": "2804010:SURROUNDING:77017",
+              "en": {
+                "surrounding_name": "Erawan Shrine",
+                "surrounding_kind": "Other Places of Worship",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2602",
+                "surrounding_lat": "13.7443437",
+                "surrounding_lng": "100.5404554"
+              },
+              "vi": {
+                "surrounding_name": "Erawan Shrine",
+                "surrounding_kind": "Những Nơi Thờ Cúng Khác",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2602",
+                "surrounding_lat": "13.7443437",
+                "surrounding_lng": "100.5404554"
+              }
+            },
+            {
+              "row_uuid": "195727e3-4040-f8d3-3099-b5a534e3f96f",
+              "row_key": "2804010:SURROUNDING:156453551",
+              "en": {
+                "surrounding_name": "Bangkok | Bangkok International Card Show 2026",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2626",
+                "surrounding_lat": "13.7338286",
+                "surrounding_lng": "100.528296"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Bangkok International Card Show 2026",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2626",
+                "surrounding_lat": "13.7338286",
+                "surrounding_lng": "100.528296"
+              }
+            },
+            {
+              "row_uuid": "e1bfaead-d165-71bc-6f27-c4dbb7c6a3af",
+              "row_key": "2804010:SURROUNDING:130891060",
+              "en": {
+                "surrounding_name": "Sompong Thai Cooking School",
+                "surrounding_kind": "Lessons",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2766",
+                "surrounding_lat": "13.7240718",
+                "surrounding_lng": "100.5242191"
+              },
+              "vi": {
+                "surrounding_name": "Sompong Thai Cooking School",
+                "surrounding_kind": "Lớp Học Trải Nghiệm",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2766",
+                "surrounding_lat": "13.7240718",
+                "surrounding_lng": "100.5242191"
+              }
+            },
+            {
+              "row_uuid": "d4fa7f13-4777-80e2-de82-df0afef4675e",
+              "row_key": "2804010:SURROUNDING:156453868",
+              "en": {
+                "surrounding_name": "Bangkok | Melt Livehouse Rama 4: Blackbeans",
+                "surrounding_kind": "Vocal Concerts",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2870",
+                "surrounding_lat": "13.7144662",
+                "surrounding_lng": "100.5748757"
+              },
+              "vi": {
+                "surrounding_name": "Bangkok | Melt Livehouse Rama 4: Blackbeans",
+                "surrounding_kind": "Biểu Diễn Ca Nhạc",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2870",
+                "surrounding_lat": "13.7144662",
+                "surrounding_lng": "100.5748757"
+              }
+            },
+            {
+              "row_uuid": "fbea36f4-c93e-cfe6-3cd1-38b0584aab0d",
+              "row_key": "2804010:SURROUNDING:20905341",
+              "en": {
+                "surrounding_name": "Sri Maha Mariamman Temple (Wat Khaek)",
+                "surrounding_kind": "Temples",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2908",
+                "surrounding_lat": "13.7242482",
+                "surrounding_lng": "100.5229171"
+              },
+              "vi": {
+                "surrounding_name": "Sri Maha Mariamman Temple (Wat Khaek)",
+                "surrounding_kind": "Đền",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2908",
+                "surrounding_lat": "13.7242482",
+                "surrounding_lng": "100.5229171"
+              }
+            },
+            {
+              "row_uuid": "b689a6b3-c1f1-07b4-4b17-73e535bf5968",
+              "row_key": "2804010:SURROUNDING:156445966",
+              "en": {
+                "surrounding_name": "2026 AMAZING THAILAND MARATHON BANGKOK",
+                "surrounding_distance": "3,3km",
+                "surrounding_distance_m": "3250",
+                "surrounding_lat": "13.7447542",
+                "surrounding_lng": "100.529956"
+              },
+              "vi": {
+                "surrounding_name": "2026 AMAZING THAILAND MARATHON BANGKOK",
+                "surrounding_distance": "3,3km",
+                "surrounding_distance_m": "3250",
+                "surrounding_lat": "13.7447542",
+                "surrounding_lng": "100.529956"
+              }
+            },
+            {
+              "row_uuid": "6cd7a839-6ded-5007-f2cd-14c974bbe3cd",
+              "row_key": "2804010:SURROUNDING:156633804",
+              "en": {
+                "surrounding_name": "The Little Galaxy - MOLLY 20th Anniversary Exhibition - Bangkok",
+                "surrounding_kind": "Exhibitions",
+                "surrounding_distance": "3,4km",
+                "surrounding_distance_m": "3368",
+                "surrounding_lat": "13.7394304",
+                "surrounding_lng": "100.5237535"
+              },
+              "vi": {
+                "surrounding_name": "The Little Galaxy - MOLLY 20th Anniversary Exhibition - Bangkok",
+                "surrounding_kind": "Triển Lãm",
+                "surrounding_distance": "3,4km",
+                "surrounding_distance_m": "3368",
+                "surrounding_lat": "13.7394304",
+                "surrounding_lng": "100.5237535"
+              }
+            }
+          ]
+        },
+        {
+          "group_code": "04",
+          "section_type": {
+            "en": "04_Dining"
+          },
+          "places": [
+            {
+              "row_uuid": "734212c4-3bfb-5258-ec97-20f4e509ab8c",
+              "row_key": "2804010:SURROUNDING:10791832",
+              "en": {
+                "surrounding_name": "Issaya Siamese Club",
+                "surrounding_kind": "Innovative cuisine",
+                "surrounding_distance": "342m",
+                "surrounding_distance_m": "342",
+                "surrounding_lat": "13.7205621",
+                "surrounding_lng": "100.5519393"
+              }
+            },
+            {
+              "row_uuid": "069f69a3-1bb6-d0b3-eb8c-4a6d50961cd7",
+              "row_key": "2804010:SURROUNDING:145028125",
+              "en": {
+                "surrounding_name": "Fran's Sathorn",
+                "surrounding_kind": "Fusion cuisine",
+                "surrounding_distance": "416m",
+                "surrounding_distance_m": "416",
+                "surrounding_lat": "13.7216461",
+                "surrounding_lng": "100.5461039"
+              }
+            },
+            {
+              "row_uuid": "79c8fc09-dce6-cdbe-2777-e19d835b5e9e",
+              "row_key": "2804010:SURROUNDING:136319241",
+              "en": {
+                "surrounding_name": "Baan Suan Sathon",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "430m",
+                "surrounding_distance_m": "430",
+                "surrounding_lat": "13.7192844",
+                "surrounding_lng": "100.551428"
+              }
+            },
+            {
+              "row_uuid": "79755afb-feef-6bbe-1fda-f092586e0ad8",
+              "row_key": "2804010:SURROUNDING:487397",
+              "en": {
+                "surrounding_name": "nahm",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,1km",
+                "surrounding_distance_m": "1147",
+                "surrounding_lat": "13.7235741",
+                "surrounding_lng": "100.5391861"
+              }
+            },
+            {
+              "row_uuid": "46460f6e-7f03-4826-e822-e94018477eff",
+              "row_key": "2804010:SURROUNDING:134224605",
+              "en": {
+                "surrounding_name": "Samrub Samrub Thai",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,4km",
+                "surrounding_distance_m": "1406",
+                "surrounding_lat": "13.7268983",
+                "surrounding_lng": "100.5374615"
+              }
+            },
+            {
+              "row_uuid": "b192571e-5563-d1ba-ad3a-6b6e1c561c52",
+              "row_key": "2804010:SURROUNDING:30738374",
+              "en": {
+                "surrounding_name": "Sühring",
+                "surrounding_kind": "Western cuisine",
+                "surrounding_distance": "1,4km",
+                "surrounding_distance_m": "1411",
+                "surrounding_lat": "13.7108133",
+                "surrounding_lng": "100.5454871"
+              }
+            },
+            {
+              "row_uuid": "cf12de20-486a-b453-05d1-3e61ae315bbc",
+              "row_key": "2804010:SURROUNDING:31112649",
+              "en": {
+                "surrounding_name": "Saneh Jaan",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1484",
+                "surrounding_lat": "13.7355537",
+                "surrounding_lng": "100.5457857"
+              }
+            },
+            {
+              "row_uuid": "5b9fe250-0f21-c6ca-2b7f-d8d9816fdec8",
+              "row_key": "2804010:SURROUNDING:17041454",
+              "en": {
+                "surrounding_name": "Somtum Der",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1540",
+                "surrounding_lat": "13.7275912",
+                "surrounding_lng": "100.536404"
+              }
+            },
+            {
+              "row_uuid": "39fa82eb-4120-f216-aa5c-5948904bc798",
+              "row_key": "2804010:SURROUNDING:487407",
+              "en": {
+                "surrounding_name": "EAT ME RESTAURANT",
+                "surrounding_kind": "Fusion cuisine",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1741",
+                "surrounding_lat": "13.7254648",
+                "surrounding_lng": "100.5338985"
+              }
+            },
+            {
+              "row_uuid": "f8724d06-c100-7174-496d-117857dd7e30",
+              "row_key": "2804010:SURROUNDING:148038926",
+              "en": {
+                "surrounding_name": "INDDEE",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "1,8km",
+                "surrounding_distance_m": "1844",
+                "surrounding_lat": "13.7376827",
+                "surrounding_lng": "100.542291"
+              }
+            },
+            {
+              "row_uuid": "752d0395-8ec9-13f8-380a-95627ce39c57",
+              "row_key": "2804010:SURROUNDING:17042407",
+              "en": {
+                "surrounding_name": "G's",
+                "surrounding_kind": "Western cuisine",
+                "surrounding_distance": "1,9km",
+                "surrounding_distance_m": "1912",
+                "surrounding_lat": "13.7283674",
+                "surrounding_lng": "100.5330407"
+              }
+            },
+            {
+              "row_uuid": "01bcd904-de4f-8453-64f6-8b31cb35e412",
+              "row_key": "2804010:SURROUNDING:13588253",
+              "en": {
+                "surrounding_name": "The House of Smooth Curry",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2056",
+                "surrounding_lat": "13.7411515",
+                "surrounding_lng": "100.5476989"
+              }
+            },
+            {
+              "row_uuid": "ab8355cd-798e-afe2-3896-b159f4211f91",
+              "row_key": "2804010:SURROUNDING:136320111",
+              "en": {
+                "surrounding_name": "Lon Lon Local Diner",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2065",
+                "surrounding_lat": "13.7246312",
+                "surrounding_lng": "100.5307626"
+              }
+            },
+            {
+              "row_uuid": "432808ec-9c63-7ed3-5b09-bcc38491420d",
+              "row_key": "2804010:SURROUNDING:149569812",
+              "en": {
+                "surrounding_name": "Le Du Kaan",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2120",
+                "surrounding_lat": "13.7204935",
+                "surrounding_lng": "100.5302969"
+              }
+            },
+            {
+              "row_uuid": "1386418d-b659-f48a-a6f4-c6d3681469d3",
+              "row_key": "2804010:SURROUNDING:129754634",
+              "en": {
+                "surrounding_name": "IGNIV Bangkok",
+                "surrounding_kind": "Fusion cuisine",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2195",
+                "surrounding_lat": "13.740062",
+                "surrounding_lng": "100.539962"
+              }
+            },
+            {
+              "row_uuid": "5d6b970f-2405-12bb-acc6-c394530ff920",
+              "row_key": "2804010:SURROUNDING:17041293",
+              "en": {
+                "surrounding_name": "Le Du",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2221",
+                "surrounding_lat": "13.7250312",
+                "surrounding_lng": "100.5293521"
+              }
+            },
+            {
+              "row_uuid": "fb5fe34d-778c-944f-0367-2cf21ac938c5",
+              "row_key": "2804010:SURROUNDING:19646915",
+              "en": {
+                "surrounding_name": "Yamazato",
+                "surrounding_kind": "Japanese cuisine",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2242",
+                "surrounding_lat": "13.7428479",
+                "surrounding_lng": "100.5479016"
+              }
+            },
+            {
+              "row_uuid": "676e972c-22ea-6f35-a056-cb4284c5ddc4",
+              "row_key": "2804010:SURROUNDING:136058537",
+              "en": {
+                "surrounding_name": "Ojo Bangkok",
+                "surrounding_kind": "Latin American cuisine",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2328",
+                "surrounding_lat": "13.7240555",
+                "surrounding_lng": "100.5282712"
+              }
+            },
+            {
+              "row_uuid": "aa94b4b6-3a0b-6cbd-820f-1f75fec55d57",
+              "row_key": "2804010:SURROUNDING:20590307",
+              "en": {
+                "surrounding_name": "Somboon Seafood Central Embassy",
+                "surrounding_kind": "Seafood",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2386",
+                "surrounding_lat": "13.7439137",
+                "surrounding_lng": "100.5460398"
+              }
+            },
+            {
+              "row_uuid": "a0409366-4fba-181b-8d6d-fcbe6afac427",
+              "row_key": "2804010:SURROUNDING:82989013",
+              "en": {
+                "surrounding_name": "Baan Suriyasai",
+                "surrounding_kind": "Southeast Asian cuisine",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2471",
+                "surrounding_lat": "13.7290946",
+                "surrounding_lng": "100.5278502"
+              }
+            }
+          ]
+        },
+        {
+          "group_code": "05",
+          "section_type": {
+            "en": "05_Shopping",
+            "vi": "05_Mua Sắm"
+          },
+          "places": [
+            {
+              "row_uuid": "0489a3df-a10b-88c7-c1ec-ae376e09a8a6",
+              "row_key": "2804010:SURROUNDING:70269202",
+              "en": {
+                "surrounding_name": "Rolex Boutique - Cortina Watch One Bangkok",
+                "surrounding_kind": "Other",
+                "surrounding_distance": "727m",
+                "surrounding_distance_m": "727",
+                "surrounding_lat": "13.7279915",
+                "surrounding_lng": "100.545697"
+              },
+              "vi": {
+                "surrounding_name": "Rolex Boutique - Cortina Watch One Bangkok",
+                "surrounding_kind": "Khác",
+                "surrounding_distance": "727m",
+                "surrounding_distance_m": "727",
+                "surrounding_lat": "13.7279915",
+                "surrounding_lng": "100.545697"
+              }
+            },
+            {
+              "row_uuid": "a1904d74-5325-8e9d-08f3-d5593f214e48",
+              "row_key": "2804010:SURROUNDING:18189516",
+              "en": {
+                "surrounding_name": "Venus Jewellery",
+                "surrounding_kind": "Jewelry & Watches",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1020",
+                "surrounding_lat": "13.7310383",
+                "surrounding_lng": "100.5456475"
+              },
+              "vi": {
+                "surrounding_name": "Venus Jewellery",
+                "surrounding_kind": "Trang sức & đồng hồ",
+                "surrounding_distance": "1,0km",
+                "surrounding_distance_m": "1020",
+                "surrounding_lat": "13.7310383",
+                "surrounding_lng": "100.5456475"
+              }
+            },
+            {
+              "row_uuid": "f8c4f1ab-71e2-6284-279c-cf77b93b9ed2",
+              "row_key": "2804010:SURROUNDING:30767671",
+              "en": {
+                "surrounding_name": "Khlong Toei Market",
+                "surrounding_kind": "Second-hand Stores",
+                "surrounding_distance": "1,2km",
+                "surrounding_distance_m": "1152",
+                "surrounding_lat": "13.7195235",
+                "surrounding_lng": "100.559874"
+              },
+              "vi": {
+                "surrounding_name": "Khlong Toei Market",
+                "surrounding_kind": "Cửa hàng đồ cũ",
+                "surrounding_distance": "1,2km",
+                "surrounding_distance_m": "1152",
+                "surrounding_lat": "13.7195235",
+                "surrounding_lng": "100.559874"
+              }
+            },
+            {
+              "row_uuid": "7535a889-5b9a-8634-c869-95cdca9cdc9d",
+              "row_key": "2804010:SURROUNDING:153106095",
+              "en": {
+                "surrounding_name": "Dusit Central Park",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1457",
+                "surrounding_lat": "13.7283069",
+                "surrounding_lng": "100.5375444"
+              },
+              "vi": {
+                "surrounding_name": "Dusit Central Park",
+                "surrounding_distance": "1,5km",
+                "surrounding_distance_m": "1457",
+                "surrounding_lat": "13.7283069",
+                "surrounding_lng": "100.5375444"
+              }
+            },
+            {
+              "row_uuid": "e25dcf83-a62a-e395-cd79-a6f2e32ee1cb",
+              "row_key": "2804010:SURROUNDING:31768413",
+              "en": {
+                "surrounding_name": "central Silom Complex",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1683",
+                "surrounding_lat": "13.7278527",
+                "surrounding_lng": "100.5350931"
+              },
+              "vi": {
+                "surrounding_name": "central Silom Complex",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "1,7km",
+                "surrounding_distance_m": "1683",
+                "surrounding_lat": "13.7278527",
+                "surrounding_lng": "100.5350931"
+              }
+            },
+            {
+              "row_uuid": "3a05954c-a630-eaa6-6d52-c966366472ce",
+              "row_key": "2804010:SURROUNDING:102149",
+              "en": {
+                "surrounding_name": "Jim Thompson Surawong Flagship Store",
+                "surrounding_kind": "Fashion & Accessories",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "1954",
+                "surrounding_lat": "13.7303854",
+                "surrounding_lng": "100.5334683"
+              },
+              "vi": {
+                "surrounding_name": "Jim Thompson Surawong Flagship Store",
+                "surrounding_kind": "Thời trang & phụ kiện",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "1954",
+                "surrounding_lat": "13.7303854",
+                "surrounding_lng": "100.5334683"
+              }
+            },
+            {
+              "row_uuid": "698908d6-c0fd-c16e-5961-74bafc4c7bdb",
+              "row_key": "2804010:SURROUNDING:17046169",
+              "en": {
+                "surrounding_name": "Hong Kong Plaza",
+                "surrounding_kind": "Coffee shop",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "2011",
+                "surrounding_lat": "13.7208921",
+                "surrounding_lng": "100.5312678"
+              },
+              "vi": {
+                "surrounding_name": "Hong Kong Plaza",
+                "surrounding_kind": "Quán cà phê",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "2011",
+                "surrounding_lat": "13.7208921",
+                "surrounding_lng": "100.5312678"
+              }
+            },
+            {
+              "row_uuid": "f3295be6-55bc-9e4a-3ec0-c624e003d3f8",
+              "row_key": "2804010:SURROUNDING:136007791",
+              "en": {
+                "surrounding_name": "Terminal 21",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "2044",
+                "surrounding_lat": "13.7379635",
+                "surrounding_lng": "100.5604058"
+              },
+              "vi": {
+                "surrounding_name": "Terminal 21",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,0km",
+                "surrounding_distance_m": "2044",
+                "surrounding_lat": "13.7379635",
+                "surrounding_lng": "100.5604058"
+              }
+            },
+            {
+              "row_uuid": "2538168e-b107-c2e3-c7ea-ebe95f38cbad",
+              "row_key": "2804010:SURROUNDING:143218043",
+              "en": {
+                "surrounding_name": "EMSPHERE",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2074",
+                "surrounding_lat": "13.7322349",
+                "surrounding_lng": "100.5662949"
+              },
+              "vi": {
+                "surrounding_name": "EMSPHERE",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2074",
+                "surrounding_lat": "13.7322349",
+                "surrounding_lng": "100.5662949"
+              }
+            },
+            {
+              "row_uuid": "45bfe82b-2283-d7a4-6001-508277f6aab9",
+              "row_key": "2804010:SURROUNDING:102446",
+              "en": {
+                "surrounding_name": "Pinky Tailor Shop",
+                "surrounding_kind": "Fashion & Accessories",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2118",
+                "surrounding_lat": "13.7418118",
+                "surrounding_lng": "100.5491231"
+              },
+              "vi": {
+                "surrounding_name": "Pinky Tailor Shop",
+                "surrounding_kind": "Thời trang & phụ kiện",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2118",
+                "surrounding_lat": "13.7418118",
+                "surrounding_lng": "100.5491231"
+              }
+            },
+            {
+              "row_uuid": "b1b78f86-81a9-4b94-95d0-8dd5a903b795",
+              "row_key": "2804010:SURROUNDING:32129752",
+              "en": {
+                "surrounding_name": "Makro Sathon",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2127",
+                "surrounding_lat": "13.7097744",
+                "surrounding_lng": "100.5353689"
+              },
+              "vi": {
+                "surrounding_name": "Makro Sathon",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,1km",
+                "surrounding_distance_m": "2127",
+                "surrounding_lat": "13.7097744",
+                "surrounding_lng": "100.5353689"
+              }
+            },
+            {
+              "row_uuid": "3d8743f7-4061-3ce2-60eb-2a13f30016d6",
+              "row_key": "2804010:SURROUNDING:18170186",
+              "en": {
+                "surrounding_name": "mothercare",
+                "surrounding_kind": "Well-known Brands",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2214",
+                "surrounding_lat": "13.7295611",
+                "surrounding_lng": "100.5690135"
+              },
+              "vi": {
+                "surrounding_name": "mothercare",
+                "surrounding_kind": "Thương hiệu nổi tiếng",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2214",
+                "surrounding_lat": "13.7295611",
+                "surrounding_lng": "100.5690135"
+              }
+            },
+            {
+              "row_uuid": "877d3477-3392-b896-14e8-11fbc617c4c6",
+              "row_key": "2804010:SURROUNDING:99590612",
+              "en": {
+                "surrounding_name": "Lalai Sap Market",
+                "surrounding_kind": "Featured Neighborhoods",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2218",
+                "surrounding_lat": "13.7266547",
+                "surrounding_lng": "100.5296412"
+              },
+              "vi": {
+                "surrounding_name": "Lalai Sap Market",
+                "surrounding_kind": "Khu Dân Cư Nổi Bật",
+                "surrounding_distance": "2,2km",
+                "surrounding_distance_m": "2218",
+                "surrounding_lat": "13.7266547",
+                "surrounding_lng": "100.5296412"
+              }
+            },
+            {
+              "row_uuid": "8a876bf3-f8e8-ea7b-0dd5-3f6ca3075156",
+              "row_key": "2804010:SURROUNDING:102433",
+              "en": {
+                "surrounding_name": "CENTRAL CHIDLOM",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2282",
+                "surrounding_lat": "13.7432378",
+                "surrounding_lng": "100.5482998"
+              },
+              "vi": {
+                "surrounding_name": "CENTRAL CHIDLOM",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2282",
+                "surrounding_lat": "13.7432378",
+                "surrounding_lng": "100.5482998"
+              }
+            },
+            {
+              "row_uuid": "2c39d146-3aed-5391-fb17-659007636fdb",
+              "row_key": "2804010:SURROUNDING:38106403",
+              "en": {
+                "surrounding_name": "Mahanakhon CUBE",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2287",
+                "surrounding_lat": "13.7239053",
+                "surrounding_lng": "100.5286479"
+              },
+              "vi": {
+                "surrounding_name": "Mahanakhon CUBE",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2287",
+                "surrounding_lat": "13.7239053",
+                "surrounding_lng": "100.5286479"
+              }
+            },
+            {
+              "row_uuid": "08fbacb8-4852-a6da-da5c-de240c03f080",
+              "row_key": "2804010:SURROUNDING:137614086",
+              "en": {
+                "surrounding_name": "ต่อขนตา สักคิ้ว ตา ปาก รับสอน ต่อผม บิกซีพระราม4พลาซ่า ชั้น1 ร้านKOJI",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2291",
+                "surrounding_lat": "13.7181361",
+                "surrounding_lng": "100.570394"
+              },
+              "vi": {
+                "surrounding_name": "ต่อขนตา สักคิ้ว ตา ปาก รับสอน ต่อผม บิกซีพระราม4พลาซ่า ชั้น1 ร้านKOJI",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,3km",
+                "surrounding_distance_m": "2291",
+                "surrounding_lat": "13.7181361",
+                "surrounding_lng": "100.570394"
+              }
+            },
+            {
+              "row_uuid": "fdae9b94-66ff-4ed4-3247-c2040bc1f7eb",
+              "row_key": "2804010:SURROUNDING:38106330",
+              "en": {
+                "surrounding_name": "Open House Central Embassy",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2371",
+                "surrounding_lat": "13.743919",
+                "surrounding_lng": "100.546953"
+              },
+              "vi": {
+                "surrounding_name": "Open House Central Embassy",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2371",
+                "surrounding_lat": "13.743919",
+                "surrounding_lng": "100.546953"
+              }
+            },
+            {
+              "row_uuid": "2d3cdf19-3c00-26da-d6a0-0cd1b2d4c67a",
+              "row_key": "2804010:SURROUNDING:31956599",
+              "en": {
+                "surrounding_name": "Truefitt and Hill Central Embassy Store",
+                "surrounding_kind": "Other",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2391",
+                "surrounding_lat": "13.7440449",
+                "surrounding_lng": "100.5465706"
+              },
+              "vi": {
+                "surrounding_name": "Truefitt and Hill Central Embassy Store",
+                "surrounding_kind": "Khác",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2391",
+                "surrounding_lat": "13.7440449",
+                "surrounding_lng": "100.5465706"
+              }
+            },
+            {
+              "row_uuid": "2eabc023-fbc6-62c7-76da-0c73b7fa2868",
+              "row_key": "2804010:SURROUNDING:61224971",
+              "en": {
+                "surrounding_name": "Chamchuri Square",
+                "surrounding_kind": "Squares",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2402",
+                "surrounding_lat": "13.7327297",
+                "surrounding_lng": "100.5300438"
+              },
+              "vi": {
+                "surrounding_name": "Chamchuri Square",
+                "surrounding_kind": "Quảng Trường",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2402",
+                "surrounding_lat": "13.7327297",
+                "surrounding_lng": "100.5300438"
+              }
+            },
+            {
+              "row_uuid": "6b4e7433-f0e0-ab76-35dd-16a0bef32dd8",
+              "row_key": "2804010:SURROUNDING:149855925",
+              "en": {
+                "surrounding_name": "DIOR Gold House",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2436",
+                "surrounding_lat": "13.7442114",
+                "surrounding_lng": "100.5451504"
+              },
+              "vi": {
+                "surrounding_name": "DIOR Gold House",
+                "surrounding_distance": "2,4km",
+                "surrounding_distance_m": "2436",
+                "surrounding_lat": "13.7442114",
+                "surrounding_lng": "100.5451504"
+              }
+            },
+            {
+              "row_uuid": "a3bb24b3-c7ed-240c-b0c1-36c0eccec816",
+              "row_key": "2804010:SURROUNDING:18170118",
+              "en": {
+                "surrounding_name": "Central Festival(Central Chidlom)",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2456",
+                "surrounding_lat": "13.7442305",
+                "surrounding_lng": "100.5444095"
+              },
+              "vi": {
+                "surrounding_name": "Central Festival(Central Chidlom)",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2456",
+                "surrounding_lat": "13.7442305",
+                "surrounding_lng": "100.5444095"
+              }
+            },
+            {
+              "row_uuid": "188cae03-0781-fa07-ff47-fcf9787a8a88",
+              "row_key": "2804010:SURROUNDING:18170116",
+              "en": {
+                "surrounding_name": "Erawan Bangkok",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2522",
+                "surrounding_lat": "13.743631",
+                "surrounding_lng": "100.5406107"
+              },
+              "vi": {
+                "surrounding_name": "Erawan Bangkok",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,5km",
+                "surrounding_distance_m": "2522",
+                "surrounding_lat": "13.743631",
+                "surrounding_lng": "100.5406107"
+              }
+            },
+            {
+              "row_uuid": "dbb9e9c6-f4e7-d0c7-2d42-1ee2a9906411",
+              "row_key": "2804010:SURROUNDING:39586824",
+              "en": {
+                "surrounding_name": "The Up Rama 3",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2611",
+                "surrounding_lat": "13.7010829",
+                "surrounding_lng": "100.5406148"
+              },
+              "vi": {
+                "surrounding_name": "The Up Rama 3",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2611",
+                "surrounding_lat": "13.7010829",
+                "surrounding_lng": "100.5406148"
+              }
+            },
+            {
+              "row_uuid": "ebc0d2d5-3c33-8f12-bb67-69927f28f705",
+              "row_key": "2804010:SURROUNDING:88876873",
+              "en": {
+                "surrounding_name": "Samyan Mitrtown",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2620",
+                "surrounding_lat": "13.7333846",
+                "surrounding_lng": "100.5281227"
+              },
+              "vi": {
+                "surrounding_name": "Samyan Mitrtown",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,6km",
+                "surrounding_distance_m": "2620",
+                "surrounding_lat": "13.7333846",
+                "surrounding_lng": "100.5281227"
+              }
+            },
+            {
+              "row_uuid": "9416d461-7081-ce44-6ecf-b6556c5ef0db",
+              "row_key": "2804010:SURROUNDING:31112256",
+              "en": {
+                "surrounding_name": "Love by Lumière",
+                "surrounding_kind": "Coffee shop",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2815",
+                "surrounding_lat": "13.7242814",
+                "surrounding_lng": "100.523778"
+              },
+              "vi": {
+                "surrounding_name": "Love by Lumière",
+                "surrounding_kind": "Quán cà phê",
+                "surrounding_distance": "2,8km",
+                "surrounding_distance_m": "2815",
+                "surrounding_lat": "13.7242814",
+                "surrounding_lng": "100.523778"
+              }
+            },
+            {
+              "row_uuid": "2be8e975-3c4e-dbb3-683a-a876810eeb21",
+              "row_key": "2804010:SURROUNDING:10567634",
+              "en": {
+                "surrounding_name": "centralwOrld",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2881",
+                "surrounding_lat": "13.7465337",
+                "surrounding_lng": "100.5391488"
+              },
+              "vi": {
+                "surrounding_name": "centralwOrld",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2881",
+                "surrounding_lat": "13.7465337",
+                "surrounding_lng": "100.5391488"
+              }
+            },
+            {
+              "row_uuid": "577e26fb-9ffc-ddad-3046-7b8de9784e42",
+              "row_key": "2804010:SURROUNDING:55802144",
+              "en": {
+                "surrounding_name": "Five Prows Barber Shop",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2926",
+                "surrounding_lat": "13.7237205",
+                "surrounding_lng": "100.5227187"
+              },
+              "vi": {
+                "surrounding_name": "Five Prows Barber Shop",
+                "surrounding_distance": "2,9km",
+                "surrounding_distance_m": "2926",
+                "surrounding_lat": "13.7237205",
+                "surrounding_lng": "100.5227187"
+              }
+            },
+            {
+              "row_uuid": "1fbb7bf0-37a9-efa7-d848-1ec98441a120",
+              "row_key": "2804010:SURROUNDING:30767686",
+              "en": {
+                "surrounding_name": "Siam Square One",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "3,0km",
+                "surrounding_distance_m": "2989",
+                "surrounding_lat": "13.7447505",
+                "surrounding_lng": "100.5338589"
+              },
+              "vi": {
+                "surrounding_name": "Siam Square One",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "3,0km",
+                "surrounding_distance_m": "2989",
+                "surrounding_lat": "13.7447505",
+                "surrounding_lng": "100.5338589"
+              }
+            },
+            {
+              "row_uuid": "68702173-2e9c-bd6f-6477-7a50603dbe56",
+              "row_key": "2804010:SURROUNDING:10567642",
+              "en": {
+                "surrounding_name": "Siam Paragon",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3074",
+                "surrounding_lat": "13.7462411",
+                "surrounding_lng": "100.5347402"
+              },
+              "vi": {
+                "surrounding_name": "Siam Paragon",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3074",
+                "surrounding_lat": "13.7462411",
+                "surrounding_lng": "100.5347402"
+              }
+            },
+            {
+              "row_uuid": "56f839aa-a56a-79cf-7bd4-4f9060d67a09",
+              "row_key": "2804010:SURROUNDING:47381636",
+              "en": {
+                "surrounding_name": "Central Rama 3",
+                "surrounding_kind": "Shopping Malls",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3102",
+                "surrounding_lat": "13.6975663",
+                "surrounding_lng": "100.5375836"
+              },
+              "vi": {
+                "surrounding_name": "Central Rama 3",
+                "surrounding_kind": "Trung tâm mua sắm",
+                "surrounding_distance": "3,1km",
+                "surrounding_distance_m": "3102",
+                "surrounding_lat": "13.6975663",
+                "surrounding_lng": "100.5375836"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

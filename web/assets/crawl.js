@@ -535,6 +535,8 @@ window.I18N.ready.then(() => {
     $('cookie').disabled = running;
     $('stop').disabled = !running;
     $('export').disabled = running;
+    $('export-sql').disabled = running;
+    $('export-json').disabled = running;
 
     const status = job ? jobStatus(job) : { text: t('progress.ready'), css: '' };
     $('state').textContent = status.text;
@@ -784,8 +786,8 @@ window.I18N.ready.then(() => {
     body.dinh_dang = fmt;
     if (fmt === 'sql') body.sql = sqlOptions();
     if (body.city_ids && !body.city_ids.length) { toast(t('export.needCity'), 'error'); return null; }
-    const btn = fmt === 'sql' ? $('export-sql') : $('export');
-    const label = fmt === 'sql' ? t('export.sql') : t('export.csv');
+    const btn = fmt === 'sql' ? $('export-sql') : fmt === 'json' ? $('export-json') : $('export');
+    const label = fmt === 'sql' ? t('export.sql') : fmt === 'json' ? t('export.json') : t('export.csv');
     btn.disabled = true; btn.textContent = t('export.exporting');
     try {
       const result = await post('/api/csv/xuat', body);
@@ -801,10 +803,11 @@ window.I18N.ready.then(() => {
   }
   const exportCsv = (scope) => exportFile('csv', scope);
   const exportSql = (scope) => exportFile('sql', scope);
+  const exportJson = (scope) => exportFile('json', scope);
 
   function autoExportFormats() {
     const v = ($('auto-export-format') && $('auto-export-format').value) || 'sql';
-    return v === 'both' ? ['sql', 'csv'] : [v];
+    return v === 'both' ? ['sql', 'csv'] : v === 'all' ? ['sql', 'csv', 'json'] : [v];
   }
   async function exportAuto(scope) {
     const names = [];
@@ -920,9 +923,9 @@ window.I18N.ready.then(() => {
         const row = document.createElement('article');
         row.className = 'file';
         const icon = document.createElement('span');
-        const isSql = file.ten.toLowerCase().endsWith('.sql');
-        icon.className = `file-icon${isSql ? ' sql' : ''}`;
-        icon.textContent = isSql ? 'SQL' : 'CSV';
+        const ext = (file.ten.toLowerCase().match(/\.(sql|json|csv)$/) || [, 'csv'])[1];
+        icon.className = `file-icon${ext === 'sql' ? ' sql' : ext === 'json' ? ' json' : ''}`;
+        icon.textContent = ext.toUpperCase();
         const info = document.createElement('div');
         info.className = 'file-info';
         const name = document.createElement('strong');
@@ -1081,7 +1084,7 @@ window.I18N.ready.then(() => {
         pre.className = 'sql-preview';
         pre.textContent = data.lines.join('\n');
         wrapper.append(note, pre);
-        showModal(name, t('export.previewSql'), wrapper);
+        showModal(name, data.kieu === 'json' ? t('export.previewJson') : t('export.previewSql'), wrapper);
         return;
       }
       const scroll = document.createElement('div');
@@ -1290,6 +1293,7 @@ window.I18N.ready.then(() => {
     exportAuto(lastJob && lastJob.kind === 'crawl' && d.city_id ? { city_ids: [Number(d.city_id)], chi_moi: true } : { chi_moi: true });
   });
   $('export-sql').addEventListener('click', () => exportSql());
+  $('export-json').addEventListener('click', () => exportJson());
   ['sql-table', 'sql-on-conflict', 'sql-create-table', 'sql-per-row'].forEach((id) => $(id).addEventListener('change', saveSqlOptions));
   $('sql-table').addEventListener('input', saveSqlOptions);
   restoreSqlOptions();

@@ -94,7 +94,7 @@ COUNTRY_NAMES = {1: "Trung Quốc", 27: "Đan Mạch", 107: "Ấn Độ", 111: "
 
 def csv_path(name: str) -> Path:
     """Trả đường dẫn CSV an toàn, không cho thoát khỏi thư mục kết quả."""
-    if Path(name).name != name or not name.lower().endswith((".csv", ".sql")):
+    if Path(name).name != name or not name.lower().endswith((".csv", ".sql", ".json")):
         raise ValueError("Tên file không hợp lệ.")
     path = (CSV_DIR / name).resolve()
     if path.parent != CSV_DIR.resolve() or not path.is_file():
@@ -467,7 +467,7 @@ class Handler(BaseHTTPRequestHandler):
                 files = [{"ten": path.name, "kich_thuoc": path.stat().st_size,
                           "cap_nhat": datetime.fromtimestamp(path.stat().st_mtime).isoformat(timespec="seconds"),
                           "da_tai": path.name in downloaded, "tai_luc": downloaded.get(path.name)}
-                         for path in sorted([*CSV_DIR.glob("*.csv"), *CSV_DIR.glob("*.sql")],
+                         for path in sorted([*CSV_DIR.glob("*.csv"), *CSV_DIR.glob("*.sql"), *CSV_DIR.glob("*.json")],
                                             key=lambda p: p.stat().st_mtime, reverse=True)]
                 return self.send_json({"files": files})
             if parsed.path.startswith("/api/csv/xem/"):
@@ -670,7 +670,7 @@ class Handler(BaseHTTPRequestHandler):
             if self.path == "/api/csv/xoa":
                 names = body.get("ten") if isinstance(body.get("ten"), list) else [body.get("ten")]
                 if body.get("tat_ca"):
-                    names = [p.name for p in [*CSV_DIR.glob("*.csv"), *CSV_DIR.glob("*.sql")]]
+                    names = [p.name for p in [*CSV_DIR.glob("*.csv"), *CSV_DIR.glob("*.sql"), *CSV_DIR.glob("*.json")]]
                 deleted = 0
                 for name in [n for n in names if n]:
                     path = csv_path(str(name))
@@ -787,8 +787,8 @@ class Handler(BaseHTTPRequestHandler):
         if ids is not None and not ids:
             raise ValueError("Không có khách sạn nào trong phạm vi đã chọn.")
         dinh_dang = str(body.get("dinh_dang") or "csv").lower()
-        if dinh_dang not in ("csv", "sql"):
-            raise ValueError("Định dạng phải là csv hoặc sql.")
+        if dinh_dang not in ("csv", "sql", "json"):
+            raise ValueError("Định dạng phải là csv, sql hoặc json.")
         name = f"trip_property_translation_{label}_{datetime.now():%Y%m%d_%H%M%S}.{dinh_dang}"
         target = CSV_DIR / name
         output = io.StringIO()
@@ -808,6 +808,14 @@ class Handler(BaseHTTPRequestHandler):
                     pham_vi=label,
                 )
             print(f"Đã xuất SQL {name}: {n_ks} khách sạn, {n_dong} bản ghi")
+        elif dinh_dang == "json":
+            import xuat_json
+            ks = xuat_csv.doc_raw(config.OUTPUT_DIR / "details" / "raw", set(ids) if ids is not None else None)
+            if not ks:
+                raise ValueError("Không có khách sạn nào để xuất.")
+            with redirect_stdout(output), redirect_stderr(output):
+                n_ks, n_dong = xuat_json.ghi_json(ks, target, pham_vi=label)
+            print(f"Đã xuất JSON {name}: {n_ks} khách sạn, {n_dong} bản ghi")
         else:
             args = Namespace(
                 thu_muc_raw=str(config.OUTPUT_DIR / "details" / "raw"),
@@ -826,7 +834,8 @@ class Handler(BaseHTTPRequestHandler):
         path = csv_path(name)
         data = path.read_bytes()
         self.send_response(HTTPStatus.OK)
-        ctype = "application/sql" if name.lower().endswith(".sql") else "text/csv"
+        ctype = ("application/sql" if name.lower().endswith(".sql")
+                 else "application/json" if name.lower().endswith(".json") else "text/csv")
         self.send_header("Content-Type", f"{ctype}; charset=utf-8")
         self.send_header("Content-Disposition", f'attachment; filename="{name}"')
         self.send_header("Content-Length", str(len(data)))
@@ -837,7 +846,7 @@ class Handler(BaseHTTPRequestHandler):
     def preview_csv(self, name: str):
         """Đọc tối đa 50 dòng để xem nhanh, không nạp cả file lớn vào trình duyệt."""
         path = csv_path(name)
-        if name.lower().endswith(".sql"):
+        if name.lower().endswith((".sql", ".json")):
             lines: list[str] = []
             total = 0
             with path.open("r", encoding="utf-8", errors="replace") as handle:
@@ -845,7 +854,8 @@ class Handler(BaseHTTPRequestHandler):
                     total += 1
                     if len(lines) < 60:
                         lines.append(line.rstrip("\n")[:600])
-            return self.send_json({"ten": name, "sql": True, "lines": lines, "tong_dong": total, "gioi_han": 60})
+            return self.send_json({"ten": name, "sql": True, "lines": lines, "tong_dong": total, "gioi_han": 60,
+                                   "kieu": "json" if name.lower().endswith(".json") else "sql"})
         rows: list[list[str]] = []
         total = 0
         with path.open("r", encoding="utf-8-sig", newline="") as handle:

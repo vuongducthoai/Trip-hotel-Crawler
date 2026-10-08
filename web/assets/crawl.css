@@ -496,6 +496,7 @@ footer code { padding:2px 7px; border-radius:6px; background:#eef2f7; color:#526
 .sql-opts .check-line { margin:4px 0; font-weight:600; }
 .select-input.mini { width:auto; height:36px; padding:0 30px 0 10px; font-size:12px; }
 .file-icon.sql { background:#eaf2ff; color:#1f4fb6; }
+.file-icon.json { background:#fff3e0; color:#b35c00; }
 .sql-preview { margin:0; max-height:60vh; overflow:auto; padding:12px 14px; border:1px solid var(--line); border-radius:11px; background:#0f1a2b; color:#dbe4f3; font:12px/1.5 Consolas,monospace; white-space:pre; }
 .ta-grid { display:grid; grid-template-columns:minmax(260px,.9fr) minmax(0,1.3fr); gap:14px; margin-top:10px; }
 .ta-key-row { display:flex; gap:8px; align-items:center; }

@@ -181,6 +181,24 @@ File `.sql` hiện chung danh sách với CSV (xem trước, mở, tải, xoá).
 `python src/xuat_sql.py --ra output/csv/dump.sql [--ids-file …] [--bang …] [--khong-on-conflict] [--tung-dong] [--create-table]`.
 API: `POST /api/csv/xuat {"dinh_dang":"sql","sql":{"bang":…,"on_conflict":true,"create_table":false,"tung_dong":false}, …}`.
 
+## Xuất JSON (gom theo khách sạn)
+
+Nút **Xuất JSON** cạnh Xuất CSV/SQL (cùng phạm vi, cùng "chỉ mới / gộp tất cả"); selector
+tự xuất có thêm `JSON` và `SQL + CSV + JSON`. File `.json` nằm cùng thư mục `output/csv/`,
+xem trước/tải/xoá như CSV. Dữ liệu y hệt CSV/SQL (cùng `row_uuid`, cùng HTML), chỉ gom lại:
+
+```
+{ "source_table", "columns", "hotel_count", "row_count", "hotels": [
+    { "property_id", "hotel_name",
+      "DESCRIPTION": { "row_uuid", "row_key", "vi": {field: value}, "en": {...} },
+      "POLICY":      [ { "section_type", "row_uuid", "row_key", "vi": {...}, "en": {...} } ],
+      "SURROUNDING": [ { "group_code", "section_type": {"vi","en"}, "places": [ { "row_uuid", "row_key", "vi", "en" } ] } ] } ] }
+```
+
+`row_key` là chuỗi gốc trước md5 (`989485:POLICY:breakfast`, `989485:SURROUNDING:<poiId>`)
+để bên nhận tự kiểm tra `row_uuid`. Dòng lệnh: `python src/xuat_json.py --ids … --ra x.json`,
+thêm `--tach-file` để mỗi khách sạn một file.
+
 ## TripAdvisor — field `tripAdvisorId`
 
 Mỗi khách sạn được ghép với Tripadvisor bằng **Tripadvisor Content API** chính thức

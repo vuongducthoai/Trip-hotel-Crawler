@@ -3,7 +3,6 @@
     "name": "English",
     "note": "UI dictionary. Change wording here, no code changes needed. {n}, {name}… are filled at runtime. To override a few lines without touching this file, create <data dir>/locales/override.json as {\"vi\": {...}, \"en\": {\"key\": \"new text\"}}."
   },
-
   "app.name": "Trip Hotel Data",
   "app.title": "Trip Hotel Data · Trip.com hotel metadata",
   "hero.eyebrow": "HOTEL METADATA FROM TRIP.COM",
@@ -15,13 +14,11 @@
   "stats.vi": "Vietnamese",
   "stats.en": "English",
   "stats.csv": "export files",
-
   "nav.aria": "Sections",
   "nav.sync": "⟳ Sync",
   "nav.data": "▦ Hotel data",
   "nav.export": "⇩ Export",
   "nav.langAria": "Interface language",
-
   "setup.title": "Sync setup",
   "setup.subtitle": "Pick one of {n} international cities or paste a custom URL.",
   "setup.tabDestination": "Pick a destination ({n} cities)",
@@ -34,7 +31,6 @@
   "setup.countryPlaceholder": "Type a country or #Vinfast, #GreenSM…",
   "setup.cityPlaceholder": "Type a city (e.g. hk, bang) or #Vinfast, #GreenSM…",
   "setup.previewUrl": "Generated URL: {url}",
-
   "ids.paste": "Paste a list",
   "ids.helpAria": "Help",
   "ids.pasteHelp": "<b>One hotel per line</b>, accepted forms:<br>• <code>1971156</code> — hotelId (4–12 digits)<br>• <code>https://vn.trip.com/hotels/detail/?hotelId=1971156…</code> — hotel page URL<br>• <code>2068285, 427787</code> — several IDs on one line, separated by comma / semicolon / tab<br>• <code>ID: 427787 - Homeinn</code> — extra text is fine, the first number is used<br>• Lines starting with <code>#</code> are comments and skipped<br>Duplicates are merged; unrecognised lines are listed after you click <b>Check list</b>.",
@@ -73,7 +69,6 @@
   "ids.thCity": "City",
   "ids.thStatus": "Status",
   "ids.more": "… and {n} more IDs (still ticked via \"Select all\").",
-
   "amount.target": "Number of hotels (total target)",
   "amount.more": "Number of extra hotels to sync",
   "amount.list": "Hotels in the list (auto)",
@@ -82,7 +77,6 @@
   "lang.en": "English",
   "lang.needOne": "Please pick at least one language.",
   "amount.invalid": "Invalid number of hotels.",
-
   "queue.title": "Multi-city queue",
   "queue.hint": "Pick a city above and add it; the app syncs them one by one with a 60-second pause in between.",
   "queue.add": "＋ Add selected city",
@@ -98,7 +92,6 @@
   "queue.cancel": "Cancel queue",
   "queue.cancelled": "Queue cleared.",
   "queue.drop": "Remove",
-
   "preflight.title": "Pre-sync check",
   "preflight.close": "Close",
   "preflight.go": "Sync anyway",
@@ -108,7 +101,6 @@
   "preflight.warn": "You can sync, but note",
   "preflight.ok": "Everything is ready",
   "preflight.failed": "Check failed ({msg}); syncing anyway.",
-
   "city.have": "Existing data",
   "city.checking": "Checking stored data…",
   "city.resumeNote": "The app skips hotels that are already complete",
@@ -119,7 +111,6 @@
   "city.statTarget": "{lang}: {complete} complete · {remaining} more to reach {target}{repair}",
   "city.repair": " · {n} old records will be re-synced",
   "city.pickLang": "Pick a language to see statistics.",
-
   "action.sync": "Sync metadata",
   "action.syncMore": "Sync more",
   "action.syncCities": "Sync {n} cities",
@@ -139,7 +130,6 @@
   "action.startedList": "Syncing {n} listed hotels.",
   "action.pickCatalogCity": "Please pick a city from the catalogue.",
   "action.pasteUrl": "Please paste a Trip.com list URL.",
-
   "progress.title": "Live progress",
   "progress.idle": "No task running.",
   "progress.ready": "Ready",
@@ -151,7 +141,6 @@
   "progress.copyLog": "Copy log",
   "progress.copied": "Log copied.",
   "progress.copyFailed": "Could not copy the log.",
-
   "status.running": "Running",
   "status.stopping": "Stopping",
   "status.success": "Success",
@@ -160,7 +149,6 @@
   "status.error": "Error",
   "time.seconds": "{s} s",
   "time.minutes": "{m} min {s} s",
-
   "done.title": "Sync finished",
   "done.export": "⇩ Export now",
   "done.exportFmt": "⇩ Export {fmt} now",
@@ -188,7 +176,6 @@
   "done.taOk": "TripAdvisor matching · finished",
   "done.taStopped": "TripAdvisor matching · stopped early",
   "done.taText": "Export CSV/SQL to get the tripAdvisorId field; check \"review\" hotels in Hotel data.",
-
   "history.sync": "Sync",
   "history.syncMore": "Sync more",
   "history.list": "Sync list",
@@ -210,7 +197,6 @@
   "history.kicker": "TASK HISTORY",
   "history.clearConfirm": "Clear the whole task history? Source records and export files are not deleted.",
   "history.cleared": "History cleared.",
-
   "cities.title": "Synced cities",
   "cities.subtitle": "Summarised from the source records and checkpoints stored on this computer.",
   "cities.searchPlaceholder": "Search city, country, code…",
@@ -224,13 +210,13 @@
   "cities.updated": "Updated {time}",
   "cities.resume": "Sync more",
   "cities.resumeOn": "Sync-more mode on for {name}. Enter how many more to sync.",
-
   "export.title": "Export data",
-  "export.subtitle": "CSV or SQL dump (PostgreSQL), exactly the 7 hand-over columns.",
+  "export.subtitle": "CSV, SQL dump (PostgreSQL) or JSON grouped by hotel — the same 7 hand-over columns.",
   "export.deleteAll": "Delete all files",
   "export.openFolder": "Open folder",
   "export.csv": "Export CSV",
   "export.sql": "Export SQL",
+  "export.json": "Export JSON",
   "export.exporting": "Exporting…",
   "export.data": "Data",
   "export.onlyNew": "Only new since last export",
@@ -245,7 +231,7 @@
   "export.created": "Created {name}",
   "export.createdN": "Created {name} ({n} hotels)",
   "export.noFiles": "No export files yet.",
-  "export.noFilesHint": "No export files yet. After a sync, click “Export SQL” or “Export CSV”.",
+  "export.noFilesHint": "No export files yet. After a sync, click “Export SQL”, “Export CSV” or “Export JSON”.",
   "export.latest": " · Latest",
   "export.downloadedAt": " · Downloaded {time}",
   "export.preview": "Preview",
@@ -263,13 +249,12 @@
   "export.previewNote": "{total} rows in total · showing up to the first {limit} rows.",
   "export.previewSql": "SQL PREVIEW",
   "export.previewCsv": "CSV PREVIEW",
-
+  "export.previewJson": "JSON PREVIEW",
   "sql.summary": "SQL format (PostgreSQL) — table",
   "sql.table": "Table name",
   "sql.onConflict": "ON CONFLICT (row_uuid, lang, field) DO UPDATE — safe to load repeatedly",
   "sql.createTable": "Add CREATE TABLE IF NOT EXISTS at the top (empty DB)",
   "sql.perRow": "One INSERT per record (like the old sample; default batches 500 per statement)",
-
   "ta.summary": "TripAdvisor — field",
   "ta.noKey": "no API key yet",
   "ta.keyLabel": "Tripadvisor Content API key",
@@ -291,7 +276,6 @@
   "ta.keyRemoved": "API key removed.",
   "ta.needCity": "Please tick at least one city.",
   "ta.started": "Matching TripAdvisor for {n} hotels.",
-
   "quality.title": "Data quality in this scope",
   "quality.cities": "{n} cities",
   "quality.whole": "all data",
@@ -311,7 +295,6 @@
   "quality.note": "{n} hotels are missing data (VI {vi}, EN {en}). Sync the missing data before exporting for a fuller file — or export what you have.",
   "quality.fill": "↻ Sync missing data for {n} hotels",
   "quality.fillStarted": "Syncing missing data for {n} hotels. It will auto-export when done if enabled.",
-
   "backup.title": "Backup & restore",
   "backup.subtitle": "Zips all data (source records, changes, session, export files) into one file. Back up before updating or uninstalling.",
   "backup.open": "Open folder",
@@ -336,7 +319,6 @@
   "marks.resetDone": "Exported marks forgotten — every hotel is \"new\" now.",
   "marks.allConfirm": "Mark ALL hotels as exported (without creating a file)?\n\nAfter that only hotels synced again or newly synced count as \"new\".",
   "marks.allDone": "Marked {n} hotels as exported.",
-
   "data.title": "Hotel data",
   "data.subtitle": "Compare descriptions · policies · nearby places with the Trip.com page, and sync whatever is missing.",
   "data.reload": "↻ Rescan",
@@ -389,7 +371,6 @@
   "chip.nearbyNone": "— no nearby",
   "chip.packet": "missing packet",
   "chip.changed": "Δ {n} changes",
-
   "detail.back": "← List",
   "detail.vi": "Vietnamese",
   "detail.en": "English",
@@ -438,7 +419,6 @@
   "detail.kRemove": "removed",
   "detail.kChange": "changed",
   "detail.issues": "{n} warnings while parsing the record",
-
   "ta.badgePending": "TripAdvisor: not matched yet",
   "ta.badgePendingTitle": "Not matched with Tripadvisor yet",
   "ta.badgeMatched": "TripAdvisor ID {id}",
@@ -463,7 +443,6 @@
   "ta.errorRow": "Error",
   "ta.matchedAt": "Matched at",
   "ta.openPage": "Open the TripAdvisor page to compare ↗",
-
   "footer.storedAt": "Data stored at",
   "footer.dataDirTitle": "Data folder",
   "footer.openDir": "Open folder",
@@ -473,7 +452,6 @@
   "footer.openLog": "Open log folder",
   "footer.restartingNew": "Restarting with the new folder…",
   "footer.restarting": "Restarting…",
-
   "modal.kicker": "DETAILS",
   "modal.title": "Details",
   "modal.close": "Close",

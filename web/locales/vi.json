@@ -3,7 +3,6 @@
     "name": "Tiếng Việt",
     "note": "Từ điển giao diện. Đổi chữ ở đây, không cần sửa code. Chỗ có {n}, {name}… là giá trị được điền lúc chạy. Muốn ghi đè vài dòng mà không đụng file này: tạo <thư mục dữ liệu>/locales/override.json dạng {\"vi\": {\"khoá\": \"chữ mới\"}, \"en\": {...}}."
   },
-
   "app.name": "Trip Hotel Data",
   "app.title": "Trip Hotel Data · Metadata khách sạn Trip.com",
   "hero.eyebrow": "HOTEL METADATA FROM TRIP.COM",
@@ -15,13 +14,11 @@
   "stats.vi": "Tiếng Việt",
   "stats.en": "English",
   "stats.csv": "file xuất",
-
   "nav.aria": "Khu vực",
   "nav.sync": "⟳ Đồng bộ",
   "nav.data": "▦ Dữ liệu khách sạn",
   "nav.export": "⇩ Xuất dữ liệu",
   "nav.langAria": "Ngôn ngữ giao diện",
-
   "setup.title": "Thiết lập đồng bộ",
   "setup.subtitle": "Chọn từ {n} thành phố quốc tế có sẵn hoặc dán URL tùy biến.",
   "setup.tabDestination": "Chọn điểm đến ({n} TP)",
@@ -34,7 +31,6 @@
   "setup.countryPlaceholder": "Gõ tên quốc gia hoặc #Vinfast, #GreenSM…",
   "setup.cityPlaceholder": "Gõ tên thành phố (vd. hk, bang) hoặc #Vinfast, #GreenSM…",
   "setup.previewUrl": "URL tự sinh: {url}",
-
   "ids.paste": "Dán danh sách",
   "ids.helpAria": "Hướng dẫn",
   "ids.pasteHelp": "<b>Mỗi dòng một khách sạn</b>, chấp nhận:<br>• <code>1971156</code> — hotelId (số 4–12 chữ số)<br>• <code>https://vn.trip.com/hotels/detail/?hotelId=1971156…</code> — URL trang khách sạn<br>• <code>2068285, 427787</code> — nhiều ID trên một dòng, cách nhau bởi dấu phẩy / chấm phẩy / tab<br>• <code>ID: 427787 - Homeinn</code> — có chữ kèm theo vẫn nhận số đầu tiên<br>• Dòng bắt đầu bằng <code>#</code> là ghi chú, bị bỏ qua<br>ID trùng tự gộp; dòng không hiểu sẽ được liệt kê sau khi bấm <b>Kiểm tra danh sách</b>.",
@@ -73,7 +69,6 @@
   "ids.thCity": "Thành phố",
   "ids.thStatus": "Trạng thái",
   "ids.more": "… và {n} ID nữa (vẫn được tick theo \"Chọn tất cả\").",
-
   "amount.target": "Số lượng khách sạn (tổng mục tiêu)",
   "amount.more": "Số lượng khách sạn muốn đồng bộ thêm",
   "amount.list": "Số khách sạn trong danh sách (tự tính)",
@@ -82,7 +77,6 @@
   "lang.en": "English",
   "lang.needOne": "Hãy chọn ít nhất một ngôn ngữ.",
   "amount.invalid": "Số lượng khách sạn không hợp lệ.",
-
   "queue.title": "Hàng đợi nhiều thành phố",
   "queue.hint": "Chọn thành phố ở trên rồi bấm thêm; ứng dụng đồng bộ lần lượt, nghỉ 60 giây giữa mỗi thành phố.",
   "queue.add": "＋ Thêm thành phố đang chọn",
@@ -98,7 +92,6 @@
   "queue.cancel": "Huỷ hàng đợi",
   "queue.cancelled": "Đã huỷ hàng đợi.",
   "queue.drop": "Bỏ",
-
   "preflight.title": "Kiểm tra trước khi đồng bộ",
   "preflight.close": "Đóng",
   "preflight.go": "Vẫn đồng bộ",
@@ -108,7 +101,6 @@
   "preflight.warn": "Có thể đồng bộ, nhưng lưu ý",
   "preflight.ok": "Mọi thứ sẵn sàng",
   "preflight.failed": "Không kiểm tra được ({msg}); đồng bộ luôn.",
-
   "city.have": "Dữ liệu đã có",
   "city.checking": "Đang kiểm tra dữ liệu đã lưu…",
   "city.resumeNote": "Ứng dụng tự bỏ qua dữ liệu hoàn chỉnh",
@@ -119,7 +111,6 @@
   "city.statTarget": "{lang}: {complete} hoàn chỉnh · còn {remaining} để đạt {target}{repair}",
   "city.repair": " · {n} bản ghi cũ sẽ đồng bộ lại",
   "city.pickLang": "Chọn ngôn ngữ để xem thống kê.",
-
   "action.sync": "Đồng bộ metadata",
   "action.syncMore": "Đồng bộ thêm",
   "action.syncCities": "Đồng bộ {n} thành phố",
@@ -139,7 +130,6 @@
   "action.startedList": "Đang đồng bộ {n} khách sạn trong danh sách.",
   "action.pickCatalogCity": "Hãy chọn thành phố trong danh mục.",
   "action.pasteUrl": "Hãy dán URL trang danh sách Trip.com.",
-
   "progress.title": "Tiến độ trực tiếp",
   "progress.idle": "Chưa có tác vụ đang chạy.",
   "progress.ready": "Sẵn sàng",
@@ -151,7 +141,6 @@
   "progress.copyLog": "Sao chép log",
   "progress.copied": "Đã sao chép log.",
   "progress.copyFailed": "Không thể sao chép log.",
-
   "status.running": "Đang chạy",
   "status.stopping": "Đang dừng",
   "status.success": "Thành công",
@@ -160,7 +149,6 @@
   "status.error": "Có lỗi",
   "time.seconds": "{s} giây",
   "time.minutes": "{m} phút {s} giây",
-
   "done.title": "Đồng bộ hoàn tất",
   "done.export": "⇩ Xuất file ngay",
   "done.exportFmt": "⇩ Xuất {fmt} ngay",
@@ -188,7 +176,6 @@
   "done.taOk": "Ghép TripAdvisor · hoàn tất",
   "done.taStopped": "Ghép TripAdvisor · dừng sớm",
   "done.taText": "Xuất CSV/SQL để có field tripAdvisorId; khách sạn \"review\" xem lại trong Dữ liệu khách sạn.",
-
   "history.sync": "Đồng bộ",
   "history.syncMore": "Đồng bộ thêm",
   "history.list": "Đồng bộ danh sách",
@@ -210,7 +197,6 @@
   "history.kicker": "LỊCH SỬ TÁC VỤ",
   "history.clearConfirm": "Xóa toàn bộ lịch sử tác vụ? Bản ghi gốc và file xuất sẽ không bị xóa.",
   "history.cleared": "Đã xóa lịch sử.",
-
   "cities.title": "Thành phố đã đồng bộ",
   "cities.subtitle": "Tổng hợp từ bản ghi gốc và checkpoint đang lưu trên máy.",
   "cities.searchPlaceholder": "Tìm thành phố, quốc gia, mã…",
@@ -224,13 +210,13 @@
   "cities.updated": "Cập nhật {time}",
   "cities.resume": "Đồng bộ thêm",
   "cities.resumeOn": "Đã bật đồng bộ thêm {name}. Nhập số lượng muốn đồng bộ thêm.",
-
   "export.title": "Xuất dữ liệu",
-  "export.subtitle": "CSV hoặc SQL dump (PostgreSQL), đúng 7 cột theo cấu trúc bàn giao.",
+  "export.subtitle": "CSV, SQL dump (PostgreSQL) hoặc JSON gom theo khách sạn — cùng 7 cột theo cấu trúc bàn giao.",
   "export.deleteAll": "Xoá tất cả file",
   "export.openFolder": "Mở thư mục",
   "export.csv": "Xuất CSV",
   "export.sql": "Xuất SQL",
+  "export.json": "Xuất JSON",
   "export.exporting": "Đang xuất…",
   "export.data": "Dữ liệu",
   "export.onlyNew": "Chỉ dữ liệu mới từ lần xuất trước",
@@ -245,7 +231,7 @@
   "export.created": "Đã tạo {name}",
   "export.createdN": "Đã tạo {name} ({n} khách sạn)",
   "export.noFiles": "Chưa có file xuất.",
-  "export.noFilesHint": "Chưa có file xuất. Sau khi đồng bộ xong, bấm “Xuất SQL” hoặc “Xuất CSV”.",
+  "export.noFilesHint": "Chưa có file xuất. Sau khi đồng bộ xong, bấm “Xuất SQL”, “Xuất CSV” hoặc “Xuất JSON”.",
   "export.latest": " · Mới nhất",
   "export.downloadedAt": " · Đã tải {time}",
   "export.preview": "Xem trước",
@@ -263,13 +249,12 @@
   "export.previewNote": "Tổng {total} dòng · đang hiển thị tối đa {limit} dòng đầu.",
   "export.previewSql": "XEM TRƯỚC SQL",
   "export.previewCsv": "XEM TRƯỚC CSV",
-
+  "export.previewJson": "XEM TRƯỚC JSON",
   "sql.summary": "Định dạng SQL (PostgreSQL) — bảng",
   "sql.table": "Tên bảng",
   "sql.onConflict": "ON CONFLICT (row_uuid, lang, field) DO UPDATE — nạp lại nhiều lần không trùng",
   "sql.createTable": "Thêm CREATE TABLE IF NOT EXISTS ở đầu file (DB trống)",
   "sql.perRow": "Mỗi bản ghi một câu INSERT (giống mẫu cũ; mặc định gộp 500 bản ghi/câu)",
-
   "ta.summary": "TripAdvisor — field",
   "ta.noKey": "chưa có API key",
   "ta.keyLabel": "Tripadvisor Content API key",
@@ -291,7 +276,6 @@
   "ta.keyRemoved": "Đã xoá API key.",
   "ta.needCity": "Hãy tick ít nhất một thành phố.",
   "ta.started": "Đang ghép TripAdvisor {n} khách sạn.",
-
   "quality.title": "Chất lượng dữ liệu trong phạm vi",
   "quality.cities": "{n} thành phố",
   "quality.whole": "toàn bộ dữ liệu",
@@ -311,7 +295,6 @@
   "quality.note": "{n} khách sạn thiếu dữ liệu (VI {vi}, EN {en}). Đồng bộ bổ sung trước khi xuất để file đầy đủ hơn — hoặc xuất luôn phần đang có.",
   "quality.fill": "↻ Đồng bộ bổ sung {n} khách sạn thiếu",
   "quality.fillStarted": "Đang đồng bộ bổ sung {n} khách sạn. Xong sẽ tự xuất nếu bật tự động.",
-
   "backup.title": "Sao lưu & khôi phục",
   "backup.subtitle": "Nén toàn bộ dữ liệu (bản ghi gốc, thay đổi, phiên đăng nhập, file xuất) thành một file zip. Nên sao lưu trước khi cập nhật hoặc gỡ ứng dụng.",
   "backup.open": "Mở thư mục",
@@ -336,7 +319,6 @@
   "marks.resetDone": "Đã quên dấu đã xuất — mọi khách sạn giờ là \"mới\".",
   "marks.allConfirm": "Đánh dấu TẤT CẢ khách sạn là đã xuất (không tạo file)?\n\nSau đó chỉ những khách sạn đồng bộ thêm / đồng bộ lại mới được tính là \"mới\".",
   "marks.allDone": "Đã đánh dấu {n} khách sạn là đã xuất.",
-
   "data.title": "Dữ liệu khách sạn",
   "data.subtitle": "Đối soát mô tả · chính sách · lân cận với trang Trip.com, và đồng bộ bổ sung phần còn thiếu.",
   "data.reload": "↻ Quét lại",
@@ -389,7 +371,6 @@
   "chip.nearbyNone": "— không có LC",
   "chip.packet": "thiếu packet",
   "chip.changed": "Δ {n} thay đổi",
-
   "detail.back": "← Danh sách",
   "detail.vi": "Tiếng Việt",
   "detail.en": "English",
@@ -438,7 +419,6 @@
   "detail.kRemove": "bỏ",
   "detail.kChange": "đổi",
   "detail.issues": "{n} cảnh báo khi bóc bản ghi",
-
   "ta.badgePending": "TripAdvisor: chưa ghép",
   "ta.badgePendingTitle": "Chưa ghép Tripadvisor",
   "ta.badgeMatched": "TripAdvisor ID {id}",
@@ -463,7 +443,6 @@
   "ta.errorRow": "Lỗi",
   "ta.matchedAt": "Ghép lúc",
   "ta.openPage": "Mở trang TripAdvisor để đối chiếu ↗",
-
   "footer.storedAt": "Dữ liệu lưu tại",
   "footer.dataDirTitle": "Thư mục dữ liệu",
   "footer.openDir": "Mở thư mục",
@@ -473,7 +452,6 @@
   "footer.openLog": "Mở thư mục log",
   "footer.restartingNew": "Đang khởi động lại với thư mục mới…",
   "footer.restarting": "Đang khởi động lại…",
-
   "modal.kicker": "XEM CHI TIẾT",
   "modal.title": "Chi tiết",
   "modal.close": "Đóng",
